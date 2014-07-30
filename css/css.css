@@ -1,185 +1,278 @@
 @charset "UTF-8";
-@charset "UTF-8";
+
 
 /*  FUENTES  */
 
 @font-face {
-    font-family: 'myfont';
-    src: url('fonts/stefanieFont.eot');
-    src: local('☺'), url('fonts/stefanieFont.woff') format('woff'), url('fonts/stefanieFont.ttf') format('truetype'), url('fonts/stefanieFont.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'myfont';
+	src: url('fonts/stefanieFont.eot');
+	src: local('☺'), url('fonts/stefanieFont.woff') format('woff'), url('fonts/stefanieFont.ttf') format('truetype'), url('fonts/stefanieFont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
+
+
+
 /*  GENERAL  */
 
 body {
-    background-color: #e2e1e5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: normal;
-    line-height: 1.2em;
-    color: #000;
-    text-align: left;
+	background-color: #e2e1e5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-weight:normal;
+	line-height: 1.2em;
+	color:#000;
+	text-align:left;
 }
+
 .cabecera {
-    width: 100%;
-    background-color: #e3157d;
-    /* Old browsers */
-    background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* FF3.6+ */
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, #e3157d), color-stop(50%, #643188), color-stop(100%, #30368b));
-    /* Chrome,Safari4+ */
-    background-image: -webkit-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* Chrome10+,Safari5.1+ */
-    background-image: -o-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* Opera 11.10+ */
-    background-image: -ms-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* IE10+ */
-    background-image: linear-gradient(to right, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* W3C */
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e3157d', endColorstr='#30368b', GradientType=1);
-    /* IE6-8 */
-    /* IE9 SVG, necesita condicional que te pongo en html */
-    font-family: myfont;
-    font-size: 22px;
-    font-weight: normal;
-    line-height: 2.7em;
-    letter-spacing: 0.1em;
-    color: #fff;
-    text-align: center;
-    margin: 0px 0 0px 0;
+	width: 100% !important;
+	background-color:#e3157d; /* Old browsers */
+
+	background-image: -moz-linear-gradient(left,  #e3157d 0%, #643188 50%, #30368b 100%); /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%,#e3157d), color-stop(50%,#643188), color-stop(100%,#30368b)); /* Chrome,Safari4+ */
+	background-image: -webkit-linear-gradient(left,  #e3157d 0%,#643188 50%,#30368b 100%); /* Chrome10+,Safari5.1+ */
+	background-image: -o-linear-gradient(left,  #e3157d 0%,#643188 50%,#30368b 100%); /* Opera 11.10+ */
+	background-image: -ms-linear-gradient(left,  #e3157d 0%,#643188 50%,#30368b 100%); /* IE10+ */
+	background-image: linear-gradient(to right,  #e3157d 0%,#643188 50%,#30368b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3157d', endColorstr='#30368b',GradientType=1 ); /* IE6-8 */
+	
+		/* IE9 SVG, necesita condicional que te pongo en html */
+	
+	font-family: myfont;
+	font-size:22px;
+	font-weight: normal;
+	line-height: 2.7em;
+	letter-spacing: 0.1em;
+	color:#fff;
+	text-align:center;
+	margin: 0px 0 0px 0;
     border: 0px;
 }
+
+.div_titulo_pagina {
+	color:#fff;
+	font-size: 16px;
+	background-color:#e2e1e5 !important;
+	text-align:center;
+}
+
+
+
 /*  BOTONES  */
 
 .btn_blue {
-    background-color: #30368b !important;
-    border-radius: 5px !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    line-height: 2em !important;
-    color: #fff !important;
-    text-align: center !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    margin: 10px 0 10px 0 !important;
-    /*---------------------------------------- Puede que no lo necesites*/
+	background-color:#30368b !important; 
+	border-radius:5px !important; /*---------------------------------------- Puede que no lo necesites*/
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size:16px !important;
+	font-weight: bold !important;
+	line-height: 1.7em !important;
+	color:#fff !important;
+	text-align:center !important; /*---------------------------------------- Puede que no lo necesites*/
+	margin: 10px 0 10px 0 !important; /*---------------------------------------- Puede que no lo necesites*/
+    
     border: 0px;
 }
+
 .btn_lightblue {
-    background-color: #9e97b4 !important;
-    border-radius: 5px !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    line-height: 2em !important;
-    color: #fff !important;
-    text-align: center !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    margin: 10px 0 10px 0 !important;
-    /*---------------------------------------- Puede que no lo necesites*/
+	background-color:#9e97b4 !important;
+	border-radius:5px !important; /*---------------------------------------- Puede que no lo necesites*/
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size:16px !important;
+	font-weight: bold !important;
+	line-height: 1.7em !important;
+	color:#fff !important;
+	text-align:center !important; /*---------------------------------------- Puede que no lo necesites*/
+	margin: 10px 0 10px 0 !important; /*---------------------------------------- Puede que no lo necesites*/
+    
     border: 0px;
 }
+
 .btn_gradient {
-    background-color: #e3157d;
-    /* Old browsers */
-    background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* FF3.6+ */
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, #e3157d), color-stop(50%, #643188), color-stop(100%, #30368b));
-    /* Chrome,Safari4+ */
-    background-image: -webkit-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* Chrome10+,Safari5.1+ */
-    background-image: -o-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* Opera 11.10+ */
-    background-image: -ms-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* IE10+ */
-    background-image: linear-gradient(to right, #e3157d 0%, #643188 50%, #30368b 100%);
-    /* W3C */
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e3157d', endColorstr='#30368b', GradientType=1);
-    /* IE6-8 */
-    /* IE9 SVG, necesita condicional que te pongo en html */
-    border-radius: 5px;
-    /*---------------------------------------- Puede que no lo necesites*/
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 2em;
-    color: #fff;
-    text-align: center;
-    /*---------------------------------------- Puede que no lo necesites*/
-    margin: 10px 0 10px 0;
-    /*---------------------------------------- Puede que no lo necesites*/
+	background-color:#e3157d; /* Old browsers */
+
+	background-image: -moz-linear-gradient(left,  #e3157d 0%, #643188 50%, #30368b 100%); /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%,#e3157d), color-stop(50%,#643188), color-stop(100%,#30368b)); /* Chrome,Safari4+ */
+	background-image: -webkit-linear-gradient(left,  #e3157d 0%,#643188 50%,#30368b 100%); /* Chrome10+,Safari5.1+ */
+	background-image: -o-linear-gradient(left,  #e3157d 0%,#643188 50%,#30368b 100%); /* Opera 11.10+ */
+	background-image: -ms-linear-gradient(left,  #e3157d 0%,#643188 50%,#30368b 100%); /* IE10+ */
+	background-image: linear-gradient(to right,  #e3157d 0%,#643188 50%,#30368b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3157d', endColorstr='#30368b',GradientType=1 ); /* IE6-8 */
+	
+		/* IE9 SVG, necesita condicional que te pongo en html */
+	
+	border-radius:5px; /*---------------------------------------- Puede que no lo necesites*/
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight: bold;
+	line-height: 1.7em;
+	color:#fff;
+	text-align:center; /*---------------------------------------- Puede que no lo necesites*/
+	margin: 10px 0 10px 0; /*---------------------------------------- Puede que no lo necesites*/
+    
     border: 0px;
 }
+
+.btn_web_youtter {
+	padding-top:5%;
+}
+
+.btn_menu_izq {
+	margin-top:20px;
+}
+
+.btn_menu_dere {
+	margin-top:20px;
+}
+
 /*  TEXTOS  */
 
 .txt_textfield_in {
-    background-color: #fff;
-    /*---------------------------------------- Puede que no lo necesites*/
-    border-radius: 5px;
-    /*---------------------------------------- Puede que no lo necesites*/
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    font-weight: normal;
-    line-height: 2em;
-    color: #959595;
-    padding-left: 10px;
+	background-color:#fff; !important /*---------------------------------------- Puede que no lo necesites*/
+	border-radius:5px; !important /*---------------------------------------- Puede que no lo necesites*/
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size:14px !important;
+	font-weight: normal !important;
+	line-height: 2em !important;
+	color:#959595 !important;
+	padding-left: 10px !important;
 }
+
 .txt_textfield_out {
-    padding: 0 0 5px 10px;
+	padding: 2% 0 0.2% 1%;	
 }
+
 .txt_centrals {
-    color: #000;
-    text-align: center;
+	color:#000;
+	text-align:center;
+	margin-top:10%;
+	margin-bottom:10%;
+	padding:0 5% 0 5%;
 }
+
+.txt_centrals_sin_bottom {
+	color:#000;
+	text-align:center;
+	margin-top:10%;
+	padding:0 5% 0 5%;
+}
+
 .txt_legal {
-    color: #333;
-    font-size: 13px;
+	padding:5% 5% 5% 5%;
+	color:#333;
+	font-size: 13px;
 }
+
+
+
 /*  TEXTOS LINK  */
 
 a:link {
-    color: #30368b;
-    text-decoration: none;
+	color: #30368b; 
+	text-decoration:none;
 }
-a:visited {
-    color: #30368b;
-    text-decoration: none;
+
+a:visited  {
+	color: #30368b; 
+	text-decoration:none;
 }
-a:hover {
-    color: #30368b;
-    text-decoration: underline;
+
+a:hover  {
+	color: #30368b; 
+	text-decoration:underline;
 }
-a:active {
-    color: #30368b;
-    text-decoration: underline;
+
+a:active  {
+	color: #30368b; 
+	text-decoration:underline;
 }
+
+
+
 /*  MENU LATERAL  */
 
-.ui-panel {
-    width: 320px;
-}
 .div_menu {
-    width: 75%;
-    background-color: #e2e1e5;
+	width: 100%;
+	background-color: #e2e1e5;
+	border-top: 1px solid #666;
+	vertical-align:central;
 }
-.option_menu {
-    background-color: #e2e1e5;
-}
+
 .icno_menu {
-    text-align: left;
-    vertical-align: middle;
-    padding: 5px 0 5px 0;
-    display: inline;
+	text-align:left;
+	vertical-align:middle;
+	padding: 5px 0 5px 0;
+	display:inline;	
 }
+
 .txt_menu {
-    line-height: 3em;
-    color: #30368b;
-    padding: 0 0 0 10px;
-    display: inline;
+	line-height: 3em;
+	color:#30368b;
+	padding: 0 0 0 10px;	
+	display:inline;	
 }
+
 .line_menu {
-    border-bottom: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
+
+/*  VENTANA LOGIN  */
+
+.logo_youtter {
+	margin-top:10%;
+	margin-bottom:5%;
+}
+
+.olvidarcontrasena {
+	line-height:4.0em;
+	font-size:13px;
+}
+ 
+ 
+ /*  VENTANA MENU PRINCIPAL  */
+
+.img_menu_principal {
+	background-color:#c3c3c3;
+	width:100%;
+	height:250px;
+	margin-bottom:9%;
+}
+
+.nombres_menu {
+	font-size:13px;
+	font-weight: bold;
+	line-height:normal;
+	color:#30368b;
+	padding-left: 10px;
+}
+
+.icnos_menu {
+	margin:5px 5px 5px 5px; 
+}
+
+
+ /*  VENTANA MIS CREDITOS  */
+ 
+.img_creditos {
+	margin-top:4%;
+	margin-bottom:3%;
+}
+
+.num_creditos {
+	text-align:center;
+	font-size:45px;
+	font-weight:bold;
+	color:#30368b;
+	line-height:1.0em;
+}
+
+.creditos {
+	text-align:center;
+	font-size:20px;
+	font-weight:bold;
+	color:#30368b;
+	line-height:1.0em;
+	padding-bottom:40px;
 }
