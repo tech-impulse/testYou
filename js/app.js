@@ -135,6 +135,13 @@ $(document).on('pageinit', '#loginModule', function () {
         $("form#formPicture").submit();
     });
 
+    $('#btnPopUpAviso').unbind('click').bind('click', function () {
+
+        $("#PopUpAviso").popup("close");
+    });
+
+
+
     $("form#formPicture").submit(function (event) {
 
         //disable the default form submission
@@ -161,16 +168,15 @@ $(document).on('pageinit', '#loginModule', function () {
 });
 
 function enviarFoto(r) {
-    console.log("Enviado Ok, respuesta ");
-    alert(r);
-    console.log(r);
+    console.log("Enviado Ok, respuesta");
+    $("#lbPopUpAviso").text(r);
+    $("#PopUpAviso").popup("open");
 }
 
 function errorenviarFoto(r) {
-    console.log("Foto no subida");
-    alert(r);
-    console.log(r);
-
+    conole.log("Foto no subida");
+    $("#lbPopUpAviso").text(r);
+    $("#PopUpAviso").popup("open");
 }
 
 $(document).on('pageinit', '#app', function () {

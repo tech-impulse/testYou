@@ -3,18 +3,20 @@
 
 <head>
     <title>YOUTTER</title>
-    <meta name="viewport" content="user-scalable=no, initial-scale=0.8, minimum-scale=0.5, width=device-width, height=device-height" charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=0.5, width=device-width, height=device-height" charset="utf-8" />
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
 
-
-    <link rel="stylesheet" href="css/themes/youtter.min.css" />
+    <link rel="stylesheet" href="css/themes/youtter1.min.css" />
     <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="lib/jquerymobile/jquery.mobile.structure-1.4.3.min.css" />
+    <!--<link rel="stylesheet" href="lib/jquerymobile/jquery.mobile.structure-1.4.3.min.css" />-->
     <link rel="stylesheet" href="lib/jquery/jw-jqm-cal.css" />
     <link rel="stylesheet" href="css/css.css" />
-    <script src="lib/jquery-1.11.1.min.js"></script>
-    <script src="lib/jquerymobile/jquery.mobile-1.4.3.min.js"></script>
+    <!-- <script src="lib/jquery-1.11.1.min.js"></script>
+    <!-- <script src="lib/jquerymobile/jquery.mobile-1.4.3.min.js"></script>-->
     <script src="lib/jquery/datepicker.js"></script>
 
 
@@ -97,7 +99,7 @@
                     <button type="button" data-role="button" id="btnResetPasswordFinish" data-theme="a" class="btn_blue">Volver a la pagina de login</button>
                 </div>
                 <div theme="a" style="text-align: center">
-                   <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
+                    <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
                 </div>
             </div>
 
@@ -148,7 +150,7 @@
             <div id="newAccountFinish" class="k-content">
 
                 <div theme="a" style="text-align: center">
-                   <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER" style="width:300px"></img>
+                    <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER" style="width:300px"></img>
                 </div>
 
                 <div theme="a" id="textNewAccountFinish" class="txt_centrals">¡Gracias!
@@ -157,7 +159,7 @@
                     <button type="button" data-role="button" id="btnNewAccountFinish" data-theme="a" class="btn_blue">Volver a la pagina de login</button>
                 </div>
                 <div theme="a" style="text-align: center">
-                     <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
+                    <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
                 </div>
 
             </div>
@@ -191,7 +193,7 @@
 
             <div data-role="controlgroup" data-theme="a" data-corners="false">
                 <ul data-role="listview">
-                    <li>
+                    <li style="height:70%">
                         <div class="ui-grid-a" id="btnMenuCuenta">
                             <div class="ui-block-a" style="width:25%">
                                 <img class="icn_menu" src="js/images/icno_micuenta.png" alt="logo cuenta">
@@ -281,7 +283,7 @@
 
         <div data-role="header" class="ui-bar cabecera" id="header_app" data-position="fixed" data-tap-toggle="false" style="heigh: 80px; padding-bottom: 0px; ">
 
-            <div class="ui-grid-c">
+            <div class="ui-grid-b" style="margin-right:20px">
                 <center>
                     <div class="ui-block-a btn_menu_izq" style="width: 25%; text-align: left">
                         <a id="bars-button" class="ui-btn-center" href="#navpanel">
@@ -293,9 +295,9 @@
                         <label id="tituloSeccion" class="HEADER">TITULO</label>
                     </div>
 
-                    <div class="ui-block-c btn_menu_dere" style="width: 25%; text-align: right">
+                    <div class="ui-block-c btn_menu_dere" style="width: 22%; text-align: right">
                         <a id="bars-button" class="ui-btn-center" href="#navpanel">
-                            <img src="./js/images/btn_web_youtter_semi.png" alt="header Derecha" style="height: 41px">
+                            <img src="./js/images/btn_web_youtter_semi.png" alt="header Derecha">
                         </a>
                     </div>
                 </center>
@@ -311,56 +313,45 @@
                 <div class="img_menu_principal">
                     <img src="" alt="IMAGEN MENU PRINCIPAL">
                 </div>
-
-                <div class="ui-grid-a">
-                    <div class="ui-block-a" id="MainMenuOpcion1" style="text-align: right">
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a">
-                                <label class="nombres_menu">Crear anuncio</label>
-                            </div>
-                            <div class="ui-block-b">
-                                <img class="icnos_menu" src="js/images/btn_big_crearanuncio.png" alt="MIS ANUNCIOS">
-                            </div>
+                <center>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" id="MainMenuOpcion1">
+                            <img class="icnos_menu" src="js/images/btn_big_crearanuncio.png" alt="MIS ANUNCIOS">
                         </div>
+                        <div class="ui-block-b" id="MainMenuOpcion2">
+                            <img class="icnos_menu" src="js/images/btn_big_miscreditos.png" alt="MIS ANUNCIOS">
+                        </div>
+
                     </div>
-                    <div class="ui-block-b" id="MainMenuOpcion2">
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a">
-                                <img class="icnos_menu" src="js/images/btn_big_crearanuncio.png" alt="ESTADISTICAS">
-
-                            </div>
-                            <div class="ui-block-b">
-                                <label class="nombres_menu">Mis anuncios</label>
-                            </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" id="">
+                            <label class="nombres_menu">Crear anuncio</label>
                         </div>
+                        <div class="ui-block-b" id="">
+                            <label class="nombres_menu">Mis créditos</label>
+                        </div>
+
                     </div>
 
-                </div>
-
-                <div class="ui-grid-a">
-                    <div class="ui-block-a" id="MainMenuOpcion3" style="text-align: right">
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a">
-                                <label class="nombres_menu">Mis créditos</label>
-                            </div>
-                            <div class="ui-block-b">
-                                <img class="icnos_menu" src="js/images/btn_big_crearanuncio.png" alt="MIS ANUNCIOS">
-                            </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" id="MainMenuOpcion3">
+                            <img class="icnos_menu" src="js/images/btn_big_miscreditos.png" alt="MIS ANUNCIOS">
                         </div>
-                    </div>
-                    <div class="ui-block-b" id="MainMenuOpcion4">
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a">
-                                <img class="icnos_menu" src="js/images/btn_big_crearanuncio.png" alt="ESTADISTICAS">
-
-                            </div>
-                            <div class="ui-block-b">
-                                <label class="nombres_menu">Mi cuenta</label>
-                            </div>
+                        <div class="ui-block-b" id="MainMenuOpcion4">
+                            <img class="icnos_menu" src="js/images/btn_big_micuenta.png" alt="ESTADISTICAS">
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" id="">
+                            <label class="nombres_menu">Mis anuncios</label>
+                        </div>
+                        <div class="ui-block-b" id="">
+                            <label class="nombres_menu">Mi cuenta</label>
+                        </div>
+
+                    </div>
+                </center>
 
             </div>
 
@@ -368,7 +359,10 @@
             <!-- Menu principal  -->
             <div id="creditosMain" class="k-content">
 
-                <div class="txt_centrals_sin_bottom" id="textCreditosMain">Actualmente tienes:<br/><img class="img_creditos" src="js/images/img_creditos.png"></div>
+                <div class="txt_centrals_sin_bottom" id="textCreditosMain">Actualmente tienes:
+                    <br/>
+                    <img class="img_creditos" src="js/images/img_creditos.png">
+                </div>
 
                 <div class="num_creditos" id="numCreditosMain" back-ground="">45:30</div>
                 <div class="creditos">créditos</div>
@@ -526,6 +520,25 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- Pop up de comunicación BOTON ACEPTAR -->
+        <div data-role="popup" id="PopUpAviso" class="" style="width:300px" data-overlay-theme="a" data-transition="flip" data-theme="a">
+            <div data-role="header" style="text-align: center">
+                <div id="tituloPopUpAviso">
+                    <h2>Aviso</h2>
+                </div>
+            </div>
+            <div data-role="content">
+
+                <div>
+                    <label id="lbPopUpAviso" class="txt_centrals">Texto Generico</label>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="btnPopUpAviso" data-theme="a">Aceptar</button>
+            </div>
         </div>
 
     </div>
