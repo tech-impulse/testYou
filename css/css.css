@@ -1,0 +1,185 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+/*  FUENTES  */
+
+@font-face {
+    font-family: 'myfont';
+    src: url('fonts/stefanieFont.eot');
+    src: local('☺'), url('fonts/stefanieFont.woff') format('woff'), url('fonts/stefanieFont.ttf') format('truetype'), url('fonts/stefanieFont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*  GENERAL  */
+
+body {
+    background-color: #e2e1e5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.2em;
+    color: #000;
+    text-align: left;
+}
+.cabecera {
+    width: 100%;
+    background-color: #e3157d;
+    /* Old browsers */
+    background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, #e3157d), color-stop(50%, #643188), color-stop(100%, #30368b));
+    /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* Chrome10+,Safari5.1+ */
+    background-image: -o-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* Opera 11.10+ */
+    background-image: -ms-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* IE10+ */
+    background-image: linear-gradient(to right, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e3157d', endColorstr='#30368b', GradientType=1);
+    /* IE6-8 */
+    /* IE9 SVG, necesita condicional que te pongo en html */
+    font-family: myfont;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 2.7em;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-align: center;
+    margin: 0px 0 0px 0;
+    border: 0px;
+}
+/*  BOTONES  */
+
+.btn_blue {
+    background-color: #30368b !important;
+    border-radius: 5px !important;
+    /*---------------------------------------- Puede que no lo necesites*/
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    line-height: 2em !important;
+    color: #fff !important;
+    text-align: center !important;
+    /*---------------------------------------- Puede que no lo necesites*/
+    margin: 10px 0 10px 0 !important;
+    /*---------------------------------------- Puede que no lo necesites*/
+    border: 0px;
+}
+.btn_lightblue {
+    background-color: #9e97b4 !important;
+    border-radius: 5px !important;
+    /*---------------------------------------- Puede que no lo necesites*/
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    line-height: 2em !important;
+    color: #fff !important;
+    text-align: center !important;
+    /*---------------------------------------- Puede que no lo necesites*/
+    margin: 10px 0 10px 0 !important;
+    /*---------------------------------------- Puede que no lo necesites*/
+    border: 0px;
+}
+.btn_gradient {
+    background-color: #e3157d;
+    /* Old browsers */
+    background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, #e3157d), color-stop(50%, #643188), color-stop(100%, #30368b));
+    /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* Chrome10+,Safari5.1+ */
+    background-image: -o-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* Opera 11.10+ */
+    background-image: -ms-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* IE10+ */
+    background-image: linear-gradient(to right, #e3157d 0%, #643188 50%, #30368b 100%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e3157d', endColorstr='#30368b', GradientType=1);
+    /* IE6-8 */
+    /* IE9 SVG, necesita condicional que te pongo en html */
+    border-radius: 5px;
+    /*---------------------------------------- Puede que no lo necesites*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 2em;
+    color: #fff;
+    text-align: center;
+    /*---------------------------------------- Puede que no lo necesites*/
+    margin: 10px 0 10px 0;
+    /*---------------------------------------- Puede que no lo necesites*/
+    border: 0px;
+}
+/*  TEXTOS  */
+
+.txt_textfield_in {
+    background-color: #fff;
+    /*---------------------------------------- Puede que no lo necesites*/
+    border-radius: 5px;
+    /*---------------------------------------- Puede que no lo necesites*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 2em;
+    color: #959595;
+    padding-left: 10px;
+}
+.txt_textfield_out {
+    padding: 0 0 5px 10px;
+}
+.txt_centrals {
+    color: #000;
+    text-align: center;
+}
+.txt_legal {
+    color: #333;
+    font-size: 13px;
+}
+/*  TEXTOS LINK  */
+
+a:link {
+    color: #30368b;
+    text-decoration: none;
+}
+a:visited {
+    color: #30368b;
+    text-decoration: none;
+}
+a:hover {
+    color: #30368b;
+    text-decoration: underline;
+}
+a:active {
+    color: #30368b;
+    text-decoration: underline;
+}
+/*  MENU LATERAL  */
+
+.ui-panel {
+    width: 320px;
+}
+.div_menu {
+    width: 75%;
+    background-color: #e2e1e5;
+}
+.option_menu {
+    background-color: #e2e1e5;
+}
+.icno_menu {
+    text-align: left;
+    vertical-align: middle;
+    padding: 5px 0 5px 0;
+    display: inline;
+}
+.txt_menu {
+    line-height: 3em;
+    color: #30368b;
+    padding: 0 0 0 10px;
+    display: inline;
+}
+.line_menu {
+    border-bottom: 1px solid #666;
+}

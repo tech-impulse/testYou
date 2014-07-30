@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YOUTTER</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=0.8, minimum-scale=0.5, width=device-width, height=device-height" charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+
+
+    <link rel="stylesheet" href="css/themes/youtter.min.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="lib/jquerymobile/jquery.mobile.structure-1.4.3.min.css" />
+    <link rel="stylesheet" href="lib/jquery/jw-jqm-cal.css" />
+    <link rel="stylesheet" href="css/css.css" />
+    <script src="lib/jquery-1.11.1.min.js"></script>
+    <script src="lib/jquerymobile/jquery.mobile-1.4.3.min.js"></script>
+    <script src="lib/jquery/datepicker.js"></script>
+
+
+
+    <script src="js/login.js"></script>
+    <script src="js/restJSON.js"></script>
+    <script src="js/display_pantallas.js"></script>
+    <script src="js/traducciones.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+
+<body>
+
+    <!-- seccion de login  -->
+    <div data-role="page" id="loginModule" data-title="Login">
+
+        <!-- Pagina de login -->
+        <div data-role="content">
+            <div id="mainLogin" class="k-content">
+
+                <div theme="a" style="text-align: center">
+                    <img src="./js/images/logo_youtter.png" alt="logo YOUTTER" style="width:300px"></img>
+                </div>
+                <div theme="a">
+                    <input type="text" id="inputLoginUsername" value="a"></input>
+                </div>
+                <div theme="a">
+                    <input type="password" id="inputLoginPassword" value="b"></input>
+                </div>
+                <div theme="a">
+                    <button type="button" data-role="button" id="btnLogIn" data-theme="a" class="btn_gradient">Entrar</button>
+                </div>
+                <div theme="a" style="text-align: center"> <a data-theme="a" id="loginForgotPassword">¿Has olvidado tu contraseña? Haz click aquí.</a> 
+                </div>
+                <div class="ui-grid-b" theme="a">
+                    <button type="button" data-role="button" id="btnLogInNewAccount" data-theme="a" class="btn_blue">Crear nueva cuenta</button>
+                </div>
+                <div theme="a" style="text-align: center">
+                    <img src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
+                </div>
+
+            </div>
+
+
+            <!-- Pagina de reestablecer contraseña -->
+            <div id="resetPassword" class="k-content">
+                <div data-role="header" class="cabecera">
+                    <div id="tituloResetPassword">Reestablecer la contraseña</div>
+                </div>
+
+                <div theme="a" style="text-align: center" id="textResetPassword">Introduce tu nombre de usuario y te enviaremos las instrucciones para reestablecer tu contraseña al correo que nos facilitaste al crear tu cuenta.</div>
+
+                <div theme="a">
+                    <input type="text" id="inputUserResetPassword"></input>
+                </div>
+                <div theme="a">
+                    <button type="button" data-role="button" id="btnOkResetPassword" data-theme="a" class="btn_gradient">Reestablecer contraseña</button>
+                </div>
+                <div theme="a">
+                    <button type="button" data-role="button" id="btnCancelResetPassword" data-theme="a" class="btn_blue">Cancelar</button>
+                </div>
+
+                <div theme="a" style="text-align: center">
+                    <img src="" alt="logo mini YOUTTER"></img>
+                </div>
+            </div>
+
+
+            <!-- Finalizar reset contraseña -->
+            <div id="resetPasswordFinish" class="k-content">
+
+                <div theme="a" style="text-align: center">
+                    <img src="" alt="logo YOUTTER"></img>
+                </div>
+
+                <div theme="a" id="textResetPasswordFinish" class="txt_centrals">¡Gracias!
+                    <br>Ahora mira tu bandeja de entrada y sigui las instrucciones para reestablecer tu contraseña</div>
+                <div theme="a">
+                    <button type="button" data-role="button" id="btnResetPasswordFinish" data-theme="a" class="btn_blue">Volver a la pagina de login</button>
+                </div>
+                <div theme="a" style="text-align: center">
+                    <img src="" alt="logo mini YOUTTER"></img>
+                </div>
+            </div>
+
+
+            <!-- Nueva cuenta -->
+            <div id="newAccount" class="k-content">
+                <div data-role="header" class="cabecera">
+                    <div id="tituloNewAccount">Crear nueva cuenta en youtter</div>
+                </div>
+
+                <div theme="a" id="lbNewAccountNombre" class="txt_textfield_out">Nombre</div>
+                <div theme="a">
+                    <input type="text" id="inputNewAccountNombre"></input>
+                </div>
+                <div theme="a" id="lbNewAccountApellidos" class="txt_textfield_out">Apellidos</div>
+                <div theme="a">
+                    <input type="text" id="inputNewAccountApellidos"></input>
+                </div>
+                <div theme="a" id="lbNewAccountEmail" class="txt_textfield_out">Correo electrónico</div>
+                <div theme="a">
+                    <input type="text" id="inputNewAccountEmail"></input>
+                </div>
+                <div theme="a" id="lbNewAccountPass" class="txt_textfield_out">Contraseña</div>
+                <div theme="a">
+                    <input type="text" id="inputNewAccountPass"></input>
+                </div>
+                <div theme="a" id="lbNewAccountPass2" class="txt_textfield_out">Repetir contraseña</div>
+                <div theme="a">
+                    <input type="text" id="inputNewAccountPass2"></input>
+                </div>
+
+                <div theme="a" style="text-align: center" id="textNewAccount" class="txt_legal">Al hacer clic en "crear nueva cuenta" muestras tu conformidad con nuestras <a>Condiciones de Youtter</a> y aceptas haber leído nuestra <a>politica de privacidad</a>, incluida la sección sobre Uso de coockies. Es posible que recibas notificaciones SMS de Youtter que puedes desactivar en cualquier momento.</div>
+
+                <div theme="a">
+                    <button type="button" data-role="button" id="btnOkNewAccount" data-theme="a" class="btn_gradient">Crear nueva cuenta</button>
+                </div>
+                <div theme="a">
+                    <button type="button" data-role="button" id="btnCancelNewAccount" data-theme="a" class="btn_blue">Cancelar</button>
+                </div>
+
+                <div theme="a" style="text-align: center">
+                    <img src="" alt="logo mini YOUTTER"></img>
+                </div>
+            </div>
+
+
+            <!-- Finalizar reset contraseña -->
+            <div id="newAccountFinish" class="k-content">
+
+                <div theme="a" style="text-align: center">
+                    <img src="" alt="logo YOUTTER"></img>
+                </div>
+
+                <div theme="a" id="textNewAccountFinish" class="txt_centrals">¡Gracias!
+                    <br>Ya puedes empezar a disfrutar de todas las posibilidades de youtter.</div>
+                <div theme="a">
+                    <button type="button" data-role="button" id="btnNewAccountFinish" data-theme="a" class="btn_blue">Volver a la pagina de login</button>
+                </div>
+                <div theme="a" style="text-align: center">
+                    <img src="" alt="logo mini YOUTTER"></img>
+                </div>
+
+            </div>
+
+
+            <!-- Pop up de comunicación BOTON ACEPTAR -->
+            <div data-role="popup" id="loginPopUp" class="" data-overlay-theme="a" data-transition="flip" data-theme="a">
+                <div data-role="header" style="text-align: center">
+                    <div id="tituloPopUpLogin">Error</div>
+                </div>
+                <div data-role="content">
+
+                    <div>
+                        <label id="lbPopUpLogin">Texto Generico</label>
+                    </div>
+
+                </div>
+                <div>
+                    <button type="button" id="btnPopUpLogin" data-theme="a">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- DENTRO DE APP UNA VEZ LOGADO  -->
+    <div data-role="page" id="app" data-title="YOUTTER - APP">
+
+        <!-- Menu lateral desplazable -->
+        <div data-role="panel" id="navpanel" data-theme="a" data-display="overlay" data-position="left">
+
+            <div data-role="controlgroup" data-theme="a" data-corners="false">
+                <ul data-role="listview">
+                    <li>
+                        <div class="ui-grid-a" id="btnMenuCuenta">
+                            <div class="ui-block-a" style="width:25%">
+                                <img class="icn_menu" src="js/images/icno_micuenta.png" alt="logo cuenta">
+                            </div>
+                            <div class="ui-block-b" style="width:75%" id="menuCuenta">
+                                <label class="txt_menu">Mi cuenta</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="btnMenuCreditos">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:25%">
+                                <img src="js/images/icno_miscreditos.png" alt="creditos">
+                            </div>
+                            <div class="ui-block-b" style="width:75%" id="menuCreditos">
+                                <label class="txt_menu">Créditos</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-grid-a" id="btnMenuAnuncios">
+                            <div class="ui-block-a" style="width:25%">
+                                <img src="js/images/icno_misanuncios.png" alt="Mis anuncios">
+
+                            </div>
+                            <div class="ui-block-b" style="width:75%" id="menuAnuncios">
+                                <label class="txt_menu">Mis anuncios</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-grid-a" id="btnMenuEstadisticas">
+                            <div class="ui-block-a" style="width:25%">
+                                <img src="js/images/icno_estadisticas.png" alt="logo cuenta">
+                            </div>
+                            <div class="ui-block-b" style="width:75%" id="menuEstadisticas">
+                                <label class="txt_menu">Estadísticas</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-grid-a" id="btnMenuCrearAnuncio">
+                            <div class="ui-block-a" style="width:25%">
+                                <img src="js/images/icno_crearanuncio.png" alt="Crear Anuncio">
+                            </div>
+                            <div class="ui-block-b" style="width:75%" id="menuCrearAnuncio">
+                                <label class="txt_menu">Crear anuncio</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-grid-a" id="btnMenuSalir">
+                            <div class="ui-block-a" style="width:25%">
+                                <img src="js/images/icno_logout.png" alt="Salir">
+                            </div>
+                            <div class="ui-block-b" style="width:75%" id="menuSalir">
+                                <label class="txt_menu">Salir</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-grid-a" id="btnMenuCondiciones">
+                            <div class="ui-block-a" style="width:25%">
+                                <img src="js/images/icno_legal.png" alt="politicas">
+                            </div>
+                            <div class="ui-block-b" style="width:75%" id="menuCondiciones">
+                                <label class="txt_menu">Condiciones y políticas</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-grid-a" id="btnMenuProblema">
+                            <div class="ui-block-a" style="width:25%">
+                                <img src="js/images/icno_incidencia.png" alt="Problema">
+                            </div>
+                            <div class="ui-block-b" style="width:75%" id="menuProblema">
+                                <label class="txt_menu">Informe de un problema</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HEADER DE TODA LA SECCION --->
+
+
+        <div data-role="header" class="ui-bar cabecera" id="header_app" data-position="fixed" data-tap-toggle="false" style="heigh: 80px; padding-bottom: 0px; ">
+
+            <div class="ui-grid-c">
+                <center>
+                    <div class="ui-block-a" style="width: 25%; text-align: left">
+                        <a id="bars-button" class="ui-btn-center" href="#navpanel">
+                            <img src="./js/images/icno_menu.png" alt="header Izquierda">
+                        </a>
+                    </div>
+
+                    <div class="ui-block-b" style="width: 50%; text-align: center">
+                        <label id="tituloSeccion" class="HEADER">TITULO</label>
+                    </div>
+
+                    <div class="ui-block-c" style="width: 25%; text-align: right">
+                        <a id="bars-button" class="ui-btn-center" href="#navpanel">
+                            <img src="./js/images/btn_web_youtter_semi.png" alt="header Derecha" style="height: 41px">
+                        </a>
+                    </div>
+                </center>
+
+            </div>
+
+        </div>
+
+        <!-- Menu inicial -->
+        <div data-role="content">
+            <div id="mainMenu" class="k-content">
+
+                <div>
+                    <img src="" alt="IMAGEN MENU PRINCIPAL">
+                </div>
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" id="MainMenuOpcion1" style="text-align: right">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <label>Mis anuncios</label>
+                            </div>
+                            <div class="ui-block-b">
+                                <img src="js/images/icno_misanuncios.png" alt="MIS ANUNCIOS">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-block-b" id="MainMenuOpcion2">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <img src="js/images/icno_estadisticas.png" alt="ESTADISTICAS">
+
+                            </div>
+                            <div class="ui-block-b">
+                                <label>Estadisticas</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" id="MainMenuOpcion3" style="text-align: right">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <label>Crear Anuncio</label>
+                            </div>
+                            <div class="ui-block-b">
+                                <img src="js/images/icno_crearanuncio.png" alt="MIS ANUNCIOS">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-block-b" id="MainMenuOpcion4">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <img src="js/images/icno_micuenta.png" alt="ESTADISTICAS">
+
+                            </div>
+                            <div class="ui-block-b">
+                                <label>Mi cuenta</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Menu principal  -->
+            <div id="creditosMain" class="k-content">
+
+                <div id="textCreditosMain">Actualmente tienes:</div>
+
+                <div id="numCreditosMain" back-ground="">45:30</div>
+
+                <div>
+                    <button type="button" id="btnCreditosMainComprar" class="btn_gradient">Comprar más creditos</button>
+                </div>
+                <div>
+                    <button type="button" id="btnCreditosMainHistorico" class="btn_blue">Histórico</button>
+                </div>
+                <div>
+                    <button type="button" id="btnCreditosMainCancel" class="btn_blue">Volver</button>
+                </div>
+
+
+            </div>
+
+
+            <!-- Consulta del numero de creditos -->
+            <div id="creditosHistorico" class="k-content">
+
+                <div id="textCreditosHistorico">Actualmente tienes:</div>
+
+                <div id="tablaCreditosHistorico"></div>
+
+            </div>
+
+
+            <!-- Estadisticas -->
+            <div id="estadisticas" class="k-content">
+
+                <div id="">Estadisticas</div>
+
+                <div id=""></div>
+
+            </div>
+
+
+            <!-- Mi cuenta -->
+            <div id="miCuenta" class="k-content">
+
+                <div id="">Mi cuenta</div>
+
+                <div id=""></div>
+
+            </div>
+
+
+            <div id="nuevoAnuncio1">
+                <h3 class="ui-bar ui-bar-a">Selecciona las fechas</h3>
+                <div id="calendar"></div>
+
+            </div>
+
+
+            <div id="nuevoAnuncio2">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <img class="icno_menu" src="js/images/icno_crearanuncio.png" alt="MIS ANUNCIOS">
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_menu">Cambiar fechas</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <img class="icno_menu" src="js/images/icno_crearanuncio.png" alt="MIS ANUNCIOS">
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_menu">Cambiar zona</label>
+                                </div>
+                            </div>
+                        </li>
+                </div>
+                <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                    <li data-role="list-divider">09084</li>
+                    <li id="lista1">Av. Paral·lel, 148 08015 Barcelona
+                    </li>
+                    <li id="lista2">C/ General Pardiñas, 29, 4º B 28006 Madrid
+                    </li>
+                    <li data-role="list-divider">09084</li>
+                    <li id="lista3">Ctra. Barcelona, 2, 1r 17002 Girona
+                    </li>
+                    <li id="lista4">Rambla d'Egara, 138, 2-1 08221 Terrassa
+                    </li>
+                    <li id="lista5">Rosa Sensat, 3, local 08005 Barcelona
+                    </li>
+                </ul>
+
+            </div>
+
+            <div id="nuevoAnuncio3">
+                <div class="ui-corner-all custom-corners">
+                    <div class="ui-bar ui-bar-a">
+                        <h3>Tu Selección</h3>
+                    </div>
+                    <div class="ui-body ui-body-a">
+                        <div>
+                            <label class="">Av. Paral·lel, 148 08015 Barcelona</label>
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:40%">
+                                <label class="">Tipo de pantalla:</label>
+                            </div>
+                            <div class="ui-block-b" style="text-align:left">
+                                <label class="">Completa 200x200</label>
+                            </div>
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:40%">
+                                <label class="">Localización:</label>
+                            </div>
+                            <div class="ui-block-b" style="text-align:left">Interior</label>
+                            </div>
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:40%">
+                                <label class="">Establecimiento:</label>
+                            </div>
+                            <div class="ui-block-b" style="text-align:left">
+                                <label class="">Zapatería</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="">Horarios seleccionados:</label>
+                        </div>
+                        <div>
+                            <label class="">De 10:00 a 11:00h, de 11:00 a 12:00h</label>
+                        </div>
+                        <div>
+                            <label class="">Imagen:</label>
+                        </div>
+                        <div>
+                            <label class="">Aún no se ha subido ninguna imagen</label>
+                        </div>
+                    </div>
+                </div>
+                <form action="" id="formPicture" method="post" enctype="multipart/form-data">
+                    <label for="file">Filename:</label>
+                    <input type="file" name="file" id="file">
+                </form>
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                    </div>
+                    <div class="ui-block-b">
+                    </div>
+                    <div class="ui-block-c">
+                        <button class="btn_gradient" id="btnUpload">Subir imagen</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
