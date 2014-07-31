@@ -5,8 +5,7 @@ PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 var fechaSeleccionada;
 
 $(document).on('pageinit', '#loginModule', function () {
-    
-    $.mobile.orientationChangeEnabled = false;
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU LATERAL
 
@@ -97,7 +96,6 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
 
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREDITOS
 
@@ -147,6 +145,15 @@ $(document).on('pageinit', '#loginModule', function () {
         $("form#formPicture").submit();
     });
 
+    $('#selectPicture').unbind('click').bind('click', function selectPicture() {
+        navigator.camera.getPicture({
+            quality: 50,
+            destinationType: navigator.camera.DestinationType.FILE_URI,
+            sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+        });
+    });
+
+
     $('#btnPopUpAviso').unbind('click').bind('click', function () {
 
         $("#PopUpAviso").popup("close");
@@ -158,7 +165,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
         //disable the default form submission
         event.preventDefault();
-        $.mobile.loading( 'show');
+        $.mobile.loading('show');
         //grab all form data  
         var formData = new FormData($(this)[0]);
         console.log("subir foto");
@@ -180,25 +187,19 @@ $(document).on('pageinit', '#loginModule', function () {
 });
 
 function enviarFoto(r) {
-    $.mobile.loading( 'hide');
+    $.mobile.loading('hide');
     console.log("Enviado Ok, respuesta");
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
 }
 
 function errorenviarFoto(r) {
-    $.mobile.loading( 'hide');
+    $.mobile.loading('hide');
     console.log("Foto no subida");
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
 }
 
-    function imagen(e) {
-		//e.preventDefault();
-		navigator.camera.getPicture(gotPic, failHandler, 
-			{quality:50, destinationType:navigator.camera.DestinationType.DATA_URL,
-			 sourceType:navigator.camera.PictureSourceType.PHOTOLIBRARY});
-	}
 
 $(document).on('pageinit', '#app', function () {
 
