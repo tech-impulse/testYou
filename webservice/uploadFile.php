@@ -3,7 +3,7 @@
 $dir = 'youtterUploads';
 $resultado = "Error0";
 error_reporting(-1);
-
+$a = 1;
  // create new directory with 744 permissions if it does not exist yet
  // owner will be the user/group the PHP script is run under
 
@@ -19,7 +19,7 @@ error_reporting(-1);
 $allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
 $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
-
+/*
 if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/jpeg")
 || ($_FILES["file"]["type"] == "image/jpg")
@@ -28,7 +28,10 @@ if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/png"))
 && ($_FILES["file"]["size"] < 200000)
 && in_array($extension, $allowedExts)) {
+*/
+if($a=1){
   if ($_FILES["file"]["error"] > 0) {
+    $resultado = 'Error de carga';
     //echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
   } else {
     //echo "Upload: " . $_FILES["file"]["name"] . "<br>";

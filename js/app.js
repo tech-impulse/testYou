@@ -156,7 +156,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
         //disable the default form submission
         event.preventDefault();
-
+        $.mobile.loading( 'show');
         //grab all form data  
         var formData = new FormData($(this)[0]);
         console.log("subir foto");
@@ -178,13 +178,15 @@ $(document).on('pageinit', '#loginModule', function () {
 });
 
 function enviarFoto(r) {
+    $.mobile.loading( 'hide');
     console.log("Enviado Ok, respuesta");
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
 }
 
 function errorenviarFoto(r) {
-    conole.log("Foto no subida");
+    $.mobile.loading( 'hide');
+    console.log("Foto no subida");
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
 }
