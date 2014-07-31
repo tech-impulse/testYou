@@ -22,6 +22,7 @@ body {
 }
 .cabecera {
     width: 100% !important;
+    height: 67px;
     background-color: #e3157d!important;
     /* Old browsers */
     background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
@@ -219,9 +220,7 @@ a:active {
 /*  VENTANA MENU PRINCIPAL  */
 
 .img_menu_principal {
-    background-color: #c3c3c3;
     width: 100%;
-    height: 250px;
     margin-bottom: 9%;
 }
 .nombres_menu {
@@ -238,6 +237,7 @@ a:active {
 
 .img_creditos {
     margin-top: 4%;
+    max-width: 300px;
     margin-bottom: 3%;
 }
 .num_creditos {
@@ -254,4 +254,7 @@ a:active {
     color: #30368b;
     line-height: 1.0em;
     padding-bottom: 40px;
+}
+#app #navpanel.ui-panel {
+    width: 20em;
 }

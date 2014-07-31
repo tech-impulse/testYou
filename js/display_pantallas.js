@@ -174,6 +174,8 @@ function displayNuevoAnuncio2() {
 function displayNuevoAnuncio3() {
     var p = "nuevoAnuncio3";
 
+    $("#lbnuevoAnuncio3Fecha").text(fechaSeleccionada);
+
     localStorage['pantalla'] = p;
 
     ocultarElementosApp(p);

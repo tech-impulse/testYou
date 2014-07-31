@@ -2,6 +2,8 @@
 PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 */
 
+var fechaSeleccionada;
+
 $(document).on('pageinit', '#loginModule', function () {
 
 
@@ -39,6 +41,12 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    $('#btnMenuCrearAnuncio').unbind('click').bind('click', function () {
+        displayNuevoAnuncio();
+        $("#navpanel").panel("close");
+
+    });
+
 
     $('#btnMenuCondiciones').unbind('click').bind('click', function () {
         $("#navpanel").panel("close");
@@ -46,8 +54,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#btnMenuSalir').unbind('click').bind('click', function () {
-        $("#navpanel").panel("close");
-
+        $.mobile.changePage('#loginModule');
     });
 
     $('#btnMenuProblema').unbind('click').bind('click', function () {
@@ -68,7 +75,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#MainMenuOpcion2').unbind('click').bind('click', function () {
-        displayEstadisticas();
+        displayCreditosMain();
 
     });
 
@@ -119,7 +126,11 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio - Seleccionar fecha
     $("#calendar").bind('change', function (event, date) {
-        console.log(date);
+        var d = date.getDate();
+        var m = date.getMonth() + 1;
+        var y = date.getFullYear();
+
+        fechaSeleccionada = d + "/" + m + "/" + y;
         displayNuevoAnuncio2();
     });
 

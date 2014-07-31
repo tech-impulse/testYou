@@ -37,13 +37,13 @@ if ((($_FILES["file"]["type"] == "image/gif")
     //echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
     if (file_exists($_SERVER['DOCUMENT_ROOT']."testServiceAlain/youtterUploads/" . $_FILES["file"]["name"])) {
       //echo $_FILES["file"]["name"] . " already exists. ";
-       $resultado = 'Existente';
+       $resultado = 'Esta imagen ya existe!';
     } else {
       if (move_uploaded_file($_FILES["file"]["tmp_name"],
        $_SERVER['DOCUMENT_ROOT']."testServiceAlain/youtterUploads/" . $_FILES["file"]["name"]))
          {
            //echo "Stored in: " . $_SERVER['DOCUMENT_ROOT']."testServiceAlain/youtterUploads" . $_FILES["file"]["name"];
-         $resultado = "Subida";
+         $resultado = "Imagen cargada correctamente!";
          }
        else
          {
@@ -62,7 +62,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
   }
 } else {
   //echo "Invalid file";
-    $resultado = "Incompatible";
+    $resultado = "Tipo de archivo incompatible";
 }
 
 
