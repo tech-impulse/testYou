@@ -5,7 +5,8 @@ PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 var fechaSeleccionada;
 
 $(document).on('pageinit', '#loginModule', function () {
-
+    
+    $.mobile.orientationChangeEnabled = false;
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU LATERAL
 
@@ -87,6 +88,7 @@ $(document).on('pageinit', '#loginModule', function () {
         displayMiCuenta();
 
     });
+
 
 
 
@@ -190,6 +192,13 @@ function errorenviarFoto(r) {
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
 }
+
+    function imagen(e) {
+		//e.preventDefault();
+		navigator.camera.getPicture(gotPic, failHandler, 
+			{quality:50, destinationType:navigator.camera.DestinationType.DATA_URL,
+			 sourceType:navigator.camera.PictureSourceType.PHOTOLIBRARY});
+	}
 
 $(document).on('pageinit', '#app', function () {
 
