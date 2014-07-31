@@ -19,6 +19,7 @@ body {
     line-height: 1.2em;
     color: #000;
     text-align: left;
+     overflow:hidden!important;
 }
 .cabecera {
     width: 100% !important;
@@ -172,6 +173,7 @@ a:link {
     color: #30368b;
     text-decoration: none;
 }
+
 a:visited {
     color: #30368b;
     text-decoration: none;
@@ -237,7 +239,7 @@ a:active {
 
 .img_creditos {
     margin-top: 4%;
-    max-width: 300px;
+    max-width: 200px;
     margin-bottom: 3%;
 }
 .num_creditos {
@@ -255,6 +257,11 @@ a:active {
     line-height: 1.0em;
     padding-bottom: 40px;
 }
+
+.listasMenu {
+    height: 40px;
+}
+
 #app #navpanel.ui-panel {
     width: 20em;
 }

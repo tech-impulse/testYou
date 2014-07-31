@@ -199,7 +199,8 @@
 
             <div data-role="controlgroup" data-theme="a" data-corners="false">
                 <ul data-role="listview">
-                    <li>
+                    <li data-role="list-divider">Menú</li>
+                    <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuCuenta">
                             <div class="ui-block-a" style="width:20%">
                                 <img class="icn_menu" src="js/images/icno_micuenta.png" alt="logo cuenta">
@@ -209,7 +210,7 @@
                             </div>
                         </div>
                     </li>
-                    <li id="btnMenuCreditos">
+                    <li id="btnMenuCreditos" class="listasMenu">
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:20%">
                                 <img src="js/images/icno_miscreditos.png" alt="creditos">
@@ -219,7 +220,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuAnuncios">
                             <div class="ui-block-a" style="width:20%">
                                 <img src="js/images/icno_misanuncios.png" alt="Mis anuncios">
@@ -230,7 +231,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="listasMenu"> 
                         <div class="ui-grid-a" id="btnMenuEstadisticas">
                             <div class="ui-block-a" style="width:20%">
                                 <img src="js/images/icno_estadisticas.png" alt="logo cuenta">
@@ -240,9 +241,9 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuCrearAnuncio">
-                            <div class="ui-block-a" style="width:25%">
+                            <div class="ui-block-a" style="width:20%">
                                 <img src="js/images/icno_crearanuncio.png" alt="Crear Anuncio">
                             </div>
                             <div class="ui-block-b" style="width:80%" id="menuCrearAnuncio">
@@ -250,7 +251,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuSalir">
                             <div class="ui-block-a" style="width:20%">
                                 <img src="js/images/icno_logout.png" alt="Salir">
@@ -260,7 +261,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuCondiciones">
                             <div class="ui-block-a" style="width:20%">
                                 <img src="js/images/icno_legal.png" alt="politicas">
@@ -270,7 +271,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuProblema">
                             <div class="ui-block-a" style="width:20%">
                                 <img src="js/images/icno_incidencia.png" alt="Problema">
@@ -532,7 +533,7 @@
         </div>
 
         <!-- Pop up de comunicación BOTON ACEPTAR -->
-        <div data-role="popup" id="PopUpAviso" class="" style="width:350px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
+        <div data-role="popup" id="PopUpAviso" class="" style="width:300px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
             <div data-role="header" style="text-align: center" class="cabecera">
                 <div id="tituloPopUpAviso">
                     <h2>Información</h2>
