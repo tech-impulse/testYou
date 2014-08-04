@@ -4,6 +4,11 @@ PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 
 var fechaSeleccionada;
 
+$(document).bind("mobileinit", function () {
+    $.support.touchOverflow = false;
+    $.mobile.touchOverflowEnabled = false;
+});
+
 $(document).on('pageinit', '#loginModule', function () {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
