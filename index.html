@@ -400,6 +400,13 @@
 
             </div>
 
+            <!-- Comprar paquetes de creditos-->
+            <div id="creditosHistorico" class="k-content">
+
+                <div id="paquetesCreditos"></div>
+
+            </div>
+
 
             <!-- Estadisticas -->
             <div id="estadisticas" class="k-content">
@@ -420,15 +427,83 @@
 
             </div>
 
+            <!-- Mis anuncios -->
+            <div id="misAnuncios" class="k-content">
+
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <img src="js/images/anuncios/1.jpg">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:70%">
+                                <h2>Broken Bells</h2>
+                                <p>Broken Bells</p>
+                            </div>
+                            <div class="ui-block-b" style="width:30%; text-align: right">
+                                <button class="btn_lightblue.css" data-theme="b" id="btnmisAnuncios1">Relanzar</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="js/images/anuncios/2.jpg">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:70%">
+                                <h2>Warning</h2>
+                                <p>Hot Chip</p>
+                            </div>
+                            <div class="ui-block-b" style="width:30%; text-align: right">
+                                <button class="btn_lightblue.css" data-theme="b" id="btnmisAnuncios1">Relanzar</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="js/images/anuncios/3.jpg">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:70%">
+                                <h2>Wolfgang Amadeus Phoenix</h2>
+                                <p>Phoenix</p>
+                            </div>
+                            <div class="ui-block-b" style="width:30%; text-align: right">
+                                <button class="btn_lightblue.css" data-theme="b" id="btnmisAnuncios1">Relanzar</button>
+                            </div>
+                        </div>
+
+
+                    </li>
+                </ul>
+            </div>
+
 
             <div id="nuevoAnuncio1">
                 <h3 class="ui-bar ui-bar-a div_titulo_pagina">Selecciona las fechas</h3>
                 <div id="calendar"></div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <button class="btn_blue" id="btnnuevoAnuncio1Cancelar">Cancelar</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button class="btn_blue" id="btnnuevoAnuncio1Aceptar">Aceptar</button>
+                    </div>
+                </div>
 
             </div>
 
+            <div id="nuevoAnuncio2">
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina">Selecciona zona geográfica</h3>
+                <label id="lbnuevoAnuncio2" class="txt_centrals">Introduce el código postal de la zona donde quieres que tu anuncio aparezca y te daremos las mejores opciones según las fechas que has escogido previamente</label>
+                <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal"></input>
+                <img class="" src="js/images/pending.png" align="center">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <button class="btn_blue" id="btnnuevoAnuncio2Cancelar">Cancelar</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad">Ver disponibilidad</button>
+                    </div>
+                </div>
+            </div>
 
-            <div id="nuevoAnuncio2" style="overflow-y:hidden; overflow-x:hidden">
+
+            <div id="nuevoAnuncio3" style="overflow-y:hidden; overflow-x:hidden">
                 <div data-role="navbar">
                     <ul>
                         <li>
@@ -469,7 +544,7 @@
 
             </div>
 
-            <div id="nuevoAnuncio3" style="overflow-y:hidden; overflow-x:hidden">
+            <div id="nuevoAnuncio4" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-corner-all custom-corners">
                     <div class="ui-bar ui-bar-a">
                         <h3 style="color:black; font-weight:bold">Tu Selección</h3>

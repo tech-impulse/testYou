@@ -34,7 +34,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#btnMenuAnuncios').unbind('click').bind('click', function () {
-        displayNuevoAnuncio();
+        displayMisAnuncios();
         $("#navpanel").panel("close");
 
     });
@@ -67,8 +67,6 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
 
-
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU INICIAL
 
@@ -84,7 +82,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#MainMenuOpcion3').unbind('click').bind('click', function () {
-        displayNuevoAnuncio();
+        displayMisAnuncios();
 
     });
 
@@ -93,21 +91,12 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-
-
-
-
-
-
-
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREDITOS
 
     //Creditos Principal - Comprar
     $('#btnCreditosMainComprar').unbind('click').bind('click', function () {
-        procesoCompraCreditos();
-
+        mostrarPaquetesCreditos();
     });
 
 
@@ -128,44 +117,51 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREAR ANUNCIO
 
-    //Crear anuncio - Seleccionar fecha
+    //Crear anuncio 1 - evento seleccionar fecha
     $("#calendar").bind('change', function (event, date) {
         var d = date.getDate();
         var m = date.getMonth() + 1;
         var y = date.getFullYear();
 
         fechaSeleccionada = d + "/" + m + "/" + y;
-        displayNuevoAnuncio2();
+        console.log("FECHA " + fechaSeleccionada);
+
     });
 
-    //Crear anuncio 2 - Opcion de lista
-    $('#lista1').unbind('click').bind('click', function () {
+    //Crear anuncio 1 - Boton Aceptar
+
+    $('#btnnuevoAnuncio1Aceptar').unbind('click').bind('click', function () {
+
+        displayNuevoAnuncio2();
+
+    });
+
+    //Crear anuncio 2 - Boton de ver disponibilidad
+
+    $('#btnnuevoAnuncio2Disponibilidad').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio3();
 
     });
 
+    //Crear anuncio 3 - Opcion de lista
+
+    $('#lista1').unbind('click').bind('click', function () {
+
+        displayNuevoAnuncio4();
+
+    });
+
+
+    //Crear anuncio 4 - Eventos de pantalla de subir imagen
+
+    //Crear anuncio 4 - Boton para subir la imagen
     $('#btnUpload').unbind('click').bind('click', function () {
 
         $("form#formPicture").submit();
     });
 
-    $('#selectPicture').unbind('click').bind('click', function selectPicture() {
-        navigator.camera.getPicture({
-            quality: 50,
-            destinationType: navigator.camera.DestinationType.FILE_URI,
-            sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-        });
-    });
-
-
-    $('#btnPopUpAviso').unbind('click').bind('click', function () {
-
-        $("#PopUpAviso").popup("close");
-    });
-
-
-
+    //Crear anuncio 4- Evento para enviar el formulario con la imagen
     $("form#formPicture").submit(function (event) {
 
         //disable the default form submission
@@ -189,7 +185,17 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    // EVENTOS DE POPUP ACEPTAR
+
+    $('#btnPopUpAviso').unbind('click').bind('click', function () {
+
+        $("#PopUpAviso").popup("close");
+    });
+
+
 });
+
+// CONTROL DE ERRORES DE SUBIDA DE IMAGENES
 
 function enviarFoto(r) {
     $.mobile.loading('hide');
@@ -206,8 +212,9 @@ function errorenviarFoto(r) {
 }
 
 
-$(document).on('pageinit', '#app', function () {
+// INICIO DE LA PARTE DE APLICACION
 
+$(document).on('pageinit', '#app', function () {
 
 
     var date = new Date();
@@ -240,6 +247,63 @@ $(document).on('pageinit', '#app', function () {
     });
 
 });
+
+function mostrarPaquetesCreditos() {
+
+    var listaPaquetes = {
+        "paquetes": [
+            {
+                "id": "1",
+                "cantidad": "45",
+                "precio": "30.00"
+        },
+            {
+                "id": "2",
+                "cantidad": "80",
+                "precio": "90.00"
+        },
+            {
+                "id": "3",
+                "cantidad": "200",
+                "precio": "300.00"
+        },
+            {
+                "id": "4",
+                "cantidad": "500",
+                "precio": "600.00"
+        }
+    ]
+    };
+
+    for (var i = 0; i < listaPaquetes.paquetes.length; i++) {
+        var paquete = listaPaquetes.paquetes[i];
+        var divSecundarioActual = "#" + i;
+        console.log(divSecundarioActual);
+        if (i % 2 != 0) {
+            jQuery('<div/>', {
+                id: paquete.id,
+                class: 'ui-block-b',
+            }).appendTo(divPrincipalActual);
+        } else {
+            var divPrincipalActual = "#div" + i;
+            jQuery('<div/>', {
+                id: "div" + i,
+                class: 'ui-grid-a',
+            }).appendTo('#paquetesCreditos');
+            jQuery('<div/>', {
+                id: paquete.id,
+                class: 'ui-block-a',
+            }).appendTo(divPrincipalActual);
+        }
+
+        $(divSecundarioActual).empty().append('<img src="js/images/icno_miscreditos.png" height="64px" width="64px">');
+
+    }
+
+
+
+
+}
 
 
 //Proceso de compra de creditos
