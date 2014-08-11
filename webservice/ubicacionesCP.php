@@ -15,7 +15,11 @@ mysql_select_db($database, $con);
 $id = mysql_real_escape_string($_GET["idSesion"]);
 $cp = mysql_real_escape_string($_GET["codigo"]);
 
-$sql = 'SELECT * FROM Ubicaciones WHERE idClient='.$id.' AND CodigoPostal='.$cp.' ORDER BY Direccion;'; 
+//$sql = 'SELECT * FROM Ubicaciones WHERE idClient='.$id.' AND CodigoPostal='.$cp.' ORDER BY Direccion;'; 
+
+$sql = ' SELECT * FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE u.idClient='.$id.' AND u.idClient = p.idClient AND p.idUbicacion=u.id AND p.idTipoPantalla = t.id AND CodigoPostal='.$cp.' ORDER BY Direccion'; 
+
+
  
 $resultado = mysql_query($sql, $con);
 
@@ -29,6 +33,9 @@ $i=0;
      $resultados["CodigoPostal"] = $obj->CodigoPostal;
      $calle["LatitudGPS"] = $obj->LatitudGPS;
      $calle["LongitudGPS"] = $obj->LongitudGPS;
+     $calle["Descripcion"] = $obj->Descripcion;
+     $calle["HorarioDesde"] = $obj->HorarioDesde;
+     $calle["HorarioHasta"] = $obj->HorarioHasta;
      $resultados["calles"][] = $calle;      
             
      $i++;

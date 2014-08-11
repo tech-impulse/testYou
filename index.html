@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css">
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="lib/phonegap-1.1.0.js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="lib/phonegap-1.1.0.js"></script> -->
 
     <link rel="stylesheet" href="css/themes/youtter1.min.css" />
     <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
@@ -551,7 +551,7 @@
                 <div data-role="navbar">
                     <ul>
                         <li>
-                            <div class="ui-grid-a">
+                            <div class="ui-grid-a" id="divnuevoAnuncio4Volver">
                                 <div class="ui-block-a" style="width:20%">
                                     <img class="icno_menu" src="js/images/btn_mini_cambiarfechas.png">
                                 </div>
@@ -572,38 +572,38 @@
                         </li>
                 </div>
                 <ul data-role="listview" id="ulnuevoAnuncio4Detalles" data-inset="true" data-divider-theme="a">
-                    <li data-role="list-divider" id="linuevoAnuncio4Codigo"></li>
-                    <li>
-                        <div class="ui-body ui-body-a">
-                            <div>
-                                <label class="" id="lbnuevoAnuncio4Calle"></label>
+                    <li data-role="list-divider" style="color:black; font-weight:bold" id="linuevoAnuncio4Codigo"></li>
+
+                    <div class="ui-body ui-body-a">
+                        <div>
+                            <label class="" id="lbnuevoAnuncio4Calle"></label>
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:40%">
+                                <label class="">Tipo de pantalla:</label>
                             </div>
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a" style="width:40%">
-                                    <label class="">Tipo de pantalla:</label>
-                                </div>
-                                <div class="ui-block-b" style="text-align:left">
-                                    <label class="" id="lbnuevoAnuncio4TipoPantalla"></label>
-                                </div>
-                            </div>
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a" style="width:40%">
-                                    <label class="">Localización:</label>
-                                </div>
-                                <div class="ui-block-b" style="text-align:left">
-                                    <label id="lbnuevoAnuncio4Localizacion"></label>
-                                </div>
-                            </div>
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a" style="width:40%">
-                                    <label class="">Establecimiento:</label>
-                                </div>
-                                <div class="ui-block-b" style="text-align:left">
-                                    <label class="" id="lbnuevoAnuncio4Establecimiento"></label>
-                                </div>
+                            <div class="ui-block-b" style="text-align:left">
+                                <label class="" id="lbnuevoAnuncio4TipoPantalla"></label>
                             </div>
                         </div>
-                    </li>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:40%">
+                                <label class="">Localización:</label>
+                            </div>
+                            <div class="ui-block-b" style="text-align:left">
+                                <label id="lbnuevoAnuncio4Localizacion"></label>
+                            </div>
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:40%">
+                                <label class="">Establecimiento:</label>
+                            </div>
+                            <div class="ui-block-b" style="text-align:left">
+                                <label class="" id="lbnuevoAnuncio4Establecimiento"></label>
+                            </div>
+                        </div>
+                    </div>
+
                 </ul>
                 <button class="btn_blue" id="btnnnuevoAnuncio4Guardar">Guardar esta localización</button>
 
@@ -673,38 +673,115 @@
                         </div>
                     </div>
                 </div>
-                <form action="" id="formPicture" method="post">
-                    <label for="file">Filename:</label>
-                    <input type="file" name="file" id="file">
-                </form>
 
-                <button class="btn_gradient" id="btnUpload">Subir imagen</button>
+                <button class="btn_gradient" id="btnnuevoAnuncio6Subir">Subir imagen</button>
                 <button class="btn_blue" id="selectPicture">Subir la misma imagen en todos</button>
 
             </div>
 
-        </div>
-
-        <!-- Pop up de comunicación BOTON ACEPTAR -->
-        <div data-role="popup" id="PopUpAviso" class="" style="width:300px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
-            <div data-role="header" style="text-align: center" class="cabecera">
-                <div id="tituloPopUpAviso">
-                    <h2>Información</h2>
+            <div id="nuevoAnuncio7" style="overflow-y:hidden; overflow-x:hidden">
+                <div class="ui-bar ui-bar-a">
+                    <h3 style="color:black; font-weight:bold">Subir Imagen</h3>
                 </div>
+                <div data-role="content">
+                    <div id="">
+                        <label class="txt_centrals" id="lbnuevoAnuncio7Texto">
+                            Sube la imagen que se verá en las pantallas.
+                            <br>Recuerda que el tamaño para que tu anuncio se vea de manera óptima es de 200x200.
+                            <br>
+                            <br>Formatos aceptados
+                            <br>*.jpg, *.png, *.bmp</br>
+                        </label>
+                    </div>
+                </div>
+                <form action="" id="formPicture" method="post">
+                    <label for="file">Filename:</label>
+                    <input type="file" name="file" id="file">
+                </form>
+                <button class="btn_blue" id="btnnuevoAnuncio7Subir">Subir</button>
+
             </div>
-            <div data-role="content">
-                <br>
+
+            <div id="nuevoAnuncio8" style="overflow-y:hidden; overflow-x:hidden">
+                <div class="ui-bar ui-bar-a">
+                    <h3 style="color:black; font-weight:bold">Subir Imagen</h3>
+                </div>
+                <div data-role="content">
+                    <div id="">
+                        <label class="txt_centrals" id="lbnuevoAnuncio8Texto">
+                            Sube la imagen que se verá en las pantallas.
+                            <br>Recuerda que el tamaño para que tu anuncio se vea de manera óptima es de 200x200.
+                            <br>
+                            <br>Formatos aceptados
+                            <br>*.jpg, *.png, *.bmp</br>
+                        </label>
+                        <br>
+                        <div id="divnuevoAnuncio8Previa"></div>
+                    </div>
+                </div>
+                <button class="btn_blue" id="btnnuevoAnuncio8Previa">Vista Previa</button>
+
+            </div>
+
+            <div id="nuevoAnuncio9" style="overflow-y:hidden; overflow-x:hidden">
+                <div data-role="content">
+                    <div id="divnuevoAnuncio9Previa" style="width:100%;height:400px;">
+                        <center>
+                            <img id="imgnuevoAnuncio9" height="200" width="200">
+                        </center>
+                    </div>
+
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <button class="btn_blue" id="btnnuevoAnuncio9Cambiar">Cambiar</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button class="btn_blue" id="btnnuevoAnuncio9Proceder">Pagar</button>
+                    </div>
+                </div>
+
+            </div>
+            <div id="nuevoAnuncio10" style="overflow-y:hidden; overflow-x:hidden">
+                <div class="ui-bar ui-bar-a">
+                    <h3 style="color:black; font-weight:bold">¿Cómo quieres pagar tu anuncio?</h3>
+                </div>
+                <div data-role="content">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <button class="btn_blue" id="btnnuevoAnuncio10Creditos">Con Créditos</button>
+                        </div>
+                        <div class="ui-block-b">
+                            <button class="btn_blue" id="btnnuevoAnuncio10Paypal">Con Paypal</button>
+                        </div>
+                    </div>
+                    <button class="btn_blue" id="btnnuevoAnuncio10Comprar">Comprar más Creditos</button>
+                    <button class="btn_blue" id="btnnuevoAnuncio10Cancelar">Cancelar</button>
+
+                </div>
+
+            </div>
+
+            <!-- Pop up de comunicación BOTON ACEPTAR -->
+            <div data-role="popup" id="PopUpAviso" class="" style="width:300px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
+                <div data-role="header" style="text-align: center" class="cabecera">
+                    <div id="tituloPopUpAviso">
+                        <h2>Información</h2>
+                    </div>
+                </div>
+                <div data-role="content">
+                    <br>
+                    <div>
+                        <label id="lbPopUpAviso" class="txt_centrals">Texto Generico</label>
+                    </div>
+                    <br>
+                </div>
                 <div>
-                    <label id="lbPopUpAviso" class="txt_centrals">Texto Generico</label>
+                    <button type="button" class="btn_blue" id="btnPopUpAviso" data-theme="a">Aceptar</button>
                 </div>
-                <br>
             </div>
-            <div>
-                <button type="button" class="btn_blue" id="btnPopUpAviso" data-theme="a">Aceptar</button>
-            </div>
-        </div>
 
-    </div>
+        </div>
     </div>
 
 </body>

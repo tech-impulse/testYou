@@ -155,7 +155,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnnnuevoAnuncio3Seguir').unbind('click').bind('click', function () {
 
-       // procesoNuevoAnuncio6();
+        // procesoNuevoAnuncio6();
         displayNuevoAnuncio6();
 
     });
@@ -169,13 +169,37 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    //Crear anuncio 4 - Boton para volver
+    $('#divnuevoAnuncio4Volver').unbind('click').bind('click', function () {
+
+        displayNuevoAnuncio3();
+
+
+    });
+
+
+
+    //Crear anuncio 5 - Boton para volver
+    $('#btnnnuevoAnuncio5Volver').unbind('click').bind('click', function () {
+
+        displayNuevoAnuncio4();
+
+    });
+
     //Crear anuncio 6 - Boton para subir la imagen
-    $('#btnUpload').unbind('click').bind('click', function () {
+    $('#btnnuevoAnuncio6Subir').unbind('click').bind('click', function () {
+
+        displayNuevoAnuncio7();
+    });
+
+
+    //Crear anuncio 7 - Boton para subir la imagen
+    $('#btnnuevoAnuncio7Subir').unbind('click').bind('click', function () {
 
         $("form#formPicture").submit();
     });
 
-    //Crear anuncio 6- Evento para enviar el formulario con la imagen
+    //Crear anuncio 7- Evento para enviar el formulario con la imagen
     $("form#formPicture").submit(function (event) {
 
         //disable the default form submission
@@ -199,6 +223,53 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    //
+
+    $('#file').change(function () {
+        handleFiles(this.files);
+    });
+
+
+    // handle files
+    function handleFiles(files) {
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var imageType = /image.*/;
+            if (!file.type.match(imageType)) {
+                continue;
+            }
+            var img = document.getElementById('imgnuevoAnuncio9');
+            /* img.src = file;
+        img.onload = function () {
+        }; */
+            var reader = new FileReader();
+            reader.onload = (function (aImg) {
+                return function (e) {
+                    aImg.src = e.target.result;
+                };
+            })(img);
+            reader.readAsDataURL(file);
+        }
+    }
+
+
+    //Crear anuncio 8 - Boton para ver vista previa
+    $('#btnnuevoAnuncio8Previa').unbind('click').bind('click', function () {
+        displayNuevoAnuncio9();
+    });
+
+    //Crear anuncio 9 - Boton para ver cambiar la imagen
+    $('#btnnuevoAnuncio9Cambiar').unbind('click').bind('click', function () {
+        displayNuevoAnuncio7();
+    });
+
+    //Crear anuncio 9 - Boton para proceder al pago
+    $('#btnnuevoAnuncio9Proceder').unbind('click').bind('click', function () {
+        displayNuevoAnuncio10();
+    });
+
+
+
     // EVENTOS DE POPUP ACEPTAR
 
     $('#btnPopUpAviso').unbind('click').bind('click', function () {
@@ -216,6 +287,7 @@ function enviarFoto(r) {
     console.log("Enviado Ok, respuesta");
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
+    displayNuevoAnuncio8();
 }
 
 function errorenviarFoto(r) {
@@ -255,7 +327,7 @@ $(document).on('pageinit', '#app', function () {
         },
                 ],
         months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-        days: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"],
+        days: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
         startOfWeek: 0
 
     });
@@ -286,7 +358,7 @@ function cerrarLista(posicion) {
     $("#txtnuevoAnuncio2").trigger("click");
 
     document.getElementById("txtnuevoAnuncio2").innerHTML = '<a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-plus ui-btn-icon-left ui-btn-b">' + $("#linuevoAnuncio2-" + posicion).text() + '</a>';
-    
+
     $("#inputnuevoAnuncio2").val(08203); // Solucion temporal para poder testear
 }
 
@@ -328,12 +400,12 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
 
     for (var i = 0; i < listaLocalizaciones.localizaciones.length; i++) {
         var localizacion = listaLocalizaciones.localizaciones[i];
-        console.log(localizacion.codigo);
+        cp = localizacion.CodigoPostal.toString(); // Guardamos el codigo postal en una variable global
         $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold"> Código Postal: <label style="display:inline" id="lbnuevoAnuncio3Codigo' + i + '">' + localizacion.CodigoPostal + '</label></li>');
         for (var j = 0; j < localizacion.calles.length; j++) {
             var calle = localizacion.calles[j];
             JsonCalle.push(calle);
-            $("#ulnuevoAnuncio3").append('<li onclick="procesoNuevoAnuncio4(JsonCalle,' + j + ',' + $("#lbnuevoAnuncio3Codigo" + i).text() + ');">' + calle.Direccion + " " + $("#lbnuevoAnuncio3Codigo" + i).text() + " " + calle.Poblacion + '</li>');
+            $("#ulnuevoAnuncio3").append('<li onclick="procesoNuevoAnuncio4(' + j + ');">' + calle.Direccion + " " + $("#lbnuevoAnuncio3Codigo" + i).text() + " " + calle.Poblacion + '</li>');
             console.log("Nombre de la calle " + calle.Direccion);
 
         }
@@ -343,12 +415,13 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
     $("#ulnuevoAnuncio3").listview('refresh');
 }
 
-function procesoNuevoAnuncio4(calles, pos, cp) {
+function procesoNuevoAnuncio4(pos) {
 
     posicion = pos; // Nos guardamos la posicion que ocupa esta calle en una variable para poder desglosar la informacion del JSON.
 
-    $("#lbnuevoAnuncio4Calle").text(calles[pos].Direccion + " " + cp + " " + calles[pos].Poblacion);
-    $("#lbnuevoAnuncio4TipoPantalla").text();
+    $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + cp);
+    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + " " + cp + " " + JsonCalle[pos].Poblacion);
+    $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
     $("#lbnuevoAnuncio4Localizacion").text();
     $("#lbnuevoAnuncio4Establecimiento").text();
 
@@ -358,7 +431,7 @@ function procesoNuevoAnuncio4(calles, pos, cp) {
 
 function procesoNuevoAnuncio5() {
 
-    var myCenter=new google.maps.LatLng(JsonCalle[posicion].LatitudGPS,JsonCalle[posicion].LongitudGPS);
+    var myCenter = new google.maps.LatLng(JsonCalle[posicion].LatitudGPS, JsonCalle[posicion].LongitudGPS);
 
     {
         var mapProp = {
