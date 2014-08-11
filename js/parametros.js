@@ -1,4 +1,6 @@
-var url = "http://cli.youtter.com/1.2/webservice/";
+//var url = "http://cli.youtter.com/1.2/webservice/";
+
+var url = "http://testhtml5.esadecreapolis.com/testServiceAlain/";
 
 // VARIABLES QUE SE USAN EN LA APP
 var fechaSeleccionada; // FECHA QUE SE SELECCIONA DEL CALENDARIO
