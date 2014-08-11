@@ -1,6 +1,6 @@
 var SECCIONES_LOGIN = new Array('mainLogin', 'resetPassword', 'resetPasswordFinish', 'newAccount', 'newAccountFinish');
 
-var SECCIONES_APP = new Array('mainMenu', 'miCuenta', 'creditosMain', 'misAnuncios', 'anunciosMain', 'estadisticas', 'nuevoAnuncio', 'acuerdoLegal', 'informeErrores', 'creditosHistorico', 'nuevoAnuncio1', 'nuevoAnuncio2', 'nuevoAnuncio3', 'nuevoAnuncio4', 'nuevoAnuncio5');
+var SECCIONES_APP = new Array('mainMenu', 'miCuenta', 'creditosMain', 'misAnuncios', 'anunciosMain', 'estadisticas', 'nuevoAnuncio', 'acuerdoLegal', 'informeErrores', 'creditosHistorico', 'creditosPaquetes', 'nuevoAnuncio1', 'nuevoAnuncio2', 'nuevoAnuncio3', 'nuevoAnuncio4', 'nuevoAnuncio5', 'nuevoAnuncio6', 'nuevoAnuncio7', 'nuevoAnuncio8', 'nuevoAnuncio9', 'nuevoAnuncio10');
 
 /*
 Desactiva todas las secciones del modulo y activa la actual.
@@ -116,13 +116,22 @@ function displayCreditosMain() {
 
 }
 
-function displayEstadisticas() {
-    var p = "estadisticas";
+function displayCreditosMain() {
+    var p = "creditosMain";
 
     localStorage['pantalla'] = p;
 
     ocultarElementosApp(p);
 
+}
+
+function displayCreditosPaquetes() {
+
+    var p = "creditosPaquetes";
+
+    localStorage['pantalla'] = p;
+
+    ocultarElementosApp(p);
 }
 
 function displayMisAnuncios() {
@@ -193,6 +202,60 @@ function displayNuevoAnuncio4() {
     var p = "nuevoAnuncio4";
 
     $("#lbnuevoAnuncio3Fecha").text(fechaSeleccionada);
+
+    localStorage['pantalla'] = p;
+
+    ocultarElementosApp(p);
+
+}
+
+function displayNuevoAnuncio5() {
+    var p = "nuevoAnuncio5";
+
+    localStorage['pantalla'] = p;
+
+    ocultarElementosApp(p);
+
+}
+
+function displayNuevoAnuncio6() {
+    var p = "nuevoAnuncio6";
+
+    localStorage['pantalla'] = p;
+
+    ocultarElementosApp(p);
+
+}
+
+function displayNuevoAnuncio7() {
+    var p = "nuevoAnuncio7";
+
+    localStorage['pantalla'] = p;
+
+    ocultarElementosApp(p);
+
+}
+
+function displayNuevoAnuncio8() {
+    var p = "nuevoAnuncio8";
+
+    localStorage['pantalla'] = p;
+
+    ocultarElementosApp(p);
+
+}
+
+function displayNuevoAnuncio9() {
+    var p = "nuevoAnuncio9";
+
+    localStorage['pantalla'] = p;
+
+    ocultarElementosApp(p);
+
+}
+
+function displayNuevoAnuncio10() {
+    var p = "nuevoAnuncio10";
 
     localStorage['pantalla'] = p;
 
