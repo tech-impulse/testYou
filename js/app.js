@@ -238,17 +238,17 @@ $(document).on('pageinit', '#app', function () {
 
     $("#calendar").jqmCalendar({
         events: [{
-                "summary": "Meet PM",
+                "summary": "Anuncio 1",
                 "begin": new Date(y, m, 27),
                 "end": new Date(y, m, 28)
 
         }, {
-                "summary": "Dinner",
+                "summary": "Anuncio 2",
                 "begin": new Date(y, m, d + 3),
                 "end": new Date(y, m, d + 4)
 
         }, {
-                "summary": "Lunch with Friends",
+                "summary": "Anuncio 3",
                 "begin": new Date(y, m, d + 6),
                 "end": new Date(y, m, d + 7)
 
