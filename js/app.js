@@ -177,6 +177,26 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    //Crear anuncio 4 - Boton para Guiardar
+    $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
+
+       if ($("#innuevoAnuncio4Inicio").val()<$("#innuevoAnuncio4Fin").val())
+       {
+           horaInicio= $("#innuevoAnuncio4Inicio").val();
+           horaFin = $("#innuevoAnuncio4Fin").val();
+           creditos = $("#innuevoAnuncio4Segundos").val();
+           displayNuevoAnuncio3();
+           
+       }
+        else {
+            alert("Debe seleccionar una franja horaria correcta!");
+        }
+
+
+    });
+
+    
+
 
 
     //Crear anuncio 5 - Boton para volver
@@ -294,6 +314,14 @@ function errorenviarFoto(r) {
     $.mobile.loading('hide');
     console.log("Foto no subida");
     $("#lbPopUpAviso").text(r);
+    $("#PopUpAviso").popup("open");
+}
+
+// Cargar mensaje en Popup
+
+function abrirPopup(mensaje) {
+    $.mobile.loading('hide');
+    $("#lbPopUpAviso").text(mensaje);
     $("#PopUpAviso").popup("open");
 }
 
@@ -493,6 +521,8 @@ function mostrarPaquetesCreditos() {
     var div4 = "#div4-" + 1;
     var div5 = "#div5-" + 1;
 
+    $("#paquetesCreditos").empty();
+
     for (var i = 0; i < listaPaquetes.paquetes.length; i++) {
         var paquete = listaPaquetes.paquetes[i];
         var pos = parseInt(i + 1);
@@ -505,7 +535,7 @@ function mostrarPaquetesCreditos() {
             jQuery('<div/>', {
                 id: 'div2-' + pos,
                 style: 'padding:1em',
-                onclick: 'procesoCompraCreditos(' + paquete.id + ')',
+                onclick: 'procesoCompraCreditos(' + paquete.cantidad + ')',
                 class: 'ui-block-b',
 
             }).appendTo(div1);
@@ -519,7 +549,7 @@ function mostrarPaquetesCreditos() {
             jQuery('<div/>', {
                 id: 'div2-' + pos,
                 style: 'padding:1em',
-                onclick: 'procesoCompraCreditos(' + paquete.id + ')',
+                onclick: 'procesoCompraCreditos(' + paquete.cantidad + ')',
                 class: 'ui-block-a',
             }).appendTo(div1);
             j++;
@@ -556,8 +586,10 @@ function mostrarPaquetesCreditos() {
 
 //Proceso de compra de creditos
 function procesoCompraCreditos(id) {
+    
+    restComprarCreditos(id);
 
-    alert("comprar paquete con id " + id);
+    //alert("comprar paquete con id " + id);
 
 }
 

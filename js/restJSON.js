@@ -96,6 +96,49 @@ function restDescripcionAnuncio(id) {
     });
 }
 
+function restComprarCreditos(id) {
+
+    var datos = {
+        idPaquete: id,
+        idSesion: idSesion
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'comprarCreditos.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "comprarCreditos");
+        },
+        error: function (response) {
+            restError(response, "comprarCreditos");
+        },
+    });
+}
+
+function restGuardarLocalizacion(id) {
+
+    var datos = {
+        idLocalizacion: id,
+        horaInicio: horaInicio,
+        horaFin: horaFin,
+        creditos: creditos,
+        idSesion: idSesion
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'guardarLocalizacion.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "guardarLocalizacion");
+        },
+        error: function (response) {
+            restError(response, "guardarLocalizacion");
+        },
+    });
+}
+
 function restOk(r, tipo) {
 
     switch (tipo) {
@@ -121,6 +164,16 @@ function restOk(r, tipo) {
             console.log("descripcionAnuncio");
             break;
         };
+    case "comprarCreditos":
+        {
+            abrirPopup(r.mensaje);
+            break;
+        };
+    case "guardarLocalizacion":
+        {
+            abrirPopup(r.mensaje);
+            break;
+        };
 
     case "packs":
         {
@@ -134,4 +187,5 @@ function restOk(r, tipo) {
 
 function restError(r, tipo) {
     console.log("Erro de consulta " + tipo);
+
 }
