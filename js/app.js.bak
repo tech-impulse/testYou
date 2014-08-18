@@ -137,9 +137,6 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREAR ANUNCIO
 
-
-    ///////// EVENTOS CREAR ANUNCIO 1 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
     //Crear anuncio 1 - evento seleccionar fecha
     $("#calendar").bind('change', function (event, date) {
         var d = date.getDate();
@@ -150,15 +147,6 @@ $(document).on('pageinit', '#loginModule', function () {
         console.log("FECHA " + fechaSeleccionada);
 
     });
-
-    //Crear anuncio 1 - Boton Cancelar
-
-    $('#btnnuevoAnuncio1Cancelar').unbind('click').bind('click', function () {
-
-        displayMainMenu();
-
-    });
-
 
     //Crear anuncio 1 - Boton Aceptar
 
@@ -172,8 +160,6 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    ///////// EVENTOS CREAR ANUNCIO 2 /////////////////////////////////////////////////////////////////////////////////////////////////
-
     //Crear anuncio 2 - Boton de ver disponibilidad
 
     $('#btnnuevoAnuncio2Disponibilidad').unbind('click').bind('click', function () {
@@ -185,15 +171,13 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 2 - Boton Cancelar
-
-    $('#btnnuevoAnuncio2Cancelar').unbind('click').bind('click', function () {
-
-        displayNuevoAnuncio();
-
+    $('#divnuevoAnuncio2Lista').bind('expand', function () {
+        alert('Expanded');
+    }).bind('collapse', function () {
+        alert('Collapsed');
     });
 
-    ///////// EVENTOS CREAR ANUNCIO 3 /////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     //Crear anuncio 3 - Botón para continuar
 
@@ -203,25 +187,6 @@ $(document).on('pageinit', '#loginModule', function () {
         displayNuevoAnuncio6();
 
     });
-
-    //Crear anuncio 3 - Botón para cambiar la fechga
-
-    $('#divnuevoAnuncio3Fechas').unbind('click').bind('click', function () {
-
-        displayNuevoAnuncio1();
-
-    });
-
-    //Crear anuncio 3 - Botón para cambiar la zona
-
-    $('#divnuevoAnuncio3Zona').unbind('click').bind('click', function () {
-
-        displayNuevoAnuncio2();
-
-    });
-
-    ///////// EVENTOS CREAR ANUNCIO 4 /////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     //Crear anuncio 4 - Boton para subir la imagen
     $('#divnuevoAnuncio4Mapa').unbind('click').bind('click', function () {
@@ -257,7 +222,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
 
-    ///////// EVENTOS CREAR ANUNCIO 5 /////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
     //Crear anuncio 5 - Boton para volver
@@ -266,17 +231,12 @@ $(document).on('pageinit', '#loginModule', function () {
         displayNuevoAnuncio4();
 
     });
-    
-    
-    ///////// EVENTOS CREAR ANUNCIO 6 /////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Crear anuncio 6 - Boton para subir la imagen
     $('#btnnuevoAnuncio6Subir').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio7();
     });
-    
-    ///////// EVENTOS CREAR ANUNCIO 7 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     //Crear anuncio 7 - Boton para subir la imagen
@@ -309,16 +269,15 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File
+    //
 
     $('#file').change(function () {
-        visualizarImagen(this.files);
+        handleFiles(this.files);
     });
 
 
-    //Crear anuncio 7- Carga la imagen para visualizarla en la pantalla 8
-    
-    function visualizarImagen(files) {
+    // handle files
+    function handleFiles(files) {
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
             var imageType = /image.*/;
@@ -326,6 +285,9 @@ $(document).on('pageinit', '#loginModule', function () {
                 continue;
             }
             var img = document.getElementById('imgnuevoAnuncio9');
+            /* img.src = file;
+        img.onload = function () {
+        }; */
             var reader = new FileReader();
             reader.onload = (function (aImg) {
                 return function (e) {
@@ -335,16 +297,12 @@ $(document).on('pageinit', '#loginModule', function () {
             reader.readAsDataURL(file);
         }
     }
-    
-    ///////// EVENTOS CREAR ANUNCIO 8 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     //Crear anuncio 8 - Boton para ver vista previa
     $('#btnnuevoAnuncio8Previa').unbind('click').bind('click', function () {
         displayNuevoAnuncio9();
     });
-    
-    ///////// EVENTOS CREAR ANUNCIO 9 /////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Crear anuncio 9 - Boton para ver cambiar la imagen
     $('#btnnuevoAnuncio9Cambiar').unbind('click').bind('click', function () {
@@ -358,7 +316,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
 
-    ////////// EVENTOS DE POPUP ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
+    // EVENTOS DE POPUP ACEPTAR
 
     $('#btnPopUpAviso').unbind('click').bind('click', function () {
 
@@ -372,7 +330,6 @@ $(document).on('pageinit', '#loginModule', function () {
 
 // CONTROL DE ERRORES DE SUBIDA DE IMAGENES
 
-// Envio de la foto Ok
 function enviarFoto(r) {
     $.mobile.loading('hide');
     console.log("Enviado Ok, respuesta");
@@ -381,15 +338,12 @@ function enviarFoto(r) {
     displayNuevoAnuncio8();
 }
 
-// Error en el envío de la imagen
 function errorenviarFoto(r) {
     $.mobile.loading('hide');
     console.log("Foto no subida");
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
 }
-
-// FUNCIONES COMUNES PARA TODA LA APP /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Cargar mensaje en Popup
 
@@ -457,14 +411,14 @@ function procesoNuevoAnuncio2(listaLocalizaciones) {
 
 function cerrarLista(posicion) {
 
-    $("#txtnuevoAnuncio2").trigger("click");
-    document.getElementById("txtnuevoAnuncio2").innerHTML = '<a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-plus ui-btn-icon-left ui-btn-b">' + $("#linuevoAnuncio2-" + posicion).text() + '</a>';
-    $("#inputnuevoAnuncio2").val(08203); // Solucion temporal para poder testear
-
+        $("#txtnuevoAnuncio2").trigger("click");
+        document.getElementById("txtnuevoAnuncio2").innerHTML = '<a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-plus ui-btn-icon-left ui-btn-b">' + $("#linuevoAnuncio2-" + posicion).text() + '</a>';
+        $("#inputnuevoAnuncio2").val(08203); // Solucion temporal para poder testear
+    
 }
 
-function ocultarDiv(div) {
-    if ($(div).is(":visible")) {
+function ocultarDiv(div){
+     if ($(div).is(":visible")) {
         $(div).hide();
     } else {
         $(div).show();
@@ -651,13 +605,12 @@ function mostrarPaquetesCreditos() {
         jQuery('<div/>', {
             id: 'div5-' + pos,
             class: 'ui-block-b',
-            style: 'padding-top:0.5em',
         }).appendTo(div3);
 
 
-        $(div4).append('<img src="js/images/img_creditos.png" height="30em" width="37em">');
-        $(div5).append('<label class="num_creditos_paquete">' + paquete.cantidad + '</label>');
-        $(div5).append(' <label class="creditos_paquete"> créditos </label>');
+        $(div4).append('<img src="js/images/img_creditos.png" height="50px" width="38px">');
+        $(div5).append('<label>' + paquete.cantidad + '</label>');
+        $(div5).append(' <label> créditos </label>');
         $(div2).append('<button class="btn_blue ui-btn ui-shadow ui-corner-all">' + paquete.precio + '</button>');
 
     }

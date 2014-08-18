@@ -1,313 +1,384 @@
 @charset "UTF-8";
-
 /*  FUENTES  */
 
 @font-face {
-    font-family: 'myfont';
-    src: url('fonts/stefanieFont.eot');
-    src: local('☺'), url('fonts/stefanieFont.woff') format('woff'), url('fonts/stefanieFont.ttf') format('truetype'), url('fonts/stefanieFont.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'myfont';
+	src: url('fonts/stefanieFont.eot');
+	src: local('☺'), url('fonts/stefanieFont.woff') format('woff'), url('fonts/stefanieFont.ttf') format('truetype'), url('fonts/stefanieFont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 /*  GENERAL  */
 
 html {
-    max-width: 800px!important;
-    position: relative!important;
-    margin-left: auto;
-    margin-right: auto;
-    /* Fix for absolute positioning */
+	max-width: 800px!important;
+	position: relative!important;
+	margin-left: auto;
+	margin-right: auto;/* Fix for absolute positioning */
 }
-.body {
-    background-color: #e2e1e5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: normal;
-    line-height: 1.2em;
-    color: #000;
-    text-align: left;
+body {
+	background-color: #f1eff7;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.2em;
+	color: #000;
+	text-align: left;
+}
+.logo_youtter {
+	margin-top: 5px;
+	margin-bottom: 15px;
+	text-align:center;
+	width:200px;
+	height:78px;
 }
 .cabecera {
-    width: 100%;
-    height: 55px;
-    background-color: #e3157d!important;
-    /* Old browsers */
-    background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
-    /* FF3.6+ */
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, #e3157d), color-stop(50%, #643188), color-stop(100%, #30368b))!important;
-    /* Chrome,Safari4+ */
-    background-image: -webkit-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
-    /* Chrome10+,Safari5.1+ */
-    background-image: -o-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
-    /* Opera 11.10+ */
-    background-image: -ms-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
-    /* IE10+ */
-    background-image: linear-gradient(to right, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	width: 100%;
+	height: 50px;
+	background-color: #e3157d!important;
+	/* Old browsers */
+	background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	/* FF3.6+ */
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, #e3157d), color-stop(50%, #643188), color-stop(100%, #30368b))!important;
+	/* Chrome,Safari4+ */
+	background-image: -webkit-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	/* Chrome10+,Safari5.1+ */
+	background-image: -o-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	/* Opera 11.10+ */
+	background-image: -ms-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	/* IE10+ */
+	background-image: linear-gradient(to right, #e3157d 0%, #643188 50%, #30368b 100%)!important;
     /* W3C */
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e3157d', endColorstr='#30368b', GradientType=1)!important;
-    /* IE6-8 */
+	/* IE6-8 */
     /* IE9 SVG, necesita condicional que te pongo en html */
-    font-family: myfont!important;
-    font-size: 20px!important;
-    font-weight: normal!important;
-    line-height: 2.5em!important;
-    letter-spacing: 0.1em!important;
-    color: #fff!important;
-    text-align: center!important;
-    margin: 0px 0 0px 0!important;
-    border: 0px!important;
+	font-family: myfont!important;
+	font-size: 17px!important;
+	font-weight: normal!important;
+	line-height: 2.8em!important;
+	letter-spacing: 0.07em!important;
+	color: #fff!important;
+	text-align: center!important;
+	margin: 0 0 0 0!important;
+	border: 0px!important;
 }
 .div_titulo_pagina {
-    color: #000 !important;
-    font-size: 15px !important;
-    line-height: 2.2em !important;
-    background-color: #f1eff7 !important;
-    border: none !important;
-    text-align: center !important;
+	color: #000 !important;
+	font-size: 15px !important;
+	line-height: 1em !important;
+	background-color: #f1eff7 !important;
+	border: none !important;
+	text-align: center !important;
 }
 /*  BOTONES  */
 
 .btn_blue {
-    background-color: #30368b !important;
-    border-radius: 5px !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: normal !important;
-    line-height: 1.7em !important;
-    color: #fff !important;
-    text-align: center !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    margin: 10px 0 10px 0 !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    border: 0px;
-    letter-spacing: 0.05em;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+	background-color: #30368b !important;
+	border-radius: 5px !important;
+	/*---------------------------------------- Puede que no lo necesites*/
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	line-height: 1.7em !important;
+	color: #fff !important;
+	text-align: center !important;
+	/*---------------------------------------- Puede que no lo necesites*/
+	margin: 10px 0 10px 0 !important;
+	/*---------------------------------------- Puede que no lo necesites*/
+	border: 0px;
+	letter-spacing: 0.05em;
+	text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 }
 .btn_lightblue {
-    background-color: #9e97b4 !important;
-    border-radius: 5px !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: normal !important;
-    line-height: 1.7em !important;
-    color: #fff !important;
-    text-align: center !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    margin: 10px 0 10px 0 !important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    border: 0px;
-    letter-spacing: 0.05em;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+	background-color: #9e97b4 !important;
+	border-radius: 5px !important;
+	/*---------------------------------------- Puede que no lo necesites*/
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	line-height: 1.7em !important;
+	color: #fff !important;
+	text-align: center !important;
+	/*---------------------------------------- Puede que no lo necesites*/
+	margin: 10px 0 10px 0 !important;
+	/*---------------------------------------- Puede que no lo necesites*/
+	border: 0px;
+	letter-spacing: 0.05em;
+	text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 }
 .btn_gradient {
-    background-color: #e3157d;
-    /* Old browsers */
-    background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
-    /* FF3.6+ */
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, #e3157d), color-stop(50%, #643188), color-stop(100%, #30368b))!important;
-    /* Chrome,Safari4+ */
-    background-image: -webkit-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
-    /* Chrome10+,Safari5.1+ */
-    background-image: -o-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
-    /* Opera 11.10+ */
-    background-image: -ms-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
-    /* IE10+ */
-    background-image: linear-gradient(to right, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	background-color: #e3157d;
+	/* Old browsers */
+	background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	/* FF3.6+ */
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, #e3157d), color-stop(50%, #643188), color-stop(100%, #30368b))!important;
+	/* Chrome,Safari4+ */
+	background-image: -webkit-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	/* Chrome10+,Safari5.1+ */
+	background-image: -o-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	/* Opera 11.10+ */
+	background-image: -ms-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
+	/* IE10+ */
+	background-image: linear-gradient(to right, #e3157d 0%, #643188 50%, #30368b 100%)!important;
     /* W3C */
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e3157d', endColorstr='#30368b', GradientType=1)!important;
-    /* IE6-8 */
+	/* IE6-8 */
     /* IE9 SVG, necesita condicional que te pongo en html */
-    border-radius: 5px!important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    font-family: Arial, Helvetica, sans-serif!important;
-    font-size: 14px!important;
-    font-weight: normal!important;
-    line-height: 1.7em!important;
-    color: #fff!important;
-    text-align: center!important;
-    /*---------------------------------------- Puede que no lo necesites*/
-    margin: 10px 0 10px 0;
-    !important
-    /*---------------------------------------- Puede que no lo necesites*/
+	border-radius: 5px!important;
+	/*---------------------------------------- Puede que no lo necesites*/
+	font-family: Arial, Helvetica, sans-serif!important;
+	font-size: 14px!important;
+	font-weight: normal!important;
+	line-height: 1.7em!important;
+	color: #fff!important;
+	text-align: center!important;
+	/*---------------------------------------- Puede que no lo necesites*/
+	margin: 10px 0 10px 0;
+ !important     /*---------------------------------------- Puede que no lo necesites*/
     border: 0px!important;
-    letter-spacing: 0.05em;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+	letter-spacing: 0.05em;
+	text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 }
 .btn_web_youtter {
-    padding-top: 5%;
-    width: 114px;
-    height: 78px;
+	padding-top: 5%;
+	width:114px;
+	height:78px;
 }
 .btn_menu_izq {
-    margin-top: 5px;
+	margin-top: 5px;
+	width: 30px;
+	height: 29px;
+	padding-top:5px;
 }
 .btn_menu_dere {
-    margin-top: 5px;
-    width: 25px;
-    height: 24px;
+	margin-top: 5px;
+	width: 25px;
+	height: 24px;
+	padding-top:5px;
 }
-/*  TEXTOS  */
+/*  TEXTOS Y TEXTFIELD  */
 
 .txt_textfield_in {
-    background-color: #fff;
-    !important
-    /*---------------------------------------- Puede que no lo necesites*/
+	background-color: #fff;
+ !important     /*---------------------------------------- Puede que no lo necesites*/
     border-radius: 5px;
-    !important
-    /*---------------------------------------- Puede que no lo necesites*/
+ !important     /*---------------------------------------- Puede que no lo necesites*/
     font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: normal !important;
-    line-height: 2em !important;
-    color: #959595 !important;
-    padding-left: 10px !important;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	line-height: 2em !important;
+	color: #959595 !important;
+	padding-left: 10px !important;
 }
 .txt_textfield_out {
-    padding: 2% 0 0.2% 1%;
+	padding: 8px 0 0 5px;
+}
+.txt_textfield_out_primera {
+	padding: 20px 0 0 5px;
 }
 .txt_centrals {
-    color: #000;
-    text-align: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding: 0 5% 10px;
-    5%;
+	color: #000;
+	text-align: center;
+	padding: 25px 10px 25px 10px;
+}
+.txt_centrals_sin_top {
+	color: #000;
+	text-align: center;
+	padding: 0px 10px 15px 10px !important;
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	line-height: 1.2em !important;
 }
 .txt_centrals_sin_bottom {
-    color: #000;
-    text-align: center;
-    margin-top: 1em;
-    padding: 0 5% 0 5%;
+	color: #000;
+	text-align: center;
+	padding: 10px 10px 25px 10px;
 }
 .txt_legal {
-    padding: 5% 5% 5% 5%;
-    color: #333;
-    font-size: 13px;
+	padding: 10px 10px 10px 10px;
+	color: #333;
+	font-size: 12px;
 }
 /*  TEXTOS LINK  */
 
 a:link {
-    color: #30368b;
-    text-decoration: none;
+	color: #30368b;
+	text-decoration: none;
 }
 a:visited {
-    color: #30368b;
-    text-decoration: none;
+	color: #30368b;
+	text-decoration: none;
 }
 a:hover {
-    color: #30368b;
-    text-decoration: underline;
+	color: #30368b;
+	text-decoration: underline;
 }
 a:active {
-    color: #30368b;
-    text-decoration: underline;
+	color: #30368b;
+	text-decoration: underline;
 }
 /*  MENU LATERAL  */
 
 .div_menu {
-    width: 100%;
-    background-color: #e2e1e5;
-    border-top: 1px solid #666;
-    vertical-align: central;
+	width: 100%;
+	background-color: #e2e1e5;
+	border-top: 1px solid #666;
+	vertical-align: central;
 }
 .icno_menu {
-    text-align: left;
-    vertical-align: middle;
-    padding: 2px 0 2px 0;
-    display: inline;
-    width: 232px;
-    height: 90px;
+	text-align: left;
+	vertical-align: middle;
+	padding: 2px 0 2px 0;
+	display: inline;
+	width:232px;
+	height:90px;
 }
 .txt_menu {
-    line-height: 2.2em;
-    color: #30368b;
-    padding: 0 0 0 5px;
-    display: inline;
+	line-height: 2.2em;
+	color: #30368b;
+	padding: 0 0 0 5px;
+	display: inline;
 }
 .line_menu {
-    border-bottom: 1px solid #666;
-}
-/*  VENTANA LOGIN  */
-
-.logo_youtter {
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: center;
-}
-.olvidarcontrasena {
-    line-height: 4.0em;
-    font-size: 13px;
-}
-/*  VENTANA MENU PRINCIPAL  */
-
-.img_menu_principal {
-    width: 100%;
-    margin-bottom: 1em;
-}
-.nombres_menu {
-    font-size: 12px;
-    font-weight: bold;
-    line-height: normal;
-    color: #30368b;
-    padding-left: 10px;
-}
-.icnos_menu {
-    margin: 5px 5px 2px 5px;
-    width: 90px;
-    height: 90px;
-}
-/*  VENTANA MIS CREDITOS  */
-
-.img_creditos {
-    margin-top: 4%;
-    max-width: 150px;
-    margin-bottom: 3%;
-    width: 90px;
-    height: 69px;
-}
-.num_creditos {
-    text-align: center;
-    font-size: 45px;
-    font-weight: bold;
-    color: #30368b;
-    line-height: 1.0em;
-}
-.creditos {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #30368b;
-    line-height: 1.0em;
-    padding-bottom: 40px;
+	border-bottom: 1px solid #666;
 }
 .listasMenu {
-    height: 40px;
-}
-#app #navpanel.ui-panel {
-    width: 20em;
-}
-/*  VENTANA CALENDARIO  */
-
-.pad_inferior {
-    padding-top: 15px;
-}
-.select_zona {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: normal;
-    line-height: 1.2em;
-    color: #000;
-    text-align: left;
-    padding-left: 15px;
+	height: 30px;
 }
 .icn_menu {
-    width: 36px;
-    height: 36px;
+	width:36px;
+	height:36px;
 }
-.footer {
+.ui-panel-inner {
+	padding: 0;
+}
+.ui-controlgroup {
+	margin: 0;
+}
+/*  LOGIN  */
+
+.olvidarcontrasena {
+	line-height: 3.0em;
+	font-size: 12px;
+}
+/*  MAIN MENU  */
+
+.img_menu_principal {
+	width: 100%;
+	margin-bottom: 15px;
+}
+.nombres_menu {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: normal;
+	color: #30368b;
+	padding-left: 10px;
+}
+.icnos_menu {
+	margin: 5px 5px 2px 5px;
+	width:90px; 
+	height:90px;
+}
+/* SUBMENU SUPERIOR DEBAJO DE LA CABECERA */
+
+.icnos_submenu {
+	text-align: left;
+	vertical-align: middle;
+	padding: 2px 0 2px 0;
+	display: inline;
+	width:28px;
+	height:27px;
+}
+.txt_submenu {
+	font-size:13px !important;
+	line-height: 2.6em;
+	color: #30368b;
+	padding: 0 0 0 5px;
+	display: inline;
+}
+/*  MIS CREDITOS  */
+
+.img_creditos {
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.num_creditos {
+	text-align: center;
+	font-size: 45px;
+	font-weight: bold;
+	color: #30368b;
+	line-height: 0.3em;
+}
+.creditos {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: #30368b;
+	line-height: 3.0em;
+	padding-bottom: 20px;
+}
+
+#app #navpanel.ui-panel {
+	width: 20em;
+}
+/*  CALENDARIO  */
+
+.pad_inferior {
+	padding-top: 15px;
+}
+.select_zona {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: normal;
+	line-height: 1.2em;
+	color: #000;
+	text-align: left;
+}
+
+/* COMPRAR CREDITOS */
+
+.num_creditos_paquete {
+	font-size: 1.4em !important;
+	font-weight: bold !important;
+	color: #30368b;
+	line-height: 0.3em;
+}
+.creditos_paquete {
+	font-size: 0.9em !important;
+	color: #30368b;
+}
+
+/* CREAR ANUNCIO */
+
+.txt_detallepantalla_bold {
+	font-size:14px !important;
+	font-weight:bold !important;
+}
+
+.txt_detallepantalla {
+	font-size:14px !important;
+}
+
+.txt_detallepantalla_calle {
+	font-size:15px !important;
+	line-height:1.8em !important;
+	font-weight:bold !important;
+}
+
+.txt_franjahoraria {
+	font-size:14px !important;
+	line-height:1.8em !important;
+}
+
+.footer_comun {
     width: 100%;
     max-width: 800px;
     text-align: center;
 }
+
+.footer {
+    margin:1.1em
+}
+
+

@@ -64,12 +64,8 @@
         <!-- Pagina de login -->
         <div data-role="content">
             <div id="mainLogin" class="k-content">
-                <div class="ui-grid-b">
-                    <div class="ui-block-a" style="width:20%"></div>
-                    <div class="ui-block-b" style="text-align:center; width:60%">
-                        <img class="logo_youtter" src="./js/images/logo_youtter.png" style="max-width:300px" alt="logo YOUTTER"></img>
-                    </div>
-                    <div class="ui-block-c" style="width:20%"></div>
+               <div theme="a" style="text-align: center">
+                    <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER"></img>
                 </div>
                 <div theme="a">
                     <input class="txt_textfield_in" type="text" id="inputLoginUsername" onclick="this.value='';" value="javier.fernandez@tech-impulse.com">
@@ -116,10 +112,11 @@
             <!-- Finalizar reset contraseña -->
             <div id="resetPasswordFinish" class="k-content">
                 <div theme="a" style="text-align: center">
-                    <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER" style="width:300px"></img>
+                    <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER"></img>
                 </div>
                 <div theme="a" id="textResetPasswordFinish" class="txt_centrals">¡Gracias!
-                    <br>Ahora mira tu bandeja de entrada y sigui las instrucciones para reestablecer tu contraseña</div>
+                    <br>
+                    Ahora mira tu bandeja de entrada y sigue las instrucciones para reestablecer tu contraseña</div>
                 <div theme="a">
                     <button type="button" data-role="button" id="btnResetPasswordFinish" data-theme="a" class="btn_blue">Volver a la pagina de login</button>
                 </div>
@@ -133,7 +130,7 @@
                 <div data-role="header" class="cabecera">
                     <div id="tituloNewAccount">Crear cuenta</div>
                 </div>
-                <div theme="a" id="lbNewAccountNombre" class="txt_textfield_out">Nombre</div>
+                <div theme="a" id="lbNewAccountNombre" class="txt_textfield_out_primera">Nombre</div>
                 <div theme="a">
                     <input class="txt_textfield_in" type="text" id="inputNewAccountNombre">
                     </input>
@@ -209,7 +206,7 @@
         <div data-role="panel" id="navpanel" data-theme="a" data-display="overlay" data-position="left">
             <div data-role="controlgroup" data-theme="a" data-corners="false">
                 <ul data-role="listview">
-                    <li data-role="list-divider" id="btnMenuPrincipal">Menú</li>
+                    <li data-role="list-divider" id="btnMenuPrincipal">Opciones Youtter</li>
                     <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuCuenta">
                             <div class="ui-block-a" style="width:20%">
@@ -320,17 +317,17 @@
                 <img src="js/images/fondo_main.png" style="width:100%;" alt="IMAGEN MENU PRINCIPAL">
             </div>
             <center>
-                <div style="background-image: url('js/images/fondo_main2.png'); background-size: contain; background-repeat: no-repeat; height:16em">
+                <div style="background-image: url('js/images/fondo_main2.png'); background-size: contain; background-repeat: no-repeat; height:16em; width:22em">
                     <div class="ui-grid-a">
-                        <div class="ui-block-a" id="MainMenuOpcion1" style="height:8em; width:50%">
+                        <div class="ui-block-a" id="MainMenuOpcion1" style="height:8em; width:11em">
                         </div>
-                        <div class="ui-block-b" id="MainMenuOpcion3" style="height:8em; width:50%">
+                        <div class="ui-block-b" id="MainMenuOpcion3" style="height:8em; width:11em">
                         </div>
                     </div>
                     <div class="ui-grid-a">
-                        <div class="ui-block-a" id="MainMenuOpcion2" style="height:8em; width:50%">
+                        <div class="ui-block-a" id="MainMenuOpcion2" style="height:8em; width:11em">
                         </div>
-                        <div class="ui-block-b" id="MainMenuOpcion4" style="height:8em; width:50%">
+                        <div class="ui-block-b" id="MainMenuOpcion4" style="height:8em; width:11em">
                         </div>
                     </div>
                 </div>
@@ -380,7 +377,7 @@
             <div id="creditosMain" class="k-content">
                 <div class="txt_centrals_sin_bottom" id="textCreditosMain">Actualmente tienes:
                     <br/>
-                    <img class="img_creditos" src="js/images/img_creditos.png" width="186" height="143">
+                    <img class="img_creditos" src="js/images/img_creditos.png" width="180" height="133">
                 </div>
                 <div class="num_creditos" id="numCreditosMain" back-ground="">45:30</div>
                 <div class="creditos">créditos</div>
@@ -397,13 +394,13 @@
 
             <!-- Consulta del numero de creditos -->
             <div id="creditosHistorico" class="k-content">
-                <div class="txt_centrals" id="textCreditosHistorico">Actualmente tienes:</div>
+                <div class="txt_centrals_sin_bottom" id="textCreditosHistorico">Actualmente tienes:</div>
                 <div id="tablaCreditosHistorico"></div>
             </div>
 
             <!-- Comprar paquetes de creditos-->
             <div id="creditosPaquetes" class="k-content">
-                <div class="txt_centrals" id="textcreditosPaquetes">¿Cuantos creditos quieres comprar?</div>
+                <div class="txt_centrals_sin_bottom" id="textcreditosPaquetes">¿Cuantos creditos quieres comprar?</div>
                 <div id="paquetesCreditos"></div>
             </div>
 
@@ -467,8 +464,8 @@
 
             <div id="nuevoAnuncio2">
                 <h3 class="ui-bar ui-bar-a div_titulo_pagina">Selecciona zona geográfica</h3>
-                <label id="lbnuevoAnuncio2" class="txt_centrals">Introduce el código postal de la zona donde quieres que tu anuncio aparezca y te daremos las mejores opciones según las fechas que has escogido previamente</label>
-                <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal">
+                <label id="lbnuevoAnuncio2" class="txt_centrals_sin_top">Introduce el código postal de la zona donde quieres que tu anuncio aparezca y te daremos las mejores opciones según las fechas que has escogido previamente</label>
+              <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal">
                 </input>
                 <div data-role="collapsible" id="divnuevoAnuncio2Lista" data-theme="b" data-content-theme="b">
                     <h5 id="txtnuevoAnuncio2" class="select_zona">Seleccionar zona</h5>
@@ -481,22 +478,22 @@
                 <div data-role="navbar">
                     <ul>
                         <li>
-                            <div class="ui-grid-a">
+                            <div class="ui-grid-a" id="divnuevoAnuncio3Fechas">
                                 <div class="ui-block-a" style="width:20%">
-                                    <img class="icno_menu" src="js/images/btn_mini_cambiarfechas.png">
+                                    <img class="icnos_submenu" src="js/images/btn_mini_cambiarfechas.png">
                                 </div>
                                 <div class="ui-block-b" style="width:80%; text-align:left">
-                                    <label class="txt_menu">Cambiar fechas</label>
+                                    <label class="txt_submenu">Cambiar fechas</label>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <div class="ui-grid-a">
+                            <div class="ui-grid-a" id="divnuevoAnuncio3Zona">
                                 <div class="ui-block-a" style="width:20%">
-                                    <img class="icno_menu" src="js/images/btn_mini_cambiarzona.png">
+                                    <img class="icnos_submenu" src="js/images/btn_mini_cambiarzona.png">
                                 </div>
                                 <div class="ui-block-b" style="width:80%; text-align:left">
-                                    <label class="txt_menu">Cambiar zona</label>
+                                    <label class="txt_submenu">Cambiar zona</label>
                                 </div>
                             </div>
                         </li>
@@ -511,20 +508,20 @@
                         <li>
                             <div class="ui-grid-a" id="divnuevoAnuncio4Volver">
                                 <div class="ui-block-a" style="width:20%">
-                                    <img class="icno_menu" src="js/images/btn_mini_cambiarfechas.png">
+                                    <img class="icnos_submenu" src="js/images/btn_mini_cambiarfechas.png">
                                 </div>
                                 <div class="ui-block-b" style="width:80%; text-align:left">
-                                    <label class="txt_menu">Volver</label>
+                                    <label class="txt_submenu">Volver</label>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="ui-grid-a" id="divnuevoAnuncio4Mapa">
                                 <div class="ui-block-a" style="width:20%">
-                                    <img class="icno_menu" src="js/images/btn_mini_cambiarzona.png">
+                                    <img class="icnos_submenu" src="js/images/btn_mini_cambiarzona.png">
                                 </div>
                                 <div class="ui-block-b" style="width:80%; text-align:left">
-                                    <label class="txt_menu">Ver mapa</label>
+                                    <label class="txt_submenu">Ver mapa</label>
                                 </div>
                             </div>
                         </li>
@@ -533,37 +530,37 @@
                     <li data-role="list-divider" style="color:black; font-weight:bold" id="linuevoAnuncio4Codigo"></li>
                     <div class="ui-body ui-body-a">
                         <div>
-                            <label class="" id="lbnuevoAnuncio4Calle"></label>
+                            <label class="txt_detallepantalla_calle" id="lbnuevoAnuncio4Calle"></label>
                         </div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:40%">
-                                <label class="">Tipo de pantalla:</label>
+                                <label class="txt_detallepantalla_bold">Tipo de pantalla:</label>
                             </div>
                             <div class="ui-block-b" style="text-align:left">
-                                <label class="" id="lbnuevoAnuncio4TipoPantalla"></label>
-                            </div>
-                        </div>
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a" style="width:40%">
-                                <label class="">Localización:</label>
-                            </div>
-                            <div class="ui-block-b" style="text-align:left">
-                                <label id="lbnuevoAnuncio4Localizacion"></label>
+                                <label class="txt_detallepantalla" id="lbnuevoAnuncio4TipoPantalla"></label>
                             </div>
                         </div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:40%">
-                                <label class="">Establecimiento:</label>
+                                <label class="txt_detallepantalla_bold">Localización:</label>
                             </div>
                             <div class="ui-block-b" style="text-align:left">
-                                <label class="" id="lbnuevoAnuncio4Establecimiento"></label>
+                                <label class="txt_detallepantalla" id="lbnuevoAnuncio4Localizacion"></label>
+                            </div>
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a" style="width:40%">
+                                <label class="txt_detallepantalla_bold">Establecimiento:</label>
+                            </div>
+                            <div class="ui-block-b" style="text-align:left">
+                                <label class="txt_detallepantalla" id="lbnuevoAnuncio4Establecimiento"></label>
                             </div>
                         </div>
                     </div>
                     <h3 style="color:black; font-weight:bold">Selecciona una franja horaria</h3>
                     <div class="ui-grid-a">
                         <div class="ui-block-a" style="width:20%">
-                            <label class="">Desde:</label>
+                            <label class="txt_franjahoraria">Desde:</label>
                         </div>
                         <div class="ui-block-b" style="display:inline" style="text-align:left">
                             <input type="number" min="1" max="24" id="innuevoAnuncio4Inicio">
@@ -571,13 +568,13 @@
                     </div>
                     <div class="ui-grid-a">
                         <div class="ui-block-a" style="width:20%">
-                            <label class="">Hasta:</label>
+                            <label class="txt_franjahoraria">Hasta:</label>
                         </div>
                         <div class="ui-block-b" style="display:inline" style="text-align:left">
                             <input type="number" min="1" max="24" id="innuevoAnuncio4Fin">
                         </div>
                     </div>
-                    <label style="color:black; font-weight:bold">Selecciona cuantos segundos quieres reproducir</label>
+                    <label style="color:black; font-weight:bold; margin-bottom:20px; margin-top:17px;">Selecciona cuantos segundos quieres reproducir</label>
                     <form>
                         <input type="range" step="10" id="innuevoAnuncio4Segundos" name="slider-2" id="slider-2" data-highlight="true" min="10" max="2520" value="10">
                     </form>
@@ -597,51 +594,51 @@
                     </div>
                     <div class="ui-body ui-body-a">
                         <div>
-                            <label class="">Av. Paral·lel, 148 08015 Barcelona</label>
+                            <label class="txt_detallepantalla_calle">Av. Paral·lel, 148 08015 Barcelona</label>
                         </div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:40%">
-                                <label class="">Tipo de pantalla:</label>
+                                <label class="txt_detallepantalla_bold">Tipo de pantalla:</label>
                             </div>
                             <div class="ui-block-b" style="text-align:left">
-                                <label class="">Completa 200x200</label>
+                                <label class="txt_detallepantalla">Completa 200x200</label>
                             </div>
                         </div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:40%">
-                                <label class="">Localización:</label>
+                                <label class="txt_detallepantalla_bold">Localización:</label>
                             </div>
-                            <div class="ui-block-b" style="text-align:left">Interior
+                            <div class="ui-block-b txt_detallepantalla" style="text-align:left">Interior
                                 </label>
                             </div>
                         </div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:40%">
-                                <label class="">Establecimiento:</label>
+                                <label class="txt_detallepantalla_bold">Establecimiento:</label>
                             </div>
                             <div class="ui-block-b" style="text-align:left">
-                                <label class="">Zapatería</label>
+                                <label class="txt_detallepantalla">Zapatería</label>
                             </div>
                         </div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:40%">
-                                <label class="">Fecha:</label>
+                                <label class="txt_detallepantalla_bold">Fecha:</label>
                             </div>
                             <div class="ui-block-b" style="text-align:left">
-                                <label class="" id="lbnuevoAnuncio3Fecha">Zapatería</label>
+                                <label class="txt_detallepantalla" id="lbnuevoAnuncio3Fecha">Zapatería</label>
                             </div>
                         </div>
                         <div>
-                            <label class="">Horarios seleccionados:</label>
+                            <label class="txt_detallepantalla_bold">Horarios seleccionados:</label>
                         </div>
                         <div>
-                            <label class="">De 10:00 a 11:00h, de 11:00 a 12:00h</label>
+                            <label class="txt_detallepantalla">De 10:00 a 11:00h, de 11:00 a 12:00h</label>
                         </div>
                         <div>
-                            <label class="">Imagen:</label>
+                            <label class="txt_detallepantalla_bold">Imagen:</label>
                         </div>
                         <div>
-                            <label class="">Aún no se ha subido ninguna imagen</label>
+                            <label class="txt_detallepantalla">Aún no se ha subido ninguna imagen</label>
                         </div>
                     </div>
                 </div>
@@ -732,39 +729,39 @@
             </div>
         </div>
 
-        <div id="footer_comun" class="footer">
-                <div id="footernuevoAnuncio1">
+        <div id="footer_comun" class="footer_comun">
+                <div id="footernuevoAnuncio1" class="footer">
                     <button class="btn_blue" id="btnnuevoAnuncio1Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
                     <button class="btn_blue" id="btnnuevoAnuncio1Aceptar" data-icon="check" data-iconpos="right">Aceptar</button>
                 </div>
-                <div id="footernuevoAnuncio2">
+                <div id="footernuevoAnuncio2" class="footer">
                     <button class="btn_blue" id="btnnuevoAnuncio2Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
                     <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="eye" data-iconpos="right">Ver Disponibilidad</button>
                 </div>
-                <div id="footernuevoAnuncio3">
+                <div id="footernuevoAnuncio3" class="footer">
                     <button class="btn_blue" id="btnnnuevoAnuncio3Seguir" data-icon="check" data-iconpos="right">YA tengo mis pantallas, seguir</button>
                 </div>
-                <div id="footernuevoAnuncio4">
+                <div id="footernuevoAnuncio4" class="footer">
                     <button class="btn_blue" id="btnnnuevoAnuncio4Guardar" data-icon="check" data-iconpos="right">Guardar esta localización</button>
                 </div>
-                <div id="footernuevoAnuncio5">
+                <div id="footernuevoAnuncio5" class="footer">
                     <button class="btn_blue" id="btnnnuevoAnuncio5Volver" data-icon="back" data-iconpos="right">Volver</button>
                 </div>
-                <div id="footernuevoAnuncio6">
+                <div id="footernuevoAnuncio6" class="footer">
                     <button class="btn_gradient" id="btnnuevoAnuncio6Subir" data-icon="camera" data-iconpos="right">Subir imagen</button>
                     <button class="btn_blue" id="selectPicture" data-icon="camera" data-iconpos="right">Subir la misma imagen en todos</button>
                 </div>
-                <div id="footernuevoAnuncio7">
+                <div id="footernuevoAnuncio7" class="footer">
                     <button class="btn_blue" id="btnnuevoAnuncio7Subir" data-icon="action" data-iconpos="right">Subir</button>
                 </div>
-                <div id="footernuevoAnuncio8">
+                <div id="footernuevoAnuncio8" class="footer">
                     <button class="btn_blue" id="btnnuevoAnuncio8Previa" data-icon="eye" data-iconpos="right">Vista Previa</button>
                 </div>
-                <div id="footernuevoAnuncio9">
+                <div id="footernuevoAnuncio9" class="footer">
                     <button class="btn_blue" style="padding:10px" id="btnnuevoAnuncio9Cambiar" data-icon="recycle" data-iconpos="right">Cambiar</button>
                     <button class="btn_blue" id="btnnuevoAnuncio9Proceder" data-icon="shop" data-iconpos="right">Pagar</button>
                 </div>
-                <div id="footernuevoAnuncio10">
+                <div id="footernuevoAnuncio10" class="footer">
                     <button class="btn_blue" id="btnnuevoAnuncio10Comprar" data-icon="shop" data-iconpos="right">Comprar más Creditos</button>
                     <button class="btn_blue" id="btnnuevoAnuncio10Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
                 </div>

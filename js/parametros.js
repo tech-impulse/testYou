@@ -1,6 +1,6 @@
-//var url = "http://cli.youtter.com/1.2/webservice/";
+var url = "http://cli.youtter.com/1.3/webservice/";
 
-var url = "http://testhtml5.esadecreapolis.com/youtter/webservice/";
+//var url = "http://testhtml5.esadecreapolis.com/youtter/webservice/";
 
 // VARIABLES QUE SE USAN EN LA APP
 var fechaSeleccionada; // FECHA QUE SE SELECCIONA DEL CALENDARIO
