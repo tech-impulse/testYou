@@ -27,10 +27,13 @@ function ocultarElementosApp(actual) {
 
         if (actual == SECCIONES_APP[i]) {
             $('#' + actual).show();
-            //console.log(" MOSTRAR "+actual);
+            $('#footer' + actual).show();
+            //console.log("mostrar " + '#footer' + actual);
+            
         } else {
             $('#' + SECCIONES_APP[i]).hide();
-            //console.log(" OCULTAR "+actual);
+            $('#footer' + SECCIONES_APP[i]).hide();
+            //console.log("ocultar " + '#footer' + SECCIONES_APP[i]);
 
         }
     }

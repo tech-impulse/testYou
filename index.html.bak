@@ -5,8 +5,8 @@
     <title>YOUTTER</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=0.5, width=device-width, height=device-height" charset="utf-8" />
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css">
 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css">
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
     <!--<script type="text/javascript" charset="utf-8" src="lib/phonegap-1.1.0.js"></script> -->
@@ -21,12 +21,16 @@
     <script src="lib/jquery/datepicker.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script src="lib/jquery/jquery.ui.map.min.js"></script>
+
+
+
     <script src="js/login.js"></script>
     <script src="js/restJSON.js"></script>
     <script src="js/display_pantallas.js"></script>
     <script src="js/traducciones.js"></script>
     <script src="js/app.js"></script>
     <script src="js/parametros.js"></script>
+
     <STYLE type="text/css">
         @media all and (min-width: 36em) {
             .main {
@@ -56,7 +60,7 @@
     </STYLE>
 </head>
 
-<body class="body">
+<body>
 
     <!-- seccion de login  -->
     <div data-role="page" id="loginModule" data-title="Login">
@@ -64,20 +68,21 @@
         <!-- Pagina de login -->
         <div data-role="content">
             <div id="mainLogin" class="k-content">
+
                 <div class="ui-grid-b">
-                    <div class="ui-block-a" style="width:20%"></div>
-                    <div class="ui-block-b" style="text-align:center; width:60%">
-                        <img class="logo_youtter" src="./js/images/logo_youtter.png" style="max-width:300px" alt="logo YOUTTER"></img>
+                    <div class="ui-block-a" style="width:20%">
                     </div>
-                    <div class="ui-block-c" style="width:20%"></div>
+                    <div class="ui-block-b" style="text-align:center; width:60%">
+                        <img class="logo_youtter" src="./js/images/logo_youtter.png" style="width:100%; max-width:300px" alt="logo YOUTTER"></img>
+                    </div>
+                    <div class="ui-block-c" style="width:20%">
+                    </div>
                 </div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputLoginUsername" onclick="this.value='';" value="javier.fernandez@tech-impulse.com">
-                    </input>
+                    <input class="txt_textfield_in" type="text" id="inputLoginUsername" onclick="this.value='';" value="javier.fernandez@tech-impulse.com"></input>
                 </div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="password" id="inputLoginPassword" onclick="this.value='';" value="test">
-                    </input>
+                    <input class="txt_textfield_in" type="password" id="inputLoginPassword" onclick="this.value='';" value="test"></input>
                 </div>
                 <div theme="a">
                     <button type="button" data-role="button" id="btnLogIn" data-theme="a" class="btn_gradient">Entrar</button>
@@ -90,17 +95,20 @@
                 <div theme="a" style="text-align: center">
                     <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
                 </div>
+
             </div>
+
 
             <!-- Pagina de reestablecer contraseña -->
             <div id="resetPassword" class="k-content">
                 <div data-role="header" class="cabecera">
-                    <div id="tituloResetPassword">Reestablecer contraseña</div>
+                    <div id="tituloResetPassword">Reestablecer la contraseña</div>
                 </div>
+
                 <div class="txt_centrals" theme="a" id="textResetPassword">Introduce tu nombre de usuario y te enviaremos las instrucciones para reestablecer tu contraseña al correo que nos facilitaste al crear tu cuenta.</div>
+
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputUserResetPassword" value="Usuario">
-                    </input>
+                    <input class="txt_textfield_in" type="text" id="inputUserResetPassword" value="Usuario"></input>
                 </div>
                 <div theme="a">
                     <button type="button" data-role="button" id="btnOkResetPassword" data-theme="a" class="btn_gradient">Reestablecer contraseña</button>
@@ -108,16 +116,20 @@
                 <div theme="a">
                     <button type="button" data-role="button" id="btnCancelResetPassword" data-theme="a" class="btn_blue">Cancelar</button>
                 </div>
+
                 <div theme="a" style="text-align: center">
                     <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
                 </div>
             </div>
 
+
             <!-- Finalizar reset contraseña -->
             <div id="resetPasswordFinish" class="k-content">
+
                 <div theme="a" style="text-align: center">
                     <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER" style="width:300px"></img>
                 </div>
+
                 <div theme="a" id="textResetPasswordFinish" class="txt_centrals">¡Gracias!
                     <br>Ahora mira tu bandeja de entrada y sigui las instrucciones para reestablecer tu contraseña</div>
                 <div theme="a">
@@ -128,53 +140,56 @@
                 </div>
             </div>
 
+
             <!-- Nueva cuenta -->
             <div id="newAccount" class="k-content">
                 <div data-role="header" class="cabecera">
-                    <div id="tituloNewAccount">Crear cuenta</div>
+                    <div id="tituloNewAccount">Crear nueva cuenta en youtter</div>
                 </div>
+
                 <div theme="a" id="lbNewAccountNombre" class="txt_textfield_out">Nombre</div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputNewAccountNombre">
-                    </input>
+                    <input class="txt_textfield_in" type="text" id="inputNewAccountNombre"></input>
                 </div>
                 <div theme="a" id="lbNewAccountApellidos" class="txt_textfield_out">Apellidos</div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputNewAccountApellidos">
-                    </input>
+                    <input class="txt_textfield_in" type="text" id="inputNewAccountApellidos"></input>
                 </div>
                 <div theme="a" id="lbNewAccountEmail" class="txt_textfield_out">Correo electrónico</div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputNewAccountEmail">
-                    </input>
+                    <input class="txt_textfield_in" type="text" id="inputNewAccountEmail"></input>
                 </div>
                 <div theme="a" id="lbNewAccountPass" class="txt_textfield_out">Contraseña</div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputNewAccountPass">
-                    </input>
+                    <input class="txt_textfield_in" type="text" id="inputNewAccountPass"></input>
                 </div>
                 <div theme="a" id="lbNewAccountPass2" class="txt_textfield_out">Repetir contraseña</div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputNewAccountPass2">
-                    </input>
+                    <input class="txt_textfield_in" type="text" id="inputNewAccountPass2"></input>
                 </div>
+
                 <div theme="a" style="text-align: center" id="textNewAccount" class="txt_legal">Al hacer clic en "crear nueva cuenta" muestras tu conformidad con nuestras <a>Condiciones de Youtter</a> y aceptas haber leído nuestra <a>politica de privacidad</a>, incluida la sección sobre Uso de coockies. Es posible que recibas notificaciones SMS de Youtter que puedes desactivar en cualquier momento.</div>
+
                 <div theme="a">
                     <button type="button" data-role="button" id="btnOkNewAccount" data-theme="a" class="btn_gradient">Crear nueva cuenta</button>
                 </div>
                 <div theme="a">
                     <button type="button" data-role="button" id="btnCancelNewAccount" data-theme="a" class="btn_blue">Cancelar</button>
                 </div>
+
                 <div theme="a" style="text-align: center">
                     <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
                 </div>
             </div>
 
+
             <!-- Finalizar reset contraseña -->
             <div id="newAccountFinish" class="k-content">
+
                 <div theme="a" style="text-align: center">
                     <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER" style="width:300px"></img>
                 </div>
+
                 <div theme="a" id="textNewAccountFinish" class="txt_centrals">¡Gracias!
                     <br>Ya puedes empezar a disfrutar de todas las posibilidades de youtter.</div>
                 <div theme="a">
@@ -183,7 +198,9 @@
                 <div theme="a" style="text-align: center">
                     <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
                 </div>
+
             </div>
+
 
             <!-- Pop up de comunicación BOTON ACEPTAR -->
             <div data-role="popup" id="loginPopUp" class="" data-overlay-theme="a" data-transition="flip" data-theme="a">
@@ -191,9 +208,11 @@
                     <div id="tituloPopUpLogin">Error</div>
                 </div>
                 <div data-role="content">
+
                     <div>
                         <label id="lbPopUpLogin" class="txt_centrals">Texto Generico</label>
                     </div>
+
                 </div>
                 <div>
                     <button type="button" id="btnPopUpLogin" data-theme="a">Aceptar</button>
@@ -202,11 +221,13 @@
         </div>
     </div>
 
-    <!-- DENTRO DE APP UNA VEZ LOGADO  -->
+
+    <!-- DENTRO DE APP UNA VEZ LOGADO   -->
     <div data-role="page" id="app" data-title="YOUTTER - APP" style="overflow-y:hidden; background-color:#f1eff7; layer-background-color:#f1eff7;">
 
         <!-- Menu lateral desplazable -->
         <div data-role="panel" id="navpanel" data-theme="a" data-display="overlay" data-position="left">
+
             <div data-role="controlgroup" data-theme="a" data-corners="false">
                 <ul data-role="listview">
                     <li data-role="list-divider" id="btnMenuPrincipal">Menú</li>
@@ -223,7 +244,7 @@
                     <li id="btnMenuCreditos" class="listasMenu">
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:20%">
-                                <img class="icn_menu" src="js/images/icno_miscreditos.png" alt="creditos">
+                                <img src="js/images/icno_miscreditos.png" alt="creditos">
                             </div>
                             <div class="ui-block-b" style="width:80%" id="menuCreditos">
                                 <label class="txt_menu">Créditos</label>
@@ -233,7 +254,8 @@
                     <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuAnuncios">
                             <div class="ui-block-a" style="width:20%">
-                                <img class="icn_menu" src="js/images/icno_misanuncios.png" alt="Mis anuncios">
+                                <img src="js/images/icno_misanuncios.png" alt="Mis anuncios">
+
                             </div>
                             <div class="ui-block-b" style="width:80%" id="menuAnuncios">
                                 <label class="txt_menu">Mis anuncios</label>
@@ -243,7 +265,7 @@
                     <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuEstadisticas">
                             <div class="ui-block-a" style="width:20%">
-                                <img class="icn_menu" src="js/images/icno_estadisticas.png" alt="logo cuenta">
+                                <img src="js/images/icno_estadisticas.png" alt="logo cuenta">
                             </div>
                             <div class="ui-block-b" style="width:80%" id="menuEstadisticas">
                                 <label class="txt_menu">Estadísticas</label>
@@ -253,7 +275,7 @@
                     <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuCrearAnuncio">
                             <div class="ui-block-a" style="width:20%">
-                                <img class="icn_menu" src="js/images/icno_crearanuncio.png" alt="Crear Anuncio">
+                                <img src="js/images/icno_crearanuncio.png" alt="Crear Anuncio">
                             </div>
                             <div class="ui-block-b" style="width:80%" id="menuCrearAnuncio">
                                 <label class="txt_menu">Crear anuncio</label>
@@ -263,7 +285,7 @@
                     <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuSalir">
                             <div class="ui-block-a" style="width:20%">
-                                <img class="icn_menu" src="js/images/icno_logout.png" alt="Salir">
+                                <img src="js/images/icno_logout.png" alt="Salir">
                             </div>
                             <div class="ui-block-b" style="width:80%" id="menuSalir">
                                 <label class="txt_menu">Salir</label>
@@ -273,7 +295,7 @@
                     <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuCondiciones">
                             <div class="ui-block-a" style="width:20%">
-                                <img class="icn_menu" src="js/images/icno_legal.png" alt="politicas">
+                                <img src="js/images/icno_legal.png" alt="politicas">
                             </div>
                             <div class="ui-block-b" style="width:80%" id="menuCondiciones">
                                 <label class="txt_menu">Condiciones y políticas</label>
@@ -283,7 +305,7 @@
                     <li class="listasMenu">
                         <div class="ui-grid-a" id="btnMenuProblema">
                             <div class="ui-block-a" style="width:20%">
-                                <img class="icn_menu" src="js/images/icno_incidencia.png" alt="Problema">
+                                <img src="js/images/icno_incidencia.png" alt="Problema">
                             </div>
                             <div class="ui-block-b" style="width:80%" id="menuProblema">
                                 <label class="txt_menu">Informe de un problema</label>
@@ -296,41 +318,49 @@
 
         <!-- HEADER DE TODA LA SECCION --->
 
+
         <div class="cabecera" id="header_app" data-position="fixed" data-tap-toggle="false">
-            <div class="ui-grid-b" style="margin-right:15px;margin-left:15px">
+
+            <div class="ui-grid-b" style="margin-right:20px;margin-left:20px">
                 <center>
                     <div class="ui-block-a btn_menu_izq" style="width: 25%; text-align: left">
                         <a id="bars-button" class="ui-btn-center" href="#navpanel">
-                            <img src="./js/images/icno_menu.png" alt="header Izquierda" style="width:25px; height:24px;">
+                            <img src="./js/images/icno_menu.png" alt="header Izquierda">
                         </a>
                     </div>
+
                     <div class="ui-block-b" style="width: 50%; text-align: center">
                         <label id="tituloSeccion" class="HEADER">TITULO</label>
                     </div>
-                    <div class="ui-block-c btn_menu_dere" style="width: 25%; text-align: right">
+
+                    <div class="ui-block-c btn_menu_dere" style="width: 22%; text-align: right">
                         <a id="bars-button" class="ui-btn-center" href="#navpanel">
-                            <img src="./js/images/btn_web_youtter_semi.png" alt="header Derecha" style="width:30px; height:29px;">
+                            <img src="./js/images/btn_web_youtter_semi.png" alt="header Derecha">
                         </a>
                     </div>
                 </center>
+
             </div>
+
         </div>
+
         <div id="mainMenu" class="k-content" style="padding=0">
             <div class="img_menu_principal">
                 <img src="js/images/fondo_main.png" style="width:100%;" alt="IMAGEN MENU PRINCIPAL">
             </div>
             <center>
-                <div style="background-image: url('js/images/fondo_main2.png'); background-size: contain; background-repeat: no-repeat; height:16em">
+                <div style="height:16em; width:100%; background-image: url(js/images/fondo_main2.png); background-size: contain; background-repeat: no-repeat;">
                     <div class="ui-grid-a">
-                        <div class="ui-block-a" id="MainMenuOpcion1" style="height:8em; width:50%">
+                        <div class="ui-block-a" style="height:8em; width:50%;" id="MainMenuOpcion1">
                         </div>
-                        <div class="ui-block-b" id="MainMenuOpcion3" style="height:8em; width:50%">
+                        <div class="ui-block-b"  style="height:8em; width:50%;" id="MainMenuOpcion2">
                         </div>
+
                     </div>
                     <div class="ui-grid-a">
-                        <div class="ui-block-a" id="MainMenuOpcion2" style="height:8em; width:50%">
+                        <div class="ui-block-a"  style="height:8em; width:50%;" id="MainMenuOpcion3">
                         </div>
-                        <div class="ui-block-b" id="MainMenuOpcion4" style="height:8em; width:50%">
+                        <div class="ui-block-b"  style="height:8em; width:50%;" id="MainMenuOpcion4">
                         </div>
                     </div>
                 </div>
@@ -343,6 +373,7 @@
                         <div class="ui-block-b" id="MainMenuOpcion2" style="margin-right:10%; width:40%">
                             <img class="icnos_menu" src="js/images/btn_big_miscreditos.png" alt="MIS ANUNCIOS">
                         </div>
+
                     </div>
                     <div class="ui-grid-a">
                         <div class="ui-block-a" id="" style="margin-left:10%; width:40%">
@@ -351,7 +382,9 @@
                         <div class="ui-block-b" id="" style="margin-right:10%; width:40%">
                             <label class="nombres_menu">Mis créditos</label>
                         </div>
+
                     </div>
+
                     <div class="ui-grid-a">
                         <div class="ui-block-a" id="MainMenuOpcion3" style="margin-left:10%; width:40%">
                             <img class="icnos_menu" src="js/images/btn_big_misanuncios.png" alt="MIS ANUNCIOS">
@@ -359,6 +392,7 @@
                         <div class="ui-block-b" id="MainMenuOpcion4" style="margin-right:10%; width:40%">
                             <img class="icnos_menu" src="js/images/btn_big_micuenta.png" alt="ESTADISTICAS">
                         </div>
+
                     </div>
                     <div class="ui-grid-a">
                         <div class="ui-block-a" id="" style="margin-left:10%; width:40%">
@@ -367,23 +401,28 @@
                         <div class="ui-block-b" id="" style="margin-right:10%; width:40%">
                             <label class="nombres_menu">Mi cuenta</label>
                         </div>
+
                     </div>
-                </div>
--->
+                </div> -->
             </center>
+
         </div>
+
 
         <!-- Menu inicial -->
         <div data-role="content" style="overflow-y:hidden; overflow-x:hidden">
 
             <!-- Menu principal  -->
             <div id="creditosMain" class="k-content">
+
                 <div class="txt_centrals_sin_bottom" id="textCreditosMain">Actualmente tienes:
                     <br/>
-                    <img class="img_creditos" src="js/images/img_creditos.png" width="186" height="143">
+                    <img class="img_creditos" src="js/images/img_creditos.png">
                 </div>
+
                 <div class="num_creditos" id="numCreditosMain" back-ground="">45:30</div>
                 <div class="creditos">créditos</div>
+
                 <div>
                     <button type="button" id="btnCreditosMainComprar" class="btn_gradient">Comprar más creditos</button>
                 </div>
@@ -393,34 +432,52 @@
                 <div>
                     <button type="button" id="btnCreditosMainCancel" class="btn_blue">Volver</button>
                 </div>
+
+
             </div>
+
 
             <!-- Consulta del numero de creditos -->
             <div id="creditosHistorico" class="k-content">
+
                 <div class="txt_centrals" id="textCreditosHistorico">Actualmente tienes:</div>
+
                 <div id="tablaCreditosHistorico"></div>
+
             </div>
 
             <!-- Comprar paquetes de creditos-->
             <div id="creditosPaquetes" class="k-content">
+
                 <div class="txt_centrals" id="textcreditosPaquetes">¿Cuantos creditos quieres comprar?</div>
+
                 <div id="paquetesCreditos"></div>
+
             </div>
+
 
             <!-- Estadisticas -->
             <div id="estadisticas" class="k-content">
+
                 <div id="">Estadisticas</div>
+
                 <div id=""></div>
+
             </div>
+
 
             <!-- Mi cuenta -->
             <div id="miCuenta" class="k-content">
+
                 <div id="">Mi cuenta</div>
+
                 <div id=""></div>
+
             </div>
 
             <!-- Mis anuncios -->
             <div id="misAnuncios" class="k-content">
+
                 <ul data-role="listview" data-inset="true">
                     <li>
                         <img src="js/images/anuncios/1.jpg">
@@ -457,26 +514,51 @@
                                 <button class="btn_lightblue.css" data-theme="b" id="btnmisAnuncios1">Relanzar</button>
                             </div>
                         </div>
+
+
                     </li>
                 </ul>
             </div>
+
+
             <div id="nuevoAnuncio1">
-                <h3 class="ui-bar ui-bar-a div_titulo_pagina" style="color:#000;">Selecciona las fechas</h3>
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina">Selecciona las fechas</h3>
                 <div id="calendar"></div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <button class="btn_blue" id="btnnuevoAnuncio1Cancelar">Cancelar</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button class="btn_blue" id="btnnuevoAnuncio1Aceptar">Aceptar</button>
+                    </div>
+                </div>
+
             </div>
 
             <div id="nuevoAnuncio2">
-                <h3 class="ui-bar ui-bar-a div_titulo_pagina">Selecciona zona geográfica</h3>
+                <h2 class="ui-bar ui-bar-a div_titulo_pagina">Selecciona zona geográfica</h2>
                 <label id="lbnuevoAnuncio2" class="txt_centrals">Introduce el código postal de la zona donde quieres que tu anuncio aparezca y te daremos las mejores opciones según las fechas que has escogido previamente</label>
-                <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal">
-                </input>
+                <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal"></input>
+
                 <div data-role="collapsible" id="divnuevoAnuncio2Lista" data-theme="b" data-content-theme="b">
-                    <h5 id="txtnuevoAnuncio2" class="select_zona">Seleccionar zona</h5>
+                    <h3 id="txtnuevoAnuncio2">Selecciona zona geografica</h3>
                     <ul data-role="listview" id="ulnuevoAnuncio2" data-filter="true">
                     </ul>
                 </div>
 
+
+                <img class="" src="js/images/pending.png" align="center">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <button class="btn_blue" id="btnnuevoAnuncio2Cancelar">Cancelar</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad">Ver disponibilidad</button>
+                    </div>
+                </div>
             </div>
+
+
             <div id="nuevoAnuncio3" style="overflow-y:hidden; overflow-x:hidden">
                 <div data-role="navbar">
                     <ul>
@@ -503,8 +585,11 @@
                 </div>
                 <ul data-role="listview" data-inset="true" data-divider-theme="a" id="ulnuevoAnuncio3">
                 </ul>
+                <button class="btn_blue" id="btnnnuevoAnuncio3Seguir">YA tengo mis pantallas, seguir</button>
+
 
             </div>
+
             <div id="nuevoAnuncio4" style="overflow-y:hidden; overflow-x:hidden">
                 <div data-role="navbar">
                     <ul>
@@ -531,6 +616,7 @@
                 </div>
                 <ul data-role="listview" id="ulnuevoAnuncio4Detalles" data-inset="true" data-divider-theme="a">
                     <li data-role="list-divider" style="color:black; font-weight:bold" id="linuevoAnuncio4Codigo"></li>
+
                     <div class="ui-body ui-body-a">
                         <div>
                             <label class="" id="lbnuevoAnuncio4Calle"></label>
@@ -581,15 +667,23 @@
                     <form>
                         <input type="range" step="10" id="innuevoAnuncio4Segundos" name="slider-2" id="slider-2" data-highlight="true" min="10" max="2520" value="10">
                     </form>
+
                 </ul>
+                <button class="btn_blue" id="btnnnuevoAnuncio4Guardar">Guardar esta localización</button>
 
             </div>
+
             <div id="nuevoAnuncio5" style="overflow-y:hidden; overflow-x:hidden">
                 <div data-role="content">
+
                     <div id="divnuevoAnuncio5Mapa" style="width:100%;height:400px;"></div>
                 </div>
+                <button class="btn_blue" id="btnnnuevoAnuncio5Volver">Volver</button>
 
             </div>
+
+
+
             <div id="nuevoAnuncio6" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-corner-all custom-corners">
                     <div class="ui-bar ui-bar-a">
@@ -611,8 +705,7 @@
                             <div class="ui-block-a" style="width:40%">
                                 <label class="">Localización:</label>
                             </div>
-                            <div class="ui-block-b" style="text-align:left">Interior
-                                </label>
+                            <div class="ui-block-b" style="text-align:left">Interior</label>
                             </div>
                         </div>
                         <div class="ui-grid-a">
@@ -646,14 +739,19 @@
                     </div>
                 </div>
 
+                <button class="btn_gradient" id="btnnuevoAnuncio6Subir">Subir imagen</button>
+                <button class="btn_blue" id="selectPicture">Subir la misma imagen en todos</button>
+
             </div>
+
             <div id="nuevoAnuncio7" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-bar ui-bar-a">
                     <h3 style="color:black; font-weight:bold">Subir Imagen</h3>
                 </div>
                 <div data-role="content">
                     <div id="">
-                        <label class="txt_centrals" id="lbnuevoAnuncio7Texto">Sube la imagen que se verá en las pantallas.
+                        <label class="txt_centrals" id="lbnuevoAnuncio7Texto">
+                            Sube la imagen que se verá en las pantallas.
                             <br>Recuerda que el tamaño para que tu anuncio se vea de manera óptima es de 200x200.
                             <br>
                             <br>Formatos aceptados
@@ -665,15 +763,18 @@
                     <label for="file">Filename:</label>
                     <input type="file" name="file" id="file">
                 </form>
+                <button class="btn_blue" id="btnnuevoAnuncio7Subir">Subir</button>
 
             </div>
+
             <div id="nuevoAnuncio8" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-bar ui-bar-a">
                     <h3 style="color:black; font-weight:bold">Subir Imagen</h3>
                 </div>
                 <div data-role="content">
                     <div id="">
-                        <label class="txt_centrals" id="lbnuevoAnuncio8Texto">Sube la imagen que se verá en las pantallas.
+                        <label class="txt_centrals" id="lbnuevoAnuncio8Texto">
+                            Sube la imagen que se verá en las pantallas.
                             <br>Recuerda que el tamaño para que tu anuncio se vea de manera óptima es de 200x200.
                             <br>
                             <br>Formatos aceptados
@@ -683,14 +784,25 @@
                         <div id="divnuevoAnuncio8Previa"></div>
                     </div>
                 </div>
+                <button class="btn_blue" id="btnnuevoAnuncio8Previa">Vista Previa</button>
 
             </div>
+
             <div id="nuevoAnuncio9" style="overflow-y:hidden; overflow-x:hidden">
                 <div data-role="content">
                     <div id="divnuevoAnuncio9Previa" style="width:100%;height:400px;">
                         <center>
                             <img id="imgnuevoAnuncio9" height="200" width="200">
                         </center>
+                    </div>
+
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <button class="btn_blue" id="btnnuevoAnuncio9Cambiar">Cambiar</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button class="btn_blue" id="btnnuevoAnuncio9Proceder">Pagar</button>
                     </div>
                 </div>
 
@@ -708,8 +820,11 @@
                             <button class="btn_blue" id="btnnuevoAnuncio10Paypal">Con Paypal</button>
                         </div>
                     </div>
+                    <button class="btn_blue" id="btnnuevoAnuncio10Comprar">Comprar más Creditos</button>
+                    <button class="btn_blue" id="btnnuevoAnuncio10Cancelar">Cancelar</button>
 
                 </div>
+
             </div>
 
             <!-- Pop up de comunicación BOTON ACEPTAR -->
@@ -730,47 +845,10 @@
                     <button type="button" class="btn_blue" id="btnPopUpAviso" data-theme="a">Aceptar</button>
                 </div>
             </div>
-        </div>
 
-        <div id="footer_comun" class="footer">
-                <div id="footernuevoAnuncio1">
-                    <button class="btn_blue" id="btnnuevoAnuncio1Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
-                    <button class="btn_blue" id="btnnuevoAnuncio1Aceptar" data-icon="check" data-iconpos="right">Aceptar</button>
-                </div>
-                <div id="footernuevoAnuncio2">
-                    <button class="btn_blue" id="btnnuevoAnuncio2Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
-                    <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="eye" data-iconpos="right">Ver Disponibilidad</button>
-                </div>
-                <div id="footernuevoAnuncio3">
-                    <button class="btn_blue" id="btnnnuevoAnuncio3Seguir" data-icon="check" data-iconpos="right">YA tengo mis pantallas, seguir</button>
-                </div>
-                <div id="footernuevoAnuncio4">
-                    <button class="btn_blue" id="btnnnuevoAnuncio4Guardar" data-icon="check" data-iconpos="right">Guardar esta localización</button>
-                </div>
-                <div id="footernuevoAnuncio5">
-                    <button class="btn_blue" id="btnnnuevoAnuncio5Volver" data-icon="back" data-iconpos="right">Volver</button>
-                </div>
-                <div id="footernuevoAnuncio6">
-                    <button class="btn_gradient" id="btnnuevoAnuncio6Subir" data-icon="camera" data-iconpos="right">Subir imagen</button>
-                    <button class="btn_blue" id="selectPicture" data-icon="camera" data-iconpos="right">Subir la misma imagen en todos</button>
-                </div>
-                <div id="footernuevoAnuncio7">
-                    <button class="btn_blue" id="btnnuevoAnuncio7Subir" data-icon="action" data-iconpos="right">Subir</button>
-                </div>
-                <div id="footernuevoAnuncio8">
-                    <button class="btn_blue" id="btnnuevoAnuncio8Previa" data-icon="eye" data-iconpos="right">Vista Previa</button>
-                </div>
-                <div id="footernuevoAnuncio9">
-                    <button class="btn_blue" style="padding:10px" id="btnnuevoAnuncio9Cambiar" data-icon="recycle" data-iconpos="right">Cambiar</button>
-                    <button class="btn_blue" id="btnnuevoAnuncio9Proceder" data-icon="shop" data-iconpos="right">Pagar</button>
-                </div>
-                <div id="footernuevoAnuncio10">
-                    <button class="btn_blue" id="btnnuevoAnuncio10Comprar" data-icon="shop" data-iconpos="right">Comprar más Creditos</button>
-                    <button class="btn_blue" id="btnnuevoAnuncio10Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
-                </div>
         </div>
-
     </div>
+
 </body>
 
 </html>

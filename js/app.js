@@ -90,6 +90,26 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    $('#MainMenuOpcion11').unbind('click').bind('click', function () {
+        alert("1");
+
+    });
+
+    $('#MainMenuOpcion22').unbind('click').bind('click', function () {
+        alert("2");
+
+    });
+
+    $('#MainMenuOpcion33').unbind('click').bind('click', function () {
+        alert("3");
+
+    });
+
+    $('#MainMenuOpcion44').unbind('click').bind('click', function () {
+        alert("4");
+
+    });
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREDITOS
 
@@ -151,6 +171,14 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    $('#divnuevoAnuncio2Lista').bind('expand', function () {
+        alert('Expanded');
+    }).bind('collapse', function () {
+        alert('Collapsed');
+    });
+
+
+
     //Crear anuncio 3 - Botón para continuar
 
     $('#btnnnuevoAnuncio3Seguir').unbind('click').bind('click', function () {
@@ -180,22 +208,20 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 4 - Boton para Guiardar
     $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
 
-       if ($("#innuevoAnuncio4Inicio").val()<$("#innuevoAnuncio4Fin").val())
-       {
-           horaInicio= $("#innuevoAnuncio4Inicio").val();
-           horaFin = $("#innuevoAnuncio4Fin").val();
-           creditos = $("#innuevoAnuncio4Segundos").val();
-           displayNuevoAnuncio3();
-           
-       }
-        else {
+        if ($("#innuevoAnuncio4Inicio").val() < $("#innuevoAnuncio4Fin").val()) {
+            horaInicio = $("#innuevoAnuncio4Inicio").val();
+            horaFin = $("#innuevoAnuncio4Fin").val();
+            creditos = $("#innuevoAnuncio4Segundos").val();
+            displayNuevoAnuncio3();
+
+        } else {
             alert("Debe seleccionar una franja horaria correcta!");
         }
 
 
     });
 
-    
+
 
 
 
@@ -298,6 +324,8 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
 
+
+
 });
 
 // CONTROL DE ERRORES DE SUBIDA DE IMAGENES
@@ -383,11 +411,18 @@ function procesoNuevoAnuncio2(listaLocalizaciones) {
 
 function cerrarLista(posicion) {
 
-    $("#txtnuevoAnuncio2").trigger("click");
+        $("#txtnuevoAnuncio2").trigger("click");
+        document.getElementById("txtnuevoAnuncio2").innerHTML = '<a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-plus ui-btn-icon-left ui-btn-b">' + $("#linuevoAnuncio2-" + posicion).text() + '</a>';
+        $("#inputnuevoAnuncio2").val(08203); // Solucion temporal para poder testear
+    
+}
 
-    document.getElementById("txtnuevoAnuncio2").innerHTML = '<a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-plus ui-btn-icon-left ui-btn-b">' + $("#linuevoAnuncio2-" + posicion).text() + '</a>';
-
-    $("#inputnuevoAnuncio2").val(08203); // Solucion temporal para poder testear
+function ocultarDiv(div){
+     if ($(div).is(":visible")) {
+        $(div).hide();
+    } else {
+        $(div).show();
+    }
 }
 
 function procesoNuevoAnuncio3(listaLocalizaciones) {
@@ -573,7 +608,7 @@ function mostrarPaquetesCreditos() {
         }).appendTo(div3);
 
 
-        $(div4).append('<img src="js/images/img_creditos.png" height="64px" width="64px">');
+        $(div4).append('<img src="js/images/img_creditos.png" height="50px" width="38px">');
         $(div5).append('<label>' + paquete.cantidad + '</label>');
         $(div5).append(' <label> créditos </label>');
         $(div2).append('<button class="btn_blue ui-btn ui-shadow ui-corner-all">' + paquete.precio + '</button>');
@@ -586,7 +621,7 @@ function mostrarPaquetesCreditos() {
 
 //Proceso de compra de creditos
 function procesoCompraCreditos(id) {
-    
+
     restComprarCreditos(id);
 
     //alert("comprar paquete con id " + id);

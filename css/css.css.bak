@@ -18,7 +18,7 @@ html {
     margin-right: auto;
     /* Fix for absolute positioning */
 }
-.body {
+body {
     background-color: #e2e1e5;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -29,7 +29,7 @@ html {
 }
 .cabecera {
     width: 100%;
-    height: 55px;
+    height: 67px;
     background-color: #e3157d!important;
     /* Old browsers */
     background-image: -moz-linear-gradient(left, #e3157d 0%, #643188 50%, #30368b 100%)!important;
@@ -48,9 +48,9 @@ html {
     /* IE6-8 */
     /* IE9 SVG, necesita condicional que te pongo en html */
     font-family: myfont!important;
-    font-size: 20px!important;
+    font-size: 22px!important;
     font-weight: normal!important;
-    line-height: 2.5em!important;
+    line-height: 2.7em!important;
     letter-spacing: 0.1em!important;
     color: #fff!important;
     text-align: center!important;
@@ -58,12 +58,10 @@ html {
     border: 0px!important;
 }
 .div_titulo_pagina {
-    color: #000 !important;
-    font-size: 15px !important;
-    line-height: 2.2em !important;
-    background-color: #f1eff7 !important;
-    border: none !important;
-    text-align: center !important;
+    color: #fff;
+    font-size: 16px;
+    background-color: #e2e1e5 !important;
+    text-align: center;
 }
 /*  BOTONES  */
 
@@ -72,8 +70,8 @@ html {
     border-radius: 5px !important;
     /*---------------------------------------- Puede que no lo necesites*/
     font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: normal !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
     line-height: 1.7em !important;
     color: #fff !important;
     text-align: center !important;
@@ -81,16 +79,14 @@ html {
     margin: 10px 0 10px 0 !important;
     /*---------------------------------------- Puede que no lo necesites*/
     border: 0px;
-    letter-spacing: 0.05em;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 }
 .btn_lightblue {
     background-color: #9e97b4 !important;
     border-radius: 5px !important;
     /*---------------------------------------- Puede que no lo necesites*/
     font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: normal !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
     line-height: 1.7em !important;
     color: #fff !important;
     text-align: center !important;
@@ -98,8 +94,6 @@ html {
     margin: 10px 0 10px 0 !important;
     /*---------------------------------------- Puede que no lo necesites*/
     border: 0px;
-    letter-spacing: 0.05em;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 }
 .btn_gradient {
     background-color: #e3157d;
@@ -122,8 +116,8 @@ html {
     border-radius: 5px!important;
     /*---------------------------------------- Puede que no lo necesites*/
     font-family: Arial, Helvetica, sans-serif!important;
-    font-size: 14px!important;
-    font-weight: normal!important;
+    font-size: 16px!important;
+    font-weight: bold!important;
     line-height: 1.7em!important;
     color: #fff!important;
     text-align: center!important;
@@ -132,21 +126,15 @@ html {
     !important
     /*---------------------------------------- Puede que no lo necesites*/
     border: 0px!important;
-    letter-spacing: 0.05em;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 }
 .btn_web_youtter {
     padding-top: 5%;
-    width: 114px;
-    height: 78px;
 }
 .btn_menu_izq {
-    margin-top: 5px;
+    margin-top: 20px;
 }
 .btn_menu_dere {
-    margin-top: 5px;
-    width: 25px;
-    height: 24px;
+    margin-top: 20px;
 }
 /*  TEXTOS  */
 
@@ -172,8 +160,7 @@ html {
     text-align: center;
     margin-top: 10%;
     margin-bottom: 10%;
-    padding: 0 5% 10px;
-    5%;
+    padding: 0 5% 0 5%;
 }
 .txt_centrals_sin_bottom {
     color: #000;
@@ -215,15 +202,13 @@ a:active {
 .icno_menu {
     text-align: left;
     vertical-align: middle;
-    padding: 2px 0 2px 0;
+    padding: 5px 0 5px 0;
     display: inline;
-    width: 232px;
-    height: 90px;
 }
 .txt_menu {
-    line-height: 2.2em;
+    line-height: 3em;
     color: #30368b;
-    padding: 0 0 0 5px;
+    padding: 0 0 0 10px;
     display: inline;
 }
 .line_menu {
@@ -232,9 +217,8 @@ a:active {
 /*  VENTANA LOGIN  */
 
 .logo_youtter {
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
 }
 .olvidarcontrasena {
     line-height: 4.0em;
@@ -244,19 +228,17 @@ a:active {
 
 .img_menu_principal {
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 9%;
 }
 .nombres_menu {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
     line-height: normal;
     color: #30368b;
     padding-left: 10px;
 }
 .icnos_menu {
-    margin: 5px 5px 2px 5px;
-    width: 90px;
-    height: 90px;
+    margin: 5px 5px 5px 5px;
 }
 /*  VENTANA MIS CREDITOS  */
 
@@ -264,8 +246,6 @@ a:active {
     margin-top: 4%;
     max-width: 150px;
     margin-bottom: 3%;
-    width: 90px;
-    height: 69px;
 }
 .num_creditos {
     text-align: center;
@@ -287,27 +267,4 @@ a:active {
 }
 #app #navpanel.ui-panel {
     width: 20em;
-}
-/*  VENTANA CALENDARIO  */
-
-.pad_inferior {
-    padding-top: 15px;
-}
-.select_zona {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: normal;
-    line-height: 1.2em;
-    color: #000;
-    text-align: left;
-    padding-left: 15px;
-}
-.icn_menu {
-    width: 36px;
-    height: 36px;
-}
-.footer {
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
 }
