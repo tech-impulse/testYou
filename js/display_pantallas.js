@@ -29,7 +29,7 @@ function ocultarElementosApp(actual) {
             $('#' + actual).show();
             $('#footer' + actual).show();
             //console.log("mostrar " + '#footer' + actual);
-            
+
         } else {
             $('#' + SECCIONES_APP[i]).hide();
             $('#footer' + SECCIONES_APP[i]).hide();
@@ -113,20 +113,14 @@ function displayMiCuenta() {
 function displayCreditosMain() {
     var p = "creditosMain";
 
-    localStorage['pantalla'] = p;
-
-    ocultarElementosApp(p);
-
-}
-
-function displayCreditosMain() {
-    var p = "creditosMain";
+    $("#numCreditosMain").text(parseInt(creditosDisponibles));
 
     localStorage['pantalla'] = p;
 
     ocultarElementosApp(p);
 
 }
+
 
 function displayCreditosPaquetes() {
 
@@ -180,6 +174,13 @@ function displayNuevoAnuncio() {
     localStorage['pantalla'] = p;
 
     ocultarElementosApp(p);
+
+    if (calendario == true) {
+        console.log("El calendario es neceario");
+    } else {
+        console.log("El calendario NO es neceario");
+        displayNuevoAnuncio6();
+    }
 
 }
 
@@ -263,5 +264,38 @@ function displayNuevoAnuncio10() {
     localStorage['pantalla'] = p;
 
     ocultarElementosApp(p);
+
+}
+
+function displaySeleccion(opcion) {
+    
+    $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: "+parseInt(creditosDisponibles * 10)+" creditos");
+
+    if (opcion == "seleccion") {
+        $('#divnuevoAnuncio4FranjasHorarias1').show();
+        $('#divnuevoAnuncio4FranjasHorarias2').show();
+        calendario = true;
+        var input = document.getElementById("innuevoAnuncio4Segundos");
+        if ((creditosDisponibles * 10) >= 2520) {
+            input.setAttribute("max", 2520);
+        } else {
+            input.setAttribute("max", parseInt(creditosDisponibles * 10));
+        }
+        input.setAttribute("value", 10);
+
+
+    } else {
+        $('#divnuevoAnuncio4FranjasHorarias1').hide();
+        $('#divnuevoAnuncio4FranjasHorarias2').show();
+        calendario = false;
+        var input = document.getElementById("innuevoAnuncio4Segundos");
+        if ((creditosDisponibles * 10) >= 60) {
+            input.setAttribute("max", 60);
+        } else {
+            input.setAttribute("max", parseInt(creditosDisponibles * 10));
+        }
+        input.value = 10;
+        $('#innuevoAnuncio4Segundos').val("10");
+    }
 
 }

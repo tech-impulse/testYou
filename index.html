@@ -64,7 +64,7 @@
         <!-- Pagina de login -->
         <div data-role="content">
             <div id="mainLogin" class="k-content">
-               <div theme="a" style="text-align: center">
+                <div theme="a" style="text-align: center">
                     <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER"></img>
                 </div>
                 <div theme="a">
@@ -115,8 +115,7 @@
                     <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER"></img>
                 </div>
                 <div theme="a" id="textResetPasswordFinish" class="txt_centrals">¡Gracias!
-                    <br>
-                    Ahora mira tu bandeja de entrada y sigue las instrucciones para reestablecer tu contraseña</div>
+                    <br>Ahora mira tu bandeja de entrada y sigue las instrucciones para reestablecer tu contraseña</div>
                 <div theme="a">
                     <button type="button" data-role="button" id="btnResetPasswordFinish" data-theme="a" class="btn_blue">Volver a la pagina de login</button>
                 </div>
@@ -465,7 +464,7 @@
             <div id="nuevoAnuncio2">
                 <h3 class="ui-bar ui-bar-a div_titulo_pagina">Selecciona zona geográfica</h3>
                 <label id="lbnuevoAnuncio2" class="txt_centrals_sin_top">Introduce el código postal de la zona donde quieres que tu anuncio aparezca y te daremos las mejores opciones según las fechas que has escogido previamente</label>
-              <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal">
+                <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal">
                 </input>
                 <div data-role="collapsible" id="divnuevoAnuncio2Lista" data-theme="b" data-content-theme="b">
                     <h5 id="txtnuevoAnuncio2" class="select_zona">Seleccionar zona</h5>
@@ -557,27 +556,23 @@
                             </div>
                         </div>
                     </div>
+                    
                     <h3 style="color:black; font-weight:bold">Selecciona una franja horaria</h3>
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a" style="width:20%">
-                            <label class="txt_franjahoraria">Desde:</label>
-                        </div>
-                        <div class="ui-block-b" style="display:inline" style="text-align:left">
-                            <input type="number" min="1" max="24" id="innuevoAnuncio4Inicio">
-                        </div>
+                    <label id="lbnuevoAnuncio4Disponibles" style="color:black; font-weight:bold; margin-bottom:20px; margin-top:17px;"></label>
+                    <div id="divnuevoAnuncio4FranjasHorarias1">
+                        <form>
+                            <div data-role="rangeslider">
+                                <input type="range" name="range-1a" id="innuevoAnuncio4Inicio" min="0" max="24" value="0">
+                                <input type="range" name="range-1b" id="innuevoAnuncio4Fin" min="0" max="24" value="24">
+                            </div>
+                        </form>
+                        <label style="color:black; font-weight:bold; margin-bottom:20px; margin-top:17px;">Selecciona cuantos segundos quieres reproducir</label>
                     </div>
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a" style="width:20%">
-                            <label class="txt_franjahoraria">Hasta:</label>
-                        </div>
-                        <div class="ui-block-b" style="display:inline" style="text-align:left">
-                            <input type="number" min="1" max="24" id="innuevoAnuncio4Fin">
-                        </div>
+                    <div id="divnuevoAnuncio4FranjasHorarias2">
+                        <form>
+                            <input type="range" step="10" id="innuevoAnuncio4Segundos" name="slider-2" id="slider-2" data-highlight="true" min="10" max="2520" value="10">
+                        </form>
                     </div>
-                    <label style="color:black; font-weight:bold; margin-bottom:20px; margin-top:17px;">Selecciona cuantos segundos quieres reproducir</label>
-                    <form>
-                        <input type="range" step="10" id="innuevoAnuncio4Segundos" name="slider-2" id="slider-2" data-highlight="true" min="10" max="2520" value="10">
-                    </form>
                 </ul>
 
             </div>
@@ -684,10 +679,11 @@
             </div>
             <div id="nuevoAnuncio9" style="overflow-y:hidden; overflow-x:hidden">
                 <div data-role="content">
-                    <div id="divnuevoAnuncio9Previa" style="width:100%;height:400px;">
+                    <div id="divnuevoAnuncio9Previa" style="width:100%;height:340px;">
                         <center>
-                            <img id="imgnuevoAnuncio9" height="200" width="200">
+                            <img id="imgnuevoAnuncio9" height="280" width="280">
                         </center>
+                        <label id="lbnuevoAnuncio9Coste" style="color:black; font-weight:bold; margin-bottom:20px; margin-top:17px;"></label>
                     </div>
                 </div>
 
@@ -710,7 +706,7 @@
             </div>
 
             <!-- Pop up de comunicación BOTON ACEPTAR -->
-            <div data-role="popup" id="PopUpAviso" class="" style="width:300px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
+            <div data-role="popup" id="PopUpAviso" class="" style="width:320px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
                 <div data-role="header" style="text-align: center" class="cabecera">
                     <div id="tituloPopUpAviso">
                         <h2>Información</h2>
@@ -727,44 +723,64 @@
                     <button type="button" class="btn_blue" id="btnPopUpAviso" data-theme="a">Aceptar</button>
                 </div>
             </div>
+
+            <div data-role="popup" id="PopUpAccion" class="" style="width:320px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
+                <div data-role="header" style="text-align: center" class="cabecera">
+                    <div id="tituloPopUpAccion">
+                        <h2>Información</h2>
+                    </div>
+                </div>
+                <div data-role="content">
+                    <br>
+                    <div>
+                        <label id="lbPopUpAccion" class="txt_centrals">¿Cuando desea reproducirlo?</label>
+                    </div>
+
+                </div>
+                <div class="footer">
+                            <button class="btn_blue" id="btnPopUpAccionSeleccionar" data-icon="clock" data-iconpos="right">Seleccionar Horario</button>      
+                            <button class="btn_blue" id="btnPopUpAccionAhora" data-icon="star" data-iconpos="right">Ahora!</button>
+                        
+                </div>
+            </div>
         </div>
 
         <div id="footer_comun" class="footer_comun">
-                <div id="footernuevoAnuncio1" class="footer">
-                    <button class="btn_blue" id="btnnuevoAnuncio1Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
-                    <button class="btn_blue" id="btnnuevoAnuncio1Aceptar" data-icon="check" data-iconpos="right">Aceptar</button>
-                </div>
-                <div id="footernuevoAnuncio2" class="footer">
-                    <button class="btn_blue" id="btnnuevoAnuncio2Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
-                    <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="eye" data-iconpos="right">Ver Disponibilidad</button>
-                </div>
-                <div id="footernuevoAnuncio3" class="footer">
-                    <button class="btn_blue" id="btnnnuevoAnuncio3Seguir" data-icon="check" data-iconpos="right">YA tengo mis pantallas, seguir</button>
-                </div>
-                <div id="footernuevoAnuncio4" class="footer">
-                    <button class="btn_blue" id="btnnnuevoAnuncio4Guardar" data-icon="check" data-iconpos="right">Guardar esta localización</button>
-                </div>
-                <div id="footernuevoAnuncio5" class="footer">
-                    <button class="btn_blue" id="btnnnuevoAnuncio5Volver" data-icon="back" data-iconpos="right">Volver</button>
-                </div>
-                <div id="footernuevoAnuncio6" class="footer">
-                    <button class="btn_gradient" id="btnnuevoAnuncio6Subir" data-icon="camera" data-iconpos="right">Subir imagen</button>
-                    <button class="btn_blue" id="selectPicture" data-icon="camera" data-iconpos="right">Subir la misma imagen en todos</button>
-                </div>
-                <div id="footernuevoAnuncio7" class="footer">
-                    <button class="btn_blue" id="btnnuevoAnuncio7Subir" data-icon="action" data-iconpos="right">Subir</button>
-                </div>
-                <div id="footernuevoAnuncio8" class="footer">
-                    <button class="btn_blue" id="btnnuevoAnuncio8Previa" data-icon="eye" data-iconpos="right">Vista Previa</button>
-                </div>
-                <div id="footernuevoAnuncio9" class="footer">
-                    <button class="btn_blue" style="padding:10px" id="btnnuevoAnuncio9Cambiar" data-icon="recycle" data-iconpos="right">Cambiar</button>
-                    <button class="btn_blue" id="btnnuevoAnuncio9Proceder" data-icon="shop" data-iconpos="right">Pagar</button>
-                </div>
-                <div id="footernuevoAnuncio10" class="footer">
-                    <button class="btn_blue" id="btnnuevoAnuncio10Comprar" data-icon="shop" data-iconpos="right">Comprar más Creditos</button>
-                    <button class="btn_blue" id="btnnuevoAnuncio10Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
-                </div>
+            <div id="footernuevoAnuncio1" class="footer">
+                <button class="btn_blue" id="btnnuevoAnuncio1Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
+                <button class="btn_blue" id="btnnuevoAnuncio1Aceptar" data-icon="check" data-iconpos="right">Aceptar</button>
+            </div>
+            <div id="footernuevoAnuncio2" class="footer">
+                <button class="btn_blue" id="btnnuevoAnuncio2Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
+                <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="eye" data-iconpos="right">Ver Disponibilidad</button>
+            </div>
+            <div id="footernuevoAnuncio3" class="footer">
+                <button class="btn_blue" id="btnnnuevoAnuncio3Seguir" data-icon="check" data-iconpos="right">YA tengo mis pantallas, seguir</button>
+            </div>
+            <div id="footernuevoAnuncio4" class="footer">
+                <button class="btn_blue" id="btnnnuevoAnuncio4Guardar" data-icon="check" data-iconpos="right">Guardar esta localización</button>
+            </div>
+            <div id="footernuevoAnuncio5" class="footer">
+                <button class="btn_blue" id="btnnnuevoAnuncio5Volver" data-icon="back" data-iconpos="right">Volver</button>
+            </div>
+            <div id="footernuevoAnuncio6" class="footer">
+                <button class="btn_gradient" id="btnnuevoAnuncio6Subir" data-icon="camera" data-iconpos="right">Subir imagen</button>
+                <button class="btn_blue" id="selectPicture" data-icon="camera" data-iconpos="right">Subir la misma imagen en todos</button>
+            </div>
+            <div id="footernuevoAnuncio7" class="footer">
+                <button class="btn_blue" id="btnnuevoAnuncio7Subir" data-icon="action" data-iconpos="right">Subir</button>
+            </div>
+            <div id="footernuevoAnuncio8" class="footer">
+                <button class="btn_blue" id="btnnuevoAnuncio8Previa" data-icon="eye" data-iconpos="right">Vista Previa</button>
+            </div>
+            <div id="footernuevoAnuncio9" class="footer">
+                <button class="btn_blue" style="padding:10px" id="btnnuevoAnuncio9Cambiar" data-icon="recycle" data-iconpos="right">Cambiar</button>
+                <button class="btn_blue" id="btnnuevoAnuncio9Proceder" data-icon="shop" data-iconpos="right">Pagar</button>
+            </div>
+            <div id="footernuevoAnuncio10" class="footer">
+                <button class="btn_blue" id="btnnuevoAnuncio10Comprar" data-icon="shop" data-iconpos="right">Comprar más Creditos</button>
+                <button class="btn_blue" id="btnnuevoAnuncio10Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
+            </div>
         </div>
 
     </div>

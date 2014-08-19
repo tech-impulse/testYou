@@ -28,6 +28,7 @@ if($resultado = mysql_query($sql, $con)) {
 	if ($resultado = mysql_query($sql_upd, $con)){
             $resultados["mensaje"] = "Completado1: Saldo actual " . $valorTotal . " Creditos";
 			$resultados["validacion"] = "ok"; 
+            $resultados["creditos"] = $valorTotal; 
         $sql_ins = 'INSERT INTO Historico_Movimientos values(0 , '.$id.' , CURDATE() , '.$idPaquete.' , '.$creditos.' ,0 ,0 );';
         if ($resultado = mysql_query($sql_ins, $con)){
                 $resultados["mensaje"] = "Completado2: Saldo actual " . $valorTotal . " Creditos";

@@ -16,7 +16,7 @@ $resultados["us"] = $_POST['usuario'];
 
 $resultados["validacion"] = "Sin validar"; 
  
-$sql = 'SELECT id FROM Usuarios WHERE Email="'.$usu.'" AND Password="'.$pass.'";';
+$sql = 'SELECT id as id, Creditos as Creditos FROM Usuarios WHERE Email="'.$usu.'" AND Password="'.$pass.'";';
 $resultados["linea"] = $sql;
  
 if ($resultado = mysql_query($sql, $con)){
@@ -28,11 +28,14 @@ if ($resultado = mysql_query($sql, $con)){
 		$resultados["validacion"] = "ok";   
 		
 			$i=0;
-			while($row=mysql_fetch_array($resultado)){
-	               $a1=$row[$i]; 
-				   $i++;
-			}
-	        $resultados["id_user"] = $a1;    
+        
+        	while ($obj = mysql_fetch_object($resultado)) 
+            {        	      
+             $resultados["id_user"] = $obj->id;
+             $resultados["creditos"] = $obj->Creditos;      
+
+             $i++;
+                }  
 	    }
     else
     {

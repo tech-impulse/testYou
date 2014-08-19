@@ -45,7 +45,8 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#btnMenuCrearAnuncio').unbind('click').bind('click', function () {
-        displayNuevoAnuncio();
+        restUbicaciones();
+        displayNuevoAnuncio2();
         $("#navpanel").panel("close");
 
     });
@@ -71,7 +72,8 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Creditos Principal - Comprar
     $('#MainMenuOpcion1').unbind('click').bind('click', function () {
-        displayNuevoAnuncio();
+        restUbicaciones();
+        displayNuevoAnuncio2();
 
     });
 
@@ -146,7 +148,9 @@ $(document).on('pageinit', '#loginModule', function () {
         var m = date.getMonth() + 1;
         var y = date.getFullYear();
 
-        fechaSeleccionada = d + "/" + m + "/" + y;
+        //fechaSeleccionada = d + "-" + m + "-" + y;
+        fechaSeleccionada = y + "-" + m + "-" + d ;
+
         console.log("FECHA " + fechaSeleccionada);
 
     });
@@ -155,7 +159,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnnuevoAnuncio1Cancelar').unbind('click').bind('click', function () {
 
-        displayMainMenu();
+        displayMainMenu3();
 
     });
 
@@ -164,9 +168,11 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnnuevoAnuncio1Aceptar').unbind('click').bind('click', function () {
 
-        restUbicaciones();
+
 
         //procesoNuevoAnuncio2();
+
+        displayNuevoAnuncio6();
 
         //displayNuevoAnuncio2();
 
@@ -189,7 +195,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnnuevoAnuncio2Cancelar').unbind('click').bind('click', function () {
 
-        displayNuevoAnuncio();
+        displayMainMenu();
 
     });
 
@@ -200,7 +206,8 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnnnuevoAnuncio3Seguir').unbind('click').bind('click', function () {
 
         // procesoNuevoAnuncio6();
-        displayNuevoAnuncio6();
+        //displayNuevoAnuncio6();
+        displayNuevoAnuncio(); // muestr
 
     });
 
@@ -240,19 +247,13 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 4 - Boton para Guiardar
+    //Crear anuncio 4 - Boton para Guardar
     $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
 
-        if ($("#innuevoAnuncio4Inicio").val() < $("#innuevoAnuncio4Fin").val()) {
-            horaInicio = $("#innuevoAnuncio4Inicio").val();
-            horaFin = $("#innuevoAnuncio4Fin").val();
-            creditos = $("#innuevoAnuncio4Segundos").val();
-            displayNuevoAnuncio3();
-
-        } else {
-            alert("Debe seleccionar una franja horaria correcta!");
-        }
-
+        horaInicio = $("#innuevoAnuncio4Inicio").val();
+        horaFin = $("#innuevoAnuncio4Fin").val();
+        creditos = $("#innuevoAnuncio4Segundos").val();
+        displayNuevoAnuncio3();
 
     });
 
@@ -266,8 +267,8 @@ $(document).on('pageinit', '#loginModule', function () {
         displayNuevoAnuncio4();
 
     });
-    
-    
+
+
     ///////// EVENTOS CREAR ANUNCIO 6 /////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Crear anuncio 6 - Boton para subir la imagen
@@ -275,7 +276,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
         displayNuevoAnuncio7();
     });
-    
+
     ///////// EVENTOS CREAR ANUNCIO 7 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -293,6 +294,13 @@ $(document).on('pageinit', '#loginModule', function () {
         $.mobile.loading('show');
         //grab all form data  
         var formData = new FormData($(this)[0]);
+        formData.append("idSesion", idSesion);
+
+        //var formData = new Object;
+        //formData.append("idSesion", idSesion);
+        //formData.append("archivo", new FormData($(this)[0]) );
+
+
         console.log("subir foto");
 
         $.ajax({
@@ -312,12 +320,13 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File
 
     $('#file').change(function () {
+        //$("#lbnuevoAnuncio9Coste").text("Esta operacion costará "+ creditos + " creditos!");
         visualizarImagen(this.files);
     });
 
 
     //Crear anuncio 7- Carga la imagen para visualizarla en la pantalla 8
-    
+
     function visualizarImagen(files) {
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
@@ -335,7 +344,7 @@ $(document).on('pageinit', '#loginModule', function () {
             reader.readAsDataURL(file);
         }
     }
-    
+
     ///////// EVENTOS CREAR ANUNCIO 8 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -343,7 +352,7 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnnuevoAnuncio8Previa').unbind('click').bind('click', function () {
         displayNuevoAnuncio9();
     });
-    
+
     ///////// EVENTOS CREAR ANUNCIO 9 /////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Crear anuncio 9 - Boton para ver cambiar la imagen
@@ -353,17 +362,32 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 9 - Boton para proceder al pago
     $('#btnnuevoAnuncio9Proceder').unbind('click').bind('click', function () {
-        displayNuevoAnuncio10();
+        procesoNuevoAnuncio9();
     });
 
 
 
-    ////////// EVENTOS DE POPUP ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////// EVENTOS DE POPUP AVISO ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
 
     $('#btnPopUpAviso').unbind('click').bind('click', function () {
 
         $("#PopUpAviso").popup("close");
     });
+
+    ////////// EVENTOS DE POPUP ACCION ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
+
+    $('#btnPopUpAccionSeleccionar').unbind('click').bind('click', function () {
+
+        displaySeleccion("seleccion");
+        $("#PopUpAccion").popup("close");
+    });
+
+    $('#btnPopUpAccionAhora').unbind('click').bind('click', function () {
+        displaySeleccion("ahora");
+        $("#PopUpAccion").popup("close");
+    });
+
+
 
 
 
@@ -533,8 +557,11 @@ function procesoNuevoAnuncio4(pos) {
     $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
     $("#lbnuevoAnuncio4Localizacion").text();
     $("#lbnuevoAnuncio4Establecimiento").text();
+    idPantalla = JsonCalle[pos].idPantalla;
 
     displayNuevoAnuncio4();
+
+    $("#PopUpAccion").popup("open");
 
 }
 
@@ -563,6 +590,13 @@ function procesoNuevoAnuncio5() {
 
 
 }
+
+function procesoNuevoAnuncio9() {
+
+    restGuardarProgramación();
+    displayNuevoAnuncio10();
+}
+
 
 
 // GENERA LOS PAQUETES DE CREDITOS DE FORMA DINAMICA

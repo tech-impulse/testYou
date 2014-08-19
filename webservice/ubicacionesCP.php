@@ -17,7 +17,7 @@ $cp = mysql_real_escape_string($_GET["codigo"]);
 
 //$sql = 'SELECT * FROM Ubicaciones WHERE idClient='.$id.' AND CodigoPostal='.$cp.' ORDER BY Direccion;'; 
 
-$sql = ' SELECT * FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE u.idClient='.$id.' AND u.idClient = p.idClient AND p.idUbicacion=u.id AND p.idTipoPantalla = t.id AND CodigoPostal='.$cp.' ORDER BY Direccion'; 
+$sql = ' SELECT *, p.id as idPantalla FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE u.idClient='.$id.' AND u.idClient = p.idClient AND p.idUbicacion=u.id AND p.idTipoPantalla = t.id AND CodigoPostal='.$cp.' ORDER BY Direccion'; 
 
 
  
@@ -36,6 +36,7 @@ $i=0;
      $calle["Descripcion"] = $obj->Descripcion;
      $calle["HorarioDesde"] = $obj->HorarioDesde;
      $calle["HorarioHasta"] = $obj->HorarioHasta;
+     $calle["idPantalla"] = $obj->idPantalla;
      $resultados["calles"][] = $calle;      
             
      $i++;

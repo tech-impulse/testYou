@@ -100,7 +100,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
 function procesoDeLogin() {
-    
+
     //Control de errores
     if ($('#inputLoginUsername').val() == '' || $('#inputLoginPassword').val() == '') {
         alert("DEBE RELLENAR LOS CAMPOS DE USUARIO Y CONTRASEÑA");
@@ -114,36 +114,35 @@ function procesoDeLogin() {
 }
 
 
-function autentication(user, pass){
+function autentication(user, pass) {
 
-        var parametros = {
+    var parametros = {
 
-                usuario : user,
+        usuario: user,
 
-                password : pass
+        password: pass
 
-        };
-     $.ajax({
-                     data: parametros,
-            url: url + 'login.php',
-            type: 'POST',
-            dataType: 'json',
-            success: loginOk,
-            error: loginError,
-        });
+    };
+    $.ajax({
+        data: parametros,
+        url: url + 'login.php',
+        type: 'POST',
+        dataType: 'json',
+        success: loginOk,
+        error: loginError,
+    });
 }
 
 //Recibimos la respuesta del WS de login
 function loginOk(r) {
-    
 
-    if(r.validacion=="ok")
-    {
-    idSesion = r.id_user;
-    $.mobile.changePage('#app');
-    displayMainMenu();
-    }   
-    else {
+
+    if (r.validacion == "ok") {
+        idSesion = r.id_user;
+        creditosDisponibles = r.creditos;
+        $.mobile.changePage('#app');
+        displayMainMenu();
+    } else {
         alert("Usuario incorrecto");
     }
 

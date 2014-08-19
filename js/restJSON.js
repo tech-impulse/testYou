@@ -116,30 +116,46 @@ function restComprarCreditos(id) {
     });
 }
 
-function restGuardarLocalizacion(id) {
+function restGuardarProgramación(id) {
 
-    var datos = {
-        idLocalizacion: id,
-        horaInicio: horaInicio,
-        horaFin: horaFin,
-        creditos: creditos,
-        idSesion: idSesion
-    };
+    if (calendario == true) {
+        var datos = {
+            idPantalla: idPantalla,
+            idSesion: idSesion,
+            fechaProgramacion: fechaSeleccionada,
+            horaInicio: horaInicio,
+            horaFin: horaFin,
+            creditos: creditos,
+        };
+
+    } else {
+        var datos = {
+            idPantalla: idPantalla,
+            idSesion: idSesion,
+            fechaProgramacion: "NOW()",
+            horaInicio: "0",
+            horaFin: "0",
+            creditos: creditos,
+        };
+
+    }
 
     $.ajax({
         data: datos,
-        url: url + 'guardarLocalizacion.php',
+        url: url + 'guardarProgramacion.php',
         dataType: 'json',
         success: function (response) {
-            restOk(response, "guardarLocalizacion");
+            restOk(response, "guardarProgramacion");
         },
         error: function (response) {
-            restError(response, "guardarLocalizacion");
+            restError(response, "guardarProgramacion");
         },
     });
 }
 
 function restOk(r, tipo) {
+
+    console.log(JSON.stringify(r));
 
     switch (tipo) {
     case "ubicaciones":
@@ -166,11 +182,13 @@ function restOk(r, tipo) {
         };
     case "comprarCreditos":
         {
+            creditosDisponibles = r.creditos;
             abrirPopup(r.mensaje);
             break;
         };
-    case "guardarLocalizacion":
+    case "guardarProgramacion":
         {
+            creditosDisponibles = r.creditos;
             abrirPopup(r.mensaje);
             break;
         };
