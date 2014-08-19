@@ -47,8 +47,16 @@ $idNuevaImagen = $resultados["idImagen"]+1;
 $allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
 $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
+    if (in_array($extension, $allowedExts))
+    {
+    }
+    else {
+        $extension = "jpg";
+    }
 $filename  = basename($_FILES['file']['name']);
 $new       = $nombre.'.'.$extension;
+
+
 /*
 if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/jpeg")
@@ -77,7 +85,7 @@ if($a=1){
 
             $sql_upd = 'UPDATE Usuarios SET idImagen='.($idNuevaImagen).' WHERE id='.$id.';';
             $query = mysql_query($sql_upd, $con);
-            $resultado = "Imagen cargada correctamente!"; 
+            $resultado = "Imagen cargada correctamente! "; 
          }
        else
          {
