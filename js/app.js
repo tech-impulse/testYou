@@ -339,6 +339,7 @@ $(document).on('pageinit', '#loginModule', function () {
             reader.onload = (function (aImg) {
                 return function (e) {
                     aImg.src = e.target.result;
+                    console.log(e.target.result);
                 };
             })(img);
             reader.readAsDataURL(file);

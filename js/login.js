@@ -68,7 +68,7 @@ $(document).on('pageinit', '#loginModule', function () {
             alert('Debe rellenar la contraseña');
         } else {
 
-            displayNewAccountFinish();
+            restNuevoUsuario();
         }
     });
 

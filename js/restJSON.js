@@ -153,6 +153,29 @@ function restGuardarProgramación(id) {
     });
 }
 
+
+function restNuevoUsuario() {
+
+    var datos = {
+        Nombre: $("#inputNewAccountNombre").val(),
+        Apellidos: $("#inputNewAccountApellidos").val(),
+        Email: $("#inputNewAccountEmail").val(),
+        Password: $("#inputNewAccountPass").val(),
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'nuevoUsuario.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "nuevoUsuario");
+        },
+        error: function (response) {
+            restError(response, "nuevoUsuario");
+        },
+    });
+}
+
 function restOk(r, tipo) {
 
     console.log(JSON.stringify(r));
@@ -192,6 +215,11 @@ function restOk(r, tipo) {
             abrirPopup(r.mensaje);
             break;
         };
+    case "nuevoUsuario":
+        {
+            displayNewAccountFinish();
+            break;
+        };
 
     case "packs":
         {
@@ -204,6 +232,6 @@ function restOk(r, tipo) {
 }
 
 function restError(r, tipo) {
-    console.log("Erro de consulta " + tipo);
+    alert("Erro de consulta " + tipo);
 
 }
