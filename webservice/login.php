@@ -16,8 +16,8 @@ $resultados["us"] = $_POST['usuario'];
 
 $resultados["validacion"] = "Sin validar"; 
  
-$sql = 'SELECT id as id, Creditos as Creditos FROM Usuarios WHERE Email="'.$usu.'" AND Password="'.$pass.'";';
-$resultados["linea"] = $sql;
+$sql = 'SELECT * FROM Usuarios WHERE Email="'.$usu.'" AND Password="'.$pass.'";';
+//$resultados["linea"] = $sql;
  
 if ($resultado = mysql_query($sql, $con)){
 		$resultados["validacion"] = "comprobado";
@@ -32,8 +32,24 @@ if ($resultado = mysql_query($sql, $con)){
         	while ($obj = mysql_fetch_object($resultado)) 
             {        	      
              $resultados["id_user"] = $obj->id;
-             $resultados["creditos"] = $obj->Creditos;      
+             $resultados["Creditos"] = $obj->Creditos;  
+             $resultados["Nombre"] = utf8_encode($obj->Nombre);
+             $resultados["Apellidos"] = utf8_encode($obj->Apellidos);
+             $resultados["Email"] = $obj->Email;
+             $resultados["Direccion"] = $obj->Direccion;
+             $resultados["Poblacion"] = $obj->Poblacion;
+             $resultados["Provincia"] = $obj->Provincia;
+             $resultados["TelefonoContacto"] = $obj->TelefonoContacto;
+             $resultados["Pais"] = $obj->idPais;
 
+                if($obj->CuentaPaypal == 1)
+                {
+             $resultados["CuentaPaypal"] = "Si";
+                }
+                else {
+                    $resultados["CuentaPaypal"] = "No";
+                }
+            
              $i++;
                 }  
 	    }
@@ -47,7 +63,7 @@ else
 {
   $resultados["mensaje"] = "Error de consulta del servicio";
 	$resultados["validacion"] = "error";
-	$resultados["consulta"] = $resultado;
+	//$resultados["consulta"] = $resultado;
 }
 mysql_close($con);
 

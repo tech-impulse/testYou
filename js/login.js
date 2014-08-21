@@ -19,7 +19,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //CREAR una nueva cuenta
     $('#btnLogInNewAccount').unbind('click').bind('click', function () {
-
+        restPais(); // Obtiene el pais del usuario por localizacion
         displayNewAccount();
     });
 
@@ -87,19 +87,12 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-
-
-
-
-
-
-
-
 });
 
 
 
 function procesoDeLogin() {
+
 
     //Control de errores
     if ($('#inputLoginUsername').val() == '' || $('#inputLoginPassword').val() == '') {
@@ -136,10 +129,22 @@ function autentication(user, pass) {
 //Recibimos la respuesta del WS de login
 function loginOk(r) {
 
-
+    console.log(JSON.stringify(r));
     if (r.validacion == "ok") {
         idSesion = r.id_user;
-        creditosDisponibles = r.creditos;
+        $("#lbmiCuentaNombre").text(r.Nombre + " " + r.Apellidos);
+        $("#lbmiCuentaDireccion").text(r.Direccion);
+        $("#lbmiCuentaPoblacion").text(r.Poblacion);
+        $("#lbmiCuentaProvincia").text(r.Provincia);
+        $("#lbmiCuentaTelefono").text(r.TelefonoContacto);
+        $("#lbmiCuentaEmail").text(r.Email);
+        $("#lbmiCuentaPaypal").text(r.CuentaPaypal);
+        if (r.Pais == 1) {
+            $("#lbmiCuentaPais").text("España");
+        } else {
+            $("#lbmiCuentaPais").text("Indeterminado");
+        }
+        creditosDisponibles = r.Creditos;
         $.mobile.changePage('#app');
         displayMainMenu();
     } else {

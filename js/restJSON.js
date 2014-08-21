@@ -57,10 +57,50 @@ function restUbicaciones() {
     });
 }
 
-function restUbicacionesPorCodigoPostal() {
+function restPaises() {
 
     var datos = {
-        codigo: $("#inputnuevoAnuncio2").val(),
+        idSesion: idSesion
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'paises.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "paises");
+        },
+        error: function (response) {
+            restError(response, "paises");
+        },
+    });
+}
+
+function restProvincias(id) {
+
+    var datos = {
+        idSesion: idSesion,
+        idPais: id
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'provincias.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "provincias");
+        },
+        error: function (response) {
+            restError(response, "provincias");
+        },
+    });
+}
+
+function restUbicacionesPorCodigoPostal(cp) {
+    console.log("Codigo Postal " + cp);
+
+    var datos = {
+        codigo: cp,
         idSesion: idSesion
     };
 
@@ -116,7 +156,22 @@ function restComprarCreditos(id) {
     });
 }
 
-function restGuardarProgramación(id) {
+function restSubirImagen() {
+    $.mobile.loading('show');
+    $.ajax({
+        url: url + 'uploadFile.php',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: restGuardarProgramacion,
+        eerror: function (response) {
+            restError(response, "guardarProgramacion");
+        },
+    });
+}
+
+function restGuardarProgramacion() {
 
     if (calendario == true) {
         var datos = {
@@ -161,6 +216,7 @@ function restNuevoUsuario() {
         Apellidos: $("#inputNewAccountApellidos").val(),
         Email: $("#inputNewAccountEmail").val(),
         Password: $("#inputNewAccountPass").val(),
+        idPais: idPais
     };
 
     $.ajax({
@@ -183,17 +239,36 @@ function restOk(r, tipo) {
     switch (tipo) {
     case "ubicaciones":
         {
-            procesoNuevoAnuncio2(r);
-            displayNuevoAnuncio2();
+            procesoNuevoAnuncio3(r);
+            displayNuevoAnuncio3();
             console.log("ubicaciones");
+            break;
+        };
+    case "paises":
+        {
+            procesoNuevoAnuncio2(r);
+            displaySelector(tipo);
+            console.log("paises");
+            break;
+        };
+    case "provincias":
+        {
+            procesoNuevoAnuncio2Provincia(r);
+            displaySelector(tipo);
+            console.log("provincias");
             break;
         };
     case "ubicacionesCP":
         {
             console.log(r);
-            procesoNuevoAnuncio3(r);
-            displayNuevoAnuncio3();
-            console.log("ubicacionesCP");
+            if (r.localizaciones[0].validacion == "vacio") {
+                abrirPopupAviso(r.localizaciones[0].mensaje);
+            } else {
+                procesoNuevoAnuncio3(r);
+                displayNuevoAnuncio3();
+                console.log("ubicacionesCP");
+            }
+
             break;
         };
     case "descripcionAnuncio":
@@ -206,13 +281,13 @@ function restOk(r, tipo) {
     case "comprarCreditos":
         {
             creditosDisponibles = r.creditos;
-            abrirPopup(r.mensaje);
+            abrirPopupAviso(r.mensaje);
             break;
         };
     case "guardarProgramacion":
         {
             creditosDisponibles = r.creditos;
-            abrirPopup(r.mensaje);
+            abrirPopupAccion(r.mensaje, tipo);
             break;
         };
     case "nuevoUsuario":
@@ -234,4 +309,19 @@ function restOk(r, tipo) {
 function restError(r, tipo) {
     alert("Erro de consulta " + tipo);
 
+}
+
+function restPais() {
+    $.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
+        switch (data.address.country) {
+        case "Spain":
+            {
+                idPais = 1;
+                break;
+            };
+        default:
+            idPais = 1;
+        }
+
+    });
 }

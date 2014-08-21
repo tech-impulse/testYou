@@ -12,19 +12,21 @@ $con = mysql_connect($server, $username, $password) or die ("No se conecto: " . 
  
 mysql_select_db($database, $con);
  
-$id = mysql_real_escape_string($_GET["idSesion"]);
+//$id = mysql_real_escape_string($_GET["idSesion"]);
 $cp = mysql_real_escape_string($_GET["codigo"]);
 
 //$sql = 'SELECT * FROM Ubicaciones WHERE idClient='.$id.' AND CodigoPostal='.$cp.' ORDER BY Direccion;'; 
 
-$sql = ' SELECT *, p.id as idPantalla FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE u.idClient='.$id.' AND u.idClient = p.idClient AND p.idUbicacion=u.id AND p.idTipoPantalla = t.id AND CodigoPostal='.$cp.' ORDER BY Direccion'; 
+if ($cp!= ""){
+    
+$sql = ' SELECT *, p.id as idPantalla FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE  p.idUbicacion=u.id AND p.idTipoPantalla = t.id AND CodigoPostal LIKE' . '"' .$cp.'%" ORDER BY Direccion'; 
 
-
+//$resultados["query"] = $sql;
  
 $resultado = mysql_query($sql, $con);
 
 $i=0;
-		while ($obj = mysql_fetch_object($resultado)) 
+    while ($obj = mysql_fetch_object($resultado)) 
     {        	      
      $calle["id"] = $obj->id;
      $calle["Direccion"] = $obj->Direccion;
@@ -42,11 +44,17 @@ $i=0;
      $i++;
 		}
 		if ($i==0){
-			$lista["validacion"] = "empty"; 
+            $resultados["mensaje"] = "No hay pantallas disponibles para esta ubicación"; 
+			$resultados["validacion"] = "vacio"; 
 		}
 
 
 mysql_close($con);
+}
+else {
+            $resultados["mensaje"] = "Debes introducir un Codigo Postal"; 
+			$resultados["validacion"] = "vacio"; 
+}
 
 $resultadosJson = json_encode($resultados);
 echo ' { "localizaciones" : ['.$resultadosJson .']}';

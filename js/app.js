@@ -11,6 +11,13 @@ $(document).bind("mobileinit", function () {
 
 $(document).on('pageinit', '#loginModule', function () {
 
+    // Activar para test
+    
+    /*
+    $("#inputLoginUsername").val("javier.fernandez@tech-impulse.com");
+    $("#inputLoginPassword").val("test");
+    */
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU LATERAL
 
@@ -45,7 +52,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#btnMenuCrearAnuncio').unbind('click').bind('click', function () {
-        restUbicaciones();
+        restPaises();
         displayNuevoAnuncio2();
         $("#navpanel").panel("close");
 
@@ -66,13 +73,21 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    $('#btnMenuInicio').unbind('click').bind('click', function () {
+        displayMainMenu();
+        $("#navpanel").panel("close");
+
+    });
+
+
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU INICIAL
 
     //Creditos Principal - Comprar
     $('#MainMenuOpcion1').unbind('click').bind('click', function () {
-        restUbicaciones();
+        restPaises();
         displayNuevoAnuncio2();
 
     });
@@ -137,6 +152,16 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    //PANTALLAS DE COMPRAR PAQUETES DE CREDITOS
+
+    //Paquetes de creditos - Botón para volver atrás
+    $('#btncreditosPaquetesMenu').unbind('click').bind('click', function () {
+        displayMainMenu();
+    });
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREAR ANUNCIO
 
 
@@ -149,7 +174,7 @@ $(document).on('pageinit', '#loginModule', function () {
         var y = date.getFullYear();
 
         //fechaSeleccionada = d + "-" + m + "-" + y;
-        fechaSeleccionada = y + "-" + m + "-" + d ;
+        fechaSeleccionada = y + "-" + m + "-" + d;
 
         console.log("FECHA " + fechaSeleccionada);
 
@@ -159,7 +184,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnnuevoAnuncio1Cancelar').unbind('click').bind('click', function () {
 
-        displayMainMenu3();
+        displayNuevoAnuncio3();
 
     });
 
@@ -168,13 +193,8 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnnuevoAnuncio1Aceptar').unbind('click').bind('click', function () {
 
-
-
-        //procesoNuevoAnuncio2();
-
+        procesoNuevoAnuncio6();
         displayNuevoAnuncio6();
-
-        //displayNuevoAnuncio2();
 
     });
 
@@ -184,7 +204,11 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnnuevoAnuncio2Disponibilidad').unbind('click').bind('click', function () {
 
-        restUbicacionesPorCodigoPostal();
+        if ($("#inputnuevoAnuncio2").val() == "") {
+            restUbicaciones();
+        } else {
+            restUbicacionesPorCodigoPostal($("#inputnuevoAnuncio2").val());
+        }
 
         //procesoNuevoAnuncio3();
         //displayNuevoAnuncio3();
@@ -249,11 +273,20 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 4 - Boton para Guardar
     $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
-
+        /*
+        $("#calle"+posicion).attr('data-icon', 'check').find('.ui-icon')
+                     .addClass('ui-icon-' + 'check')
+                     .removeClass('ui-icon-' + 'false');
+        
+        $("#calle"+posicion+">a.ui-btn").addClass('ui-icon-' + 'check');
+        */
+        //$("#calle"+posicion).attr('data-icon','check');
+        //$("#calle"+posicion).children().children().next().removeClass('ui-icon-custom').addClass('ui-icon-check');
         horaInicio = $("#innuevoAnuncio4Inicio").val();
         horaFin = $("#innuevoAnuncio4Fin").val();
         creditos = $("#innuevoAnuncio4Segundos").val();
-        displayNuevoAnuncio3();
+        procesoNuevoAnuncio6();
+        //displayNuevoAnuncio3(); // Par siguientes versiones
 
     });
 
@@ -289,30 +322,11 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 7- Evento para enviar el formulario con la imagen
     $("form#formPicture").submit(function (event) {
 
-        //disable the default form submission
         event.preventDefault();
-        $.mobile.loading('show');
-        //grab all form data  
-        var formData = new FormData($(this)[0]);
+
+        formData = new FormData($(this)[0]);
         formData.append("idSesion", idSesion);
-
-        //var formData = new Object;
-        //formData.append("idSesion", idSesion);
-        //formData.append("archivo", new FormData($(this)[0]) );
-
-
-        console.log("subir foto");
-
-        $.ajax({
-            url: url + 'uploadFile.php',
-            type: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: enviarFoto,
-            error: errorenviarFoto,
-        });
-
+        displayNuevoAnuncio9();
         return false;
 
     });
@@ -320,31 +334,9 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File
 
     $('#file').change(function () {
-        //$("#lbnuevoAnuncio9Coste").text("Esta operacion costará "+ creditos + " creditos!");
         visualizarImagen(this.files);
     });
 
-
-    //Crear anuncio 7- Carga la imagen para visualizarla en la pantalla 8
-
-    function visualizarImagen(files) {
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            var imageType = /image.*/;
-            if (!file.type.match(imageType)) {
-                continue;
-            }
-            var img = document.getElementById('imgnuevoAnuncio9');
-            var reader = new FileReader();
-            reader.onload = (function (aImg) {
-                return function (e) {
-                    aImg.src = e.target.result;
-                    console.log(e.target.result);
-                };
-            })(img);
-            reader.readAsDataURL(file);
-        }
-    }
 
     ///////// EVENTOS CREAR ANUNCIO 8 /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -363,9 +355,26 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 9 - Boton para proceder al pago
     $('#btnnuevoAnuncio9Proceder').unbind('click').bind('click', function () {
-        procesoNuevoAnuncio9();
+        //procesoNuevoAnuncio9();
+        displayNuevoAnuncio10();
     });
 
+    ///////// EVENTOS CREAR ANUNCIO 10 /////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //Crear anuncio 10 - Boton para proceder al pago mediante creditos
+    $('#btnnuevoAnuncio10Creditos').unbind('click').bind('click', function () {
+        procesoNuevoAnuncio10();
+    });
+
+    //Crear anuncio 10 - Boton para volver atrás
+    $('#btnnuevoAnuncio10Cancelar').unbind('click').bind('click', function () {
+        displayNuevoAnuncio9();
+    });
+
+    //Crear anuncio 10 - Boton para ir a la pantalla de comprar creditos
+    $('#btnnuevoAnuncio10Comprar').unbind('click').bind('click', function () {
+        displayCreditosMain();
+    });
 
 
     ////////// EVENTOS DE POPUP AVISO ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -377,55 +386,51 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ////////// EVENTOS DE POPUP ACCION ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
 
-    $('#btnPopUpAccionSeleccionar').unbind('click').bind('click', function () {
+    $('#btnPopUpAccionA').unbind('click').bind('click', function () {
+        switch ($("#lbPopUpAccionTitulo").val()) {
+        case "horario":
+            {
+                displaySeleccion("seleccion");
+                break;
+            };
+        case "guardarProgramacion":
+            {
+                displayNuevoAnuncio2();
+                break;
+            };
+        default:
+            console.log($("#lbPopUpAccionTitulo").val());
 
-        displaySeleccion("seleccion");
+        }
+
         $("#PopUpAccion").popup("close");
     });
 
-    $('#btnPopUpAccionAhora').unbind('click').bind('click', function () {
-        displaySeleccion("ahora");
+    $('#btnPopUpAccionB').unbind('click').bind('click', function () {
+        switch ($("#lbPopUpAccionTitulo").val()) {
+        case "horario":
+            {
+                displaySeleccion("ahora");
+                break;
+            };
+        case "guardarProgramacion":
+            {
+                displayMainMenu();
+                break;
+            };
+        default:
+            console.log($("#lbPopUpAccionTitulo").val());
+
+        }
+
         $("#PopUpAccion").popup("close");
     });
-
-
-
-
 
 
 });
 
-// CONTROL DE ERRORES DE SUBIDA DE IMAGENES
 
-// Envio de la foto Ok
-function enviarFoto(r) {
-    $.mobile.loading('hide');
-    console.log("Enviado Ok, respuesta");
-    $("#lbPopUpAviso").text(r);
-    $("#PopUpAviso").popup("open");
-    displayNuevoAnuncio8();
-}
-
-// Error en el envío de la imagen
-function errorenviarFoto(r) {
-    $.mobile.loading('hide');
-    console.log("Foto no subida");
-    $("#lbPopUpAviso").text(r);
-    $("#PopUpAviso").popup("open");
-}
-
-// FUNCIONES COMUNES PARA TODA LA APP /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Cargar mensaje en Popup
-
-function abrirPopup(mensaje) {
-    $.mobile.loading('hide');
-    $("#lbPopUpAviso").text(mensaje);
-    $("#PopUpAviso").popup("open");
-}
-
-
-// INICIO DE LA PARTE DE APLICACION
+// PRECARGA DEL CALENDARIO 
 
 $(document).on('pageinit', '#app', function () {
 
@@ -436,6 +441,7 @@ $(document).on('pageinit', '#app', function () {
     var y = date.getFullYear();
 
     $("#calendar").jqmCalendar({
+        /*
         events: [{
                 "summary": "Anuncio 1",
                 "begin": new Date(y, m, 27),
@@ -453,6 +459,7 @@ $(document).on('pageinit', '#app', function () {
 
         },
                 ],
+                */
         months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
         days: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
         startOfWeek: 0
@@ -460,257 +467,3 @@ $(document).on('pageinit', '#app', function () {
     });
 
 });
-
-
-
-
-function procesoNuevoAnuncio2(listaLocalizaciones) {
-
-    $("#ulnuevoAnuncio2").empty();
-
-    $("#ulnuevoAnuncio2").listview();
-
-    for (var i = 0; i < listaLocalizaciones.localizaciones.length; i++) {
-        var localizacion = listaLocalizaciones.localizaciones[i];
-        var pos = parseInt(i + 1);
-        $("#ulnuevoAnuncio2").append('<li id="linuevoAnuncio2-' + i + '" onclick="cerrarLista(' + i + ')">' + localizacion.Direccion + '</li>');
-
-    }
-    $("#ulnuevoAnuncio2").listview('refresh');
-
-}
-
-function cerrarLista(posicion) {
-
-    $("#txtnuevoAnuncio2").trigger("click");
-    document.getElementById("txtnuevoAnuncio2").innerHTML = '<a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-plus ui-btn-icon-left ui-btn-b">' + $("#linuevoAnuncio2-" + posicion).text() + '</a>';
-    $("#inputnuevoAnuncio2").val(08203); // Solucion temporal para poder testear
-
-}
-
-function ocultarDiv(div) {
-    if ($(div).is(":visible")) {
-        $(div).hide();
-    } else {
-        $(div).show();
-    }
-}
-
-function procesoNuevoAnuncio3(listaLocalizaciones) {
-
-    $("#ulnuevoAnuncio3").empty();
-
-    $("#ulnuevoAnuncio3").listview();
-
-    /* JSON DE MUESTRA
-    {
-        "localizaciones": [
-            {
-                "CodigoPostal": "08203",
-                "calles": [
-                    {
-                        "id": "2",
-                        "Direccion": "asdasdasdasdsd",
-                        "Poblacion": "",
-                        "Provincia": "",
-                        "LatitudGPS": "0.000",
-                        "LongitudGPS": "0.000"
-                    },
-                    {
-                        "id": "1",
-                        "Direccion": "Granada 1",
-                        "Poblacion": "Viladecans",
-                        "Provincia": "BARCELONA",
-                        "LatitudGPS": "41.533",
-                        "LongitudGPS": "2.104"
-                    }
-                ]
-            }
-        ]
-    }
-    */
-
-    console.log(JSON.stringify(listaLocalizaciones));
-
-    for (var i = 0; i < listaLocalizaciones.localizaciones.length; i++) {
-        var localizacion = listaLocalizaciones.localizaciones[i];
-        cp = localizacion.CodigoPostal.toString(); // Guardamos el codigo postal en una variable global
-        $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold"> Código Postal: <label style="display:inline" id="lbnuevoAnuncio3Codigo' + i + '">' + localizacion.CodigoPostal + '</label></li>');
-        for (var j = 0; j < localizacion.calles.length; j++) {
-            var calle = localizacion.calles[j];
-            JsonCalle.push(calle);
-            $("#ulnuevoAnuncio3").append('<li onclick="procesoNuevoAnuncio4(' + j + ');">' + calle.Direccion + " " + $("#lbnuevoAnuncio3Codigo" + i).text() + " " + calle.Poblacion + '</li>');
-            console.log("Nombre de la calle " + calle.Direccion);
-
-        }
-
-    }
-
-    $("#ulnuevoAnuncio3").listview('refresh');
-}
-
-function procesoNuevoAnuncio4(pos) {
-
-    posicion = pos; // Nos guardamos la posicion que ocupa esta calle en una variable para poder desglosar la informacion del JSON.
-
-    $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + cp);
-    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + " " + cp + " " + JsonCalle[pos].Poblacion);
-    $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
-    $("#lbnuevoAnuncio4Localizacion").text();
-    $("#lbnuevoAnuncio4Establecimiento").text();
-    idPantalla = JsonCalle[pos].idPantalla;
-
-    displayNuevoAnuncio4();
-
-    $("#PopUpAccion").popup("open");
-
-}
-
-function procesoNuevoAnuncio5() {
-
-    var myCenter = new google.maps.LatLng(JsonCalle[posicion].LatitudGPS, JsonCalle[posicion].LongitudGPS);
-
-    {
-        var mapProp = {
-            center: myCenter,
-            zoom: 14,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        var map = new google.maps.Map(document.getElementById("divnuevoAnuncio5Mapa"), mapProp);
-
-        var marker = new google.maps.Marker({
-            position: myCenter,
-        });
-
-        marker.setMap(map);
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
-}
-
-function procesoNuevoAnuncio9() {
-
-    restGuardarProgramación();
-    displayNuevoAnuncio10();
-}
-
-
-
-// GENERA LOS PAQUETES DE CREDITOS DE FORMA DINAMICA
-
-function mostrarPaquetesCreditos() {
-
-
-
-    var listaPaquetes = {
-        "paquetes": [
-            {
-                "id": "1",
-                "cantidad": "45",
-                "precio": "30.00"
-        },
-            {
-                "id": "2",
-                "cantidad": "80",
-                "precio": "90.00"
-        },
-            {
-                "id": "3",
-                "cantidad": "200",
-                "precio": "300.00"
-        },
-            {
-                "id": "4",
-                "cantidad": "500",
-                "precio": "600.00"
-        }
-    ]
-    };
-    var j = 1;
-    var div1 = "#div1-" + j;
-    var div2 = "#div2-" + 1;
-    var div3 = "#div3-" + 1;
-    var div4 = "#div4-" + 1;
-    var div5 = "#div5-" + 1;
-
-    $("#paquetesCreditos").empty();
-
-    for (var i = 0; i < listaPaquetes.paquetes.length; i++) {
-        var paquete = listaPaquetes.paquetes[i];
-        var pos = parseInt(i + 1);
-        div2 = "#div2-" + pos;
-        div3 = "#div3-" + pos;
-        div4 = "#div4-" + pos;
-        div5 = "#div5-" + pos;
-
-        if (i % 2 != 0) {
-            jQuery('<div/>', {
-                id: 'div2-' + pos,
-                style: 'padding:1em',
-                onclick: 'procesoCompraCreditos(' + paquete.cantidad + ')',
-                class: 'ui-block-b',
-
-            }).appendTo(div1);
-        } else {
-            div1 = "#div1-" + j;
-            jQuery('<div/>', {
-                id: 'div1-' + j,
-                class: 'ui-grid-a',
-            }).appendTo('#paquetesCreditos');
-
-            jQuery('<div/>', {
-                id: 'div2-' + pos,
-                style: 'padding:1em',
-                onclick: 'procesoCompraCreditos(' + paquete.cantidad + ')',
-                class: 'ui-block-a',
-            }).appendTo(div1);
-            j++;
-
-        }
-
-        jQuery('<div/>', {
-            id: 'div3-' + pos,
-            style: 'padding:1em',
-            class: 'ui-grid-a  ui-body-a ui-corner-all',
-        }).appendTo(div2);
-
-        jQuery('<div/>', {
-            id: 'div4-' + pos,
-            class: 'ui-block-a',
-        }).appendTo(div3);
-
-        jQuery('<div/>', {
-            id: 'div5-' + pos,
-            class: 'ui-block-b',
-            style: 'padding-top:0.5em',
-        }).appendTo(div3);
-
-
-        $(div4).append('<img src="js/images/img_creditos.png" height="30em" width="37em">');
-        $(div5).append('<label class="num_creditos_paquete">' + paquete.cantidad + '</label>');
-        $(div5).append(' <label class="creditos_paquete"> créditos </label>');
-        $(div2).append('<button class="btn_blue ui-btn ui-shadow ui-corner-all">' + paquete.precio + '</button>');
-
-    }
-
-
-}
-
-
-//Proceso de compra de creditos
-function procesoCompraCreditos(id) {
-
-    restComprarCreditos(id);
-
-    //alert("comprar paquete con id " + id);
-
-}
-
-//Muestra todas las recargas y pagos de creditos
-function mostrarHistoricoCreditos() {
-
-}

@@ -26,7 +26,9 @@
     <script src="js/display_pantallas.js"></script>
     <script src="js/traducciones.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/procesos.js"></script>
     <script src="js/parametros.js"></script>
+
     <STYLE type="text/css">
         @media all and (min-width: 36em) {
             .main {
@@ -56,6 +58,10 @@
     </STYLE>
 </head>
 
+
+
+
+
 <body class="body">
 
     <!-- seccion de login  -->
@@ -68,11 +74,11 @@
                     <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER"></img>
                 </div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputLoginUsername" onclick="this.value='';" value="javier.fernandez@tech-impulse.com">
+                    <input class="txt_textfield_in" type="text" id="inputLoginUsername" onclick="this.value='';" value="Email">
                     </input>
                 </div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="password" id="inputLoginPassword" onclick="this.value='';" value="test">
+                    <input class="txt_textfield_in" type="password" id="inputLoginPassword" onclick="this.value='';" value="password">
                     </input>
                 </div>
                 <div theme="a">
@@ -146,12 +152,12 @@
                 </div>
                 <div theme="a" id="lbNewAccountPass" class="txt_textfield_out">Contraseña</div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputNewAccountPass">
+                    <input class="txt_textfield_in" type="password" id="inputNewAccountPass">
                     </input>
                 </div>
                 <div theme="a" id="lbNewAccountPass2" class="txt_textfield_out">Repetir contraseña</div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputNewAccountPass2">
+                    <input class="txt_textfield_in" type="password" id="inputNewAccountPass2">
                     </input>
                 </div>
                 <div theme="a" style="text-align: center" id="textNewAccount" class="txt_legal">Al hacer clic en "crear nueva cuenta" muestras tu conformidad con nuestras <a>Condiciones de Youtter</a> y aceptas haber leído nuestra <a>politica de privacidad</a>, incluida la sección sobre Uso de coockies. Es posible que recibas notificaciones SMS de Youtter que puedes desactivar en cualquier momento.</div>
@@ -286,6 +292,16 @@
                             </div>
                         </div>
                     </li>
+                    <li class="listasMenu">
+                        <div class="ui-grid-a" id="btnMenuInicio">
+                            <div class="ui-block-a" style="width:20%">
+                                <img class="icn_menu" src="js/images/btn_mini_cambiarfechas.png" alt="Menú">
+                            </div>
+                            <div class="ui-block-b" style="width:80%" id="menuInicio">
+                                <label class="txt_menu">Ir al Menú</label>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -401,6 +417,7 @@
             <div id="creditosPaquetes" class="k-content">
                 <div class="txt_centrals_sin_bottom" id="textcreditosPaquetes">¿Cuantos creditos quieres comprar?</div>
                 <div id="paquetesCreditos"></div>
+                <button type="button" id="btncreditosPaquetesMenu" class="btn_blue">Ir al Menú</button>
             </div>
 
             <!-- Estadisticas -->
@@ -411,8 +428,85 @@
 
             <!-- Mi cuenta -->
             <div id="miCuenta" class="k-content">
-                <div id="">Mi cuenta</div>
-                <div id=""></div>
+                <center>
+                    <img src="js/images/avatar.png" style="width:4em">
+                    <h3 class="ui-bar ui-bar-a div_titulo_pagina" id="lbmiCuentaNombre"></h3>
+                </center>
+                <form>
+                    <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="width:30%">
+                                    <label for="direccion" class="txt_detallepantalla_bold">Direccion:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_detallepantalla" id="lbmiCuentaDireccion">
+                                    </label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="width:30%">
+                                    <label for="direccion" class="txt_detallepantalla_bold">Población:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_detallepantalla" id="lbmiCuentaPoblacion"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="width:30%">
+                                    <label for="direccion" class="txt_detallepantalla_bold">Provincia:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_detallepantalla" id="lbmiCuentaProvincia"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="width:30%">
+                                    <label for="direccion" class="txt_detallepantalla_bold">Pais:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_detallepantalla" id="lbmiCuentaPais"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="width:30%">
+                                    <label for="direccion" class="txt_detallepantalla_bold">Telefono:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_detallepantalla" id="lbmiCuentaTelefono"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="width:30%">
+                                    <label for="direccion" class="txt_detallepantalla_bold">Email:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_detallepantalla" id="lbmiCuentaEmail"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="width:30%">
+                                    <label class="txt_detallepantalla_bold">Paypal:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label class="txt_detallepantalla" id="lbmiCuentaPaypal"></label>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
             </div>
 
             <!-- Mis anuncios -->
@@ -457,18 +551,23 @@
                 </ul>
             </div>
             <div id="nuevoAnuncio1">
-                <h3 class="ui-bar ui-bar-a div_titulo_pagina" style="color:#000;">Selecciona las fechas</h3>
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina" style="color:#000;"> Selecciona las fechas</h3>
                 <div id="calendar"></div>
             </div>
 
             <div id="nuevoAnuncio2">
-                <h3 class="ui-bar ui-bar-a div_titulo_pagina">Selecciona zona geográfica</h3>
-                <label id="lbnuevoAnuncio2" class="txt_centrals_sin_top">Introduce el código postal de la zona donde quieres que tu anuncio aparezca y te daremos las mejores opciones según las fechas que has escogido previamente</label>
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina">Paso 1: Selecciona zona geográfica</h3>
+                <label id="lbnuevoAnuncio2" class="txt_centrals_sin_top">Puedes buscar pantallas por Codigo Postal, o bien seleccionado la zona donde quieres que tu anuncio aparezca, te daremos las mejores opciones según la zona geográfica seleccionada</label>
                 <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal">
                 </input>
-                <div data-role="collapsible" id="divnuevoAnuncio2Lista" data-theme="b" data-content-theme="b">
-                    <h5 id="txtnuevoAnuncio2" class="select_zona">Seleccionar zona</h5>
-                    <ul data-role="listview" id="ulnuevoAnuncio2" data-filter="true">
+                <div data-role="collapsible" id="divnuevoAnuncio2ListaPais" data-theme="b" data-content-theme="b">
+                    <h5 id="txtnuevoAnuncio2Pais" class="select_zona">Seleccione un país</h5>
+                    <ul data-role="listview" id="ulnuevoAnuncio2Pais" data-filter="true">
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="divnuevoAnuncio2ListaProvincia" data-theme="b" data-content-theme="b">
+                    <h5 id="txtnuevoAnuncio2Provincia" class="select_zona">Seleccione una provincia</h5>
+                    <ul data-role="listview" id="ulnuevoAnuncio2Provincia" data-filter="true">
                     </ul>
                 </div>
 
@@ -496,8 +595,12 @@
                                 </div>
                             </div>
                         </li>
+                    </ul>
                 </div>
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina" style="color:#000;">Paso 2: Seleccion de pantallas</h3>
+                <label id="lbnuevoAnuncio3" class="txt_centrals_sin_top">Selecciona las pantallas donde quieres publicar un anuncio!</label>
                 <ul data-role="listview" data-inset="true" data-divider-theme="a" id="ulnuevoAnuncio3">
+                    </li>
                 </ul>
 
             </div>
@@ -524,7 +627,9 @@
                                 </div>
                             </div>
                         </li>
+                    </ul>
                 </div>
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina" style="color:#000;"> Paso 3: Configura tu programación</h3>
                 <ul data-role="listview" id="ulnuevoAnuncio4Detalles" data-inset="true" data-divider-theme="a">
                     <li data-role="list-divider" style="color:black; font-weight:bold" id="linuevoAnuncio4Codigo"></li>
                     <div class="ui-body ui-body-a">
@@ -556,9 +661,9 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <h3 style="color:black; font-weight:bold">Selecciona una franja horaria</h3>
                     <label id="lbnuevoAnuncio4Disponibles" style="color:black; font-weight:bold; margin-bottom:20px; margin-top:17px;"></label>
+                    <h3 style="color:black; font-weight:bold">Selecciona una franja horaria</h3>
+
                     <div id="divnuevoAnuncio4FranjasHorarias1">
                         <form>
                             <div data-role="rangeslider">
@@ -585,25 +690,25 @@
             <div id="nuevoAnuncio6" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-corner-all custom-corners">
                     <div class="ui-bar ui-bar-a">
-                        <h3 style="color:black; font-weight:bold">Tu Selección</h3>
+                        <h3 style="color:black; font-weight:bold">Paso 4: Tu Selección</h3>
                     </div>
                     <div class="ui-body ui-body-a">
                         <div>
-                            <label class="txt_detallepantalla_calle">Av. Paral·lel, 148 08015 Barcelona</label>
+                            <label class="txt_detallepantalla_calle" id="lbnuevoAnuncio6Calle">Av. Paral·lel, 148 08015 Barcelona</label>
                         </div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:40%">
                                 <label class="txt_detallepantalla_bold">Tipo de pantalla:</label>
                             </div>
                             <div class="ui-block-b" style="text-align:left">
-                                <label class="txt_detallepantalla">Completa 200x200</label>
+                                <label class="txt_detallepantalla" id="lbnuevoAnuncio6Tipo">Completa 200x200</label>
                             </div>
                         </div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a" style="width:40%">
                                 <label class="txt_detallepantalla_bold">Localización:</label>
                             </div>
-                            <div class="ui-block-b txt_detallepantalla" style="text-align:left">Interior
+                            <div class="ui-block-b txt_detallepantalla" style="text-align:left" id="lbnuevoAnuncio6Localizacion">Interior
                                 </label>
                             </div>
                         </div>
@@ -612,7 +717,7 @@
                                 <label class="txt_detallepantalla_bold">Establecimiento:</label>
                             </div>
                             <div class="ui-block-b" style="text-align:left">
-                                <label class="txt_detallepantalla">Zapatería</label>
+                                <label class="txt_detallepantalla" id="lbnuevoAnuncio6Establecimiento">Zapatería</label>
                             </div>
                         </div>
                         <div class="ui-grid-a">
@@ -620,14 +725,14 @@
                                 <label class="txt_detallepantalla_bold">Fecha:</label>
                             </div>
                             <div class="ui-block-b" style="text-align:left">
-                                <label class="txt_detallepantalla" id="lbnuevoAnuncio3Fecha">Zapatería</label>
+                                <label class="txt_detallepantalla" id="lbnuevoAnuncio6Fecha"></label>
                             </div>
                         </div>
                         <div>
                             <label class="txt_detallepantalla_bold">Horarios seleccionados:</label>
                         </div>
                         <div>
-                            <label class="txt_detallepantalla">De 10:00 a 11:00h, de 11:00 a 12:00h</label>
+                            <label class="txt_detallepantalla" id="lbnuevoAnuncio6Horario">De 10:00 a 11:00h, de 11:00 a 12:00h</label>
                         </div>
                         <div>
                             <label class="txt_detallepantalla_bold">Imagen:</label>
@@ -641,7 +746,7 @@
             </div>
             <div id="nuevoAnuncio7" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-bar ui-bar-a">
-                    <h3 style="color:black; font-weight:bold">Subir Imagen</h3>
+                    <h3 style="color:black; font-weight:bold">Paso 5: Sube tu imagen!</h3>
                 </div>
                 <div data-role="content">
                     <div id="">
@@ -661,7 +766,6 @@
             </div>
             <div id="nuevoAnuncio8" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-bar ui-bar-a">
-                    <h3 style="color:black; font-weight:bold">Subir Imagen</h3>
                 </div>
                 <div data-role="content">
                     <div id="">
@@ -690,7 +794,7 @@
             </div>
             <div id="nuevoAnuncio10" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-bar ui-bar-a">
-                    <h3 style="color:black; font-weight:bold">¿Cómo quieres pagar tu anuncio?</h3>
+                    <h3 style="color:black; font-weight:bold">Paso 6: ¿Cómo quieres pagar tu anuncio?</h3>
                 </div>
                 <div data-role="content">
                     <div class="ui-grid-a">
@@ -706,7 +810,7 @@
             </div>
 
             <!-- Pop up de comunicación BOTON ACEPTAR -->
-            <div data-role="popup" id="PopUpAviso" class="" style="width:320px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
+            <div data-role="popup" id="PopUpAviso" class="" style="width:21em;" data-overlay-theme="a" data-transition="slidefade" data-theme="a">
                 <div data-role="header" style="text-align: center" class="cabecera">
                     <div id="tituloPopUpAviso">
                         <h2>Información</h2>
@@ -715,7 +819,7 @@
                 <div data-role="content">
                     <br>
                     <div>
-                        <label id="lbPopUpAviso" class="txt_centrals">Texto Generico</label>
+                        <label id="lbPopUpAviso" class="txt_centrals_popup">Texto Generico</label>
                     </div>
                     <br>
                 </div>
@@ -724,41 +828,45 @@
                 </div>
             </div>
 
-            <div data-role="popup" id="PopUpAccion" class="" style="width:320px;" data-overlay-theme="a" data-transition="flip" data-theme="a">
+            <div data-role="popup" id="PopUpAccion" class="" style="width:21em;" data-overlay-theme="a" data-transition="slidefade" data-theme="a">
                 <div data-role="header" style="text-align: center" class="cabecera">
                     <div id="tituloPopUpAccion">
-                        <h2>Información</h2>
+                        <label id="lbPopUpAccionTitulo">
+                            <h2>Información</h2>
+                        </label>
                     </div>
                 </div>
                 <div data-role="content">
                     <br>
                     <div>
-                        <label id="lbPopUpAccion" class="txt_centrals">¿Cuando desea reproducirlo?</label>
+                        <label id="lbPopUpAccion" class="txt_centrals_popup">Aqui puedes configurar la programación de tu pantalla
+                            <br>
+                            <br>¿Cuando deseas reproducirlo?</label>
                     </div>
 
                 </div>
                 <div class="footer">
-                            <button class="btn_blue" id="btnPopUpAccionSeleccionar" data-icon="clock" data-iconpos="right">Seleccionar Horario</button>      
-                            <button class="btn_blue" id="btnPopUpAccionAhora" data-icon="star" data-iconpos="right">Ahora!</button>
-                        
+                    <button class="btn_blue" id="btnPopUpAccionA" data-icon="clock" data-iconpos="right">Seleccionar un horario</button>
+                    <button class="btn_blue" id="btnPopUpAccionB" data-icon="star" data-iconpos="right">Ahora!</button>
+
                 </div>
             </div>
         </div>
 
         <div id="footer_comun" class="footer_comun">
             <div id="footernuevoAnuncio1" class="footer">
-                <button class="btn_blue" id="btnnuevoAnuncio1Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
-                <button class="btn_blue" id="btnnuevoAnuncio1Aceptar" data-icon="check" data-iconpos="right">Aceptar</button>
+                <button class="btn_blue" id="btnnuevoAnuncio1Cancelar" data-icon="back" data-iconpos="right">Atrás</button>
+                <button class="btn_blue" id="btnnuevoAnuncio1Aceptar" data-icon="check" data-iconpos="right">Continuar</button>
             </div>
             <div id="footernuevoAnuncio2" class="footer">
-                <button class="btn_blue" id="btnnuevoAnuncio2Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
-                <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="eye" data-iconpos="right">Ver Disponibilidad</button>
+                <button class="btn_blue" id="btnnuevoAnuncio2Cancelar" data-icon="back" data-iconpos="right">Atrás</button>
+                <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="grid" data-iconpos="right">Buscar por Codigo Postal</button>
             </div>
             <div id="footernuevoAnuncio3" class="footer">
-                <button class="btn_blue" id="btnnnuevoAnuncio3Seguir" data-icon="check" data-iconpos="right">YA tengo mis pantallas, seguir</button>
+                <!--<button class="btn_blue" id="btnnnuevoAnuncio3Seguir" data-icon="check" data-iconpos="right">YA tengo mis pantallas, seguir</button> -->
             </div>
             <div id="footernuevoAnuncio4" class="footer">
-                <button class="btn_blue" id="btnnnuevoAnuncio4Guardar" data-icon="check" data-iconpos="right">Guardar esta localización</button>
+                <button class="btn_blue" id="btnnnuevoAnuncio4Guardar" data-icon="check" data-iconpos="right">Continuar</button>
             </div>
             <div id="footernuevoAnuncio5" class="footer">
                 <button class="btn_blue" id="btnnnuevoAnuncio5Volver" data-icon="back" data-iconpos="right">Volver</button>
@@ -768,18 +876,18 @@
                 <button class="btn_blue" id="selectPicture" data-icon="camera" data-iconpos="right">Subir la misma imagen en todos</button>
             </div>
             <div id="footernuevoAnuncio7" class="footer">
-                <button class="btn_blue" id="btnnuevoAnuncio7Subir" data-icon="action" data-iconpos="right">Subir</button>
+                <button class="btn_blue" id="btnnuevoAnuncio7Subir" data-icon="action" data-iconpos="right">Continuar</button>
             </div>
             <div id="footernuevoAnuncio8" class="footer">
                 <button class="btn_blue" id="btnnuevoAnuncio8Previa" data-icon="eye" data-iconpos="right">Vista Previa</button>
             </div>
             <div id="footernuevoAnuncio9" class="footer">
-                <button class="btn_blue" style="padding:10px" id="btnnuevoAnuncio9Cambiar" data-icon="recycle" data-iconpos="right">Cambiar</button>
-                <button class="btn_blue" id="btnnuevoAnuncio9Proceder" data-icon="shop" data-iconpos="right">Pagar</button>
+                <button class="btn_blue" style="padding:10px" id="btnnuevoAnuncio9Cambiar" data-icon="recycle" data-iconpos="right">Cambiar mi imagen</button>
+                <button class="btn_blue" id="btnnuevoAnuncio9Proceder" data-icon="shop" data-iconpos="right">Publicar Anuncio</button>
             </div>
             <div id="footernuevoAnuncio10" class="footer">
                 <button class="btn_blue" id="btnnuevoAnuncio10Comprar" data-icon="shop" data-iconpos="right">Comprar más Creditos</button>
-                <button class="btn_blue" id="btnnuevoAnuncio10Cancelar" data-icon="back" data-iconpos="right">Cancelar</button>
+                <button class="btn_blue" id="btnnuevoAnuncio10Cancelar" data-icon="back" data-iconpos="right">Atrás</button>
             </div>
         </div>
 

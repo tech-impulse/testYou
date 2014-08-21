@@ -179,7 +179,12 @@ body {
 .txt_centrals {
 	color: #000;
 	text-align: center;
-	padding: 25px 10px 25px 10px;
+	padding: 20px 10px 20px 10px;
+}
+
+.txt_centrals_popup {
+	color: #000;
+	text-align: center;
 }
 .txt_centrals_sin_top {
 	color: #000;

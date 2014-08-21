@@ -179,6 +179,7 @@ function displayNuevoAnuncio() {
         console.log("El calendario es neceario");
     } else {
         console.log("El calendario NO es neceario");
+        procesoNuevoAnuncio6();
         displayNuevoAnuncio6();
     }
 
@@ -268,8 +269,8 @@ function displayNuevoAnuncio10() {
 }
 
 function displaySeleccion(opcion) {
-    
-    $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: "+parseInt(creditosDisponibles * 10)+" creditos");
+
+    $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles * 10) + " creditos");
 
     if (opcion == "seleccion") {
         $('#divnuevoAnuncio4FranjasHorarias1').show();
@@ -297,5 +298,24 @@ function displaySeleccion(opcion) {
         input.value = 10;
         $('#innuevoAnuncio4Segundos').val("10");
     }
+    $('#innuevoAnuncio4Segundos').slider('refresh');
 
+}
+
+function displaySelector(opcion) {
+
+    switch (opcion) {
+    case "paises":
+        {
+            $("#divnuevoAnuncio2ListaPais").show();
+            $("#divnuevoAnuncio2ListaProvincia").hide();
+            break;
+        };
+    case "provincias":
+        {
+            $("#divnuevoAnuncio2ListaPais").show();
+            $("#divnuevoAnuncio2ListaProvincia").show();
+            break;
+        };
+    }
 }

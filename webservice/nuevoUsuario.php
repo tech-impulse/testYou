@@ -12,8 +12,9 @@ $Nombre = mysql_real_escape_string($_GET["Nombre"]);
 $Apellidos = mysql_real_escape_string($_GET["Apellidos"]);
 $Email = mysql_real_escape_string($_GET["Email"]);
 $Password = mysql_real_escape_string($_GET["Password"]);
+$idPais = mysql_real_escape_string($_GET["idPais"]);
 
-$sql_upd = 'INSERT INTO Usuarios (id, Nombre, Apellidos, Email, Password, AceptaPolitica, CuentaPaypal, Creditos, idImagen) VALUES ( null , "' .$Nombre. '","' .$Apellidos. '","'. $Email . '","' .$Password. '", 1 , 0 , 0 , 0);';
+$sql_upd = 'INSERT INTO Usuarios (id, Nombre, Apellidos, Email, Password, idPais, AceptaPolitica, CuentaPaypal, Creditos, idImagen) VALUES ( null , "' .$Nombre. '","' .$Apellidos. '","'. $Email . '","' .$Password. '", ' . $idPais . ', 1 , 0 , 0 , 1);';
 
 if ($resultado = mysql_query($sql_upd, $con)){
             $resultados["mensaje"] = "Usuario dado de alta correctamente " ;

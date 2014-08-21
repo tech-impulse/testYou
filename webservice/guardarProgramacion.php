@@ -24,29 +24,30 @@ $sql_sel = 'SELECT idImagen as idImagen, Creditos as Creditos FROM Usuarios WHER
             $resultados["idImagen"] = $obj->idImagen;   
             $resultados["creditos"] = $obj->Creditos;
             $nombre = $idUsuario . "." . $resultados["idImagen"];
+            $resultados["idImagen"] = ($resultados["idImagen"] - 1);
             $i++;
 		}
 	}
     if( $fechaProgramacion=="NOW()")
     {
         $resultados["creditos"] = ($resultados["creditos"] - $creditos/10);
-        $sql_upd = 'INSERT INTO Programacion (id, idPantalla, idUsuario, idImagen, Fecha_programacion, Fecha, HoraDesde, HoraHasta, Segundos) VALUES ( null , "' .$idPantalla. '",' .$idUsuario. ','. $idUsuario . '.'      .$resultados["idImagen"]. ',' .$fechaProgramacion. ', NOW() ,' .$horaDesde. ',' .$horaHasta. ',' .$creditos. ');';
+        $sql_upd = 'INSERT INTO Programacion (id, idPantalla, idUsuario, idImagen, Fecha_programacion, Fecha, HoraDesde, HoraHasta, Segundos) VALUES ( null , "' .$idPantalla. '",' .$idUsuario. ',' .$resultados["idImagen"]. ',' .$fechaProgramacion. ', NOW() ,' .$horaDesde. ',' .$horaHasta. ',' .$creditos. ');';
         
     } else {
             $resultados["creditos"] = ($resultados["creditos"] - $creditos/10);
-        	$sql_upd = 'INSERT INTO Programacion (id, idPantalla, idUsuario, idImagen, Fecha_programacion, Fecha, HoraDesde, HoraHasta, Segundos) VALUES ( null , "' .$idPantalla. '",' .$idUsuario. ','. $idUsuario . '.' .$resultados["idImagen"]. ',"' .$fechaProgramacion. '", NOW() ,' .$horaDesde. ',' .$horaHasta. ',' .$creditos. ');';
+        	$sql_upd = 'INSERT INTO Programacion (id, idPantalla, idUsuario, idImagen, Fecha_programacion, Fecha, HoraDesde, HoraHasta, Segundos) VALUES ( null , "' .$idPantalla. '",' .$idUsuario. ',' .$resultados["idImagen"]. ',"' .$fechaProgramacion. '", NOW() ,' .$horaDesde. ',' .$horaHasta. ',' .$creditos. ');';
     }
 
 
 	if ($resultado = mysql_query($sql_upd, $con)){
-            $resultados["mensaje"] = "Esta programación te costará " . $creditos . " creditos! " ;
+            $resultados["mensaje"] = " Tu anuncio ha sido publicado! " ;
         
 			$resultados["validacion"] = "ok"; 
              
 	}
 	else
 	{
-		$resultados["mensaje"] = "Error de consulta del servicio";
+		$resultados["mensaje"] = "No se ha podido realizar el proceso";
 		$resultados["validacion"] = "error";
 	}
 
