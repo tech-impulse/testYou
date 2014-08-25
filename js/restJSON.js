@@ -268,7 +268,7 @@ function restPais() {
 
 function restOk(r, tipo) {
 
-    console.log(JSON.stringify(r));
+    //console.log(JSON.stringify(r));
 
     switch (tipo) {
     case "ubicaciones":
@@ -346,6 +346,7 @@ function restOk(r, tipo) {
 }
 
 function restError(r, tipo) {
-    alert("Erro de consulta " + tipo);
+    abrirPopupAviso("Compruebe su conexión");
+    //alert("Erro de consulta " + tipo);
 
 }

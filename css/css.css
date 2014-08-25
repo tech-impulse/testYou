@@ -362,11 +362,11 @@ a:active {
 }
 
 .txt_detallepantalla {
-	font-size:14px !important;
+	font-size:13px !important;
 }
 
 .txt_detallepantalla_calle {
-	font-size:15px !important;
+	font-size:13px !important;
 	line-height:1.8em !important;
 	font-weight:bold !important;
 }
@@ -385,6 +385,17 @@ a:active {
     max-width: 800px;
     text-align: center;
 }
+
+.navbar_izquierda {
+    text-align:left!important;
+    margin-left:1.2em!important;
+}
+
+.navbar_derecha {
+    text-align:right!important; 
+    margin-right:1.2em!important;
+}
+
 
 .footer {
     margin:1.1em

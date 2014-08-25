@@ -151,7 +151,7 @@ function procesoNuevoAnuncio5() {
         var mapProp = {
             center: myCenter,
             zoom: 14,
-            
+
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -178,7 +178,16 @@ function procesoNuevoAnuncio6() {
     $("#lbnuevoAnuncio6Tipo").text($("#lbnuevoAnuncio4TipoPantalla").text());
     //  $("#lbnuevoAnuncio6Localizacion").text();
     //  $("#lbnuevoAnuncio6Establecimiento").text();
-    $("#lbnuevoAnuncio6Fecha").text(fechaSeleccionada);
+    if (fechaSeleccionada == undefined) {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth() + 1;
+        var y = date.getFullYear();
+        fechaSeleccionada = d + "-" + m + "-" + y;
+        $("#lbnuevoAnuncio6Fecha").text(fechaSeleccionada);
+    } else {
+        $("#lbnuevoAnuncio6Fecha").text(fechaSeleccionada);
+    }
     displayNuevoAnuncio6();
 
 }
@@ -209,7 +218,7 @@ function visualizarImagen(files) {
 
 function procesoNuevoAnuncio10() {
 
-    if (creditos/10 < creditosDisponibles) {
+    if (creditos / 10 < creditosDisponibles) {
         restSubirImagen();
     } else {
         $("#lbPopUpAviso").text("No dispones de creditos suficientes");

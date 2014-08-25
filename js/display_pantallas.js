@@ -44,7 +44,7 @@ function ocultarElementosApp(actual) {
 // LOGIN  
 function displayMainLogin() {
 
-    localStorage['pantalla'] = "mainLogin";
+    pantallaApp = "mainLogin";
 
     ocultarElementosLogin('mainLogin');
 
@@ -54,7 +54,7 @@ function displayMainLogin() {
 
 function displayResetPassword() {
 
-    localStorage['pantalla'] = "resetPassword";
+    pantallaApp = "resetPassword";
 
     ocultarElementosLogin('resetPassword');
 
@@ -63,7 +63,7 @@ function displayResetPassword() {
 
 function displayResetPasswordFinish() {
 
-    localStorage['pantalla'] = "resetPasswordFinish";
+    pantallaApp = "resetPasswordFinish";
 
     ocultarElementosLogin('resetPasswordFinish');
 
@@ -72,7 +72,7 @@ function displayResetPasswordFinish() {
 
 function displayNewAccount() {
 
-    localStorage['pantalla'] = "newAccount";
+    pantallaApp = "newAccount";
 
     ocultarElementosLogin('newAccount');
 
@@ -81,7 +81,7 @@ function displayNewAccount() {
 
 function displayNewAccountFinish() {
 
-    localStorage['pantalla'] = "newAccountFinish";
+    pantallaApp = "newAccountFinish";
 
     ocultarElementosLogin('newAccountFinish');
 
@@ -95,7 +95,7 @@ function displayMainMenu() {
 
     $("#tituloSeccion").text("youtter");
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -104,7 +104,7 @@ function displayMainMenu() {
 function displayMiCuenta() {
     var p = "miCuenta";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -115,7 +115,7 @@ function displayCreditosMain() {
 
     $("#numCreditosMain").text(parseInt(creditosDisponibles));
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -125,7 +125,7 @@ function displayHistoricoMovimientos() {
 
     var p = "creditosHistorico";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 }
@@ -134,7 +134,7 @@ function displayCreditosPaquetes() {
 
     var p = "creditosPaquetes";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 }
@@ -142,7 +142,7 @@ function displayCreditosPaquetes() {
 function displayMisAnuncios() {
     var p = "misAnuncios";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -151,7 +151,7 @@ function displayMisAnuncios() {
 function displayNuevoAnuncio() {
     var p = "nuevoAnuncio";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -160,7 +160,7 @@ function displayNuevoAnuncio() {
 function displayAcuerdoLegal() {
     var p = "acuertoLegal";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -169,7 +169,7 @@ function displayAcuerdoLegal() {
 function displayReportarError() {
     var p = "reportarError";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -179,7 +179,7 @@ function displayReportarError() {
 function displayNuevoAnuncio() {
     var p = "nuevoAnuncio1";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -196,7 +196,7 @@ function displayNuevoAnuncio() {
 function displayNuevoAnuncio2() {
     var p = "nuevoAnuncio2";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -205,7 +205,7 @@ function displayNuevoAnuncio2() {
 function displayNuevoAnuncio3() {
     var p = "nuevoAnuncio3";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -216,7 +216,7 @@ function displayNuevoAnuncio4() {
 
     $("#lbnuevoAnuncio3Fecha").text(fechaSeleccionada);
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -225,7 +225,7 @@ function displayNuevoAnuncio4() {
 function displayNuevoAnuncio5() {
     var p = "nuevoAnuncio5";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -234,7 +234,7 @@ function displayNuevoAnuncio5() {
 function displayNuevoAnuncio6() {
     var p = "nuevoAnuncio6";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -243,7 +243,7 @@ function displayNuevoAnuncio6() {
 function displayNuevoAnuncio7() {
     var p = "nuevoAnuncio7";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -252,7 +252,7 @@ function displayNuevoAnuncio7() {
 function displayNuevoAnuncio8() {
     var p = "nuevoAnuncio8";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -261,7 +261,7 @@ function displayNuevoAnuncio8() {
 function displayNuevoAnuncio9() {
     var p = "nuevoAnuncio9";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -270,7 +270,7 @@ function displayNuevoAnuncio9() {
 function displayNuevoAnuncio10() {
     var p = "nuevoAnuncio10";
 
-    localStorage['pantalla'] = p;
+    pantallaApp = p;
 
     ocultarElementosApp(p);
 
@@ -278,35 +278,41 @@ function displayNuevoAnuncio10() {
 
 function displaySeleccion(opcion) {
 
-    $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles) + " creditos");
+    if (parseInt(creditosDisponibles) > 0) {
+        $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles) + " creditos");
 
-    if (opcion == "seleccion") {
-        $('#divnuevoAnuncio4FranjasHorarias1').show();
-        $('#divnuevoAnuncio4FranjasHorarias2').show();
-        calendario = true;
-        var input = document.getElementById("innuevoAnuncio4Segundos");
-        if ((creditosDisponibles * 10) >= 2520) {
-            input.setAttribute("max", 2520);
+        if (opcion == "seleccion") {
+            $('#divnuevoAnuncio4FranjasHorarias1').show();
+            $('#divnuevoAnuncio4FranjasHorarias2').show();
+            calendario = true;
+            var input = document.getElementById("innuevoAnuncio4Segundos");
+            if ((creditosDisponibles * 10) >= 2520) {
+                input.setAttribute("max", 2520);
+            } else {
+                input.setAttribute("max", parseInt(creditosDisponibles * 10));
+            }
+            input.setAttribute("value", 10);
+
+
         } else {
-            input.setAttribute("max", parseInt(creditosDisponibles * 10));
+            $('#divnuevoAnuncio4FranjasHorarias1').hide();
+            $('#divnuevoAnuncio4FranjasHorarias2').show();
+            calendario = false;
+            var input = document.getElementById("innuevoAnuncio4Segundos");
+            if ((creditosDisponibles * 10) >= 60) {
+                input.setAttribute("max", 60);
+            } else {
+                input.setAttribute("max", parseInt(creditosDisponibles * 10));
+            }
+            input.value = 10;
+            $('#innuevoAnuncio4Segundos').val("10");
         }
-        input.setAttribute("value", 10);
-
-
+        $('#innuevoAnuncio4Segundos').slider('refresh');
     } else {
+        $("#lbnuevoAnuncio4Disponibles").text(" No tienes creditos");
         $('#divnuevoAnuncio4FranjasHorarias1').hide();
-        $('#divnuevoAnuncio4FranjasHorarias2').show();
-        calendario = false;
-        var input = document.getElementById("innuevoAnuncio4Segundos");
-        if ((creditosDisponibles * 10) >= 60) {
-            input.setAttribute("max", 60);
-        } else {
-            input.setAttribute("max", parseInt(creditosDisponibles * 10));
-        }
-        input.value = 10;
-        $('#innuevoAnuncio4Segundos').val("10");
+        $('#divnuevoAnuncio4FranjasHorarias2').hide();
     }
-    $('#innuevoAnuncio4Segundos').slider('refresh');
 
 }
 

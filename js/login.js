@@ -109,6 +109,7 @@ function procesoDeLogin() {
 
 
 function autentication(user, pass) {
+    $.mobile.loading('show');
 
     var parametros = {
 
@@ -129,8 +130,9 @@ function autentication(user, pass) {
 
 //Recibimos la respuesta del WS de login
 function loginOk(r) {
+    $.mobile.loading('hide');
 
-    console.log(JSON.stringify(r));
+    //console.log(JSON.stringify(r));
     if (r.validacion == "ok") {
         idSesion = r.id_user;
         $("#lbmiCuentaNombre").text(r.Nombre + " " + r.Apellidos);
@@ -158,7 +160,7 @@ function loginOk(r) {
 
 //Recibimos ERROR en la respuesta del WS de login
 function loginError() {
-    alet("Error");
+    $.mobile.loading('hide');
     $("#lbPopUpLogin").text("Error al iniciar Sesión");
     $("#loginPopUp").popup("open");
 

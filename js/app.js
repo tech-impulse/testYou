@@ -7,6 +7,10 @@ PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 $(document).bind("mobileinit", function () {
     $.support.touchOverflow = false;
     $.mobile.touchOverflowEnabled = false;
+    
+    $.ajaxSetup({
+    timeout: 10000 //Time in milliseconds
+});
 });
 
 $(document).on('pageinit', '#loginModule', function () {
@@ -156,7 +160,7 @@ $(document).on('pageinit', '#loginModule', function () {
         restHistoricoMovimientos();
 
     });
-    
+
     //Creditos Principal - Historico - Botón para volver atrás
     $('#btncreditosHistoricoCancel').unbind('click').bind('click', function () {
 
@@ -171,8 +175,8 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btncreditosPaquetesMenu').unbind('click').bind('click', function () {
         displayMainMenu();
     });
-    
-       ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLA DE INFORMACIÓN DE LA CUENTA DEL USUARIO
 
     //Mi cuenta - Botón para volver atrás
@@ -288,8 +292,17 @@ $(document).on('pageinit', '#loginModule', function () {
 
         displayNuevoAnuncio3();
 
+    });
+
+    //Crear anuncio 4 - Boton para recargar Saldo
+    $('#btnnuevoAnuncio4Recargar').unbind('click').bind('click', function () {
+
+        mostrarPaquetesCreditos();
+        displayCreditosPaquetes();
 
     });
+
+
 
     //Crear anuncio 4 - Boton para Guardar
     $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
@@ -306,6 +319,8 @@ $(document).on('pageinit', '#loginModule', function () {
         horaFin = $("#innuevoAnuncio4Fin").val();
         creditos = $("#innuevoAnuncio4Segundos").val();
         procesoNuevoAnuncio6();
+        $("#btnnuevoAnuncio7Subir").hide();
+        displayNuevoAnuncio7(); // Ir directamente a subir la imagen
         //displayNuevoAnuncio3(); // Par siguientes versiones
 
     });
@@ -355,6 +370,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#file').change(function () {
         visualizarImagen(this.files);
+        $("#btnnuevoAnuncio7Subir").show();
     });
 
 
@@ -376,7 +392,8 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 9 - Boton para proceder al pago
     $('#btnnuevoAnuncio9Proceder').unbind('click').bind('click', function () {
         //procesoNuevoAnuncio9();
-        displayNuevoAnuncio10();
+        //displayNuevoAnuncio10();
+        procesoNuevoAnuncio10(); // Compra los creditos directamente
     });
 
     ///////// EVENTOS CREAR ANUNCIO 10 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -402,7 +419,10 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnPopUpAviso').unbind('click').bind('click', function () {
 
         $("#PopUpAviso").popup("close");
-        displayCreditosMain();
+        if(pantallaApp=="creditosPaquetes")
+        {
+            displayCreditosMain();
+        }
     });
 
     ////////// EVENTOS DE POPUP ACCION ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
