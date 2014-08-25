@@ -12,11 +12,17 @@ $(document).bind("mobileinit", function () {
 $(document).on('pageinit', '#loginModule', function () {
 
     // Activar para test
-    
-    /*
-    $("#inputLoginUsername").val("javier.fernandez@tech-impulse.com");
+
+
+    $("#inputLoginUsername").val("alain.cidrera@tech-impulse.com");
     $("#inputLoginPassword").val("test");
-    */
+
+    $('#btnPopUpLogin').unbind('click').bind('click', function () {
+        $("#loginPopUp").popup("close");
+
+    });
+
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU LATERAL
@@ -138,7 +144,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
     //Creditos Principal - Volver
-    $('#btnCreditosMainCancelar').unbind('click').bind('click', function () {
+    $('#btnCreditosMainCancel').unbind('click').bind('click', function () {
 
         displayMainMenu();
     });
@@ -147,7 +153,14 @@ $(document).on('pageinit', '#loginModule', function () {
     //Creditos Principal - Historico
     $('#btnCreditosMainHistorico').unbind('click').bind('click', function () {
 
-        mostrarHistoricoCreditos();
+        restHistoricoMovimientos();
+
+    });
+    
+    //Creditos Principal - Historico - Botón para volver atrás
+    $('#btncreditosHistoricoCancel').unbind('click').bind('click', function () {
+
+        displayCreditosMain();
 
     });
 
@@ -158,7 +171,14 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btncreditosPaquetesMenu').unbind('click').bind('click', function () {
         displayMainMenu();
     });
+    
+       ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    //PANTALLA DE INFORMACIÓN DE LA CUENTA DEL USUARIO
 
+    //Mi cuenta - Botón para volver atrás
+    $('#btnmiCuentaCancel').unbind('click').bind('click', function () {
+        displayMainMenu();
+    });
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -382,6 +402,7 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnPopUpAviso').unbind('click').bind('click', function () {
 
         $("#PopUpAviso").popup("close");
+        displayCreditosMain();
     });
 
     ////////// EVENTOS DE POPUP ACCION ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////

@@ -376,6 +376,10 @@ a:active {
 	line-height:1.8em !important;
 }
 
+.txt_historicoMovimientos {
+	font-size:11px !important;
+}
+
 .footer_comun {
     width: 100%;
     max-width: 800px;

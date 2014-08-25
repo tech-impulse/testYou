@@ -16,6 +16,7 @@
     <!--<link rel="stylesheet" href="lib/jquerymobile/jquery.mobile.structure-1.4.3.min.css" />-->
     <link rel="stylesheet" href="lib/jquery/jw-jqm-cal.css" />
     <link rel="stylesheet" href="css/css.css" />
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
     <!-- <script src="lib/jquery-1.11.1.min.js"></script>
     <!-- <script src="lib/jquerymobile/jquery.mobile-1.4.3.min.js"></script>-->
     <script src="lib/jquery/datepicker.js"></script>
@@ -84,7 +85,7 @@
                 <div theme="a">
                     <button type="button" data-role="button" id="btnLogIn" data-theme="a" class="btn_gradient">Entrar</button>
                 </div>
-                <div theme="a" style="text-align: center" class="olvidarcontrasena"> <a data-theme="a" id="loginForgotPassword">¿Has olvidado tu contraseña? Haz click aquí.</a> 
+                <div theme="a" style="text-align: center" class="olvidarcontrasena"> <a data-theme="a" id="loginForgotPassword">¿Has olvidado tu contraseña?</a> 
                 </div>
                 <div class="ui-grid-b" theme="a">
                     <button type="button" data-role="button" id="btnLogInNewAccount" data-theme="a" class="btn_blue">Crear nueva cuenta</button>
@@ -187,18 +188,21 @@
                 </div>
             </div>
 
+
             <!-- Pop up de comunicación BOTON ACEPTAR -->
-            <div data-role="popup" id="loginPopUp" class="" data-overlay-theme="a" data-transition="flip" data-theme="a">
-                <div data-role="header" style="text-align: center">
-                    <div id="tituloPopUpLogin">Error</div>
+            <div data-role="popup" id="loginPopUp" class="" style="width:21em;" data-overlay-theme="a" data-transition="slidefade" data-theme="a">
+                <div data-role="header" style="text-align: center" class="cabecera">
+                    <div id="tituloPopUpLogin">
+                        <h2>Error</h2>
+                    </div>
                 </div>
                 <div data-role="content">
                     <div>
-                        <label id="lbPopUpLogin" class="txt_centrals">Texto Generico</label>
+                        <label id="lbPopUpLogin" class="txt_centrals_popup">Texto Generico</label>
                     </div>
                 </div>
                 <div>
-                    <button type="button" id="btnPopUpLogin" data-theme="a">Aceptar</button>
+                    <button type="button" class="btn_blue" id="btnPopUpLogin" data-theme="a">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -334,9 +338,9 @@
             <center>
                 <div style="background-image: url('js/images/fondo_main2.png'); background-size: contain; background-repeat: no-repeat; height:16em; width:22em">
                     <div class="ui-grid-a">
-                        <div class="ui-block-a" id="MainMenuOpcion1" style="height:8em; width:11em">
+                        <div class="ui-block-a" id="MainMenuOpcion1" style="height:6em; width:11em">
                         </div>
-                        <div class="ui-block-b" id="MainMenuOpcion3" style="height:8em; width:11em">
+                        <div class="ui-block-b" id="MainMenuOpcion3" style="height:6em; width:11em">
                         </div>
                     </div>
                     <div class="ui-grid-a">
@@ -409,8 +413,12 @@
 
             <!-- Consulta del numero de creditos -->
             <div id="creditosHistorico" class="k-content">
-                <div class="txt_centrals_sin_bottom" id="textCreditosHistorico">Actualmente tienes:</div>
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina">Historio de movimientos</h3>
                 <div id="tablaCreditosHistorico"></div>
+                <ul data-role="listview" data-inset="true" data-divider-theme="a" id="ulcreditosHistorico">
+                    </li>
+                </ul>
+            <button type="button" id="btncreditosHistoricoCancel" class="btn_blue">Volver</button>
             </div>
 
             <!-- Comprar paquetes de creditos-->
@@ -507,6 +515,7 @@
                         </li>
                     </ul>
                 </form>
+                <button type="button" id="btnmiCuentaCancel" class="btn_blue">Volver</button>
             </div>
 
             <!-- Mis anuncios -->
@@ -683,7 +692,7 @@
             </div>
             <div id="nuevoAnuncio5" style="overflow-y:hidden; overflow-x:hidden">
                 <div data-role="content">
-                    <div id="divnuevoAnuncio5Mapa" style="width:100%;height:400px;"></div>
+                    <div id="divnuevoAnuncio5Mapa" style="width:100%;height:22em;"></div>
                 </div>
 
             </div>
@@ -860,7 +869,7 @@
             </div>
             <div id="footernuevoAnuncio2" class="footer">
                 <button class="btn_blue" id="btnnuevoAnuncio2Cancelar" data-icon="back" data-iconpos="right">Atrás</button>
-                <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="grid" data-iconpos="right">Buscar por Codigo Postal</button>
+                <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="search" data-iconpos="right">Buscar</button>
             </div>
             <div id="footernuevoAnuncio3" class="footer">
                 <!--<button class="btn_blue" id="btnnnuevoAnuncio3Seguir" data-icon="check" data-iconpos="right">YA tengo mis pantallas, seguir</button> -->

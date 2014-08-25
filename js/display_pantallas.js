@@ -121,6 +121,14 @@ function displayCreditosMain() {
 
 }
 
+function displayHistoricoMovimientos() {
+
+    var p = "creditosHistorico";
+
+    localStorage['pantalla'] = p;
+
+    ocultarElementosApp(p);
+}
 
 function displayCreditosPaquetes() {
 
@@ -270,7 +278,7 @@ function displayNuevoAnuncio10() {
 
 function displaySeleccion(opcion) {
 
-    $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles * 10) + " creditos");
+    $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles) + " creditos");
 
     if (opcion == "seleccion") {
         $('#divnuevoAnuncio4FranjasHorarias1').show();

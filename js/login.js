@@ -60,12 +60,12 @@ $(document).on('pageinit', '#loginModule', function () {
 
         /* FALTA CODIGO */
         if ($('#inputNewAccountPass').val() != $('#inputNewAccountPass2').val()) {
-
-            alert('Las contraseñas no coinciden.');
+            $("#lbPopUpLogin").text("Las contraseñas no coinciden");
+            $("#loginPopUp").popup("open");
 
         } else if ($('#inputNewAccountPass').val() == '') {
-
-            alert('Debe rellenar la contraseña');
+            $("#lbPopUpLogin").text("Debe rellenar la contraseña");
+            $("#loginPopUp").popup("open");
         } else {
 
             restNuevoUsuario();
@@ -96,7 +96,8 @@ function procesoDeLogin() {
 
     //Control de errores
     if ($('#inputLoginUsername').val() == '' || $('#inputLoginPassword').val() == '') {
-        alert("DEBE RELLENAR LOS CAMPOS DE USUARIO Y CONTRASEÑA");
+        $("#lbPopUpLogin").text("Debe rellenar los campos de usuario y contraseña");
+        $("#loginPopUp").popup("open");
 
     } else {
         //Recuperamos los valores y los enviamos al ws y esperamos respuesta
@@ -113,7 +114,7 @@ function autentication(user, pass) {
 
         usuario: user,
 
-        password: pass
+        password:  CryptoJS.MD5(pass).toString()
 
     };
     $.ajax({
@@ -148,7 +149,8 @@ function loginOk(r) {
         $.mobile.changePage('#app');
         displayMainMenu();
     } else {
-        alert("Usuario incorrecto");
+            $("#lbPopUpLogin").text("usuario incorrecto");
+            $("#loginPopUp").popup("open");
     }
 
 }
@@ -157,6 +159,7 @@ function loginOk(r) {
 //Recibimos ERROR en la respuesta del WS de login
 function loginError() {
     alet("Error");
-
+    $("#lbPopUpLogin").text("Error al iniciar Sesión");
+    $("#loginPopUp").popup("open");
 
 }

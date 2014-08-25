@@ -92,6 +92,36 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
     $("#ulnuevoAnuncio3").listview('refresh');
 }
 
+//Muestra todas las recargas y pagos de creditos
+function mostrarHistoricoCreditos(movimientos) {
+
+
+    $("#ulcreditosHistorico").empty();
+
+    $("#ulcreditosHistorico").listview();
+
+    $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div class="ui-block-a">Creditos</div><div class="ui-block-b">Importe</div><div class="ui-block-c">Fecha</div></li>');
+
+    for (var j = 0; j < movimientos.lista.length; j++) {
+        var lista = movimientos.lista[j];
+        console.log(JSON.stringify(lista));
+        for (var j = 0; j < lista.movimientos.length; j++) {
+            var objeto = lista.movimientos[j];
+            console.log(objeto);
+            $("#ulcreditosHistorico").append('<li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a txt_historicoMovimientos">' + parseInt(objeto.credito_actual) + ' Creditos</div><div class="ui-block-b txt_historicoMovimientos">' + parseInt(objeto.importe) + ' Creditos</div><div class="ui-block-c txt_historicoMovimientos">' + objeto.fecha + '</div></li>');
+        }
+
+    }
+
+
+
+    $("#ulcreditosHistorico").listview('refresh');
+
+    displayHistoricoMovimientos();
+
+
+}
+
 //Crear anuncio 4- Muestra el detalle de la pantalla seleccionada en el Paso 2
 
 function procesoNuevoAnuncio4(pos) {
@@ -99,7 +129,7 @@ function procesoNuevoAnuncio4(pos) {
     posicion = pos; // Nos guardamos la posicion que ocupa esta calle en una variable para poder desglosar la informacion del JSON.
 
     $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + CodigoPostal);
-    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + " " + CodigoPostal + " " + JsonCalle[pos].Poblacion);
+    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + ", " + JsonCalle[pos].Poblacion);
     $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
     $("#lbnuevoAnuncio4Localizacion").text();
     $("#lbnuevoAnuncio4Establecimiento").text();
@@ -121,6 +151,7 @@ function procesoNuevoAnuncio5() {
         var mapProp = {
             center: myCenter,
             zoom: 14,
+            
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -178,7 +209,12 @@ function visualizarImagen(files) {
 
 function procesoNuevoAnuncio10() {
 
-    restSubirImagen();
+    if (creditos/10 < creditosDisponibles) {
+        restSubirImagen();
+    } else {
+        $("#lbPopUpAviso").text("No dispones de creditos suficientes");
+        $("#PopUpAviso").popup("open");
+    }
 
 }
 
@@ -295,10 +331,7 @@ function procesoCompraCreditos(id) {
 
 }
 
-//Muestra todas las recargas y pagos de creditos
-function mostrarHistoricoCreditos() {
 
-}
 
 // FUNCIONES GENERICAS PARA UTILIZAR EN LA APP
 

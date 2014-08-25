@@ -26,12 +26,12 @@ if($resultado = mysql_query($sql, $con)) {
     $valorTotal = $creditos+$idPaquete;
 	$sql_upd = 'UPDATE Usuarios SET Creditos="'.$valorTotal.'" WHERE id="'.$id.'";';
 	if ($resultado = mysql_query($sql_upd, $con)){
-            $resultados["mensaje"] = "Completado1: Saldo actual " . $valorTotal . " Creditos";
+            $resultados["mensaje"] = "Completado: Saldo actual " . $valorTotal . " Creditos";
 			$resultados["validacion"] = "ok"; 
             $resultados["creditos"] = $valorTotal; 
-        $sql_ins = 'INSERT INTO Historico_Movimientos values(0 , '.$id.' , CURDATE() , '.$idPaquete.' , '.$creditos.' ,0 ,0 );';
+        $sql_ins = 'INSERT INTO Historico_Movimientos values(0 , '.$id.' , NOW() , '.$idPaquete.' , '.$creditos.' ,0 ,0 );';
         if ($resultado = mysql_query($sql_ins, $con)){
-                $resultados["mensaje"] = "Completado2: Saldo actual " . $valorTotal . " Creditos";
+                $resultados["mensaje"] = "Completado: Saldo actual " . $valorTotal . " Creditos";
                 $resultados["validacion"] = "ok"; 
         }
 	}

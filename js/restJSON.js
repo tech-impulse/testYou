@@ -156,6 +156,25 @@ function restComprarCreditos(id) {
     });
 }
 
+function restHistoricoMovimientos(id) {
+
+    var datos = {
+        idSesion: idSesion
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'historicoMovimientos.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "historicoMovimientos");
+        },
+        error: function (response) {
+            restError(response, "historicoMovimientos");
+        },
+    });
+}
+
 function restSubirImagen() {
     $.mobile.loading('show');
     $.ajax({
@@ -215,7 +234,7 @@ function restNuevoUsuario() {
         Nombre: $("#inputNewAccountNombre").val(),
         Apellidos: $("#inputNewAccountApellidos").val(),
         Email: $("#inputNewAccountEmail").val(),
-        Password: $("#inputNewAccountPass").val(),
+        Password: CryptoJS.MD5($("#inputNewAccountPass").val()).toString(),
         idPais: idPais
     };
 
@@ -229,6 +248,21 @@ function restNuevoUsuario() {
         error: function (response) {
             restError(response, "nuevoUsuario");
         },
+    });
+}
+
+function restPais() {
+    $.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
+        switch (data.address.country) {
+        case "Spain":
+            {
+                idPais = 1;
+                break;
+            };
+        default:
+            idPais = 1;
+        }
+
     });
 }
 
@@ -302,6 +336,11 @@ function restOk(r, tipo) {
             break;
         };
 
+    case "historicoMovimientos":
+        {
+            mostrarHistoricoCreditos(r);
+            break;
+        };
 
     }
 }
@@ -309,19 +348,4 @@ function restOk(r, tipo) {
 function restError(r, tipo) {
     alert("Erro de consulta " + tipo);
 
-}
-
-function restPais() {
-    $.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
-        switch (data.address.country) {
-        case "Spain":
-            {
-                idPais = 1;
-                break;
-            };
-        default:
-            idPais = 1;
-        }
-
-    });
 }
