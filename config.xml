@@ -13,7 +13,7 @@
         TechImpulse
     </author>
 
-    <preference name="Fullscreen" value="true" />
+    <preference name="fullscreen" value="true" />
 
     <gap:config-file platform="ios" parent="UISupportedInterfaceOrientations" overwrite="true">
         <array>
@@ -31,7 +31,8 @@
         <supports-screens android:xlargeScreens="false" android:largeScreens="false" android:smallScreens="false" />
     </gap:config-file>
 
-    <gap:plugin name="org.apache.cordova.camera" version="0.2.9" />
+    
+    <!-- <gap:plugin name="org.apache.cordova.camera" version="0.2.9" /> -->
 
 </widget>
 
