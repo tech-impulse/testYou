@@ -6,11 +6,11 @@
     <name>Youtter</name>
 
     <description>
-        An example for phonegap build docs.
+        Youtter App
     </description>
 
     <author href="https://youtter.com" email="javier.fernandez@tech-impulse.com">
-        Hardeep Shoker
+        TechImpulse
     </author>
 
     <preference name="Fullscreen" value="true" />
@@ -20,6 +20,12 @@
             <string>UIInterfaceOrientationLandscapeOmg</string>
         </array>
     </gap:config-file>
+
+    <gap:splash src="js/images/ic_launcher.png" gap:platform="ios" width="320" height="480" />
+    <gap:splash src="js/images/ic_launcher.png" gap:platform="ios" width="640" height="960" />
+    <gap:splash src="js/images/ic_launcher.pngg" gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="js/images/ic_launcher.png" gap:platform="ios" width="768" height="1024" />
+    <gap:splash src="js/images/ic_launcher.png" gap:platform="ios" width="1024" height="768" />
 
     <gap:config-file platform="android" parent="/manifest">
         <supports-screens android:xlargeScreens="false" android:largeScreens="false" android:smallScreens="false" />
