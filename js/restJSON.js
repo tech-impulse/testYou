@@ -183,15 +183,22 @@ function restSubirImagen() {
         data: formData,
         contentType: false,
         processData: false,
-        success: restGuardarProgramacion,
-        eerror: function (response) {
+        success: function (response) {
+            restGuardarProgramacion(response);
+        },
+        error: function (response) {
             restError(response, "guardarProgramacion");
         },
     });
 }
 
-function restGuardarProgramacion() {
-
+function restGuardarProgramacion(r) {
+    //var re = /(?:\.([^.]+))?$/;
+    //var ext = re.exec($("#file").val())[1];
+    console.log(r);
+    var obj = JSON.parse(r);
+    var video = obj.video;
+    //abrirPopupAviso(obj.extension);
     if (calendario == true) {
         var datos = {
             idPantalla: idPantalla,
@@ -200,6 +207,7 @@ function restGuardarProgramacion() {
             horaInicio: horaInicio,
             horaFin: horaFin,
             creditos: creditos,
+            video: video
         };
 
     } else {
@@ -210,6 +218,7 @@ function restGuardarProgramacion() {
             horaInicio: "0",
             horaFin: "0",
             creditos: creditos,
+            video: video
         };
 
     }
@@ -268,7 +277,7 @@ function restPais() {
 
 function restOk(r, tipo) {
 
-    //console.log(JSON.stringify(r));
+    console.log(JSON.stringify(r));
 
     switch (tipo) {
     case "ubicaciones":

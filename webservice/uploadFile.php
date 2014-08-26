@@ -2,7 +2,7 @@
 //header("Content-type: application/json");
 include 'connection.php';
 $dir = 'YoutterUploads';
-$resultado = "Error0";
+$resultado = "";
 error_reporting(-1);
 $a = 1;
 
@@ -44,15 +44,23 @@ $idNuevaImagen = $resultados["idImagen"]+1;
 
 
  file_put_contents ($dir.'/test.txt', 'Hello File');
-$allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
+$allowedExtsImg = array("jpg", "jpeg", "gif", "png", "bmp", "JPG", "JPEG", "GIF", "PNG", "BMP");
+$allowedExtsVid = array("mp4", "wma", "mpg", "mpeg", "avi", "mov","MP4", "WMA", "MPG", "MPEG", "AVI", "MOV");
 $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
-    if (in_array($extension, $allowedExts))
+    if (in_array($extension, $allowedExtsImg))
     {
+        $resultados["video"] = 0; 
     }
-    else {
+    else if (in_array($extension, $allowedExtsVid)){
+        $resultados["video"] = 1;
+        $extension = "mpg";   
+    }
+    else  {
+        $resultados["video"] = 0; 
         $extension = "jpg";
     }
+
 $filename  = basename($_FILES['file']['name']);
 $new       = $nombre.'.'.$extension;
 
@@ -69,15 +77,15 @@ if ((($_FILES["file"]["type"] == "image/gif")
 */
 if($a=1){
   if ($_FILES["file"]["error"] > 0) {
-    $resultado = 'Error de carga';
+    $resultados["mensaje"] = 'Error de carga';
     //echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
   } else {
-    //echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+   // echo "Upload: " . $_FILES["file"]["name"] . "<br>";
     //echo "Type: " . $_FILES["file"]["type"] . "<br>";
     //echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
     //echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
     if (file_exists($_SERVER['DOCUMENT_ROOT']."/YoutterUploads" . $_FILES["file"]["name"])) {
-       $resultado = 'Esta imagen ya existe!';
+       $resultados["error"] = 'Esta imagen ya existe! ' . $_FILES["file"]["name"];
     } else {
       if (move_uploaded_file($_FILES["file"]["tmp_name"], 
        $_SERVER['DOCUMENT_ROOT']."/YoutterUploads/" . $new))
@@ -85,11 +93,11 @@ if($a=1){
 
             $sql_upd = 'UPDATE Usuarios SET idImagen='.($idNuevaImagen).' WHERE id='.$id.';';
             $query = mysql_query($sql_upd, $con);
-            $resultado = "Imagen cargada correctamente! "; 
+            $resultados["mensaje"] = "Imagen cargada correctamente! "; 
          }
        else
          {
-           $resultado = "Error1";
+           $resultados["error"] = "Error1";
 
          }
         if (!is_writeable( $_SERVER['DOCUMENT_ROOT']."/YoutterUploads" . $_FILES["file"]["name"])) {
@@ -100,14 +108,15 @@ if($a=1){
     }
   }
 } else {
-    $resultado = "Tipo de archivo incompatible";
+    $resultados["mensaje"] = "Tipo de archivo incompatible";
 }
 
+$resultados["extension"] = $extension;
 mysql_close($con);
 
-//$resultadosJson = json_encode($resultado);
+$resultadosJson = json_encode($resultados);
 
-echo $resultado;
+echo $resultadosJson;
 
 
 ?>

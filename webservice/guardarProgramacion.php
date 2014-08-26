@@ -14,6 +14,7 @@ $fechaProgramacion = mysql_real_escape_string($_GET["fechaProgramacion"]);
 $horaDesde = mysql_real_escape_string($_GET["horaInicio"]);
 $horaHasta = mysql_real_escape_string($_GET["horaFin"]);
 $creditos = mysql_real_escape_string($_GET["creditos"]);
+$video = mysql_real_escape_string($_GET["video"]);
 
 
 //$sql = 'SELECT * FROM Ubicaciones WHERE idClient='.$id.' AND CodigoPostal='.$cp.' ORDER BY Direccion;'; 
@@ -31,11 +32,11 @@ $sql_sel = 'SELECT idImagen as idImagen, Creditos as Creditos FROM Usuarios WHER
     if( $fechaProgramacion=="NOW()")
     {
         $resultados["creditos"] = ($resultados["creditos"] - $creditos/10);
-        $sql_upd = 'INSERT INTO Programacion (id, idPantalla, idUsuario, idImagen, Fecha_programacion, Fecha, HoraDesde, HoraHasta, Segundos) VALUES ( null , "' .$idPantalla. '",' .$idUsuario. ',' .$resultados["idImagen"]. ',' .$fechaProgramacion. ', NOW() ,' .$horaDesde. ',' .$horaHasta. ',' .$creditos. ');';
+        $sql_upd = 'INSERT INTO Programacion (id, idPantalla, idUsuario, idImagen, Fecha_programacion, Fecha, HoraDesde, HoraHasta, Segundos, video) VALUES ( null , "' .$idPantalla. '",' .$idUsuario. ',' .$resultados["idImagen"]. ',' .$fechaProgramacion. ', NOW() ,' .$horaDesde. ',' .$horaHasta. ',' .$creditos. ',' .$video. ');';
         
     } else {
             $resultados["creditos"] = ($resultados["creditos"] - $creditos/10);
-        	$sql_upd = 'INSERT INTO Programacion (id, idPantalla, idUsuario, idImagen, Fecha_programacion, Fecha, HoraDesde, HoraHasta, Segundos) VALUES ( null , "' .$idPantalla. '",' .$idUsuario. ',' .$resultados["idImagen"]. ',"' .$fechaProgramacion. '", NOW() ,' .$horaDesde. ',' .$horaHasta. ',' .$creditos. ');';
+        	$sql_upd = 'INSERT INTO Programacion (id, idPantalla, idUsuario, idImagen, Fecha_programacion, Fecha, HoraDesde, HoraHasta, Segundos, video) VALUES ( null , "' .$idPantalla. '",' .$idUsuario. ',' .$resultados["idImagen"]. ',"' .$fechaProgramacion. '", NOW() ,' .$horaDesde. ',' .$horaHasta. ',' .$creditos. ',' .$video. ');';
     }
 
 
