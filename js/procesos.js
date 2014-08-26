@@ -2,7 +2,6 @@
 
 //Crear anuncio 2- Carga la lista de Paises al mostrar la pantalla de crear anuncio Paso 1
 
-
 function procesoNuevoAnuncio2(listaPaises) {
 
     $("#ulnuevoAnuncio2Pais").empty();
@@ -340,6 +339,31 @@ function procesoCompraCreditos(id) {
 
     //alert("comprar paquete con id " + id);
 
+}
+
+function procesoMisAnuncios(anuncios){
+    
+    $("#ulmisAnuncios").empty();
+
+    $("#ulmisAnuncios").listview();
+
+    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">Mis anuncios</li>');
+
+    for (var j = 0; j < anuncios.lista.length; j++) {
+        var lista = anuncios.lista[j];
+        console.log(JSON.stringify(lista));
+        for (var j = 0; j < lista.anuncios.length; j++) {
+            var objeto = lista.anuncios[j];
+            console.log(objeto);
+            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em" src="js/images/btn_web_youtter.png"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>'+objeto.direccion+'</h2><p> Emitido: '+objeto.fecha+'</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" id="btnmisAnuncios1">Relanzar</button></div></div></li>');
+        }
+
+    }
+
+    $("#ulmisAnuncios").listview('refresh');
+
+    displayMisAnuncios();
+    
 }
 
 

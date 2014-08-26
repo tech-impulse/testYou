@@ -175,6 +175,25 @@ function restHistoricoMovimientos(id) {
     });
 }
 
+function restMisAnuncios(id) {
+
+    var datos = {
+        idSesion: idSesion
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'misAnuncios.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "misAnuncios");
+        },
+        error: function (response) {
+            restError(response, "misAnuncios");
+        },
+    });
+}
+
 function restSubirImagen() {
     $.mobile.loading('show');
     $.ajax({
@@ -348,6 +367,11 @@ function restOk(r, tipo) {
     case "historicoMovimientos":
         {
             mostrarHistoricoCreditos(r);
+            break;
+        };
+    case "misAnuncios":
+        {
+            procesoMisAnuncios(r);
             break;
         };
 

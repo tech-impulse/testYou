@@ -108,7 +108,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#MainMenuOpcion3').unbind('click').bind('click', function () {
-        displayMisAnuncios();
+        restMisAnuncios();
 
     });
 
