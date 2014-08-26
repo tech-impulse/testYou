@@ -195,13 +195,15 @@ function procesoNuevoAnuncio6() {
 //Crear anuncio 7- Carga la imagen para visualizarla en la pantalla 8
 
 function visualizarImagen(files) {
+    var img = document.getElementById('imgnuevoAnuncio9');
+    img.src = "js/images/video.png";
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         var imageType = /image.*/;
         if (!file.type.match(imageType)) {
             continue;
         }
-        var img = document.getElementById('imgnuevoAnuncio9');
+        img = document.getElementById('imgnuevoAnuncio9');
         var reader = new FileReader();
         reader.onload = (function (aImg) {
             return function (e) {
