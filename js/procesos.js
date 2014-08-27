@@ -351,7 +351,6 @@ function procesoMisAnuncios(anuncios){
 
     for (var j = 0; j < anuncios.lista.length; j++) {
         var lista = anuncios.lista[j];
-        console.log(JSON.stringify(lista));
         for (var j = 0; j < lista.anuncios.length; j++) {
             var objeto = lista.anuncios[j];
             console.log(objeto);
