@@ -23,6 +23,7 @@ $i=0;
      $anuncio["idImagen"] = $obj->idImagen;
      $anuncio["fecha"] = $obj->Fecha_programacion;
      $anuncio["direccion"] = $obj->Direccion;
+     $anuncio["urlImagen"] = "http://admin.youtter.com/YoutterUploads/". $id . "." . $anuncio["idImagen"] . ".jpg";
      $resultados["anuncios"][] = $anuncio;
       
      $i++;
@@ -32,9 +33,7 @@ $i=0;
 			$resultados["validacion"] = "vacio"; 
 		}
 
-
 mysql_close($con);
-
 
 $resultadosJson = json_encode($resultados);
 echo ' { "lista" : ['.$resultadosJson .']}';

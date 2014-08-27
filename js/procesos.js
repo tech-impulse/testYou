@@ -355,7 +355,7 @@ function procesoMisAnuncios(anuncios){
         for (var j = 0; j < lista.anuncios.length; j++) {
             var objeto = lista.anuncios[j];
             console.log(objeto);
-            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em" src="js/images/btn_web_youtter.png"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>'+objeto.direccion+'</h2><p> Emitido: '+objeto.fecha+'</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" id="btnmisAnuncios1">Relanzar</button></div></div></li>');
+            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em" src="'+objeto.urlImagen+'"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>'+objeto.direccion+'</h2><p> Emitido: '+objeto.fecha+'</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" id="btnmisAnuncios1">Relanzar</button></div></div></li>');
         }
 
     }
