@@ -32,14 +32,16 @@ $i=0;
      $calle["Direccion"] = $obj->Direccion;
      $calle["Poblacion"] = $obj->Poblacion;
      $calle["Provincia"] = $obj->Provincia;
-     $resultados["CodigoPostal"] = $obj->CodigoPostal;
      $calle["LatitudGPS"] = $obj->LatitudGPS;
      $calle["LongitudGPS"] = $obj->LongitudGPS;
      $calle["Descripcion"] = $obj->Descripcion;
      $calle["HorarioDesde"] = $obj->HorarioDesde;
      $calle["HorarioHasta"] = $obj->HorarioHasta;
      $calle["idPantalla"] = $obj->idPantalla;
-     $resultados["calles"][] = $calle;      
+     $calle["CodigoPostal"] = $obj->CodigoPostal;
+     $resultados["CodigoPostal"] = $obj->CodigoPostal;
+     $resultados["calles"][] = $calle;   
+     //$resultados[$obj->CodigoPostal][] = $calle;      
             
      $i++;
 		}

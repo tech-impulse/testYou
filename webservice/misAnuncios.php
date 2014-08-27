@@ -11,7 +11,7 @@ mysql_select_db($database, $con);
  
 $id = mysql_real_escape_string($_GET["idSesion"]);
     
-$sql = ' SELECT pr.idImagen, pr.Fecha_programacion, u.Direccion FROM Programacion AS pr, Pantallas AS pa, Ubicaciones as u WHERE pr.idUsuario=' . $id . ' AND pr.idPantalla=pa.id AND pa.idUbicacion=u.id ORDER BY pr.Fecha DESC LIMIT 5'; 
+$sql = ' SELECT pr.id, pr.idImagen, pr.Fecha_programacion, pa.id as idPantalla, u.Direccion, u.CodigoPostal, u.Poblacion, t.Descripcion, u.LatitudGPS, u.LongitudGPS FROM Programacion AS pr, Pantallas AS pa, Ubicaciones as u, tiposPantallas as t WHERE pr.idUsuario=' . $id . ' AND pr.idPantalla=pa.id AND pa.idUbicacion=u.id ORDER BY pr.Fecha DESC LIMIT 5'; 
 
 $resultados["query"] = $sql;
  
@@ -19,10 +19,19 @@ $resultado = mysql_query($sql, $con);
 
 $i=0;
     while ($obj = mysql_fetch_object($resultado)) 
-    {        	      
-     $anuncio["idImagen"] = $obj->idImagen;
-     $anuncio["fecha"] = $obj->Fecha_programacion;
-     $anuncio["direccion"] = $obj->Direccion;
+    {     
+     $anuncio["IdProgramacion"] = $obj->id;
+     $anuncio["IdPantalla"] = $obj->idPantalla;
+     $anuncio["IdImagen"] = $obj->idImagen;
+     $anuncio["Fecha"] = $obj->Fecha_programacion;
+     $anuncio["CodigoPostal"] = $obj->CodigoPostal;
+     $anuncio["Poblacion"] = $obj->Poblacion;
+     $anuncio["Direccion"] = $obj->Direccion;
+     $anuncio["Descripcion"] = $obj->Descripcion;
+     $anuncio["LatitudGPS"] = $obj->LatitudGPS;
+     $anuncio["LongitudGPS"] = $obj->LongitudGPS;
+        
+            
      $anuncio["urlImagen"] = "http://admin.youtter.com/YoutterUploads/". $id . "." . $anuncio["idImagen"] . ".jpg";
      $resultados["anuncios"][] = $anuncio;
       

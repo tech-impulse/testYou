@@ -109,7 +109,7 @@ function procesoDeLogin() {
 
 
 function autentication(user, pass) {
-    $.mobile.loading('show');
+   // $.mobile.loading('show');
 
     var parametros = {
 
@@ -130,7 +130,7 @@ function autentication(user, pass) {
 
 //Recibimos la respuesta del WS de login
 function loginOk(r) {
-    $.mobile.loading('hide');
+    //$.mobile.loading('hide');
 
     //console.log(JSON.stringify(r));
     if (r.validacion == "ok") {
@@ -160,7 +160,7 @@ function loginOk(r) {
 
 //Recibimos ERROR en la respuesta del WS de login
 function loginError() {
-    $.mobile.loading('hide');
+    //$.mobile.loading('hide');
     $("#lbPopUpLogin").text("Error al iniciar Sesión");
     $("#loginPopUp").popup("open");
 

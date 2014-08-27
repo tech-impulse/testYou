@@ -7,10 +7,30 @@ PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 $(document).bind("mobileinit", function () {
     $.support.touchOverflow = false;
     $.mobile.touchOverflowEnabled = false;
-    
+
     $.ajaxSetup({
-    timeout: 50000 //Time in milliseconds
+        timeout: 10000 //Time in milliseconds
+    });
+
 });
+
+$(document).ajaxStart(function () {
+    if (pantallaApp == "nuevoAnuncio9") {
+        $.mobile.loading('show', {
+            text: 'Espere por favor...',
+            textVisible: true,
+            theme: 'z',
+            html: ""
+        });
+    } else {
+        $.mobile.loading('show');
+    }
+    $("#footer_comun").hide();
+});
+
+$(document).ajaxStop(function () {
+    $.mobile.loading('hide');
+    $("#footer_comun").show();
 });
 
 $(document).on('pageinit', '#loginModule', function () {
@@ -50,7 +70,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#btnMenuAnuncios').unbind('click').bind('click', function () {
-        displayMisAnuncios();
+        restMisAnuncios();
         $("#navpanel").panel("close");
 
     });
@@ -315,6 +335,7 @@ $(document).on('pageinit', '#loginModule', function () {
         */
         //$("#calle"+posicion).attr('data-icon','check');
         //$("#calle"+posicion).children().children().next().removeClass('ui-icon-custom').addClass('ui-icon-check');
+        
         horaInicio = $("#innuevoAnuncio4Inicio").val();
         horaFin = $("#innuevoAnuncio4Fin").val();
         creditos = $("#innuevoAnuncio4Segundos").val();
@@ -419,8 +440,7 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnPopUpAviso').unbind('click').bind('click', function () {
 
         $("#PopUpAviso").popup("close");
-        if(pantallaApp=="creditosPaquetes")
-        {
+        if (pantallaApp == "creditosPaquetes") {
             displayCreditosMain();
         }
     });

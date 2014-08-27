@@ -195,7 +195,7 @@ function restMisAnuncios(id) {
 }
 
 function restSubirImagen() {
-    $.mobile.loading('show');
+   // $.mobile.loading('show');
     $.ajax({
         url: url + 'uploadFile.php',
         type: 'POST',
