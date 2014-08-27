@@ -46,7 +46,7 @@ function restUbicaciones() {
 
     $.ajax({
         data: datos,
-        url: url + 'ubicaciones.php',
+        url: url + 'ubicacionestest.php',
         dataType: 'json',
         success: function (response) {
             restOk(response, "ubicaciones");
@@ -106,7 +106,7 @@ function restUbicacionesPorCodigoPostal(cp) {
 
     $.ajax({
         data: datos,
-        url: url + 'ubicacionesCP.php',
+        url: url + 'ubicacionesCPtest.php',
         dataType: 'json',
         success: function (response) {
             restOk(response, "ubicacionesCP");
@@ -195,7 +195,7 @@ function restMisAnuncios(id) {
 }
 
 function restSubirImagen() {
-    $.mobile.loading('show');
+   // $.mobile.loading('show');
     $.ajax({
         url: url + 'uploadFile.php',
         type: 'POST',

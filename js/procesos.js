@@ -67,26 +67,30 @@ function cerrarListaProvincia(posicion, cp) {
 
 function procesoNuevoAnuncio3(listaLocalizaciones) {
 
+    JsonCalle = [];
+
     $("#ulnuevoAnuncio3").empty();
 
     $("#ulnuevoAnuncio3").listview();
 
-    console.log(JSON.stringify(listaLocalizaciones));
-
     for (var i = 0; i < listaLocalizaciones.localizaciones.length; i++) {
         var localizacion = listaLocalizaciones.localizaciones[i];
-        CodigoPostal = localizacion.CodigoPostal.toString(); // Guardamos el codigo postal en una variable global
-        $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold"> Código Postal: <label style="display:inline" id="lbnuevoAnuncio3Codigo' + i + '">' + localizacion.CodigoPostal + '</label></li>');
 
-        for (var j = 0; j < localizacion.calles.length; j++) {
-            var calle = localizacion.calles[j];
-            JsonCalle.push(calle);
-            $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + " " + $("#lbnuevoAnuncio3Codigo" + i).text() + " " + calle.Poblacion + '</a></li>');
-            console.log("Nombre de la calle " + calle.Direccion);
-
+        var j = 0;
+        for (var key in localizacion) {
+            var codigoPostal = key;
+            $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold"> Código Postal: <label style="display:inline" id="lbnuevoAnuncio3Codigo' + i + '">' + codigoPostal + '</label></li>');
+            for (var key in localizacion[codigoPostal]) {
+                var calle = localizacion[codigoPostal][key];
+                JsonCalle.push(calle);
+                $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + " " + codigoPostal + " " + calle.Poblacion + '</a></li>');
+                j++;
+            }
         }
 
     }
+
+
 
     $("#ulnuevoAnuncio3").listview('refresh');
 }
@@ -127,7 +131,10 @@ function procesoNuevoAnuncio4(pos) {
 
     posicion = pos; // Nos guardamos la posicion que ocupa esta calle en una variable para poder desglosar la informacion del JSON.
 
-    $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + CodigoPostal);
+    console.log("Ubicacion seleccionada ");
+    console.log(JSON.stringify(JsonCalle[pos]));
+
+    $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + JsonCalle[pos].CodigoPostal);
     $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + ", " + JsonCalle[pos].Poblacion);
     $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
     $("#lbnuevoAnuncio4Localizacion").text();
@@ -341,8 +348,10 @@ function procesoCompraCreditos(id) {
 
 }
 
-function procesoMisAnuncios(anuncios){
-    
+function procesoMisAnuncios(anuncios) {
+
+    JsonCalle = [];
+
     $("#ulmisAnuncios").empty();
 
     $("#ulmisAnuncios").listview();
@@ -354,7 +363,9 @@ function procesoMisAnuncios(anuncios){
         for (var j = 0; j < lista.anuncios.length; j++) {
             var objeto = lista.anuncios[j];
             console.log(objeto);
-            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em" src="'+objeto.urlImagen+'"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>'+objeto.direccion+'</h2><p> Emitido: '+objeto.fecha+'</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" id="btnmisAnuncios1">Relanzar</button></div></div></li>');
+            objeto["relanzar"] = 1;
+            JsonCalle.push(objeto);
+            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em" src="' + objeto.urlImagen + '"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>' + objeto.Direccion + '</h2><p> Emitido: ' + objeto.Fecha + '</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
         }
 
     }
@@ -362,7 +373,32 @@ function procesoMisAnuncios(anuncios){
     $("#ulmisAnuncios").listview('refresh');
 
     displayMisAnuncios();
+
+}
+
+function relanzarAnuncio(pos) {
+
+    $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + JsonCalle[pos].CodigoPostal);
+    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + ", " + JsonCalle[pos].Poblacion);
+    $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
+    $("#lbnuevoAnuncio4Localizacion").text();
+    $("#lbnuevoAnuncio4Establecimiento").text();
+    idPantalla = JsonCalle[pos].idPantalla;
+
+    displayNuevoAnuncio4();
+
+    abrirPopupAccion("", "horario");
+
+    /*
+    restUbicaciones();
     
+        $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + CodigoPostal);
+    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + ", " + JsonCalle[pos].Poblacion);
+    $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
+    $("#lbnuevoAnuncio4Localizacion").text();
+    $("#lbnuevoAnuncio4Establecimiento").text();
+    idPantalla = JsonCalle[pos].idPantalla;
+    */
 }
 
 
@@ -382,7 +418,7 @@ function ocultarDiv(div) {
 // Cargar mensaje en Popup de Aviso
 
 function abrirPopupAviso(mensaje) {
-    $.mobile.loading('hide');
+    //$.mobile.loading('hide');
     $("#lbPopUpAviso").text(mensaje);
     $("#PopUpAviso").popup("open");
 }
@@ -390,7 +426,7 @@ function abrirPopupAviso(mensaje) {
 // Cargar mensaje en Popup de Accion
 
 function abrirPopupAccion(mensaje, tipo) {
-    $.mobile.loading('hide');
+    //$.mobile.loading('hide');
     console.log(tipo);
     switch (tipo) {
     case "horario":
@@ -419,7 +455,7 @@ function abrirPopupAccion(mensaje, tipo) {
 
 // la foto se ha subido correctamente
 function enviarFoto(r) {
-    $.mobile.loading('hide');
+    //$.mobile.loading('hide');
     //$("#lbPopUpAviso").text(r);
     //$("#PopUpAviso").popup("open");
     displayNuevoAnuncio9();
@@ -427,7 +463,7 @@ function enviarFoto(r) {
 
 // Ha habido algún error en el envío de la imagen
 function errorenviarFoto(r) {
-    $.mobile.loading('hide');
+    // $.mobile.loading('hide');
     console.log("Foto no subida");
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
