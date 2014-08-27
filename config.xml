@@ -19,6 +19,9 @@
         </array>
     </gap:config-file>
 
+    <gap:config-file platform="ios" parent="UIStatusBarHidden" overwrite="true">
+        <true/>
+    </gap:config-file>
     <gap:splash src="js/images/ic_launcher.png" gap:platform="ios" width="320" height="480" />
     <gap:splash src="js/images/ic_launcher.png" gap:platform="ios" width="640" height="960" />
     <gap:splash src="js/images/ic_launcher.pngg" gap:platform="ios" width="640" height="1136" />
