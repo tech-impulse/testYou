@@ -703,7 +703,7 @@
             </div>
             <div id="nuevoAnuncio7" style="overflow-y:hidden; overflow-x:hidden">
                 <div class="ui-bar ui-bar-a">
-                    <h3 style="color:black; font-weight:bold">Paso 4: Sube tu imagen!</h3>
+                    <h3 style="color:black; font-weight:bold">Paso 4: Selecciona tu anuncio!</h3>
                 </div>
                 <div class="ui-body ui-body-a">
                     <div>
@@ -748,7 +748,18 @@
                         <label class="txt_detallepantalla" id="lbnuevoAnuncio6Horario">De 10:00 a 11:00h, de 11:00 a 12:00h</label>
                     </div>
                 </div>
-                <div id="">
+                <form>
+                    <center>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>Selecciona una opción</legend>
+                             <input type="radio" name="radio-choice-h-2" id="opcionImagen" value="on" checked="checked">
+                             <label for="opcionImagen">Imagen<span class="ui-alt-icon ui-icon-camera ui-btn-icon-notext inlineIcon NoDisk"></span></label>
+                            <input type="radio" name="radio-choice-h-2" id="opcionVideo" value="off">
+                            <label for="opcionVideo">Video<span class="ui-alt-icon ui-icon-video ui-btn-icon-notext inlineIcon NoDisk"></span></label>
+                        </fieldset>
+                    </center>
+                </form>
+                <div id="divnuevoAnuncio7Imagen">
                     <label class="txt_centrals" id="lbnuevoAnuncio7Texto">Sube la imagen que se verá en las pantallas.
                         <br>Recuerda que el tamaño para que tu anuncio se vea de manera óptima es de 200x200.
                         <br>
@@ -756,16 +767,14 @@
                         <br>*.jpg, *.png, *.bmp</br>
                     </label>
                 </div>
-                <form>
-                    <center>
-                        <fieldset data-role="controlgroup" data-type="horizontal">
-                            <input type="radio" name="radio-choice-h-2" id="opcionImagen" value="on" checked="checked">
-                            <label for="opcionImagen">Imagen</label>
-                            <input type="radio" name="radio-choice-h-2" id="opcionVideo" value="off">
-                            <label for="opcionVideo">Video</label>
-                        </fieldset>
-                    </center>
-                </form>
+                <div id="divnuevoAnuncio7Video">
+                    <label class="txt_centrals" id="lbnuevoAnuncio7Texto">Sube el video que se verá en las pantallas.
+                        <br>Recuerda que solo se pueden subir videos de 100Mb como maximo.
+                        <br>
+                        <br>Formatos aceptados
+                        <br>*.mpg, *.mov, *.mp4</br>
+                    </label>
+                </div>
                 <form action="" id="formPicture" method="post">
                     <input type="file" name="file" id="file">
                 </form>

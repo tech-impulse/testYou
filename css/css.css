@@ -401,4 +401,13 @@ a:active {
     margin:1.1em
 }
 
+.inlineIcon {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    width: auto !important;
+}
+.NoDisk:after {
+    background-color: transparent;
+}
 

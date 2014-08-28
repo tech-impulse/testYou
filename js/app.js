@@ -386,8 +386,7 @@ $(document).on('pageinit', '#loginModule', function () {
         formData = new FormData($(this)[0]);
         formData.append("idSesion", idSesion);
         formData.append("video", undefined);
-        if(video!=undefined)
-        {
+        if (video != undefined) {
             formData.append("video", video);
         }
         displayNuevoAnuncio9();
@@ -401,9 +400,9 @@ $(document).on('pageinit', '#loginModule', function () {
 
         if (this.files[0].type == "") {
             if ($('#opcionImagen').val() == "on") {
-               video = 0;
+                video = 0;
             } else if ($('#opcionVideo').val() == "on") {
-               video = 1;
+                video = 1;
             }
         }
         visualizarImagen(this.files);
@@ -438,12 +437,16 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#opcionImagen').unbind('click').bind('click', function () {
         $('#opcionImagen').val("on");
         $('#opcionVideo').val("off");
+        $("#divnuevoAnuncio7Imagen").show();
+        $("#divnuevoAnuncio7Video").hide();
     });
 
     //Crear anuncio 9 - Boton para proceder al pago
     $('#opcionVideo').unbind('click').bind('click', function () {
         $('#opcionImagen').val("off");
         $('#opcionVideo').val("on");
+        $("#divnuevoAnuncio7Imagen").hide();
+        $("#divnuevoAnuncio7Video").show();
     });
 
 

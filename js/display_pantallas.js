@@ -241,6 +241,8 @@ function displayNuevoAnuncio6() {
 }
 
 function displayNuevoAnuncio7() {
+    $("#divnuevoAnuncio7Video").hide();
+    
     var p = "nuevoAnuncio7";
 
     pantallaApp = p;
