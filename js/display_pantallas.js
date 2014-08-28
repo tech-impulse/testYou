@@ -241,8 +241,14 @@ function displayNuevoAnuncio6() {
 }
 
 function displayNuevoAnuncio7() {
-    $("#divnuevoAnuncio7Video").hide();
-    
+    if ($('#opcionImagen').val() == "on") {
+        $("#divnuevoAnuncio7Video").hide();
+        $("#divnuevoAnuncio7Imagen").show();
+    } else {
+        $("#divnuevoAnuncio7Video").show();
+        $("#divnuevoAnuncio7Imagen").hide();
+    }
+
     var p = "nuevoAnuncio7";
 
     pantallaApp = p;

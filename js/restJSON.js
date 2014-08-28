@@ -195,7 +195,7 @@ function restMisAnuncios(id) {
 }
 
 function restSubirImagen() {
-   // $.mobile.loading('show');
+    // $.mobile.loading('show');
     $.ajax({
         url: url + 'uploadFile.php',
         type: 'POST',
@@ -246,6 +246,48 @@ function restGuardarProgramacion(r) {
     $.ajax({
         data: datos,
         url: url + 'guardarProgramacion.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "guardarProgramacion");
+        },
+        error: function (response) {
+            restError(response, "guardarProgramacion");
+        },
+    });
+}
+
+function restRelanzarAnuncio(r) {
+
+
+    if (calendario == true) {
+        var datos = {
+            idPantalla: JsonAnuncio[posicion].IdPantalla,
+            idSesion: idSesion,
+            idImagen: JsonAnuncio[posicion].IdImagen,
+            fechaProgramacion: fechaSeleccionada,
+            horaInicio: horaInicio,
+            horaFin: horaFin,
+            creditos: creditos,
+            video: JsonAnuncio[posicion].video
+        };
+
+    } else {
+        var datos = {
+            idPantalla: JsonAnuncio[posicion].IdPantalla,
+            idSesion: idSesion,
+            idImagen: JsonAnuncio[posicion].IdImagen,
+            fechaProgramacion: "NOW()",
+            horaInicio: "0",
+            horaFin: "0",
+            creditos: creditos,
+            video: JsonAnuncio[posicion].video
+        };
+
+    }
+
+    $.ajax({
+        data: datos,
+        url: url + 'relanzarAnuncio.php',
         dataType: 'json',
         success: function (response) {
             restOk(response, "guardarProgramacion");

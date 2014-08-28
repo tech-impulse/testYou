@@ -4,6 +4,8 @@
 
 function procesoNuevoAnuncio2(listaPaises) {
 
+    JsonAnuncio = []; // Vaciamos el Json de Auncios para que no sobrecargar la App.
+
     $("#ulnuevoAnuncio2Pais").empty();
 
     $("#ulnuevoAnuncio2Pais").listview();
@@ -219,13 +221,40 @@ function visualizarImagen(files) {
     }
 }
 
+//Crear anuncio 10- Carga la imagen para visualizarla en la pantalla 9
 
-//Crear anuncio 10- Carga la imagen para visualizarla en la pantalla 8
+function procesoNuevoAnuncio9() {
+
+    var img = document.getElementById('imgnuevoAnuncio9');
+
+    if (JsonAnuncio.length > 0) {
+        if (JsonAnuncio[posicion].relanzar == 1) {
+            if (JsonAnuncio[posicion].video == 1) {
+                img.src = "js/images/video.png";
+            } else {
+                img.src = JsonAnuncio[posicion].urlImagen;
+            }
+        }
+    }
+
+    displayNuevoAnuncio9();
+
+}
+
+
+//Crear anuncio 10- Ejecuta la orden de progrogramar el anuncio
 
 function procesoNuevoAnuncio10() {
 
+
     if (creditos / 10 < creditosDisponibles) {
-        restSubirImagen();
+        if (JsonAnuncio.length > 0) {
+            if (JsonAnuncio[posicion].relanzar == 1) {
+                restRelanzarAnuncio();
+            }
+        } else {
+            restSubirImagen();
+        }
     } else {
         $("#lbPopUpAviso").text("No dispones de creditos suficientes");
         $("#PopUpAviso").popup("open");
@@ -347,10 +376,9 @@ function procesoCompraCreditos(id) {
 }
 
 
-function procesoMisAnuncios(anuncios){
-    
-    JsonCalle = [];
-    
+function procesoMisAnuncios(anuncios) {
+
+    JsonAnuncio = [];
 
     $("#ulmisAnuncios").empty();
 
@@ -363,10 +391,12 @@ function procesoMisAnuncios(anuncios){
         for (var j = 0; j < lista.anuncios.length; j++) {
             var objeto = lista.anuncios[j];
             console.log(objeto);
-
-            objeto["relanzar"]=1;
-            JsonCalle.push(objeto);
-            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em" src="'+objeto.urlImagen+'"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>'+objeto.Direccion+'</h2><p> Emitido: '+objeto.Fecha+'</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio('+j+')">Relanzar</button></div></div></li>');
+            objeto["relanzar"] = 1;
+            JsonAnuncio.push(objeto);
+            if (objeto.video == 1) {
+                objeto.urlImagen = "js/images/video.png";
+            }
+            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em; margin-left:0.5em" src="' + objeto.urlImagen + '"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>' + objeto.Direccion + '</h2><p> Emitido: ' + objeto.Fecha + '</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
         }
 
     }
@@ -379,13 +409,15 @@ function procesoMisAnuncios(anuncios){
 
 function relanzarAnuncio(pos) {
 
-    $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + JsonCalle[pos].CodigoPostal);
-    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + ", " + JsonCalle[pos].Poblacion);
-    $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
+    console.log("Posicion del anuncio " + pos);
+
+    $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + JsonAnuncio[pos].CodigoPostal);
+    $("#lbnuevoAnuncio4Calle").text(JsonAnuncio[pos].Direccion + ", " + JsonAnuncio[pos].Poblacion);
+    $("#lbnuevoAnuncio4TipoPantalla").text(JsonAnuncio[pos].Descripcion);
     $("#lbnuevoAnuncio4Localizacion").text();
     $("#lbnuevoAnuncio4Establecimiento").text();
-    idPantalla = JsonCalle[pos].idPantalla;
-    
+    idPantalla = JsonAnuncio[pos].idPantalla;
+
     posicion = pos;
 
     displayNuevoAnuncio4();
@@ -403,33 +435,6 @@ function relanzarAnuncio(pos) {
     idPantalla = JsonCalle[pos].idPantalla;
     */
 }
-
-function relanzarAnuncio(pos){
-    
-    $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + JsonCalle[pos].CodigoPostal);
-    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + ", " + JsonCalle[pos].Poblacion);
-    $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
-    $("#lbnuevoAnuncio4Localizacion").text();
-    $("#lbnuevoAnuncio4Establecimiento").text();
-    idPantalla = JsonCalle[pos].idPantalla;
-
-    displayNuevoAnuncio4();
-
-    abrirPopupAccion("", "horario");
-    
-    /*
-    restUbicaciones();
-    
-        $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + CodigoPostal);
-    $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + ", " + JsonCalle[pos].Poblacion);
-    $("#lbnuevoAnuncio4TipoPantalla").text(JsonCalle[pos].Descripcion);
-    $("#lbnuevoAnuncio4Localizacion").text();
-    $("#lbnuevoAnuncio4Establecimiento").text();
-    idPantalla = JsonCalle[pos].idPantalla;
-    */
-}
-
-
 
 // FUNCIONES GENERICAS PARA UTILIZAR EN LA APP
 

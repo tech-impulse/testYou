@@ -335,16 +335,23 @@ $(document).on('pageinit', '#loginModule', function () {
         */
         //$("#calle"+posicion).attr('data-icon','check');
         //$("#calle"+posicion).children().children().next().removeClass('ui-icon-custom').addClass('ui-icon-check');
-        if (JsonCalle[posicion].relanzar == 1) {
-            displayNuevoAnuncio9();
-        } else {
+        horaInicio = $("#innuevoAnuncio4Inicio").val();
+        horaFin = $("#innuevoAnuncio4Fin").val();
+        creditos = $("#innuevoAnuncio4Segundos").val();
+        procesoNuevoAnuncio6();
 
-            horaInicio = $("#innuevoAnuncio4Inicio").val();
-            horaFin = $("#innuevoAnuncio4Fin").val();
-            creditos = $("#innuevoAnuncio4Segundos").val();
-            procesoNuevoAnuncio6();
+        if (JsonAnuncio.length == 0) {
             $("#btnnuevoAnuncio7Subir").hide();
             displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+        } else {
+
+            // Si estamos relanzando un aviso anterior, pasamos directamente a publicar
+            if (JsonAnuncio[posicion].relanzar == 1) {
+                procesoNuevoAnuncio9();
+            } else {
+                $("#btnnuevoAnuncio7Subir").hide();
+                displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+            }
         }
         //displayNuevoAnuncio3(); // Par siguientes versiones
 
