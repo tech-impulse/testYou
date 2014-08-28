@@ -11,7 +11,7 @@ $con = mysql_connect($server, $username, $password) or die ("No se conecto: " . 
 mysql_select_db($database, $con);
 
 
-$sql = 'SELECT * FROM Paises ORDER BY id'; 
+$sql = 'SELECT * FROM Paises WHERE id>0 ORDER BY id'; 
  
 $resultado = mysql_query($sql, $con);
 

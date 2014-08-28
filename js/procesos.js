@@ -66,8 +66,6 @@ function cerrarListaProvincia(posicion, cp) {
 
 
 function procesoNuevoAnuncio3(listaLocalizaciones) {
-    
-    JsonCalle = [];
 
     JsonCalle = [];
 
@@ -117,8 +115,6 @@ function mostrarHistoricoCreditos(movimientos) {
         }
 
     }
-
-
 
     $("#ulcreditosHistorico").listview('refresh');
 
