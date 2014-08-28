@@ -335,13 +335,17 @@ $(document).on('pageinit', '#loginModule', function () {
         */
         //$("#calle"+posicion).attr('data-icon','check');
         //$("#calle"+posicion).children().children().next().removeClass('ui-icon-custom').addClass('ui-icon-check');
-        
-        horaInicio = $("#innuevoAnuncio4Inicio").val();
-        horaFin = $("#innuevoAnuncio4Fin").val();
-        creditos = $("#innuevoAnuncio4Segundos").val();
-        procesoNuevoAnuncio6();
-        $("#btnnuevoAnuncio7Subir").hide();
-        displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+        if (JsonCalle[posicion].relanzar == 1) {
+            displayNuevoAnuncio9();
+        } else {
+
+            horaInicio = $("#innuevoAnuncio4Inicio").val();
+            horaFin = $("#innuevoAnuncio4Fin").val();
+            creditos = $("#innuevoAnuncio4Segundos").val();
+            procesoNuevoAnuncio6();
+            $("#btnnuevoAnuncio7Subir").hide();
+            displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+        }
         //displayNuevoAnuncio3(); // Par siguientes versiones
 
     });
@@ -379,9 +383,13 @@ $(document).on('pageinit', '#loginModule', function () {
     $("form#formPicture").submit(function (event) {
 
         event.preventDefault();
-
         formData = new FormData($(this)[0]);
         formData.append("idSesion", idSesion);
+        formData.append("video", undefined);
+        if(video!=undefined)
+        {
+            formData.append("video", video);
+        }
         displayNuevoAnuncio9();
         return false;
 
@@ -390,7 +398,16 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File
 
     $('#file').change(function () {
+
+        if (this.files[0].type == "") {
+            if ($('#opcionImagen').val() == "on") {
+               video = 0;
+            } else if ($('#opcionVideo').val() == "on") {
+               video = 1;
+            }
+        }
         visualizarImagen(this.files);
+
         $("#btnnuevoAnuncio7Subir").show();
     });
 
@@ -416,6 +433,20 @@ $(document).on('pageinit', '#loginModule', function () {
         //displayNuevoAnuncio10();
         procesoNuevoAnuncio10(); // Compra los creditos directamente
     });
+
+    //Crear anuncio 9 - Boton para proceder al pago
+    $('#opcionImagen').unbind('click').bind('click', function () {
+        $('#opcionImagen').val("on");
+        $('#opcionVideo').val("off");
+    });
+
+    //Crear anuncio 9 - Boton para proceder al pago
+    $('#opcionVideo').unbind('click').bind('click', function () {
+        $('#opcionImagen').val("off");
+        $('#opcionVideo').val("on");
+    });
+
+
 
     ///////// EVENTOS CREAR ANUNCIO 10 /////////////////////////////////////////////////////////////////////////////////////////////////
 

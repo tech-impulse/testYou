@@ -16,4 +16,5 @@ var horaFin; // Hora de fin de programacion
 var calendario; // booleano para ver si el calendario es necesario o no
 var idPantalla; // id de la pantalla seleccionada
 var idPais; // id del pais seleccionado
-var formData; // Variable que incluye la información de la imagen, junto con la id de Sesion
+var formData; // Variable que incluye la información de la imagen, junto con la id de Sesion y si es un video
+var video; // Variable que indica si es un video o no en caso no especificado por la plataforma

@@ -15,6 +15,7 @@ $con = mysql_connect($server, $username, $password) or die ("No se conecto: " . 
 mysql_select_db($database, $con);
  
 $id = $_POST["idSesion"];
+$video = $_POST["video"];
 
 $sql = 'SELECT idImagen FROM Usuarios WHERE id='.$id.';';
  
@@ -56,9 +57,15 @@ $extension = end($temp);
         $resultados["video"] = 1;
         $extension = "mpg";   
     }
-    else  {
-        $resultados["video"] = 0; 
-        $extension = "jpg";
+    else if($video!="undefined")  {
+        if($video==0){
+            $resultados["video"] = 0; 
+            $extension = "jpg";
+        } else {
+            $resultados["video"] = 1; 
+            $extension = "mpg";
+        }
+
     }
 
 $filename  = basename($_FILES['file']['name']);

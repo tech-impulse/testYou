@@ -385,6 +385,8 @@ function relanzarAnuncio(pos) {
     $("#lbnuevoAnuncio4Localizacion").text();
     $("#lbnuevoAnuncio4Establecimiento").text();
     idPantalla = JsonCalle[pos].idPantalla;
+    
+    posicion = pos;
 
     displayNuevoAnuncio4();
 

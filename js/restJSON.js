@@ -218,6 +218,7 @@ function restGuardarProgramacion(r) {
     var obj = JSON.parse(r);
     var video = obj.video;
     //abrirPopupAviso(obj.extension);
+
     if (calendario == true) {
         var datos = {
             idPantalla: idPantalla,
