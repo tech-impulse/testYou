@@ -29,6 +29,7 @@
     <script src="js/app.js"></script>
     <script src="js/procesos.js"></script>
     <script src="js/parametros.js"></script>
+    <script src="js/textos.js"></script>
 
     <STYLE type="text/css">
         @media all and (min-width: 36em) {
@@ -425,6 +426,34 @@
                 </div>
             </div>
 
+            <!-- Pantalla de condiciones y Politicas  -->
+            <div id="condicionesIpoliticas" class="k-content">
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina" id="titulocondicionesIpoliticas"></h3>
+                <div class="txt_centrals_sin_bottom" id="divcondicionesIpoliticas">
+                </div>
+                <div>
+                    <button type="button" id="btncondicionesIpoliticasCancel" class="btn_blue" data-icon="back" data-iconpos="right">Volver</button>
+                </div>
+            </div>
+
+            <!-- Pantalla de Informar de un problema  -->
+            <div id="informeProblema" class="k-content">
+                <h3 class="ui-bar ui-bar-a div_titulo_pagina" id="tituloInformeProblema">Informe de un problema</h3>
+                <label id="lbInformeProblemaAsunto" class="txt_textfield_out">Asunto:</label>
+                <div theme="a">
+                    <input class="txt_textfield_in" type="text" id="inputInformeProblemaAsunto" onclick="this.value='';" value="Breve descripción de la invidencia">
+                    </input>
+                </div>
+            <br>
+                <form>
+                    <label id="lbInformeProblemaDescripcion" for="textarea-1">Descripción:</label>
+                    <textarea name="textarea-1" id="textInformeProblemaDescripcion" onclick="this.value='';" value="Descripción del asunto"></textarea>
+                </form>
+                <button type="button" id="btnInformeProblemaEnviar" class="btn_blue" data-icon="mail" data-iconpos="right">Reportar</button>
+                <button type="button" id="btnInformeProblemaCancel" class="btn_blue" data-icon="back" data-iconpos="right">Volver</button>
+
+            </div>
+
             <!-- Consulta del numero de creditos -->
             <div id="creditosHistorico" class="k-content">
                 <h3 class="ui-bar ui-bar-a div_titulo_pagina">Historio de movimientos</h3>
@@ -752,10 +781,12 @@
                     <center>
                         <fieldset data-role="controlgroup" data-type="horizontal">
                             <legend>Selecciona una opción</legend>
-                             <input type="radio" name="radio-choice-h-2" id="opcionImagen" value="on" checked="checked">
-                             <label for="opcionImagen">Imagen<span class="ui-alt-icon ui-icon-camera ui-btn-icon-notext inlineIcon NoDisk"></span></label>
+                            <input type="radio" name="radio-choice-h-2" id="opcionImagen" value="on" checked="checked">
+                            <label for="opcionImagen">Imagen<span class="ui-alt-icon ui-icon-camera ui-btn-icon-notext inlineIcon NoDisk"></span>
+                            </label>
                             <input type="radio" name="radio-choice-h-2" id="opcionVideo" value="off">
-                            <label for="opcionVideo">Vídeo<span class="ui-alt-icon ui-icon-video ui-btn-icon-notext inlineIcon NoDisk"></span></label>
+                            <label for="opcionVideo">Vídeo<span class="ui-alt-icon ui-icon-video ui-btn-icon-notext inlineIcon NoDisk"></span>
+                            </label>
                         </fieldset>
                     </center>
                 </form>

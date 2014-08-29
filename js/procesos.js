@@ -201,8 +201,8 @@ function procesoNuevoAnuncio6() {
 //Crear anuncio 7- Carga la imagen para visualizarla en la pantalla 8
 
 function visualizarImagen(files) {
-    var img = document.getElementById('imgnuevoAnuncio9');
-    img.src = "js/images/video.png";
+    //var img = document.getElementById('imgnuevoAnuncio9');
+    //img.src = "js/images/video.png";
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         var imageType = /image.*/;
@@ -483,6 +483,22 @@ function abrirPopupAccion(mensaje, tipo) {
     $("#PopUpAccion").popup("open");
 }
 
+// FUNCION PARA TRADUCIR LA PAGINA
+function traducir(idPais) {
+    var pais;
+    switch (idPais) {
+    case "1":
+        {
+            pais = "es";
+            break;
+        };
+    default:
+        pais = "es"
+    }
+    $("#titulocondicionesIpoliticas").text(textos.es.condicionesIpoliticas.titulocondicionesIpoliticas);
+    $("#divcondicionesIpoliticas").text(textos.es.condicionesIpoliticas.divcondicionesIpoliticas);
+}
+
 
 // CONTROL DE ERRORES DE SUBIDA DE IMAGENES
 
@@ -501,3 +517,4 @@ function errorenviarFoto(r) {
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
 }
+

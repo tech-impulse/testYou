@@ -2,14 +2,12 @@
 PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 */
 
-
-
 $(document).bind("mobileinit", function () {
     $.support.touchOverflow = false;
     $.mobile.touchOverflowEnabled = false;
 
     $.ajaxSetup({
-        timeout: 10000 //Time in milliseconds
+        timeout: 30000 //Time in milliseconds
     });
 
 });
@@ -35,8 +33,8 @@ $(document).ajaxStop(function () {
 
 $(document).on('pageinit', '#loginModule', function () {
 
-    // Activar para test
-
+    // Desactivar para Desarrolar
+    //console.log = function() {}
 
     $("#inputLoginUsername").val("alain.cidrera@tech-impulse.com");
     $("#inputLoginPassword").val("test");
@@ -45,7 +43,6 @@ $(document).on('pageinit', '#loginModule', function () {
         $("#loginPopUp").popup("close");
 
     });
-
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,6 +87,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
     $('#btnMenuCondiciones').unbind('click').bind('click', function () {
+        displayCondicionesIpoliticas();
         $("#navpanel").panel("close");
 
     });
@@ -99,6 +97,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#btnMenuProblema').unbind('click').bind('click', function () {
+        displayInformeProblema();
         $("#navpanel").panel("close");
 
     });
@@ -109,7 +108,28 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    //Condiciones y Politicas - Boton cancelar
+    $('#btncondicionesIpoliticasCancel').unbind('click').bind('click', function () {
+        displayMainMenu();
 
+    });
+
+    //Informe de un problema - Boton cancelar
+    $('#btnInformeProblemaEnviar').unbind('click').bind('click', function () {
+        if ($("#textInformeProblemaDescripcion").val() != "") {
+            restIncidencia();
+        } else {
+            abrirPopupAviso("Debes rellenar la descripción!");
+        }
+        //abrirPopupAviso("Acción temporalmente no disponible");
+
+    })
+
+    //Informe de un problema - Boton cancelar
+    $('#btnInformeProblemaCancel').unbind('click').bind('click', function () {
+        displayMainMenu();
+
+    })
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,26 +154,6 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#MainMenuOpcion4').unbind('click').bind('click', function () {
         displayMiCuenta();
-
-    });
-
-    $('#MainMenuOpcion11').unbind('click').bind('click', function () {
-        alert("1");
-
-    });
-
-    $('#MainMenuOpcion22').unbind('click').bind('click', function () {
-        alert("2");
-
-    });
-
-    $('#MainMenuOpcion33').unbind('click').bind('click', function () {
-        alert("3");
-
-    });
-
-    $('#MainMenuOpcion44').unbind('click').bind('click', function () {
-        alert("4");
 
     });
 
@@ -203,6 +203,20 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnmiCuentaCancel').unbind('click').bind('click', function () {
         displayMainMenu();
     });
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    //PANTALLA DE MIS ANUNCIOS
+
+    $("#misAnuncios").on("swipeleft", swipeDerecha);
+    $("#misAnuncios").on("swiperight", swipeIzquiera);
+
+    function swipeDerecha(event) {
+        console.log("pagina mas");
+    }
+
+    function swipeIzquiera(event) {
+        console.log("pagina menos");
+    }
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////

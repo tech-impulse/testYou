@@ -323,6 +323,7 @@ function restNuevoUsuario() {
 }
 
 function restPais() {
+    console.log("dame el pais");
     $.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
         switch (data.address.country) {
         case "Spain":
@@ -331,10 +332,35 @@ function restPais() {
                 break;
             };
         default:
-            idPais = 1;
+            {
+                idPais = 1;
+            }
         }
 
     });
+}
+
+function restIncidencia() {
+
+    var datos = {
+        idSesion: idSesion,
+        Asunto: $("#inputInformeProblemaAsunto").val(),
+        Descripcion: $("#textInformeProblemaDescripcion").val(),
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'incidencia.php',
+        dataType: 'json',
+        type: 'POST',
+        success: function (response) {
+            restOk(response, "incidencia");
+        },
+        error: function (response) {
+            restError(response, "incidencia");
+        },
+    });
+
 }
 
 function restOk(r, tipo) {
@@ -415,6 +441,11 @@ function restOk(r, tipo) {
     case "misAnuncios":
         {
             procesoMisAnuncios(r);
+            break;
+        };
+    case "incidencia":
+        {
+            abrirPopupAviso(r.mensaje);
             break;
         };
 

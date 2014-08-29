@@ -1,6 +1,6 @@
 var SECCIONES_LOGIN = new Array('mainLogin', 'resetPassword', 'resetPasswordFinish', 'newAccount', 'newAccountFinish');
 
-var SECCIONES_APP = new Array('mainMenu', 'miCuenta', 'creditosMain', 'misAnuncios', 'anunciosMain', 'estadisticas', 'nuevoAnuncio', 'acuerdoLegal', 'informeErrores', 'creditosHistorico', 'creditosPaquetes', 'nuevoAnuncio1', 'nuevoAnuncio2', 'nuevoAnuncio3', 'nuevoAnuncio4', 'nuevoAnuncio5', 'nuevoAnuncio6', 'nuevoAnuncio7', 'nuevoAnuncio8', 'nuevoAnuncio9', 'nuevoAnuncio10');
+var SECCIONES_APP = new Array('mainMenu', 'miCuenta', 'creditosMain', 'misAnuncios', 'anunciosMain', 'estadisticas', 'nuevoAnuncio', 'condicionesIpoliticas', 'informeProblema', 'creditosHistorico', 'creditosPaquetes', 'nuevoAnuncio1', 'nuevoAnuncio2', 'nuevoAnuncio3', 'nuevoAnuncio4', 'nuevoAnuncio5', 'nuevoAnuncio6', 'nuevoAnuncio7', 'nuevoAnuncio8', 'nuevoAnuncio9', 'nuevoAnuncio10');
 
 /*
 Desactiva todas las secciones del modulo y activa la actual.
@@ -157,8 +157,8 @@ function displayNuevoAnuncio() {
 
 }
 
-function displayAcuerdoLegal() {
-    var p = "acuertoLegal";
+function displayCondicionesIpoliticas() {
+    var p = "condicionesIpoliticas";
 
     pantallaApp = p;
 
@@ -166,8 +166,8 @@ function displayAcuerdoLegal() {
 
 }
 
-function displayReportarError() {
-    var p = "reportarError";
+function displayInformeProblema() {
+    var p = "informeProblema";
 
     pantallaApp = p;
 

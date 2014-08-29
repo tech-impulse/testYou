@@ -147,6 +147,7 @@ function loginOk(r) {
         } else {
             $("#lbmiCuentaPais").text("Indeterminado");
         }
+        traducir(r.Pais);
         creditosDisponibles = r.Creditos;
         $.mobile.changePage('#app');
         displayMainMenu();
