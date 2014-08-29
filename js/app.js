@@ -207,15 +207,21 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLA DE MIS ANUNCIOS
 
-    $("#misAnuncios").on("swipeleft", swipeDerecha);
-    $("#misAnuncios").on("swiperight", swipeIzquiera);
+    $("#misAnuncios").on("swipeleft", paginarAdelante);
+    $("#misAnuncios").on("swiperight", paginarAtras);
 
-    function swipeDerecha(event) {
-        console.log("pagina mas");
+    function paginarAdelante(event) {
+        if (posicionPagina < (JsonAnuncio.length - 5)) {
+            posicionPagina = posicionPagina + 5;
+            paginarMisAnuncios();
+        }
     }
 
-    function swipeIzquiera(event) {
-        console.log("pagina menos");
+    function paginarAtras(event) {
+        if (posicionPagina != 0) {
+            posicionPagina = posicionPagina - 5;
+            paginarMisAnuncios();
+        }
     }
 
 

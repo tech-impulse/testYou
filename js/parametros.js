@@ -11,6 +11,7 @@ var JsonCalle = []; // JSON CON TODAS LAS CALLES DISPONIBLES DESPUES DE SELECCIO
 var JsonAnuncio = []; // JSON CON TODA LA INFORMACION DE LOS ANUNCIOS JUNTO CON EL QUE SE VA A PUBLICAR
 var CodigoPostal; // Variable que guarda el codigo postal
 var posicion; // variable para guardar la posicion actual en cualquier posicion
+var posicionPagina = 0; // variable para guardar la posicion actual de la pagina
 var creditos; // creditos que se van a gastar (segundos)
 var horaInicio; // hora de inicio de la programacion
 var horaFin; // Hora de fin de programacion
@@ -19,3 +20,6 @@ var idPantalla; // id de la pantalla seleccionada
 var idPais; // id del pais seleccionado
 var formData; // Variable que incluye la información de la imagen, junto con la id de Sesion y si es un video
 var video; // Variable que indica si es un video o no en caso no especificado por la plataforma
+
+//
+var paginasPorPantalla = 5;
