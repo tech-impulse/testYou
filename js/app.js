@@ -210,20 +210,6 @@ $(document).on('pageinit', '#loginModule', function () {
     $("#misAnuncios").on("swipeleft", paginarAdelante);
     $("#misAnuncios").on("swiperight", paginarAtras);
 
-    function paginarAdelante(event) {
-        if (posicionPagina < (JsonAnuncio.length - 5)) {
-            posicionPagina = posicionPagina + 5;
-            paginarMisAnuncios();
-        }
-    }
-
-    function paginarAtras(event) {
-        if (posicionPagina != 0) {
-            posicionPagina = posicionPagina - 5;
-            paginarMisAnuncios();
-        }
-    }
-
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREAR ANUNCIO

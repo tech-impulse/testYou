@@ -385,8 +385,6 @@ function procesoMisAnuncios(anuncios) {
 
     $("#ulmisAnuncios").listview();
 
-    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">Mis anuncios <span class="ui-li-count" id="spanPaginaActual"></span></li>');
-
     for (var j = 0; j < anuncios.lista.length; j++) {
         var lista = anuncios.lista[j];
         $("#spanPaginaActual").text("1-" + Math.round(lista.anuncios.length / paginasPorPantalla));
@@ -405,21 +403,22 @@ function procesoMisAnuncios(anuncios) {
 
     }
 
+    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtras()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActual">1-' + Math.round(JsonAnuncio.length / paginasPorPantalla) + '</span></div><div onClick="paginarAdelante()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
+
     $("#ulmisAnuncios").listview('refresh');
 
     displayMisAnuncios();
 
+
 }
 
-function paginarMisAnuncios(anuncios) {
+function paginarMisAnuncios() {
 
     $("#ulmisAnuncios").empty();
 
     $("#ulmisAnuncios").listview();
 
-    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">Mis anuncios <span class="ui-li-count" id="spanPaginaActual"></span></li>');
-
-    $("#spanPaginaActual").text(parseInt((posicionPagina / paginasPorPantalla) + 1) + "-" + Math.round(JsonAnuncio.length / paginasPorPantalla));
+    //$("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">Mis anuncios <span class="ui-li-count" id="spanPaginaActual"></span></li>');
 
     for (var j = posicionPagina; j < (JsonAnuncio.length - (JsonAnuncio.length - (posicionPagina + paginasPorPantalla))); j++) {
         if (j < JsonAnuncio.length) {
@@ -427,9 +426,13 @@ function paginarMisAnuncios(anuncios) {
             if (objeto.video == 1) {
                 objeto.urlImagen = "js/images/video.png";
             }
-            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em; margin-left:0.5em" src="' + objeto.urlImagen + '"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>' + objeto.Direccion + '</h2><p> Emitido: ' + objeto.Fecha + '</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em; margin-left:0.5em" src="' + objeto.urlImagen + '?dummy=371662"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>' + objeto.Direccion + '</h2><p> Emitido: ' + objeto.Fecha + '</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
         }
     }
+
+    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtras()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActual"></span></div><div onClick="paginarAdelante()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
+
+    $("#spanPaginaActual").text(parseInt((posicionPagina / paginasPorPantalla) + 1) + "-" + Math.round(JsonAnuncio.length / paginasPorPantalla));
 
     $("#ulmisAnuncios").listview('refresh');
 
@@ -546,4 +549,18 @@ function errorenviarFoto(r) {
     console.log("Foto no subida");
     $("#lbPopUpAviso").text(r);
     $("#PopUpAviso").popup("open");
+}
+
+function paginarAdelante(event) {
+    if (posicionPagina < (JsonAnuncio.length - 5)) {
+        posicionPagina = posicionPagina + 5;
+        paginarMisAnuncios();
+    }
+}
+
+function paginarAtras(event) {
+    if (posicionPagina != 0) {
+        posicionPagina = posicionPagina - 5;
+        paginarMisAnuncios();
+    }
 }
