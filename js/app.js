@@ -207,9 +207,16 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLA DE MIS ANUNCIOS
 
-    $("#misAnuncios").on("swipeleft", paginarAdelante);
-    $("#misAnuncios").on("swiperight", paginarAtras);
+    $("#misAnuncios").on("swipeleft", "", function () {
 
+        paginarAdelante();
+
+    });
+    $("#misAnuncios").on("swiperight", "", function () {
+
+        paginarAtras();
+
+    });
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREAR ANUNCIO
