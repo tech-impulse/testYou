@@ -148,15 +148,6 @@ function displayMisAnuncios() {
 
 }
 
-function displayNuevoAnuncio() {
-    var p = "nuevoAnuncio";
-
-    pantallaApp = p;
-
-    ocultarElementosApp(p);
-
-}
-
 function displayCondicionesIpoliticas() {
     var p = "condicionesIpoliticas";
 
@@ -176,7 +167,7 @@ function displayInformeProblema() {
 }
 
 
-function displayNuevoAnuncio() {
+function displayCalendario() {
     var p = "nuevoAnuncio1";
 
     pantallaApp = p;

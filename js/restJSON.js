@@ -202,6 +202,7 @@ function restSubirImagen() {
         data: formData,
         contentType: false,
         processData: false,
+        timeout: 30000,
         success: function (response) {
             restGuardarProgramacion(response);
         },

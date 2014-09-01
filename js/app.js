@@ -7,7 +7,7 @@ $(document).bind("mobileinit", function () {
     $.mobile.touchOverflowEnabled = false;
 
     $.ajaxSetup({
-        timeout: 30000 //Time in milliseconds
+        timeout: 10000 //Time in milliseconds
     });
 
 });
@@ -43,7 +43,9 @@ $(document).on('pageinit', '#loginModule', function () {
         $("#loginPopUp").popup("close");
 
     });
-
+    
+    // PRECARGA LA IMAGEN DEL MENÚ
+    $("#divmainMenu").css("background-image: url('js/images/fondo_main2.png'); background-size: contain; background-repeat: no-repeat; height:16em; width:22em");
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU LATERAL
@@ -251,7 +253,20 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnnuevoAnuncio1Aceptar').unbind('click').bind('click', function () {
 
         procesoNuevoAnuncio6();
-        displayNuevoAnuncio6();
+        // Comprueba si estamos guardando la programacion de un anuncio nuevo o relanzado.
+        if (JsonAnuncio.length == 0) {
+            $("#btnnuevoAnuncio7Subir").hide();
+            displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+        } else {
+
+            // Si estamos relanzando un aviso anterior, pasamos directamente a publicar
+            if (JsonAnuncio[posicion].relanzar == 1) {
+                procesoNuevoAnuncio9();
+            } else {
+                $("#btnnuevoAnuncio7Subir").hide();
+                displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+            }
+        }
 
     });
 
@@ -288,7 +303,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
         // procesoNuevoAnuncio6();
         //displayNuevoAnuncio6();
-        displayNuevoAnuncio(); // muestr
+        displayCalendario(); // muestra la pantalla de calendario
 
     });
 
@@ -339,23 +354,20 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 4 - Boton para Guardar
     $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
-        /*
-        $("#calle"+posicion).attr('data-icon', 'check').find('.ui-icon')
-                     .addClass('ui-icon-' + 'check')
-                     .removeClass('ui-icon-' + 'false');
-        
-        $("#calle"+posicion+">a.ui-btn").addClass('ui-icon-' + 'check');
-        */
-        //$("#calle"+posicion).attr('data-icon','check');
-        //$("#calle"+posicion).children().children().next().removeClass('ui-icon-custom').addClass('ui-icon-check');
+
         horaInicio = $("#innuevoAnuncio4Inicio").val();
         horaFin = $("#innuevoAnuncio4Fin").val();
         creditos = $("#innuevoAnuncio4Segundos").val();
         procesoNuevoAnuncio6();
 
+        // Comprueba si estamos guardando la programacion de un anuncio nuevo o relanzado.
         if (JsonAnuncio.length == 0) {
-            $("#btnnuevoAnuncio7Subir").hide();
-            displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+            if (calendario == true) {
+                displayCalendario();
+            } else {
+                $("#btnnuevoAnuncio7Subir").hide();
+                displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+            }
         } else {
 
             // Si estamos relanzando un aviso anterior, pasamos directamente a publicar
@@ -366,6 +378,17 @@ $(document).on('pageinit', '#loginModule', function () {
                 displayNuevoAnuncio7(); // Ir directamente a subir la imagen
             }
         }
+
+        // CODIGO DE BACKUP
+        /*
+        $("#calle"+posicion).attr('data-icon', 'check').find('.ui-icon')
+                     .addClass('ui-icon-' + 'check')
+                     .removeClass('ui-icon-' + 'false');
+        
+        $("#calle"+posicion+">a.ui-btn").addClass('ui-icon-' + 'check');
+        */
+        //$("#calle"+posicion).attr('data-icon','check');
+        //$("#calle"+posicion).children().children().next().removeClass('ui-icon-custom').addClass('ui-icon-check');
         //displayNuevoAnuncio3(); // Par siguientes versiones
 
     });
@@ -502,13 +525,13 @@ $(document).on('pageinit', '#loginModule', function () {
     ////////// EVENTOS DE POPUP ACCION ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
 
     $('#btnPopUpAccionA').unbind('click').bind('click', function () {
-        switch ($("#lbPopUpAccionTitulo").val()) {
-        case "horario":
+        switch ($("#lbPopUpAccionTitulo").val()) { // mira el tipo de popup que se ha abierto
+        case "horario": // es el popup de seleccion de horario
             {
                 displaySeleccion("seleccion");
                 break;
             };
-        case "guardarProgramacion":
+        case "guardarProgramacion": //es el popup de guardar programacion
             {
                 displayNuevoAnuncio2();
                 break;
