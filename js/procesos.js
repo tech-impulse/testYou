@@ -179,7 +179,11 @@ function procesoNuevoAnuncio5() {
 //Crear anuncio 6- Muestra nuevamente el detalle de la pantalla con la programación establecida en el Paso 3
 
 function procesoNuevoAnuncio6() {
-    $("#lbnuevoAnuncio6Horario").text("De " + horaInicio + ":00h a " + horaFin + ":00h");
+    if (calendario == true) {
+        $("#lbnuevoAnuncio6Horario").text("De " + horaInicio + ":00h a " + horaFin + ":00h");
+    } else {
+        $("#lbnuevoAnuncio6Horario").text("Ahora!")
+    }
     $("#lbnuevoAnuncio6Calle").text($("#lbnuevoAnuncio4Calle").text());
     $("#lbnuevoAnuncio6Tipo").text($("#lbnuevoAnuncio4TipoPantalla").text());
     //  $("#lbnuevoAnuncio6Localizacion").text();

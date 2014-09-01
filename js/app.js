@@ -43,7 +43,7 @@ $(document).on('pageinit', '#loginModule', function () {
         $("#loginPopUp").popup("close");
 
     });
-    
+
     // PRECARGA LA IMAGEN DEL MENÚ
     $("#divmainMenu").css("background-image: url('js/images/fondo_main2.png'); background-size: contain; background-repeat: no-repeat; height:16em; width:22em");
 
@@ -220,6 +220,13 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    //Mis Anuncios - Botón para volver atrás
+    $('#btnmisAnunciosCancel').unbind('click').bind('click', function () {
+        displayMainMenu();
+    })
+
+
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREAR ANUNCIO
 
@@ -371,11 +378,15 @@ $(document).on('pageinit', '#loginModule', function () {
         } else {
 
             // Si estamos relanzando un aviso anterior, pasamos directamente a publicar
-            if (JsonAnuncio[posicion].relanzar == 1) {
-                procesoNuevoAnuncio9();
+            if (calendario == true) {
+                displayCalendario();
             } else {
-                $("#btnnuevoAnuncio7Subir").hide();
-                displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+                if (JsonAnuncio[posicion].relanzar == 1) {
+                    procesoNuevoAnuncio9();
+                } else {
+                    $("#btnnuevoAnuncio7Subir").hide();
+                    displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+                }
             }
         }
 
