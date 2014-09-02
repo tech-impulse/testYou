@@ -205,8 +205,8 @@ function procesoNuevoAnuncio6() {
 //Crear anuncio 7- Carga la imagen para visualizarla en la pantalla 8
 
 function visualizarImagen(files) {
-    //var img = document.getElementById('imgnuevoAnuncio9');
-    //img.src = "js/images/video.png";
+    var img = document.getElementById('imgnuevoAnuncio9');
+    img.src = "js/images/video.png";
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
         var imageType = /image.*/;
@@ -250,19 +250,24 @@ function procesoNuevoAnuncio9() {
 
 function procesoNuevoAnuncio10() {
 
-
-    if (creditos / 10 < creditosDisponibles) {
-        if (JsonAnuncio.length > 0) {
-            if (JsonAnuncio[posicion].relanzar == 1) {
-                restRelanzarAnuncio();
+    if (usuarioBloqueado == 0) {
+        if (creditos / 10 < creditosDisponibles) {
+            if (JsonAnuncio.length > 0) {
+                if (JsonAnuncio[posicion].relanzar == 1) {
+                    restRelanzarAnuncio();
+                }
+            } else {
+                restSubirImagen();
             }
         } else {
-            restSubirImagen();
+            $("#lbPopUpAviso").text("No dispones de creditos suficientes");
+            $("#PopUpAviso").popup("open");
         }
     } else {
-        $("#lbPopUpAviso").text("No dispones de creditos suficientes");
+        $("#lbPopUpAviso").text("Tu cuenta está temporalmente bloqueada");
         $("#PopUpAviso").popup("open");
     }
+
 
 }
 
@@ -398,10 +403,7 @@ function procesoMisAnuncios(anuncios) {
             objeto["relanzar"] = 1;
             JsonAnuncio.push(objeto);
             if (j < paginasPorPantalla) {
-                if (objeto.video == 1) {
-                    objeto.urlImagen = "js/images/video.png";
-                }
-                $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em; margin-left:0.5em" src="' + objeto.urlImagen + '"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>' + objeto.Direccion + '</h2><p> Emitido: ' + objeto.Fecha + '</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+                $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">' +(lista.anuncios.length-j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
             }
         }
 
@@ -427,10 +429,11 @@ function paginarMisAnuncios() {
     for (var j = posicionPagina; j < (JsonAnuncio.length - (JsonAnuncio.length - (posicionPagina + paginasPorPantalla))); j++) {
         if (j < JsonAnuncio.length) {
             var objeto = JsonAnuncio[j];
-            if (objeto.video == 1) {
-                objeto.urlImagen = "js/images/video.png";
-            }
-            $("#ulmisAnuncios").append('<li data-icon="false"><img height="45" style="margin-top:1em; margin-left:0.5em" src="' + objeto.urlImagen + '?dummy=371662"><div class="ui-grid-a"><div class="ui-block-a" style="width:50%"><h2>' + objeto.Direccion + '</h2><p> Emitido: ' + objeto.Fecha + '</p> </div><div class="ui-block-b" style="width:50%; text-align: right"><button class="btn_blue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+
+            $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + (JsonAnuncio.length-j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+            /*
+            $("#ulmisAnuncios").append('<li data-icon="false"><img height="35" style="margin-top:1em; margin-left:0.5em" src="' + objeto.urlImagen + '?dummy=371662"><div class="ui-grid-a"><div class="ui-block-a" style="width:60%"><h2>' + objeto.Direccion + '</h2><p> Emitido: ' + objeto.Fecha + '</p> </div><div class="ui-block-b" style="width:45%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+            */
         }
     }
 

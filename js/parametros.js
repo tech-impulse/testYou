@@ -6,9 +6,11 @@ var url = "http://admin.youtter.com/webservices/";
 var pantallaApp;
 var fechaSeleccionada; // FECHA QUE SE SELECCIONA DEL CALENDARIO
 var idSesion; // ID DE LA SESION DEL USUARIO (ID DE USUARIO EN BASE DE DATOS)
+var usuarioBloqueado = 0; // FLAG PARA VERIFICAR SI LA CUENTA ESTA BLOQUEADA
 var creditosDisponibles; // CREDITOS DE LOS QUE DISPONE EL USUARIO PARA GASTAR
 var JsonCalle = []; // JSON CON TODAS LAS CALLES DISPONIBLES DESPUES DE SELECCIONAR UNA UBICACION
 var JsonAnuncio = []; // JSON CON TODA LA INFORMACION DE LOS ANUNCIOS JUNTO CON EL QUE SE VA A PUBLICAR
+var JsonFechas = []; // JSON CON LA LISTA DE FECHAS DONDE SE VA A PUBLICAR EL ANUNCIO
 var CodigoPostal; // Variable que guarda el codigo postal
 var posicion; // variable para guardar la posicion actual en cualquier posicion
 var posicionPagina = 0; // variable para guardar la posicion actual de la pagina

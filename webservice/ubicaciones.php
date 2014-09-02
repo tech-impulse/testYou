@@ -13,7 +13,7 @@ $con = mysql_connect($server, $username, $password) or die ("No se conecto: " . 
 mysql_select_db($database, $con);
  
 
-$sql = ' SELECT *, p.id as idPantalla FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE  p.idUbicacion=u.id AND p.idTipoPantalla = t.id ORDER BY Direccion'; 
+$sql = ' SELECT *, p.id as idPantalla FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE p.activa=1 AND p.idUbicacion=u.id AND p.idTipoPantalla = t.id ORDER BY Direccion'; 
 
 //$resultados["query"] = $sql;
  
@@ -26,14 +26,15 @@ $i=0;
      $calle["Direccion"] = $obj->Direccion;
      $calle["Poblacion"] = $obj->Poblacion;
      $calle["Provincia"] = $obj->Provincia;
-     $resultados["CodigoPostal"] = $obj->CodigoPostal;
      $calle["LatitudGPS"] = $obj->LatitudGPS;
      $calle["LongitudGPS"] = $obj->LongitudGPS;
      $calle["Descripcion"] = $obj->Descripcion;
      $calle["HorarioDesde"] = $obj->HorarioDesde;
      $calle["HorarioHasta"] = $obj->HorarioHasta;
      $calle["idPantalla"] = $obj->idPantalla;
-     $resultados["calles"][] = $calle;      
+     $calle["CodigoPostal"] = $obj->CodigoPostal;
+    // $resultados["CodigoPostal"] = $obj->CodigoPostal;
+     $resultados[$obj->CodigoPostal][] = $calle;   
             
      $i++;
 		}

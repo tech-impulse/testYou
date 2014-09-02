@@ -11,7 +11,9 @@ mysql_select_db($database, $con);
  
 $id = mysql_real_escape_string($_GET["idSesion"]);
     
-$sql = ' SELECT pr.id, pr.idImagen, pr.Fecha_programacion, pr.video, pa.id as idPantalla, u.Direccion, u.CodigoPostal, u.Poblacion, t.Descripcion, u.LatitudGPS, u.LongitudGPS FROM Programacion AS pr, Pantallas AS pa, Ubicaciones as u, tiposPantallas as t WHERE pr.idUsuario=' . $id . ' AND pr.idPantalla=pa.id AND pa.idUbicacion=u.id AND t.id=pa.id ORDER BY pr.Fecha DESC'; 
+$sql = ' SELECT pr.id, pr.idImagen, pr.Fecha_programacion, pr.video, pa.id as idPantalla, u.Direccion, u.CodigoPostal, u.Poblacion, t.Descripcion, u.LatitudGPS, u.LongitudGPS FROM Programacion AS pr, Pantallas AS pa, Ubicaciones as u, tiposPantallas as t WHERE pr.idUsuario=' . $id . ' AND pa.idUbicacion=u.id AND t.id=pa.id ORDER BY pr.Fecha DESC'; 
+
+// AND pr.idPantalla=pa.id
 
 $resultados["query"] = $sql;
  
@@ -31,9 +33,14 @@ $i=0;
      $anuncio["video"] = $obj->video;
      $anuncio["LatitudGPS"] = $obj->LatitudGPS;
      $anuncio["LongitudGPS"] = $obj->LongitudGPS;
+     if ( $obj->video == 1){
+         $anuncio["Tipo"] = "Video";
+     } else {
+         $anuncio["Tipo"] = "Imagen";
+     }
         
             
-     $anuncio["urlImagen"] = "http://admin.youtter.com/YoutterUploads/". $id . "." . $obj->idImagen . ".jpg";
+     $anuncio["urlImagen"] = "http://admin.youtter.com/YoutterUploads/". $id . "." . $obj->idImagen . ".thumb.jpg";
      $resultados["anuncios"][] = $anuncio;
       
      $i++;

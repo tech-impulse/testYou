@@ -451,7 +451,7 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File
 
     $('#file').change(function () {
-
+        /*
         if (this.files[0].type == "") {
             if ($('#opcionImagen').val() == "on") {
                 video = 0;
@@ -459,9 +459,17 @@ $(document).on('pageinit', '#loginModule', function () {
                 video = 1;
             }
         }
+        */
         visualizarImagen(this.files);
 
-        $("#btnnuevoAnuncio7Subir").show();
+        if ($("#file").val() != "") {
+            $("#btnnuevoAnuncio7Subir").show();
+        }
+    });
+
+    //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File
+    $('#file').unbind('click').bind('click', function () {
+        $("#file").val("");
     });
 
 

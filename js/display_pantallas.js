@@ -232,12 +232,8 @@ function displayNuevoAnuncio6() {
 }
 
 function displayNuevoAnuncio7() {
-    if ($('#opcionImagen').val() == "on") {
-        $("#divnuevoAnuncio7Video").hide();
-        $("#divnuevoAnuncio7Imagen").show();
-    } else {
-        $("#divnuevoAnuncio7Video").show();
-        $("#divnuevoAnuncio7Imagen").hide();
+    if ($("#file").val() != "") {
+        $("#btnnuevoAnuncio7Subir").show();
     }
 
     var p = "nuevoAnuncio7";

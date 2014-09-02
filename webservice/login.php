@@ -41,13 +41,22 @@ if ($resultado = mysql_query($sql, $con)){
              $resultados["Provincia"] = $obj->Provincia;
              $resultados["TelefonoContacto"] = $obj->TelefonoContacto;
              $resultados["Pais"] = $obj->idPais;
+             $resultados["Activo"] = $obj->activo;
+             $resultados["Bloqueado"] = $obj->bloqueado;
 
-                if($obj->CuentaPaypal == 1)
+             if($obj->CuentaPaypal == 1)
                 {
-             $resultados["CuentaPaypal"] = "Si";
+                    $resultados["CuentaPaypal"] = "Si";
                 }
-                else {
+             else {
                     $resultados["CuentaPaypal"] = "No";
+                }
+             if($obj->bloqueado == 1)
+                {
+                    $resultados["Bloqueado"] = "Bloqueado";
+                }
+             else {
+                    $resultados["Bloqueado"] = "Activa";
                 }
             
              $i++;

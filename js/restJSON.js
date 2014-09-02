@@ -46,7 +46,7 @@ function restUbicaciones() {
 
     $.ajax({
         data: datos,
-        url: url + 'ubicacionestest.php',
+        url: url + 'ubicaciones.php',
         dataType: 'json',
         success: function (response) {
             restOk(response, "ubicaciones");
@@ -106,7 +106,7 @@ function restUbicacionesPorCodigoPostal(cp) {
 
     $.ajax({
         data: datos,
-        url: url + 'ubicacionesCPtest.php',
+        url: url + 'ubicacionesCP.php',
         dataType: 'json',
         success: function (response) {
             restOk(response, "ubicacionesCP");

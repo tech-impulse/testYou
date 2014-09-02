@@ -19,7 +19,7 @@ $cp = mysql_real_escape_string($_GET["codigo"]);
 
 if ($cp!= ""){
     
-$sql = ' SELECT *, p.id as idPantalla FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE  p.idUbicacion=u.id AND p.idTipoPantalla = t.id AND CodigoPostal LIKE' . '"' .$cp.'%" ORDER BY Direccion'; 
+$sql = ' SELECT *, p.id as idPantalla FROM Ubicaciones AS u, Pantallas AS p, tiposPantallas AS t WHERE p.activa=1 AND p.idUbicacion=u.id AND p.idTipoPantalla = t.id AND CodigoPostal LIKE' . '"' .$cp.'%" ORDER BY Direccion'; 
 
 //$resultados["query"] = $sql;
  
@@ -39,11 +39,8 @@ $i=0;
      $calle["HorarioHasta"] = $obj->HorarioHasta;
      $calle["idPantalla"] = $obj->idPantalla;
      $calle["CodigoPostal"] = $obj->CodigoPostal;
-
-     $resultados["CodigoPostal"] = $obj->CodigoPostal;
-     $resultados["calles"][] = $calle;   
-     //$resultados[$obj->CodigoPostal][] = $calle;      
-
+    // $resultados["CodigoPostal"] = $obj->CodigoPostal;
+     $resultados[$obj->CodigoPostal][] = $calle;      
             
      $i++;
 		}

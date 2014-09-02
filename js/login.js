@@ -109,13 +109,13 @@ function procesoDeLogin() {
 
 
 function autentication(user, pass) {
-   // $.mobile.loading('show');
+    // $.mobile.loading('show');
 
     var parametros = {
 
         usuario: user,
 
-        password:  CryptoJS.MD5(pass).toString()
+        password: CryptoJS.MD5(pass).toString()
 
     };
     $.ajax({
@@ -134,26 +134,37 @@ function loginOk(r) {
 
     //console.log(JSON.stringify(r));
     if (r.validacion == "ok") {
-        idSesion = r.id_user;
-        $("#lbmiCuentaNombre").text(r.Nombre + " " + r.Apellidos);
-        $("#lbmiCuentaDireccion").text(r.Direccion);
-        $("#lbmiCuentaPoblacion").text(r.Poblacion);
-        $("#lbmiCuentaProvincia").text(r.Provincia);
-        $("#lbmiCuentaTelefono").text(r.TelefonoContacto);
-        $("#lbmiCuentaEmail").text(r.Email);
-        $("#lbmiCuentaPaypal").text(r.CuentaPaypal);
-        if (r.Pais == 1) {
-            $("#lbmiCuentaPais").text("España");
+        if (r.Activo == 1) {
+            idSesion = r.id_user;
+            $("#lbmiCuentaNombre").text(r.Nombre + " " + r.Apellidos);
+            $("#lbmiCuentaDireccion").text(r.Direccion);
+            $("#lbmiCuentaPoblacion").text(r.Poblacion);
+            $("#lbmiCuentaProvincia").text(r.Provincia);
+            $("#lbmiCuentaTelefono").text(r.TelefonoContacto);
+            $("#lbmiCuentaEmail").text(r.Email);
+            $("#lbmiCuentaPaypal").text(r.CuentaPaypal);
+            $("#lbmiCuentaBloqueado").text(r.Bloqueado);
+            if (r.Pais == 1) {
+                $("#lbmiCuentaPais").text("España");
+            } else {
+                $("#lbmiCuentaPais").text("Indeterminado");
+            }
+            if (r.Bloqueado == "Bloqueado") {
+                usuarioBloqueado = 1;
+            } else {
+                usuarioBloqueado = 0;
+            }
+            traducir(r.Pais);
+            creditosDisponibles = r.Creditos;
+            $.mobile.changePage('#app');
+            displayMainMenu();
         } else {
-            $("#lbmiCuentaPais").text("Indeterminado");
-        }
-        traducir(r.Pais);
-        creditosDisponibles = r.Creditos;
-        $.mobile.changePage('#app');
-        displayMainMenu();
-    } else {
-            $("#lbPopUpLogin").text("usuario incorrecto");
+            $("#lbPopUpLogin").text("Tu usuario esté temporalmente inactivo");
             $("#loginPopUp").popup("open");
+        }
+    } else {
+        $("#lbPopUpLogin").text("Usuario/Password incorrecto");
+        $("#loginPopUp").popup("open");
     }
 
 }
