@@ -36,8 +36,8 @@ $(document).on('pageinit', '#loginModule', function () {
     // Desactivar para Desarrolar
     //console.log = function() {}
 
-    $("#inputLoginUsername").val("alain.cidrera@tech-impulse.com");
-    $("#inputLoginPassword").val("test");
+    //$("#inputLoginUsername").val("alain.cidrera@tech-impulse.com");
+    //$("#inputLoginPassword").val("test");
 
     $('#btnPopUpLogin').unbind('click').bind('click', function () {
         $("#loginPopUp").popup("close");
