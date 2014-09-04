@@ -47,6 +47,26 @@ $(document).on('pageinit', '#loginModule', function () {
     // PRECARGA LA IMAGEN DEL MENÚ
     $("#divmainMenu").css("background-image: url('js/images/fondo_main2.png'); background-size: contain; background-repeat: no-repeat; height:16em; width:22em");
 
+    //CONTROL DEL BOTÓN RECORDAR
+    localStorage["youtter_recordar"] = 0; //Incializamos la variable siempre para que luego cambie en funcion de los datos
+
+    if (localStorage["youtter_email"] != undefined && localStorage["youtter_email"] != "") {
+        $("#inputLoginUsername").val(localStorage["youtter_email"]);
+        $("#inputLoginPassword").val(localStorage["youtter_pass"]);
+        localStorage["youtter_recordar"] = 1;
+        $("#lbmainLoginRecordar").trigger("click");
+    }
+
+
+    $('#mainLoginRecordar').unbind('click').bind('click', function () {
+        if (localStorage["youtter_recordar"] == 1) {
+            localStorage["youtter_recordar"] = 0;
+        } else {
+            localStorage["youtter_recordar"] = 1;
+        }
+        //localStorage["youtter_pass"] = CryptoJS.MD5($("#inputLoginUsername").val()).toString();
+    });
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU LATERAL
 

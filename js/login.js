@@ -12,6 +12,13 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Logarse
     $('#btnLogIn').unbind('click').bind('click', function () {
+        if (localStorage["youtter_recordar"] == 1) {
+            localStorage["youtter_email"] = $("#inputLoginUsername").val();
+            localStorage["youtter_pass"] = $("#inputLoginPassword").val();
+        } else {
+            localStorage["youtter_email"] = "";
+            localStorage["youtter_pass"] = "";
+        }
         procesoDeLogin();
 
     });
