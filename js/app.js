@@ -33,6 +33,13 @@ $(document).ajaxStop(function () {
 
 $(document).on('pageinit', '#loginModule', function () {
 
+    if (typeof (Storage) !== "undefined") {
+        console.log("Soporta");
+    } else {
+        console.log("No soporta");
+        // Sorry! No Web Storage support..
+    }
+
     // Desactivar para Desarrolar
     //console.log = function() {}
 

@@ -279,7 +279,7 @@ function procesoNuevoAnuncio10() {
 function mostrarPaquetesCreditos() {
 
 
-
+    $("#divcreditosPaquetesPaypal").hide();
     var listaPaquetes = {
         "paquetes": [
             {
@@ -377,8 +377,11 @@ function mostrarPaquetesCreditos() {
 
 //Proceso de compra de creditos
 function procesoCompraCreditos(id) {
-
-    restComprarCreditos(id);
+    
+    
+    $("#divcreditosPaquetesPaypal").show();
+    $("#inputcreditosPaquetesCantidad").val("Comprar " + id + " Creditos");
+    //restComprarCreditos(id);
 
     //alert("comprar paquete con id " + id);
 
