@@ -31,6 +31,13 @@ $(document).ajaxStop(function () {
     $("#footer_comun").show();
 });
 
+$(document).on('pageshow', '#app', function () {
+    if (idSesion == undefined) {
+        setTimeout('$.mobile.changePage("#loginModule")', 10);
+    } else console.log(idSesion);
+
+});
+
 $(document).on('pageinit', '#loginModule', function () {
 
     if (typeof (Storage) !== "undefined") {
@@ -224,6 +231,38 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btncreditosPaquetesMenu').unbind('click').bind('click', function () {
         displayMainMenu();
     });
+
+    /*
+    $('form').submit(function (event) {
+
+        // get the form data
+        // there are many ways to get this data using jQuery (you can use the class or id also)
+        var formData = {
+            'cmd': $('input[name=cmd]').val(),
+            'hosted_button_id': $('input[name=hosted_button_id]').val()
+        };
+
+        // process the form
+        $.ajax({
+            type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+            url: 'https://www.paypal.com/cgi-bin/webscr', // the url where we want to POST
+            data: formData, // our data object
+            dataType: 'json', // what type of data do we expect back from the server
+            encode: true
+        })
+        // using the done promise callback
+        .done(function (data) {
+
+            // log data to the console so we can see
+            console.log(data);
+
+            // here we will handle errors and validation messages
+        });
+
+        // stop the form from submitting the normal way and refreshing the page
+        event.preventDefault();
+    });
+    */
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLA DE INFORMACIÓN DE LA CUENTA DEL USUARIO
