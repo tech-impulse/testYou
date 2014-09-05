@@ -57,6 +57,26 @@ function restUbicaciones() {
     });
 }
 
+function restGeolocalizacion() {
+
+    var datos = {
+        latitud: latitudActual,
+        longitud: longitudActual
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'geolocalizacion.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "geolocalizacion");
+        },
+        error: function (response) {
+            restError(response, "geolocalizacion");
+        },
+    });
+}
+
 function restPaises() {
 
     var datos = {
@@ -370,6 +390,13 @@ function restOk(r, tipo) {
 
     switch (tipo) {
     case "ubicaciones":
+        {
+            procesoNuevoAnuncio3(r);
+            displayNuevoAnuncio3();
+            console.log("ubicaciones");
+            break;
+        };
+    case "geolocalizacion":
         {
             procesoNuevoAnuncio3(r);
             displayNuevoAnuncio3();

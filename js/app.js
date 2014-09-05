@@ -363,7 +363,7 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 2 - Boton De localización
 
     $('#btnnuevoAnuncio2Cerca').unbind('click').bind('click', function () {
-
+        $.mobile.loading('show');
         getLocation();
 
     });
