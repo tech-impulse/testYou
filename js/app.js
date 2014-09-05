@@ -360,6 +360,15 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    //Crear anuncio 2 - Boton De localización
+
+    $('#btnnuevoAnuncio2Cerca').unbind('click').bind('click', function () {
+
+        getLocation();
+
+    });
+
+
     //Crear anuncio 2 - Boton Cancelar
 
     $('#btnnuevoAnuncio2Cancelar').unbind('click').bind('click', function () {

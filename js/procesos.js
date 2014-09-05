@@ -377,8 +377,8 @@ function mostrarPaquetesCreditos() {
 
 //Proceso de compra de creditos
 function procesoCompraCreditos(id) {
-    
-    
+
+
     $("#divcreditosPaquetesPaypal").show();
     $("#inputcreditosPaquetesCantidad").val("Comprar " + id + " Creditos");
     //restComprarCreditos(id);
@@ -406,7 +406,7 @@ function procesoMisAnuncios(anuncios) {
             objeto["relanzar"] = 1;
             JsonAnuncio.push(objeto);
             if (j < paginasPorPantalla) {
-                $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">' +(lista.anuncios.length-j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+                $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + (lista.anuncios.length - j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
             }
         }
 
@@ -433,7 +433,7 @@ function paginarMisAnuncios() {
         if (j < JsonAnuncio.length) {
             var objeto = JsonAnuncio[j];
 
-            $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + (JsonAnuncio.length-j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+            $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + (JsonAnuncio.length - j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
             /*
             $("#ulmisAnuncios").append('<li data-icon="false"><img height="35" style="margin-top:1em; margin-left:0.5em" src="' + objeto.urlImagen + '?dummy=371662"><div class="ui-grid-a"><div class="ui-block-a" style="width:60%"><h2>' + objeto.Direccion + '</h2><p> Emitido: ' + objeto.Fecha + '</p> </div><div class="ui-block-b" style="width:45%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
             */
@@ -573,4 +573,35 @@ function paginarAtras(event) {
         posicionPagina = posicionPagina - 5;
         paginarMisAnuncios();
     }
+}
+
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+    return pattern.test(emailAddress);
+};
+
+function CheckPassword(inputtxt) {
+    var decimal = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/);
+    if (decimal.test(inputtxt)) {
+        //alert('Correct, try another...')  
+        return true;
+    } else {
+        //alert('Wrong...!')  
+        return false;
+    }
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    latitudActual =  position.coords.latitud;
+    longitudActual = position.coords.longitude;
+    alert("Latitude: " + position.coords.latitude +
+        "Longitude: " + position.coords.longitude);
 }

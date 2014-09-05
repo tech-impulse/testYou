@@ -22,5 +22,7 @@ var idPantalla; // id de la pantalla seleccionada
 var idPais; // id del pais seleccionado
 var formData; // Variable que incluye la información de la imagen, junto con la id de Sesion y si es un video
 var video; // Variable que indica si es un video o no en caso no especificado por la plataforma
+var longitudActual;
+var latitudActual;
 
 var paginasPorPantalla = Math.round(($(window).height()*0.4)/80);

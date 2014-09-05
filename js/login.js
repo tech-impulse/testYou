@@ -73,9 +73,19 @@ $(document).on('pageinit', '#loginModule', function () {
         } else if ($('#inputNewAccountPass').val() == '') {
             $("#lbPopUpLogin").text("Debe rellenar la contraseña");
             $("#loginPopUp").popup("open");
-        } else {
-
-            restNuevoUsuario();
+        }  else if ($('#inputNewAccountPass').val()) {
+        }else {
+            if (isValidEmailAddress($('#inputNewAccountEmail').val())) {
+                if ($('#inputNewAccountNombre').val() != '' && $('#inputNewAccountApellidos').val() != '') {
+                    restNuevoUsuario();
+                } else {
+                    $("#lbPopUpLogin").text("Rellene su nombre y apellido");
+                    $("#loginPopUp").popup("open");
+                }
+            } else {
+                $("#lbPopUpLogin").text("El email no tiene un formato correcto");
+                $("#loginPopUp").popup("open");
+            }
         }
     });
 
