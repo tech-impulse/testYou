@@ -86,9 +86,9 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
                 var calle = localizacion[codigoPostal][key];
                 JsonCalle.push(calle);
                 if (calle.distancia != "") {
-                    $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + " " + codigoPostal + " " + calle.Poblacion + ', A ~ ' + parseInt(calle.distancia*1000) + ' m </a></li>');
+                    $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", a ~ " + parseInt(calle.distancia*1000) + ' m </a></li>');
                 } else {
-                    $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + " " + codigoPostal + " " + calle.Poblacion + '</a></li>');
+                    $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", " + calle.Poblacion + '</a></li>');
                 }
                 j++;
             }
