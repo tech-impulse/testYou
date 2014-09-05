@@ -39,6 +39,7 @@ $i=0;
      $calle["HorarioHasta"] = $obj->HorarioHasta;
      $calle["idPantalla"] = $obj->idPantalla;
      $calle["CodigoPostal"] = $obj->CodigoPostal;
+     $calle["distancia"] = "";
     // $resultados["CodigoPostal"] = $obj->CodigoPostal;
      $resultados[$obj->CodigoPostal][] = $calle;      
             
