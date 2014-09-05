@@ -32,6 +32,7 @@ $(document).ajaxStop(function () {
 });
 
 $(document).on('pageshow', '#app', function () {
+    getLocation();
     if (idSesion == undefined) {
         setTimeout('$.mobile.changePage("#loginModule")', 10);
     } else console.log(idSesion);
@@ -363,8 +364,9 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 2 - Boton De localización
 
     $('#btnnuevoAnuncio2Cerca').unbind('click').bind('click', function () {
-        $.mobile.loading('show');
-        getLocation();
+        //$.mobile.loading('show');
+        restGeolocalizacion();
+        //getLocation();
 
     });
 

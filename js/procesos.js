@@ -602,7 +602,7 @@ function getLocation() {
 function showPosition(position) {
     latitudActual =  position.coords.latitude;
     longitudActual = position.coords.longitude;
-    restGeolocalizacion();
+    //restGeolocalizacion();
     console.log("Latitude: " + position.coords.latitude +
         "Longitude: " + position.coords.longitude);
 }
