@@ -86,7 +86,7 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
                 var calle = localizacion[codigoPostal][key];
                 JsonCalle.push(calle);
                 if (calle.distancia != "") {
-                    $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", a ~ " + parseInt(calle.distancia*1000) + ' m </a></li>');
+                    $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", a ~ " + parseInt(calle.distancia * 1000) + ' m </a></li>');
                 } else {
                     $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", " + calle.Poblacion + '</a></li>');
                 }
@@ -174,11 +174,51 @@ function procesoNuevoAnuncio5() {
         marker.setMap(map);
     }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+}
 
+//Crear anuncio 5- Muestra las pantallas mas cercanas por geolocalización.
 
+function mostrarCerca() {
+
+    var myCenter = new google.maps.LatLng(latitudActual, longitudActual);
+
+    {
+        var mapProp = {
+            center: myCenter,
+            zoom: 16,
+
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("divnuevoAnuncio5-1Mapa"), mapProp);
+
+        var marker = new google.maps.Marker({
+            position: myCenter,
+        });
+
+        marker.setMap(map);
+        var j = 0;
+        for (var i = 0; i < JsonCalle.length; i++) {
+            var pantalla = new google.maps.LatLng(JsonCalle[i].LatitudGPS, JsonCalle[i].LongitudGPS);
+            createMarker(pantalla, i);
+        }
+
+    }
 
 }
+
+function createMarker(latlng, id) {
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        icon: "js/images/iconoPantalla.png"
+    });
+    google.maps.event.addListener(marker, "click", function () {
+        procesoNuevoAnuncio4(id);
+    });
+    return marker;
+}
+
 
 //Crear anuncio 6- Muestra nuevamente el detalle de la pantalla con la programación establecida en el Paso 3
 

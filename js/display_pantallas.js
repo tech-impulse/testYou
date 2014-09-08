@@ -1,6 +1,6 @@
 var SECCIONES_LOGIN = new Array('mainLogin', 'resetPassword', 'resetPasswordFinish', 'newAccount', 'newAccountFinish');
 
-var SECCIONES_APP = new Array('mainMenu', 'miCuenta', 'creditosMain', 'misAnuncios', 'anunciosMain', 'estadisticas', 'nuevoAnuncio', 'condicionesIpoliticas', 'informeProblema', 'creditosHistorico', 'creditosPaquetes', 'nuevoAnuncio1', 'nuevoAnuncio2', 'nuevoAnuncio3', 'nuevoAnuncio4', 'nuevoAnuncio5', 'nuevoAnuncio6', 'nuevoAnuncio7', 'nuevoAnuncio8', 'nuevoAnuncio9', 'nuevoAnuncio10');
+var SECCIONES_APP = new Array('mainMenu', 'miCuenta', 'creditosMain', 'misAnuncios', 'anunciosMain', 'estadisticas', 'nuevoAnuncio', 'condicionesIpoliticas', 'informeProblema', 'creditosHistorico', 'creditosPaquetes', 'nuevoAnuncio1', 'nuevoAnuncio2', 'nuevoAnuncio3', 'nuevoAnuncio4', 'nuevoAnuncio5', 'nuevoAnuncio5-1', 'nuevoAnuncio6', 'nuevoAnuncio7', 'nuevoAnuncio8', 'nuevoAnuncio9', 'nuevoAnuncio10');
 
 /*
 Desactiva todas las secciones del modulo y activa la actual.
@@ -215,6 +215,15 @@ function displayNuevoAnuncio4() {
 
 function displayNuevoAnuncio5() {
     var p = "nuevoAnuncio5";
+
+    pantallaApp = p;
+
+    ocultarElementosApp(p);
+
+}
+
+function displayNuevoAnuncio5_1() {
+    var p = "nuevoAnuncio5-1";
 
     pantallaApp = p;
 

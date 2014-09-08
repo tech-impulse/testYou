@@ -24,5 +24,7 @@ var formData; // Variable que incluye la información de la imagen, junto con la
 var video; // Variable que indica si es un video o no en caso no especificado por la plataforma
 var longitudActual;
 var latitudActual;
+var map;
 
 var paginasPorPantalla = Math.round(($(window).height()*0.4)/80);
+

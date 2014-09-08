@@ -366,7 +366,6 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnnuevoAnuncio2Cerca').unbind('click').bind('click', function () {
         //$.mobile.loading('show');
         restGeolocalizacion();
-        //getLocation();
 
     });
 
@@ -489,6 +488,13 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnnnuevoAnuncio5Volver').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio4();
+
+    });
+
+    //Crear anuncio 5-1 - Boton para volver
+    $('#btnnnuevoAnuncio5-1Volver').unbind('click').bind('click', function () {
+
+        displayNuevoAnuncio2();
 
     });
 

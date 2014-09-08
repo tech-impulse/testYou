@@ -68,7 +68,9 @@ $i=0;
                 $UbicacionMasCerca = array();
                 $distanciaMinima = $disntanciaKm;
                 $UbicacionMasCerca[$obj->CodigoPostal][] = $calle;
+                
             }
+            //$resultados[$obj->CodigoPostal][] = $calle; 
         }
      
     }

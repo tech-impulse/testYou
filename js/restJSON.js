@@ -385,7 +385,7 @@ function restIncidencia() {
 }
 
 function restOk(r, tipo) {
-
+    console.log(tipo);
     console.log(JSON.stringify(r));
 
     switch (tipo) {
@@ -399,7 +399,8 @@ function restOk(r, tipo) {
     case "geolocalizacion":
         {
             procesoNuevoAnuncio3(r);
-            displayNuevoAnuncio3();
+            displayNuevoAnuncio5_1();
+            mostrarCerca();
             console.log("ubicaciones");
             break;
         };
