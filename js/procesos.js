@@ -486,7 +486,7 @@ function paginarMisAnuncios() {
 
     $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtras()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActual"></span></div><div onClick="paginarAdelante()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
 
-    $("#spanPaginaActual").text(parseInt((posicionPagina / paginasPorPantalla) + 1) + "-" + Math.round(JsonAnuncio.length / paginasPorPantalla));
+    $("#spanPaginaActual").text(parseInt((posicionPagina / paginasPorPantalla) + 1) + "-" + Math.ceil(JsonAnuncio.length / paginasPorPantalla));
 
     $("#ulmisAnuncios").listview('refresh');
 
