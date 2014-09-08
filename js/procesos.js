@@ -443,7 +443,7 @@ function procesoMisAnuncios(anuncios) {
 
     for (var j = 0; j < anuncios.lista.length; j++) {
         var lista = anuncios.lista[j];
-        $("#spanPaginaActual").text("1-" + Math.round(lista.anuncios.length / paginasPorPantalla));
+        $("#spanPaginaActual").text("1-" + Math.ceil(lista.anuncios.length / paginasPorPantalla));
         for (var j = 0; j < lista.anuncios.length; j++) {
             var objeto = lista.anuncios[j];
             console.log(objeto);
@@ -456,7 +456,7 @@ function procesoMisAnuncios(anuncios) {
 
     }
 
-    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtras()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActual">1-' + Math.round(JsonAnuncio.length / paginasPorPantalla) + '</span></div><div onClick="paginarAdelante()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
+    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtras()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActual">1-' + Math.ceil(JsonAnuncio.length / paginasPorPantalla) + '</span></div><div onClick="paginarAdelante()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
 
     $("#ulmisAnuncios").listview('refresh');
 
@@ -606,15 +606,15 @@ function errorenviarFoto(r) {
 }
 
 function paginarAdelante(event) {
-    if (posicionPagina < (JsonAnuncio.length - 5)) {
-        posicionPagina = posicionPagina + 5;
+    if (posicionPagina < (JsonAnuncio.length - paginasPorPantalla)) {
+        posicionPagina = posicionPagina + paginasPorPantalla;
         paginarMisAnuncios();
     }
 }
 
 function paginarAtras(event) {
     if (posicionPagina != 0) {
-        posicionPagina = posicionPagina - 5;
+        posicionPagina = posicionPagina - paginasPorPantalla;
         paginarMisAnuncios();
     }
 }
