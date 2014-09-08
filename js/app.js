@@ -394,7 +394,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#divnuevoAnuncio3Fechas').unbind('click').bind('click', function () {
 
-        displayNuevoAnuncio1();
+        displayNuevoAnuncio2();
 
     });
 

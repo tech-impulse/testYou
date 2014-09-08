@@ -111,7 +111,7 @@
                 <div class="txt_centrals" theme="a" id="textResetPassword">Introduce tu nombre de usuario y te enviaremos las instrucciones para reestablecer tu contraseña al correo que nos facilitaste al crear tu cuenta.
                 </div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputUserResetPassword" value="Usuario">
+                    <input class="txt_textfield_in" type="text" id="inputUserResetPassword" onclick="this.value='';" value="Usuario">
                     </input>
                 </div>
                 <div theme="a">
@@ -633,18 +633,18 @@
             <div id="nuevoAnuncio3" style="overflow-y:hidden; overflow-x:hidden">
                 <div data-role="navbar">
                     <ul>
-                        <!--
+
                         <li>
                             <div class="navbar_izquierda" id="divnuevoAnuncio3Fechas">
                                 <div style="display:inline-block">
                                     <img class="icnos_submenu" src="js/images/btn_mini_cambiarfechas.png">
                                 </div>
                                 <div style="display:inline-block">
-                                    <label class="txt_submenu">Cambiar fechas</label>
+                                    <label class="txt_submenu">Atrás</label>
                                 </div>
                             </div>
                         </li>
-                        -->
+
                         <li>
                             <div class="navbar_derecha" id="divnuevoAnuncio3Zona">
                                 <div style="display:inline-block">
@@ -936,10 +936,9 @@
                 <button class="btn_blue" id="btnnuevoAnuncio1Aceptar" data-icon="check" data-iconpos="right">Continuar</button>
             </div>
             <div id="footernuevoAnuncio2" class="footer">
+                <button class="btn_gradient" id="btnnuevoAnuncio2Cerca" data-icon="location" data-iconpos="right">Cerca de mi</button>
                 <button class="btn_blue" id="btnnuevoAnuncio2Cancelar" data-icon="back" data-iconpos="right">Volver</button>
-                <button class="btn_blue" id="btnnuevoAnuncio2Cerca" data-icon="location" data-iconpos="right">Cerca de mi!
-                    <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="search" data-iconpos="right">Continuar
-                    </button>
+                <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="search" data-iconpos="right">Continuar</button>
             </div>
             <div id="footernuevoAnuncio3" class="footer">
                 <!--<button class="btn_blue" id="btnnnuevoAnuncio3Seguir" data-icon="check" data-iconpos="right">YA tengo mis pantallas, seguir</button> -->
