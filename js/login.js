@@ -40,8 +40,12 @@ $(document).on('pageinit', '#loginModule', function () {
     //reestablecer contraseña OK
     $('#btnOkResetPassword').unbind('click').bind('click', function () {
         /* FALTA CODIGO */
-
-        displayResetPasswordFinish();
+        if (isValidEmailAddress($('#inputUserResetPassword').val())) {
+            restPassword();
+        } else {
+            $("#lbPopUpLogin").text("Compruebe la direccion de correo!");
+            $("#loginPopUp").popup("open");
+        }
 
     });
 
@@ -73,8 +77,7 @@ $(document).on('pageinit', '#loginModule', function () {
         } else if ($('#inputNewAccountPass').val() == '') {
             $("#lbPopUpLogin").text("Debe rellenar la contraseña");
             $("#loginPopUp").popup("open");
-        }  else if ($('#inputNewAccountPass').val()) {
-        }else {
+        } else if ($('#inputNewAccountPass').val()) {} else {
             if (isValidEmailAddress($('#inputNewAccountEmail').val())) {
                 if ($('#inputNewAccountNombre').val() != '' && $('#inputNewAccountApellidos').val() != '') {
                     restNuevoUsuario();

@@ -15,7 +15,7 @@ $Descripcion = $_POST["Descripcion"];
 $sql_upd = 'INSERT INTO Incidencias (id, idUsuario, Asunto, Descripcion, Fecha) VALUES ( null , "' .$id. '","' .$Asunto. '","'. $Descripcion . '", NOW() );';
 
 if ($resultado = mysql_query($sql_upd, $con)){
-            $resultados["mensaje"] = "Incidencia reportada" ;
+            $resultados["mensaje"] = "Gracias por ponerse en contacto con nosotros!" ;
         
 			$resultados["validacion"] = "ok";              
 	}

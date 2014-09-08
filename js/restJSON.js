@@ -384,6 +384,29 @@ function restIncidencia() {
 
 }
 
+function restPassword() {
+
+    var datos = {
+        idSesion: 0,
+        Asunto: $("#inputUserResetPassword").val(),
+        Descripcion: "Solicitud de un nuevo password!",
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'incidencia.php',
+        dataType: 'json',
+        type: 'POST',
+        success: function (response) {
+            restOk(response, "resetPassword");
+        },
+        error: function (response) {
+            restError(response, "resetPassword");
+        },
+    });
+
+}
+
 function restOk(r, tipo) {
     console.log(tipo);
     console.log(JSON.stringify(r));
@@ -475,6 +498,11 @@ function restOk(r, tipo) {
     case "incidencia":
         {
             abrirPopupAviso(r.mensaje);
+            break;
+        };
+    case "resetPassword":
+        {
+            displayResetPasswordFinish();
             break;
         };
 
