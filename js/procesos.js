@@ -161,17 +161,18 @@ function procesoNuevoAnuncio5() {
         var mapProp = {
             center: myCenter,
             zoom: 14,
-
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
         var map = new google.maps.Map(document.getElementById("divnuevoAnuncio5Mapa"), mapProp);
-
+        
         var marker = new google.maps.Marker({
             position: myCenter,
+            icon: "js/images/icno_mapa.png"
         });
 
         marker.setMap(map);
+        
     }
 
 }
@@ -186,7 +187,6 @@ function mostrarCerca() {
         var mapProp = {
             center: myCenter,
             zoom: 16,
-
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -194,6 +194,7 @@ function mostrarCerca() {
 
         var marker = new google.maps.Marker({
             position: myCenter,
+            icon: "js/images/iconoPosicion.png",
         });
 
         marker.setMap(map);
@@ -211,7 +212,10 @@ function createMarker(latlng, id) {
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
-        icon: "js/images/iconoPantalla.png"
+        icon: "js/images/icno_mapa.png",
+        labelContent: "Youttea!",
+        labelAnchor: new google.maps.Point(22, 0),
+        labelClass: "map-labels", // the CSS class for the label
     });
     google.maps.event.addListener(marker, "click", function () {
         procesoNuevoAnuncio4(id);

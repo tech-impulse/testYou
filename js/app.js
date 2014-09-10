@@ -707,3 +707,77 @@ $(document).on('pageinit', '#app', function () {
     });
 
 });
+
+// MODULO DE REESTABLECIMIENTO DE PASSWORD HTML INDEPENDIENTE reestablecer.html
+
+$(document).on('pageinit', '#reestablecer', function () {
+
+    $('#btnPopUpLogin').unbind('click').bind('click', function () {
+        $("#loginPopUp").popup("close");
+
+    });
+
+    console.log(getURLParameter('token'));
+
+    $("#fin").hide();
+    $("#fin2").hide();
+    $("#email").hide();
+    $("#boton").hide();
+
+    $("#password1").change(function () {
+        console.log("esta cambiando");
+        $("#password1").css("background-color : #81F781");
+    });
+
+    $('#password1').keyup(function () {
+        if ($('#password1').val().length > 7) {
+            $("#password1").css("background-color", "#81F781");
+        } else {
+            $("#password1").css("background-color", "#F6CECE");
+        }
+    });
+
+    $('#password2').keyup(function () {
+        if ($('#password1').val() == $('#password2').val() && $('#password1').val().length > 7) {
+            $("#password2").css("background-color", "#81F781");
+            $("#boton").show();
+
+        } else {
+            $("#password2").css("background-color", "#F6CECE");
+        }
+    });
+
+    $('#validarPassword').unbind('click').bind('click', function () {
+        if ($('#password1').val() == $('#password2').val()) {
+
+            if ($('#password1').val().length > 7) {
+
+                nuevoPassword();
+
+            } else {
+                alert("El password debe tener al menos 8 digitos");
+                $("#password1").css("background-color : #F6CECE");
+            }
+
+        } else {
+            alert("Passwords Diferentes");
+        }
+
+
+    });
+
+    $('#validarEmail').unbind('click').bind('click', function () {
+        if (isValidEmailAddress($('#inputEmail').val())) {
+            solicitarPassword($('#inputEmail').val());
+        } else {
+            $("#lbPopUpLogin").text("Compruebe la direccion de correo!");
+            $("#loginPopUp").popup("open");
+        }
+
+    });
+
+    $('#visita').unbind('click').bind('click', function () {
+        window.location = "http://www.youtter.com/"
+    });
+
+});

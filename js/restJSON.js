@@ -365,6 +365,7 @@ function restIncidencia() {
 
     var datos = {
         idSesion: idSesion,
+        Email: $("#lbmiCuentaEmail").text(),
         Asunto: $("#inputInformeProblemaAsunto").val(),
         Descripcion: $("#textInformeProblemaDescripcion").val(),
     };
@@ -384,17 +385,16 @@ function restIncidencia() {
 
 }
 
-function restPassword() {
+function restPassword(email) {
 
     var datos = {
         idSesion: 0,
-        Asunto: $("#inputUserResetPassword").val(),
-        Descripcion: "Solicitud de un nuevo password!",
+        Email: email,
     };
 
     $.ajax({
         data: datos,
-        url: url + 'incidencia.php',
+        url: url + 'reestablecerPassword.php',
         dataType: 'json',
         type: 'POST',
         success: function (response) {
@@ -502,7 +502,11 @@ function restOk(r, tipo) {
         };
     case "resetPassword":
         {
-            displayResetPasswordFinish();
+            if (r.validacion != "ok") {
+                abrirPopupAviso(r.mensaje);
+            } else {
+                displayResetPasswordFinish();
+            }
             break;
         };
 
@@ -510,7 +514,75 @@ function restOk(r, tipo) {
 }
 
 function restError(r, tipo) {
+    console.log("fallo de ws");
     abrirPopupAviso("Compruebe su conexión");
     //alert("Erro de consulta " + tipo);
 
+}
+
+
+
+// MODULO DE REESTABLECER PASSWORD
+
+function nuevoPassword() {
+    var pass = $("#password1").val();
+    var url = "http://admin.youtter.com/webservices/";
+    var datos = {
+        Token: getURLParameter('token'),
+        Password: CryptoJS.MD5(pass).toString()
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'nuevoPassword.php',
+        dataType: 'json',
+        type: 'POST',
+        success: function (response) {
+            console.log(JSON.stringify(response));
+            if (response.validacion == "ok") {
+                $("#inicio").hide();
+                $("#fin").show();
+            } else if (response.validacion == "caducado") {
+                alert("Token de sesión caducado, vuelve a solicitar una contraseña");
+                $("#inicio").hide();
+                $("#email").show();
+            } else {
+                alert(response.mensaje);
+            }
+        },
+        error: function (response) {
+            alert("Ha habido un error");
+        },
+    });
+}
+
+function solicitarPassword(email) {
+
+    var datos = {
+        idSesion: 0,
+        Email: email,
+    };
+
+    $.ajax({
+        data: datos,
+        url: url + 'reestablecerPassword.php',
+        dataType: 'json',
+        type: 'POST',
+        success: function (response) {
+            if (response.validacion != "ok") {
+                abrirPopupAviso(response.mensaje);
+            } else {
+                $("#fin2").show();
+                $("#email").hide();
+            }
+        },
+        error: function (response) {
+            restError(response, "resetPassword");
+        },
+    });
+
+}
+
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
 }

@@ -41,7 +41,7 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnOkResetPassword').unbind('click').bind('click', function () {
         /* FALTA CODIGO */
         if (isValidEmailAddress($('#inputUserResetPassword').val())) {
-            restPassword();
+            restPassword($("#inputUserResetPassword").val());
         } else {
             $("#lbPopUpLogin").text("Compruebe la direccion de correo!");
             $("#loginPopUp").popup("open");
@@ -74,10 +74,12 @@ $(document).on('pageinit', '#loginModule', function () {
             $("#lbPopUpLogin").text("Las contraseñas no coinciden");
             $("#loginPopUp").popup("open");
 
-        } else if ($('#inputNewAccountPass').val() == '') {
+        } if ($('#inputNewAccountPass').val() == '') {
             $("#lbPopUpLogin").text("Debe rellenar la contraseña");
             $("#loginPopUp").popup("open");
-        } else if ($('#inputNewAccountPass').val()) {} else {
+        } if ($('#inputNewAccountPass').val().length < 1) {
+            $('#inputNewAccountPass').val("El password debe ser de 8 caracteres");
+        } else {
             if (isValidEmailAddress($('#inputNewAccountEmail').val())) {
                 if ($('#inputNewAccountNombre').val() != '' && $('#inputNewAccountApellidos').val() != '') {
                     restNuevoUsuario();
