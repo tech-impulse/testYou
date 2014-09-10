@@ -11,8 +11,10 @@ var creditosDisponibles; // CREDITOS DE LOS QUE DISPONE EL USUARIO PARA GASTAR
 var JsonCalle = []; // JSON CON TODAS LAS CALLES DISPONIBLES DESPUES DE SELECCIONAR UNA UBICACION
 var JsonAnuncio = []; // JSON CON TODA LA INFORMACION DE LOS ANUNCIOS JUNTO CON EL QUE SE VA A PUBLICAR
 var JsonFechas = []; // JSON CON LA LISTA DE FECHAS DONDE SE VA A PUBLICAR EL ANUNCIO
+var JsonCalendario = []; // JSON CON LA LISTA DE FECHAS DONDE SE VA A PUBLICAR EL ANUNCIO
 var CodigoPostal; // Variable que guarda el codigo postal
 var posicion; // variable para guardar la posicion actual en cualquier posicion
+var mesActual = 0; // 
 var posicionPagina = 0; // variable para guardar la posicion actual de la pagina
 var creditos; // creditos que se van a gastar (segundos)
 var horaInicio; // hora de inicio de la programacion
@@ -26,5 +28,4 @@ var longitudActual;
 var latitudActual;
 var map;
 
-var paginasPorPantalla = Math.round(($(window).height()*0.4)/80);
-
+var paginasPorPantalla = Math.round(($(window).height() * 0.4) / 80);

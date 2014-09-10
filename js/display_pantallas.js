@@ -168,6 +168,20 @@ function displayInformeProblema() {
 
 
 function displayCalendario() {
+    
+    $("#divCalendar").empty();
+    
+    $("#divCalendar").append('<div id="calendar"> </div>');
+
+    $("#calendar").jqmCalendar({
+
+        events: JsonFechas,
+
+        months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        days: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
+        startOfWeek: 0
+
+    });
     var p = "nuevoAnuncio1";
 
     pantallaApp = p;

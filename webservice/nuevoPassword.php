@@ -21,7 +21,7 @@ $sql_sel = 'SELECT Email, Fecha FROM Incidencias WHERE Token="'. $Token . '";';
             $resultados["Fecha"] = $obj->Fecha;           
             $timeFirst  = strtotime($resultados["Fecha"]);
             $timeSecond = strtotime(date("Y-m-d h:i:s"));
-            $differenceInSeconds = $timeSecond - $timeFirst;
+            $differenceInSeconds = $timeFirst - $timeSecond;
             $resultados["Fecha"] = $differenceInSeconds;
               //echo $resultados["Fecha"];
             $i++;

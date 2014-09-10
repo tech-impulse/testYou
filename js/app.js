@@ -679,32 +679,19 @@ $(document).on('pageinit', '#app', function () {
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
-
+/*
     $("#calendar").jqmCalendar({
-        /*
-        events: [{
-                "summary": "Anuncio 1",
-                "begin": new Date(y, m, 27),
-                "end": new Date(y, m, 28)
-
-        }, {
-                "summary": "Anuncio 2",
-                "begin": new Date(y, m, d + 3),
-                "end": new Date(y, m, d + 4)
-
-        }, {
-                "summary": "Anuncio 3",
-                "begin": new Date(y, m, d + 6),
-                "end": new Date(y, m, d + 7)
-
-        },
-                ],
-                */
+        
+        events: JsonFechas,
+                
+                
         months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
         days: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
         startOfWeek: 0
 
     });
+    */
+
 
 });
 
