@@ -165,14 +165,14 @@ function procesoNuevoAnuncio5() {
         };
 
         var map = new google.maps.Map(document.getElementById("divnuevoAnuncio5Mapa"), mapProp);
-        
+
         var marker = new google.maps.Marker({
             position: myCenter,
             icon: "js/images/icno_mapa.png"
         });
 
         marker.setMap(map);
-        
+
     }
 
 }
@@ -426,8 +426,71 @@ function mostrarPaquetesCreditos() {
 //Proceso de compra de creditos
 function procesoCompraCreditos(id) {
 
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth() + 1;
+    var y = date.getFullYear();
+    var h = date.getHours();
+    var min = date.getMinutes();
+    var s = date.getSeconds();
+    var fecha = y + "-" + m + "-" + d + " " + h + ":" + min + ":" + s;
 
+    token = $("#lbmiCuentaEmail").text() + fecha + Math.random();
+    token = CryptoJS.MD5(token).toString();
+    console.log(id);
     $("#divcreditosPaquetesPaypal").show();
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'custom';
+    input.value = token;
+
+
+    switch (id) {
+    case 45:
+        {
+            var formulario = document.getElementById('form45');
+            $("#divcreditosPaquetesPaypal45").show();
+            $("#divcreditosPaquetesPaypal80").hide();
+            $("#divcreditosPaquetesPaypal200").hide();
+            $("#divcreditosPaquetesPaypal500").hide();
+            formulario.appendChild(input);
+            break;
+        };
+    case 80: //es el popup de guardar programacion
+        {
+            var formulario = document.getElementById('form80');
+            $("#p80").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
+            $("#divcreditosPaquetesPaypal45").hide();
+            $("#divcreditosPaquetesPaypal80").show();
+            $("#divcreditosPaquetesPaypal200").hide();
+            $("#divcreditosPaquetesPaypal500").hide();
+            formulario.appendChild(input);
+            break;
+        };
+    case 200: //es el popup de guardar programacion
+        {
+            $("#divcreditosPaquetesPaypal45").hide();
+            $("#divcreditosPaquetesPaypal80").hide();
+            $("#divcreditosPaquetesPaypal200").show();
+            $("#divcreditosPaquetesPaypal500").hide();
+            break;
+        };
+    case 500: //es el popup de guardar programacion
+        {
+            $("#divcreditosPaquetesPaypal45").hide();
+            $("#divcreditosPaquetesPaypal80").hide();
+            $("#divcreditosPaquetesPaypal200").hide();
+            $("#divcreditosPaquetesPaypal500").show();
+            break;
+        };
+    default:
+        abrirPopupAviso("Paquete no disponible " + id);
+
+    }
+    
+
+    
+
     $("#inputcreditosPaquetesCantidad").val("Comprar " + id + " Creditos");
     //restComprarCreditos(id);
 

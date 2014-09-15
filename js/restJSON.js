@@ -160,7 +160,8 @@ function restComprarCreditos(id) {
 
     var datos = {
         idPaquete: id,
-        idSesion: idSesion
+        idSesion: idSesion,
+        token: token
     };
 
     $.ajax({
@@ -463,8 +464,8 @@ function restOk(r, tipo) {
         };
     case "comprarCreditos":
         {
-            creditosDisponibles = r.creditos;
-            abrirPopupAviso(r.mensaje);
+            //creditosDisponibles = r.creditos;
+            //abrirPopupAviso(r.mensaje);
             break;
         };
     case "guardarProgramacion":
@@ -581,6 +582,87 @@ function solicitarPassword(email) {
         },
     });
 
+}
+
+function paypal() {
+    
+    // token 49PgCpjnQN0jSqlEc0ow-xuC8Elsw8A4AkqwBj36TQK11Gcfcs5b_RCZMxi
+
+    $.ajax({
+        headers: {
+            "Accept": "application/json",
+            "Accept-Language": "en_US",
+            "Authorization": "Basic " + btoa("AQkhHRDAyltyqrM1E9me7-D1yIj7XETaMQhM057smwshexCt1NFX_JehopOw:EKM_8xAMcpun1d_1t-Wgf30cGR-DRWS0WoC8degha5lvd66mqRhex8oHxdHj")
+        },
+        url: "https://api.sandbox.paypal.com/v1/oauth2/token",
+        type: "POST",
+        data: "grant_type=client_credentials",
+        complete: function (result) {
+            console.log(JSON.stringify(result));
+        },
+    });
+
+}
+
+function pagar(accessToken) {
+
+    var datos = {
+        "intent": "sale",
+        "payer": {
+            "payment_method": "credit_card",
+            "funding_instruments": [{
+                "credit_card": {
+                    "number": "4417119669820331",
+                    "type": "visa",
+                    "expire_month": 11,
+                    "expire_year": 2018,
+                    "cvv2": "874",
+                    "first_name": "Joe",
+                    "last_name": "Shopper",
+                    "billing_address": {
+                        "line1": "52 N Main ST",
+                        "city": "Johnstown",
+                        "country_code": "US",
+                        "postal_code": "43210",
+                        "state": "OH"
+                    }
+                }
+                }]
+        },
+        "transactions": [{
+            "amount": {
+                "total": "7.47",
+                "currency": "USD",
+                "details": {
+                    "subtotal": "7.41",
+                    "tax": "0.03",
+                    "shipping": "0.03"
+                }
+            },
+            "description": "This is the payment transaction description."
+            }]
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: "https://api.sandbox.paypal.com/v1/payments/payment",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + accessToken
+        },
+        data: JSON.stringify(datos),
+
+        success: function (data) {
+            console.lo
+            console.log(data);
+        },
+        error: function (data) {
+            console.log('fail payment...' + accessToken);
+            console.log(JSON.stringify(data));
+        }
+    });
+
+    //console.log(datos);
 }
 
 function getURLParameter(name) {

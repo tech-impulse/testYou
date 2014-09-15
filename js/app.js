@@ -233,6 +233,16 @@ $(document).on('pageinit', '#loginModule', function () {
         displayMainMenu();
     });
 
+    $('#submitPaypal45').unbind('click').bind('click', function () {
+        restComprarCreditos(45);
+    });
+
+    $('#submitPaypal80').unbind('click').bind('click', function () {
+        restComprarCreditos(80);
+    });
+
+
+
     /*
     $('form').submit(function (event) {
 
@@ -679,7 +689,7 @@ $(document).on('pageinit', '#app', function () {
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
-/*
+    /*
     $("#calendar").jqmCalendar({
         
         events: JsonFechas,
@@ -766,5 +776,50 @@ $(document).on('pageinit', '#reestablecer', function () {
     $('#visita').unbind('click').bind('click', function () {
         window.location = "http://www.youtter.com/"
     });
+
+});
+
+// MODULO DE REESTABLECIMIENTO DE PASSWORD HTML INDEPENDIENTE reestablecer.html
+
+$(document).on('pageinit', '#pagoFinalizado', function () {
+    /*
+    var infoHeader = getURLParameter('info');
+    var arr = infoHeader.split('#');
+    idSesion = arr[1];
+    var item = getURLParameter('item_number');
+   
+    switch (item) { // mira el tipo de popup que se ha abierto
+    case "p45": // es el popup de seleccion de horario
+        {
+            restComprarCreditos("45");
+            break;
+        };
+    case "p80": // es el popup de seleccion de horario
+        {
+            restComprarCreditos("80");
+            break;
+        };
+    case "p200": // es el popup de seleccion de horario
+        {
+            restComprarCreditos("200");
+            break;
+        };
+    case "p500": // es el popup de seleccion de horario
+        {
+            restComprarCreditos("500");
+            break;
+        };
+    case "test": // es el popup de seleccion de horario
+        {
+            restComprarCreditos("80");
+            break;
+        };
+    default:
+        abrirPopupAviso("Ha habido algun error, consulte su email");
+
+    }
+    */
+
+
 
 });

@@ -9,43 +9,24 @@ $con = mysql_connect($server, $username, $password) or die ("No se conecto: " . 
 mysql_select_db($database, $con);
  
 $id = mysql_real_escape_string($_GET["idSesion"]);
+$token = mysql_real_escape_string($_GET["token"]);
 $idPaquete = mysql_real_escape_string($_GET["idPaquete"]);
 
-//$sql = 'SELECT * FROM Ubicaciones WHERE idClient='.$id.' AND CodigoPostal='.$cp.' ORDER BY Direccion;'; 
+$sql_upd = 'INSERT INTO Recargas (id, idUsuario, Token, Creditos, Fecha, Pagado) VALUES ( null , "' .$id. '","' .$token. '","'. $idPaquete . '",NOW(), 0);';
 
-$sql = 'SELECT Creditos FROM Usuarios WHERE id="'.$id.'"';
-if($resultado = mysql_query($sql, $con)) {
-
-    $i=0;
-    while ($obj = mysql_fetch_object($resultado)) 
-    {        	      
-    $creditos = $obj->Creditos;
-    $i++;
-    }
-            
-    $valorTotal = $creditos+$idPaquete;
-	$sql_upd = 'UPDATE Usuarios SET Creditos="'.$valorTotal.'" WHERE id="'.$id.'";';
-	if ($resultado = mysql_query($sql_upd, $con)){
-            $resultados["mensaje"] = "Completado: Saldo actual " . $valorTotal . " Creditos";
+if ($resultado = mysql_query($sql_upd, $con)){
+            $resultados["mensaje"] = "Precarga hecha" ;
+        
 			$resultados["validacion"] = "ok"; 
-            $resultados["creditos"] = $valorTotal; 
-        $sql_ins = 'INSERT INTO Historico_Movimientos values(0 , '.$id.' , NOW() , '.$idPaquete.' , '.$creditos.' ,0 ,0 );';
-        if ($resultado = mysql_query($sql_ins, $con)){
-                $resultados["mensaje"] = "Completado: Saldo actual " . $valorTotal . " Creditos";
-                $resultados["validacion"] = "ok"; 
-        }
+             
 	}
 	else
 	{
 		$resultados["mensaje"] = "Error de consulta del servicio";
 		$resultados["validacion"] = "error";
+        $resultados["query"] = $sql_upd;
 	}
-}
-else
-{
-	$resultados["mensaje"] = "Error de consulta de proceso";
-	$resultados["validacion"] = "error";
-}
+
 mysql_close($con);
 
 $resultadosJson = json_encode($resultados);

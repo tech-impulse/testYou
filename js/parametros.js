@@ -27,5 +27,6 @@ var video; // Variable que indica si es un video o no en caso no especificado po
 var longitudActual;
 var latitudActual;
 var map;
+var token;
 
 var paginasPorPantalla = Math.round(($(window).height() * 0.4) / 80);
