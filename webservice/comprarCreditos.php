@@ -15,8 +15,8 @@ $idPaquete = mysql_real_escape_string($_GET["idPaquete"]);
 $sql_upd = 'INSERT INTO Recargas (id, idUsuario, Token, Creditos, Fecha, Pagado) VALUES ( null , "' .$id. '","' .$token. '","'. $idPaquete . '",NOW(), 0);';
 
 if ($resultado = mysql_query($sql_upd, $con)){
-            $resultados["mensaje"] = "Precarga hecha" ;
-        
+            $resultados["mensaje"] = "Precarga hecha";
+            $resultados["creditos"] = $idPaquete;
 			$resultados["validacion"] = "ok"; 
              
 	}

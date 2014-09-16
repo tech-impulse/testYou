@@ -233,14 +233,9 @@ $(document).on('pageinit', '#loginModule', function () {
         displayMainMenu();
     });
 
-    $('#submitPaypal45').unbind('click').bind('click', function () {
-        restComprarCreditos(45);
+    $('#submitPaypal').unbind('click').bind('click', function () {
+        restComprarCreditos($("#submitPaypal").val());
     });
-
-    $('#submitPaypal80').unbind('click').bind('click', function () {
-        restComprarCreditos(80);
-    });
-
 
 
     /*

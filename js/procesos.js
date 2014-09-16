@@ -230,7 +230,7 @@ function procesoNuevoAnuncio6() {
     if (calendario == true) {
         $("#lbnuevoAnuncio6Horario").text("De " + horaInicio + ":00h a " + horaFin + ":00h");
     } else {
-        $("#lbnuevoAnuncio6Horario").text("Ahora!")
+        $("#lbnuevoAnuncio6Horario").text("Ahora! (Free)")
     }
     $("#lbnuevoAnuncio6Calle").text($("#lbnuevoAnuncio4Calle").text());
     $("#lbnuevoAnuncio6Tipo").text($("#lbnuevoAnuncio4TipoPantalla").text());
@@ -449,10 +449,8 @@ function procesoCompraCreditos(id) {
     case 45:
         {
             var formulario = document.getElementById('form45');
-            $("#divcreditosPaquetesPaypal45").show();
-            $("#divcreditosPaquetesPaypal80").hide();
-            $("#divcreditosPaquetesPaypal200").hide();
-            $("#divcreditosPaquetesPaypal500").hide();
+            $("#p45").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
+            $("#submitPaypal").val(45);
             formulario.appendChild(input);
             break;
         };
@@ -460,36 +458,33 @@ function procesoCompraCreditos(id) {
         {
             var formulario = document.getElementById('form80');
             $("#p80").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
-            $("#divcreditosPaquetesPaypal45").hide();
-            $("#divcreditosPaquetesPaypal80").show();
-            $("#divcreditosPaquetesPaypal200").hide();
-            $("#divcreditosPaquetesPaypal500").hide();
+            $("#submitPaypal").val(80);
             formulario.appendChild(input);
             break;
         };
     case 200: //es el popup de guardar programacion
         {
-            $("#divcreditosPaquetesPaypal45").hide();
-            $("#divcreditosPaquetesPaypal80").hide();
-            $("#divcreditosPaquetesPaypal200").show();
-            $("#divcreditosPaquetesPaypal500").hide();
+            var formulario = document.getElementById('form200');
+            $("#p80").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
+            $("#submitPaypal").val(200);
+            formulario.appendChild(input);
             break;
         };
     case 500: //es el popup de guardar programacion
         {
-            $("#divcreditosPaquetesPaypal45").hide();
-            $("#divcreditosPaquetesPaypal80").hide();
-            $("#divcreditosPaquetesPaypal200").hide();
-            $("#divcreditosPaquetesPaypal500").show();
+            var formulario = document.getElementById('form500');
+            $("#p80").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
+            $("#submitPaypal").val(500);
+            formulario.appendChild(input);
             break;
         };
     default:
         abrirPopupAviso("Paquete no disponible " + id);
 
     }
-    
 
-    
+
+
 
     $("#inputcreditosPaquetesCantidad").val("Comprar " + id + " Creditos");
     //restComprarCreditos(id);
@@ -620,7 +615,7 @@ function abrirPopupAccion(mensaje, tipo) {
         {
             $("#lbPopUpAccion").text("Aqui puedes configurar la programación de tu pantalla ¿Cuando deseas reproducirlo?");
             $("#btnPopUpAccionA").text("Seleccionar un horario");
-            $("#btnPopUpAccionB").text("Ahora!");
+            $("#btnPopUpAccionB").text("Ahora (Free)");
             break;
         };
     case "guardarProgramacion":

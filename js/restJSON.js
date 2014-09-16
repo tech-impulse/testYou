@@ -158,6 +158,8 @@ function restDescripcionAnuncio(id) {
 
 function restComprarCreditos(id) {
 
+    console.log("Rest Comprar Creditos");
+
     var datos = {
         idPaquete: id,
         idSesion: idSesion,
@@ -217,6 +219,7 @@ function restMisAnuncios(id) {
 
 function restSubirImagen() {
     // $.mobile.loading('show');
+    console.log("Subir imagen");
     $.ajax({
         url: url + 'uploadFile.php',
         type: 'POST',
@@ -236,6 +239,7 @@ function restSubirImagen() {
 function restGuardarProgramacion(r) {
     //var re = /(?:\.([^.]+))?$/;
     //var ext = re.exec($("#file").val())[1];
+    console.log("Guardar Programacion");
     console.log(r);
     var obj = JSON.parse(r);
     var video = obj.video;
@@ -259,7 +263,7 @@ function restGuardarProgramacion(r) {
             fechaProgramacion: "NOW()",
             horaInicio: "0",
             horaFin: "0",
-            creditos: creditos,
+            creditos: 0, // GRATIS
             video: video
         };
 
@@ -464,8 +468,18 @@ function restOk(r, tipo) {
         };
     case "comprarCreditos":
         {
-            //creditosDisponibles = r.creditos;
-            //abrirPopupAviso(r.mensaje);
+            if (r.creditos == 45) {
+                $("#form45").submit();
+            } else if (r.creditos == 80) {
+                $("#form80").submit();
+            } else if (r.creditos == 200) {
+                $("#form200").submit();
+            } else if (r.creditos == 500) {
+                $("#form500").submit();
+            } else {
+                console.log("no disponible " + r.creditos);
+            }
+
             break;
         };
     case "guardarProgramacion":
@@ -585,7 +599,7 @@ function solicitarPassword(email) {
 }
 
 function paypal() {
-    
+
     // token 49PgCpjnQN0jSqlEc0ow-xuC8Elsw8A4AkqwBj36TQK11Gcfcs5b_RCZMxi
 
     $.ajax({
