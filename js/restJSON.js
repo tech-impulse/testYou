@@ -531,6 +531,18 @@ function restOk(r, tipo) {
 function restError(r, tipo) {
     console.log("fallo de ws");
     abrirPopupAviso("Compruebe su conexión");
+
+    switch (tipo) {
+    case "comprarCreditos":
+        {
+            $('#submitPaypal').prop('disabled', false);
+            break;
+        };
+    default:
+        break;
+    }
+
+
     //alert("Erro de consulta " + tipo);
 
 }

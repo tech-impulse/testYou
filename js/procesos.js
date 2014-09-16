@@ -434,7 +434,7 @@ function procesoCompraCreditos(id) {
     var min = date.getMinutes();
     var s = date.getSeconds();
     var fecha = y + "-" + m + "-" + d + " " + h + ":" + min + ":" + s;
-
+    $('#submitPaypal').prop('disabled', false);
     token = $("#lbmiCuentaEmail").text() + fecha + Math.random();
     token = CryptoJS.MD5(token).toString();
     console.log(id);

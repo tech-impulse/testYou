@@ -235,6 +235,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     $('#submitPaypal').unbind('click').bind('click', function () {
+        $('#submitPaypal').prop('disabled', true);
         restComprarCreditos($("#submitPaypal").val());
     });
 
