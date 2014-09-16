@@ -13,14 +13,15 @@ $(document).bind("mobileinit", function () {
 });
 
 $(document).ajaxStart(function () {
-    if (pantallaApp == "nuevoAnuncio9") {
+    if (pantallaApp == "nuevoAnuncio9" || pantallaApp == "creditosPaquetes") {
         $.mobile.loading('show', {
             text: 'Espere por favor...',
             textVisible: true,
             theme: 'z',
             html: ""
         });
-    } else {
+    }
+    else {
         $.mobile.loading('show');
     }
     $("#footer_comun").hide();
