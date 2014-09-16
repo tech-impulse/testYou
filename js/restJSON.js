@@ -331,7 +331,7 @@ function restNuevoUsuario() {
         Nombre: $("#inputNewAccountNombre").val(),
         Apellidos: $("#inputNewAccountApellidos").val(),
         Email: $("#inputNewAccountEmail").val(),
-        Password: CryptoJS.MD5($("#inputNewAccountPass").val()).toString(),
+        Password: $("#inputNewAccountPass").val(),
         idPais: idPais
     };
 
@@ -339,6 +339,7 @@ function restNuevoUsuario() {
         data: datos,
         url: url + 'nuevoUsuario.php',
         dataType: 'json',
+        type: 'POST',
         success: function (response) {
             restOk(response, "nuevoUsuario");
         },
