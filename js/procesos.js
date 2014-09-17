@@ -110,17 +110,55 @@ function mostrarHistoricoCreditos(movimientos) {
     $("#ulcreditosHistorico").listview();
 
     $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div class="ui-block-a">Creditos</div><div class="ui-block-b">Importe</div><div class="ui-block-c">Fecha</div></li>');
-
+    JsonMovimientos = [];
     for (var j = 0; j < movimientos.lista.length; j++) {
         var lista = movimientos.lista[j];
+        console.log(lista);
+
+        $("#spanPaginaActualCreditos").text("1-" + Math.ceil(lista.movimientos.length / paginasPorPantallaCreditos));
         console.log(JSON.stringify(lista));
         for (var j = 0; j < lista.movimientos.length; j++) {
             var objeto = lista.movimientos[j];
-            console.log(objeto);
-            $("#ulcreditosHistorico").append('<li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a txt_historicoMovimientos">' + parseInt(objeto.credito_actual) + ' Creditos</div><div class="ui-block-b txt_historicoMovimientos">' + parseInt(objeto.importe) + ' Creditos</div><div class="ui-block-c txt_historicoMovimientos">' + objeto.fecha + '</div></li>');
+            JsonMovimientos.push(objeto);
+            if (j < paginasPorPantallaCreditos) {
+                $("#ulcreditosHistorico").append('<li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a txt_historicoMovimientos">' + parseInt(objeto.credito_actual) + ' Creditos</div><div class="ui-block-b txt_historicoMovimientos">' + parseInt(objeto.importe) + ' Creditos</div><div class="ui-block-c txt_historicoMovimientos">' + objeto.fecha + '</div></li>');
+            }
         }
 
     }
+
+    $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtrasCreditos()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActualCreditos">1-' + Math.ceil(JsonMovimientos.length / paginasPorPantallaCreditos) + '</span></div><div onClick="paginarAdelanteCreditos()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
+
+    $("#ulcreditosHistorico").listview('refresh');
+
+    displayHistoricoMovimientos();
+
+
+
+}
+
+function paginarMisCreditos() {
+
+    console.log("Paginar mis creditos");
+    $("#ulcreditosHistorico").empty();
+
+    $("#ulcreditosHistorico").listview();
+
+    $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div class="ui-block-a">Creditos</div><div class="ui-block-b">Importe</div><div class="ui-block-c">Fecha</div></li>');
+
+    for (var j = posicionPagina; j < (JsonMovimientos.length - (JsonMovimientos.length - (posicionPagina + paginasPorPantallaCreditos))); j++) {
+        if (j < JsonMovimientos.length) {
+            var objeto = JsonMovimientos[j];
+
+            $("#ulcreditosHistorico").append('<li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a txt_historicoMovimientos">' + parseInt(objeto.credito_actual) + ' Creditos</div><div class="ui-block-b txt_historicoMovimientos">' + parseInt(objeto.importe) + ' Creditos</div><div class="ui-block-c txt_historicoMovimientos">' + objeto.fecha + '</div></li>');
+
+        }
+    }
+
+    $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtrasCreditos()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActualCreditos">1-' + Math.ceil(JsonMovimientos.length / paginasPorPantallaCreditos) + '</span></div><div onClick="paginarAdelanteCreditos()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
+
+
+    $("#spanPaginaActualCreditos").text(parseInt((posicionPagina / paginasPorPantallaCreditos) + 1) + "-" + Math.ceil(JsonMovimientos.length / paginasPorPantallaCreditos));
 
     $("#ulcreditosHistorico").listview('refresh');
 
@@ -128,6 +166,8 @@ function mostrarHistoricoCreditos(movimientos) {
 
 
 }
+
+
 
 //Crear anuncio 4- Muestra el detalle de la pantalla seleccionada en el Paso 2
 
@@ -299,7 +339,7 @@ function procesoNuevoAnuncio9() {
 function procesoNuevoAnuncio10() {
 
     if (usuarioBloqueado == 0) {
-        if (creditos / 10 < creditosDisponibles) {
+        if (creditos / 10 <= creditosDisponibles) {
             if (JsonAnuncio.length > 0) {
                 if (JsonAnuncio[posicion].relanzar == 1) {
                     restRelanzarAnuncio();
@@ -450,7 +490,7 @@ function procesoCompraCreditos(id) {
         {
             $("#paypalMoneda").val(moneda);
             $("#paypalIdBoton").val("p45");
-            $("#paypalPrecio").val(6.75/cambio);
+            $("#paypalPrecio").val(6.75 / cambio);
             var formulario = document.getElementById('formPago');
             $("#submitPaypal").val(45);
             formulario.appendChild(input);
@@ -460,7 +500,7 @@ function procesoCompraCreditos(id) {
         {
             $("#paypalMoneda").val(moneda);
             $("#paypalIdBoton").val("p80");
-            $("#paypalPrecio").val(12/cambio);
+            $("#paypalPrecio").val(12 / cambio);
             var formulario = document.getElementById('formPago');
             $("#submitPaypal").val(80);
             formulario.appendChild(input);
@@ -470,7 +510,7 @@ function procesoCompraCreditos(id) {
         {
             $("#paypalMoneda").val(moneda);
             $("#paypalIdBoton").val("p200");
-            $("#paypalPrecio").val(30/cambio);
+            $("#paypalPrecio").val(30 / cambio);
             var formulario = document.getElementById('formPago');
             $("#submitPaypal").val(200);
             formulario.appendChild(input);
@@ -480,7 +520,7 @@ function procesoCompraCreditos(id) {
         {
             $("#paypalMoneda").val(moneda);
             $("#paypalIdBoton").val("p500");
-            $("#paypalPrecio").val(75/cambio);
+            $("#paypalPrecio").val(75 / cambio);
             var formulario = document.getElementById('formPago');
             $("#submitPaypal").val(500);
             formulario.appendChild(input);
@@ -499,6 +539,36 @@ function procesoCompraCreditos(id) {
 
     //alert("comprar paquete con id " + id);
 
+}
+
+function procesoGuardarAnuncio() {
+    horaInicio = $("#innuevoAnuncio4Inicio").val();
+    horaFin = $("#innuevoAnuncio4Fin").val();
+    creditos = $("#innuevoAnuncio4Segundos").val();
+    procesoNuevoAnuncio6();
+
+    // Comprueba si estamos guardando la programacion de un anuncio nuevo o relanzado.
+    if (JsonAnuncio.length == 0) {
+        if (calendario == true) {
+            displayCalendario();
+        } else {
+            $("#btnnuevoAnuncio7Subir").hide();
+            displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+        }
+    } else {
+
+        // Si estamos relanzando un aviso anterior, pasamos directamente a publicar
+        if (calendario == true) {
+            displayCalendario();
+        } else {
+            if (JsonAnuncio[posicion].relanzar == 1) {
+                procesoNuevoAnuncio9();
+            } else {
+                $("#btnnuevoAnuncio7Subir").hide();
+                displayNuevoAnuncio7(); // Ir directamente a subir la imagen
+            }
+        }
+    }
 }
 
 
@@ -686,6 +756,20 @@ function paginarAtras(event) {
     if (posicionPagina != 0) {
         posicionPagina = posicionPagina - paginasPorPantalla;
         paginarMisAnuncios();
+    }
+}
+
+function paginarAdelanteCreditos() {
+    if (posicionPagina < (JsonMovimientos.length - paginasPorPantallaCreditos)) {
+        posicionPagina = posicionPagina + paginasPorPantallaCreditos;
+        paginarMisCreditos();
+    }
+}
+
+function paginarAtrasCreditos() {
+    if (posicionPagina != 0) {
+        posicionPagina = posicionPagina - paginasPorPantallaCreditos;
+        paginarMisCreditos();
     }
 }
 

@@ -168,9 +168,9 @@ function displayInformeProblema() {
 
 
 function displayCalendario() {
-    
+
     $("#divCalendar").empty();
-    
+
     $("#divCalendar").append('<div id="calendar"> </div>');
 
     $("#calendar").jqmCalendar({
@@ -296,41 +296,56 @@ function displayNuevoAnuncio10() {
 
 function displaySeleccion(opcion) {
 
-    if (parseInt(creditosDisponibles) > 0) {
+
+    if (opcion == "seleccion" && parseInt(creditosDisponibles) > 0) {
         $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles) + " creditos");
-
-        if (opcion == "seleccion") {
-            $('#divnuevoAnuncio4FranjasHorarias1').show();
-            $('#divnuevoAnuncio4FranjasHorarias2').show();
-            calendario = true;
-            var input = document.getElementById("innuevoAnuncio4Segundos");
-            if ((creditosDisponibles * 10) >= 2520) {
-                input.setAttribute("max", 2520);
-            } else {
-                input.setAttribute("max", parseInt(creditosDisponibles * 10));
-            }
-            input.setAttribute("value", 10);
-
-
+        $('#divnuevoAnuncio4FranjasHorarias1').show();
+        $('#divnuevoAnuncio4FranjasHorarias2').show();
+        calendario = true;
+        var input = document.getElementById("innuevoAnuncio4Segundos");
+        if ((creditosDisponibles * 10) >= 2520) {
+            input.setAttribute("max", 2520);
         } else {
-            $('#divnuevoAnuncio4FranjasHorarias1').hide();
-            $('#divnuevoAnuncio4FranjasHorarias2').show();
-            calendario = false;
-            var input = document.getElementById("innuevoAnuncio4Segundos");
-            if ((creditosDisponibles * 10) >= 60) {
-                input.setAttribute("max", 60);
-            } else {
-                input.setAttribute("max", parseInt(creditosDisponibles * 10));
-            }
-            input.value = 10;
-            $('#innuevoAnuncio4Segundos').val("10");
+            input.setAttribute("max", parseInt(creditosDisponibles * 10));
         }
-        $('#innuevoAnuncio4Segundos').slider('refresh');
+        input.setAttribute("value", 10);
+
+
+    } else if (opcion == "ahora" && parseInt(creditosDisponibles) == 0) {
+        calendario = false;
+        procesoGuardarAnuncio();
+        /*
+        $('#divnuevoAnuncio4FranjasHorarias1').hide();
+        $('#divnuevoAnuncio4FranjasHorarias2').hide();
+        calendario = false;
+        var input = document.getElementById("innuevoAnuncio4Segundos");
+        if ((creditosDisponibles * 10) >= 60) {
+            input.setAttribute("max", 60);
+        } else {
+            input.setAttribute("max", parseInt(creditosDisponibles * 10));
+        }
+        input.value = 10;
+        $('#innuevoAnuncio4Segundos').val("10");
+        */
+    } else if (opcion == "ahora" && parseInt(creditosDisponibles) > 0) {
+        $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles) + " creditos");
+        $('#divnuevoAnuncio4FranjasHorarias1').hide();
+        $('#divnuevoAnuncio4FranjasHorarias2').show();
+        calendario = false;
+        var input = document.getElementById("innuevoAnuncio4Segundos");
+        if ((creditosDisponibles * 10) >= 60) {
+            input.setAttribute("max", 60);
+        } else {
+            input.setAttribute("max", parseInt(creditosDisponibles * 10));
+        }
+        input.value = 10;
+        $('#innuevoAnuncio4Segundos').val("10");
     } else {
         $("#lbnuevoAnuncio4Disponibles").text(" No tienes creditos");
         $('#divnuevoAnuncio4FranjasHorarias1').hide();
         $('#divnuevoAnuncio4FranjasHorarias2').hide();
     }
+    $('#innuevoAnuncio4Segundos').slider('refresh');
 
 }
 

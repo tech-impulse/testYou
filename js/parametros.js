@@ -10,6 +10,7 @@ var usuarioBloqueado = 0; // FLAG PARA VERIFICAR SI LA CUENTA ESTA BLOQUEADA
 var creditosDisponibles; // CREDITOS DE LOS QUE DISPONE EL USUARIO PARA GASTAR
 var JsonCalle = []; // JSON CON TODAS LAS CALLES DISPONIBLES DESPUES DE SELECCIONAR UNA UBICACION
 var JsonAnuncio = []; // JSON CON TODA LA INFORMACION DE LOS ANUNCIOS JUNTO CON EL QUE SE VA A PUBLICAR
+var JsonMovimientos = [];
 var JsonFechas = []; // JSON CON LA LISTA DE FECHAS DONDE SE VA A PUBLICAR EL ANUNCIO
 var JsonCalendario = []; // JSON CON LA LISTA DE FECHAS DONDE SE VA A PUBLICAR EL ANUNCIO
 var CodigoPostal; // Variable que guarda el codigo postal
@@ -32,3 +33,4 @@ var moneda;
 var cambio;
 
 var paginasPorPantalla = Math.round(($(window).height() * 0.4) / 80);
+var paginasPorPantallaCreditos = Math.round(($(window).height() * 0.4) / 25);

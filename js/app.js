@@ -239,39 +239,6 @@ $(document).on('pageinit', '#loginModule', function () {
         restComprarCreditos($("#submitPaypal").val());
     });
 
-
-    /*
-    $('form').submit(function (event) {
-
-        // get the form data
-        // there are many ways to get this data using jQuery (you can use the class or id also)
-        var formData = {
-            'cmd': $('input[name=cmd]').val(),
-            'hosted_button_id': $('input[name=hosted_button_id]').val()
-        };
-
-        // process the form
-        $.ajax({
-            type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-            url: 'https://www.paypal.com/cgi-bin/webscr', // the url where we want to POST
-            data: formData, // our data object
-            dataType: 'json', // what type of data do we expect back from the server
-            encode: true
-        })
-        // using the done promise callback
-        .done(function (data) {
-
-            // log data to the console so we can see
-            console.log(data);
-
-            // here we will handle errors and validation messages
-        });
-
-        // stop the form from submitting the normal way and refreshing the page
-        event.preventDefault();
-    });
-    */
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLA DE INFORMACIÓN DE LA CUENTA DEL USUARIO
 
@@ -397,7 +364,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 3 - Botón para cambiar la fechga
+    //Crear anuncio 3 - Botón para cambiar la fecha
 
     $('#divnuevoAnuncio3Fechas').unbind('click').bind('click', function () {
 
@@ -440,53 +407,15 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-
-
     //Crear anuncio 4 - Boton para Guardar
     $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
-
-        horaInicio = $("#innuevoAnuncio4Inicio").val();
-        horaFin = $("#innuevoAnuncio4Fin").val();
-        creditos = $("#innuevoAnuncio4Segundos").val();
-        procesoNuevoAnuncio6();
-
-        // Comprueba si estamos guardando la programacion de un anuncio nuevo o relanzado.
-        if (JsonAnuncio.length == 0) {
-            if (calendario == true) {
-                displayCalendario();
-            } else {
-                $("#btnnuevoAnuncio7Subir").hide();
-                displayNuevoAnuncio7(); // Ir directamente a subir la imagen
-            }
-        } else {
-
-            // Si estamos relanzando un aviso anterior, pasamos directamente a publicar
-            if (calendario == true) {
-                displayCalendario();
-            } else {
-                if (JsonAnuncio[posicion].relanzar == 1) {
-                    procesoNuevoAnuncio9();
-                } else {
-                    $("#btnnuevoAnuncio7Subir").hide();
-                    displayNuevoAnuncio7(); // Ir directamente a subir la imagen
-                }
-            }
-        }
-
-        // CODIGO DE BACKUP
-        /*
-        $("#calle"+posicion).attr('data-icon', 'check').find('.ui-icon')
-                     .addClass('ui-icon-' + 'check')
-                     .removeClass('ui-icon-' + 'false');
-        
-        $("#calle"+posicion+">a.ui-btn").addClass('ui-icon-' + 'check');
-        */
-        //$("#calle"+posicion).attr('data-icon','check');
-        //$("#calle"+posicion).children().children().next().removeClass('ui-icon-custom').addClass('ui-icon-check');
-        //displayNuevoAnuncio3(); // Par siguientes versiones
-
+        procesoGuardarAnuncio();
     });
-
+    
+     $("#innuevoAnuncio4Segundos").change(function () {
+        var creditosUsados = $("#innuevoAnuncio4Segundos").val()/10;
+        $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles-creditosUsados) + " creditos");
+    });
 
     ///////// EVENTOS CREAR ANUNCIO 5 /////////////////////////////////////////////////////////////////////////////////////////////////
 
