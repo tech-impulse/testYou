@@ -154,7 +154,7 @@ function autentication(user, pass) {
 function loginOk(r) {
     //$.mobile.loading('hide');
 
-    //console.log(JSON.stringify(r));
+    console.log(JSON.stringify(r));
     if (r.validacion == "ok") {
         if (r.Activo == 1) {
             idSesion = r.id_user;
@@ -166,6 +166,8 @@ function loginOk(r) {
             $("#lbmiCuentaEmail").text(r.Email);
             $("#lbmiCuentaPaypal").text(r.CuentaPaypal);
             $("#lbmiCuentaBloqueado").text(r.Bloqueado);
+            moneda = r.Moneda;
+            cambio = r.Cambio;
             if (r.Pais == 1) {
                 $("#lbmiCuentaPais").text("España");
             } else {

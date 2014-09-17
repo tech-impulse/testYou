@@ -61,6 +61,17 @@ if ($resultado = mysql_query($sql, $con)){
             
              $i++;
                 }  
+        
+            $sql_mon = 'SELECT * FROM Paises as p, Monedas as m WHERE p.id='.$resultados["Pais"].' AND p.IdMoneda=m.id;';
+            $resultado = mysql_query($sql_mon, $con);
+            $i=0;
+            while ($obj = mysql_fetch_object($resultado)) 
+            {        	      
+             $resultados["Cambio"] = $obj->Cambio;
+             $resultados["Moneda"] = $obj->Siglas;
+             $i++;
+            }
+
 	    }
     else
     {

@@ -186,7 +186,7 @@ function mostrarCerca() {
     {
         var mapProp = {
             center: myCenter,
-            zoom: 16,
+            zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -448,32 +448,40 @@ function procesoCompraCreditos(id) {
     switch (id) {
     case 45:
         {
-            var formulario = document.getElementById('form45');
-            $("#p45").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
+            $("#paypalMoneda").val(moneda);
+            $("#paypalIdBoton").val("p45");
+            $("#paypalPrecio").val(6.75/cambio);
+            var formulario = document.getElementById('formPago');
             $("#submitPaypal").val(45);
             formulario.appendChild(input);
             break;
         };
     case 80: //es el popup de guardar programacion
         {
-            var formulario = document.getElementById('form80');
-            $("#p80").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
+            $("#paypalMoneda").val(moneda);
+            $("#paypalIdBoton").val("p80");
+            $("#paypalPrecio").val(12/cambio);
+            var formulario = document.getElementById('formPago');
             $("#submitPaypal").val(80);
             formulario.appendChild(input);
             break;
         };
     case 200: //es el popup de guardar programacion
         {
-            var formulario = document.getElementById('form200');
-            $("#p80").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
+            $("#paypalMoneda").val(moneda);
+            $("#paypalIdBoton").val("p200");
+            $("#paypalPrecio").val(30/cambio);
+            var formulario = document.getElementById('formPago');
             $("#submitPaypal").val(200);
             formulario.appendChild(input);
             break;
         };
     case 500: //es el popup de guardar programacion
         {
-            var formulario = document.getElementById('form500');
-            $("#p80").val("http://www.youtter.com/app/pago.html?info=" + "#" + idSesion + "#" + $("#lbmiCuentaEmail").text() + "");
+            $("#paypalMoneda").val(moneda);
+            $("#paypalIdBoton").val("p500");
+            $("#paypalPrecio").val(75/cambio);
+            var formulario = document.getElementById('formPago');
             $("#submitPaypal").val(500);
             formulario.appendChild(input);
             break;

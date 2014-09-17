@@ -23,7 +23,7 @@ $i=0;
     while ($obj = mysql_fetch_object($resultado)) 
     {        	      
      $calle["id"] = $obj->id;
-     $calle["Direccion"] = $obj->Direccion;
+     $calle["Direccion"] = utf8_encode($obj->Direccion);
      $calle["Poblacion"] = $obj->Poblacion;
      $calle["Provincia"] = $obj->Provincia;
      $calle["LatitudGPS"] = $obj->LatitudGPS;

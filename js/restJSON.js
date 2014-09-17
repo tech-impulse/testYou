@@ -469,18 +469,7 @@ function restOk(r, tipo) {
         };
     case "comprarCreditos":
         {
-            if (r.creditos == 45) {
-                $("#form45").submit();
-            } else if (r.creditos == 80) {
-                $("#form80").submit();
-            } else if (r.creditos == 200) {
-                $("#form200").submit();
-            } else if (r.creditos == 500) {
-                $("#form500").submit();
-            } else {
-                console.log("no disponible " + r.creditos);
-            }
-
+            $("#formPago").submit();
             break;
         };
     case "guardarProgramacion":

@@ -28,5 +28,7 @@ var longitudActual;
 var latitudActual;
 var map;
 var token;
+var moneda;
+var cambio;
 
 var paginasPorPantalla = Math.round(($(window).height() * 0.4) / 80);
