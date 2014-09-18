@@ -55,7 +55,7 @@ function registerOn3rdPartyServer(registrationId) {
             "Content-Type": "application/x-www-form-urlencoded"
         },
         success: function () {
-            statusElement.html('READY FOR NOTIFICATIONS');
+            console.log('READY FOR NOTIFICATIONS');
         },
         error: function (e) {
             alert("Unable to register " + JSON.stringify(e));
