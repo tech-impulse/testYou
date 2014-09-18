@@ -14,7 +14,6 @@ $(document).bind("mobileinit", function () {
 
 $(document).ajaxStart(function () {
     if (pantallaApp == "creditosPaquetes") {
-
         $.mobile.loading('show', {
             text: 'Espere por favor...',
             textVisible: true,
@@ -22,7 +21,7 @@ $(document).ajaxStart(function () {
             html: ""
         });
 
-    } else if (pantallaApp == "nuevoAnuncio9") {
+    } else if (pantallaApp == "mainMenu") {
     } else {
         $.mobile.loading('show');
     }
