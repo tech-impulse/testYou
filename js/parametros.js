@@ -33,4 +33,4 @@ var moneda;
 var cambio;
 
 var paginasPorPantalla = Math.round(($(window).height() * 0.4) / 80);
-var paginasPorPantallaCreditos = Math.round(($(window).height() * 0.4) / 25);
+var paginasPorPantallaCreditos = Math.round(($(window).height() * 0.4) / 30);
