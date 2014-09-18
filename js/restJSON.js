@@ -521,20 +521,22 @@ function restOk(r, tipo) {
 
 function restError(r, tipo) {
     console.log("fallo de ws");
-    abrirPopupAviso("Compruebe su conexión");
+    
 
     switch (tipo) {
     case "comprarCreditos":
         {
+            abrirPopupAviso("Compruebe su conexión");
             $('#submitPaypal').prop('disabled', false);
             break;
         };
     case "guardarProgramacion":
         {
-            notificacion(r.mensaje);
+            abrirPopupAviso("No se ha podido cargar su imagen!");
             break;
         };
     default:
+            abrirPopupAviso("Compruebe su conexión");
         break;
     }
 }
