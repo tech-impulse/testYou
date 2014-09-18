@@ -13,15 +13,17 @@ $(document).bind("mobileinit", function () {
 });
 
 $(document).ajaxStart(function () {
-    if (pantallaApp == "nuevoAnuncio9" || pantallaApp == "creditosPaquetes") {
+    if (pantallaApp == "creditosPaquetes") {
+
         $.mobile.loading('show', {
             text: 'Espere por favor...',
             textVisible: true,
             theme: 'z',
             html: ""
         });
-    }
-    else {
+
+    } else if (pantallaApp == "nuevoAnuncio9") {
+    } else {
         $.mobile.loading('show');
     }
     $("#footer_comun").hide();
@@ -411,10 +413,10 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
         procesoGuardarAnuncio();
     });
-    
-     $("#innuevoAnuncio4Segundos").change(function () {
-        var creditosUsados = $("#innuevoAnuncio4Segundos").val()/10;
-        $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles-creditosUsados) + " creditos");
+
+    $("#innuevoAnuncio4Segundos").change(function () {
+        var creditosUsados = $("#innuevoAnuncio4Segundos").val() / 10;
+        $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles - creditosUsados) + " creditos");
     });
 
     ///////// EVENTOS CREAR ANUNCIO 5 /////////////////////////////////////////////////////////////////////////////////////////////////

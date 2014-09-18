@@ -475,7 +475,8 @@ function restOk(r, tipo) {
     case "guardarProgramacion":
         {
             creditosDisponibles = r.creditos;
-            abrirPopupAccion(r.mensaje, tipo);
+            //abrirPopupAccion(r.mensaje, tipo);
+            notificacion(r.mensaje);
             break;
         };
     case "nuevoUsuario":
@@ -528,13 +529,14 @@ function restError(r, tipo) {
             $('#submitPaypal').prop('disabled', false);
             break;
         };
+    case "guardarProgramacion":
+        {
+            notificacion(r.mensaje);
+            break;
+        };
     default:
         break;
     }
-
-
-    //alert("Erro de consulta " + tipo);
-
 }
 
 

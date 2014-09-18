@@ -337,14 +337,16 @@ function procesoNuevoAnuncio9() {
 //Crear anuncio 10- Ejecuta la orden de progrogramar el anuncio
 
 function procesoNuevoAnuncio10() {
-
+    displayMainMenu();
     if (usuarioBloqueado == 0) {
         if (creditos / 10 <= creditosDisponibles) {
             if (JsonAnuncio.length > 0) {
                 if (JsonAnuncio[posicion].relanzar == 1) {
+                    
                     restRelanzarAnuncio();
                 }
             } else {
+                notificacion("Publicando tu anuncio!");
                 restSubirImagen();
             }
         } else {
@@ -673,6 +675,13 @@ function ocultarDiv(div) {
     } else {
         $(div).show();
     }
+}
+
+// Cargar una notificacion
+function notificacion(mensaje) {
+    $("#PopUpNotificacion").popup("open");
+    $("#PopUpNotificacionTexto").text(mensaje);
+    setTimeout(' $("#PopUpNotificacion").popup("close")',1000);
 }
 
 // Cargar mensaje en Popup de Aviso
