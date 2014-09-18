@@ -20,6 +20,7 @@ $(document).on('pageinit', '#loginModule', function () {
             localStorage["youtter_pass"] = "";
         }
         procesoDeLogin();
+        register();
 
     });
 

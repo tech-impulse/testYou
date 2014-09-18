@@ -15,6 +15,12 @@
     </author>
 
     <preference name="orientation" value="portrait"/>
+    <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.1.1" />
+    <feature name="PushPlugin" >
+    <param name="android-package" value="com.amazon.cordova.plugin.PushPlugin"/>
+</feature>
+    <preference name="showmessageinnotification" value="true" />
+<preference name="defaultnotificationmessage" value="New message has arrived!" />
 
 </widget>
 
