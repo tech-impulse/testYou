@@ -20,7 +20,6 @@ $(document).on('pageinit', '#loginModule', function () {
             localStorage["youtter_pass"] = "";
         }
         procesoDeLogin();
-        register();
 
     });
 
@@ -182,6 +181,7 @@ function loginOk(r) {
             traducir(r.Pais);
             creditosDisponibles = r.Creditos;
             $.mobile.changePage('#app');
+            register();
             displayMainMenu();
         } else {
             $("#lbPopUpLogin").text("Tu usuario esté temporalmente inactivo");

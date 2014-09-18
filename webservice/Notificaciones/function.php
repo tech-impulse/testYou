@@ -5,8 +5,15 @@
    function storeUser($name, $email, $gcm_regid) {
         
         // insert user into database
+       
+        $sel = mysql_query("SELECT * FROM gcm_regid WHERE gcm_regid=$gcm_regid");
+         
+        $num = mysql_num_rows($sel);
+       
+       if($num==0){
+        
         $result = mysql_query(
-                      "INSERT INTO gcm_users
+                      "INSERT IGNORE INTO gcm_users
                             (name, email, gcm_regid, created_at) 
                             VALUES
                             ('$name', 
@@ -33,6 +40,7 @@
         } else {
             return false;
         }
+       } 
     }
  
     /**

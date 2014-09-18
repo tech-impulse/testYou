@@ -47,8 +47,8 @@ function registerOn3rdPartyServer(registrationId) {
         url: "http://admin.youtter.com/webservices/notificaciones/register.php",
         /* Your gcm-rest registration endpoint */
         data: {
-            "name": "test",
-            "email": "test@test.com",
+            "name": idSesion,
+            "email": $("#lbmiCuentaEmail").text(),
             "regId": registrationId
         },
         headers: {
