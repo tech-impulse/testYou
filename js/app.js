@@ -7,13 +7,13 @@ $(document).bind("mobileinit", function () {
     $.mobile.touchOverflowEnabled = false;
 
     $.ajaxSetup({
-        timeout: 60000 //Time in milliseconds
+        timeout: 10000 //Time in milliseconds
     });
 
 });
 
 $(document).ajaxStart(function () {
-    if (pantallaApp == "creditosPaquetes") {
+    if (pantallaApp == "creditosPaquetes" && pantallaApp == "nuevoAnuncio9") {
         $.mobile.loading('show', {
             text: 'Espere por favor...',
             textVisible: true,

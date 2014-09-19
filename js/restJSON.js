@@ -226,7 +226,7 @@ function restSubirImagen() {
         data: formData,
         contentType: false,
         processData: false,
-        timeout: 30000,
+        timeout: 60000,
         success: function (response) {
             restGuardarProgramacion(response);
         },
@@ -435,15 +435,15 @@ function restOk(r, tipo) {
         };
     case "paises":
         {
-            procesoNuevoAnuncio2(r);
             displaySelector(tipo);
+            procesoNuevoAnuncio2(r);            
             console.log("paises");
             break;
         };
     case "provincias":
         {
-            procesoNuevoAnuncio2Provincia(r);
             displaySelector(tipo);
+            procesoNuevoAnuncio2Provincia(r);            
             console.log("provincias");
             break;
         };
@@ -453,8 +453,8 @@ function restOk(r, tipo) {
             if (r.localizaciones[0].validacion == "vacio") {
                 abrirPopupAviso(r.localizaciones[0].mensaje);
             } else {
-                procesoNuevoAnuncio3(r);
                 displayNuevoAnuncio3();
+                procesoNuevoAnuncio3(r);                
                 console.log("ubicacionesCP");
             }
 
@@ -462,8 +462,8 @@ function restOk(r, tipo) {
         };
     case "descripcionAnuncio":
         {
-            procesoNuevoAnuncio4(r);
             displayNuevoAnuncio4();
+            procesoNuevoAnuncio4(r);            
             console.log("descripcionAnuncio");
             break;
         };
@@ -475,8 +475,8 @@ function restOk(r, tipo) {
     case "guardarProgramacion":
         {
             creditosDisponibles = r.creditos;
-            //abrirPopupAccion(r.mensaje, tipo);
-            notificacion(r.mensaje);
+            abrirPopupAccion(r.mensaje, tipo);
+            //notificacion(r.mensaje);
             break;
         };
     case "nuevoUsuario":

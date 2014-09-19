@@ -337,7 +337,7 @@ function procesoNuevoAnuncio9() {
 //Crear anuncio 10- Ejecuta la orden de progrogramar el anuncio
 
 function procesoNuevoAnuncio10() {
-    displayMainMenu();
+    //displayMainMenu();
     if (usuarioBloqueado == 0) {
         if (creditos / 10 <= creditosDisponibles) {
             if (JsonAnuncio.length > 0) {
@@ -346,7 +346,7 @@ function procesoNuevoAnuncio10() {
                     restRelanzarAnuncio();
                 }
             } else {
-                notificacion("Publicando tu anuncio!");
+                //notificacion("Publicando tu anuncio!");
                 restSubirImagen();
             }
         } else {
