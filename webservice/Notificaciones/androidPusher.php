@@ -2,15 +2,32 @@
 
 //namespace AndroidPusher;
 
+$gcmRegID    = $_GET["regId"]; // GCM Registration ID got from device
+$pushMessage = $_GET["message"];
+
 $apiKey = "AIzaSyDf89dKEjDfR0P3wHJs3DSqlfuVobbMB6Y";
-$regId = "APA91bH306djMFdiRwU83naxe61LrsuXBYjgWW6XcWiuaWvlx8EmkLno-62WTjYhR6KSqtpNPvVSCnH9szNif4XV0-prU4kJKQrfMfMFMxzYKR4dMyenNRhfH7njsm1-JuOXq8RG-bo5fOCG-_60-1782n_ZZk3mFA";
-echo "hola";
+//$regId = "APA91bH306djMFdiRwU83naxe61LrsuXBYjgWW6XcWiuaWvlx8EmkLno-62WTjYhR6KSqtpNPvVSCnH9szNif4XV0-prU4kJKQrfMfMFMxzYKR4dMyenNRhfH7njsm1-JuOXq8RG-bo5fOCG-_60-1782n_ZZk3mFA";
+
 $pusher = new Pusher($apiKey);
-echo "hola2";
-$pusher->notify($regId, "Hola");
-echo "hola3";
+
+$pusher->notify($gcmRegID, $pushMessage);
+
 
 print_r($pusher->getOutputAsArray());
+
+/*
+
+public function sendPush($gcmRegID, $pushMessage){
+
+$apiKey = "AIzaSyDf89dKEjDfR0P3wHJs3DSqlfuVobbMB6Y";
+//$regId = "APA91bH306djMFdiRwU83naxe61LrsuXBYjgWW6XcWiuaWvlx8EmkLno-62WTjYhR6KSqtpNPvVSCnH9szNif4XV0-prU4kJKQrfMfMFMxzYKR4dMyenNRhfH7njsm1-JuOXq8RG-bo5fOCG-_60-1782n_ZZk3mFA";
+
+$pusher = new Pusher($apiKey);
+
+$pusher->notify($gcmRegID, $pushMessage);
+}
+*/
+
 
 
 class Pusher

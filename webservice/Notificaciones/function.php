@@ -6,7 +6,7 @@
         
         // insert user into database
        
-        $sel = mysql_query("SELECT * FROM gcm_regid WHERE gcm_regid=$gcm_regid");
+        $sel = mysql_query("SELECT * FROM gcm_users WHERE gcm_regid='".$gcm_regid."'");
          
         $num = mysql_num_rows($sel);
        
@@ -40,7 +40,9 @@
         } else {
             return false;
         }
-       } 
+       } else {
+            return false;
+        } 
     }
  
     /**

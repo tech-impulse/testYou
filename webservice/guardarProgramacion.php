@@ -1,6 +1,7 @@
 <?php 
 
 include 'connection.php';
+require_once 'notificaciones/androidPusher.php';
 
 $resultados = array();
  
@@ -18,12 +19,13 @@ $video = mysql_real_escape_string($_GET["video"]);
 
 
 //$sql = 'SELECT * FROM Ubicaciones WHERE idClient='.$id.' AND CodigoPostal='.$cp.' ORDER BY Direccion;'; 
-$sql_sel = 'SELECT idImagen as idImagen, Creditos as Creditos FROM Usuarios WHERE id='.$idUsuario.';';
+$sql_sel = 'SELECT u.idImagen as idImagen, u.Creditos as Creditos, g.gcm_regid as gmc FROM Usuarios as u, gcm_users as g WHERE u.id='.$idUsuario.' AND name='.$idUsuario.';';
 	if ($resultado = mysql_query($sql_sel, $con)){
         while ($obj = mysql_fetch_object($resultado)) 
         {        	      
             $resultados["idImagen"] = $obj->idImagen;   
             $resultados["creditos"] = $obj->Creditos;
+            $resultados["gmc"] = $obj->gmc;
             $nombre = $idUsuario . "." . $resultados["idImagen"];
             $resultados["idImagen"] = ($resultados["idImagen"] - 1);
             $i++;
@@ -42,7 +44,7 @@ $sql_sel = 'SELECT idImagen as idImagen, Creditos as Creditos FROM Usuarios WHER
 
 	if ($resultado = mysql_query($sql_upd, $con)){
             $resultados["mensaje"] = " Tu anuncio ha sido publicado! " ;
-        
+            sendPush($resultados["gmc"], $resultados["mensaje"]);
 			$resultados["validacion"] = "ok"; 
              
 	}

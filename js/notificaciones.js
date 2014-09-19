@@ -5,14 +5,14 @@ function register() {
         pushNotification.register(function (result) {
             console.log('Status: ' + result);
         }, function (result) {
-            alert('Error handler ' + result);
+            console.log('Error handler ' + result);
         }, {
             "senderID": "744065802164",
             /* Google developers project number */
                 "ecb": "onNotificationGCM" /* Function name to handle notifications */
         });
     } else {
-        alert('Your device platform is not Android!!!');
+        console.log('Your device platform is not Android!!!');
     }
 }
 
@@ -58,7 +58,7 @@ function registerOn3rdPartyServer(registrationId) {
             console.log('READY FOR NOTIFICATIONS');
         },
         error: function (e) {
-            alert("Unable to register " + JSON.stringify(e));
+            console.log("Unable to register " + JSON.stringify(e));
         }
     });
 }
