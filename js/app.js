@@ -7,6 +7,7 @@ $(document).bind("mobileinit", function () {
     if (isAndroidDevice()) {
         var element = '<script type="text/javascript" src="cordova.js"></script>';
         $('head').append(element);
+        alert("Es android");
     }
     
     $.support.touchOverflow = false;
