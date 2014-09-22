@@ -2,6 +2,8 @@ function register() {
     var pushNotification = window.plugins.pushNotification;
 
     if (isAndroidDevice()) {
+        var element = "<script type='text/javascript' src='cordova.js'></script>";
+        $('head').append(element);
         pushNotification.register(function (result) {
             console.log('Status: ' + result);
         }, function (result) {
