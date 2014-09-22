@@ -31,6 +31,7 @@ var map;
 var token;
 var moneda;
 var cambio;
+var tiempoNotificacion = 1000; // 1 Segundo se mantiene abierta el popup de notificacion
 
 var paginasPorPantalla = Math.round(($(window).height() * 0.4) / 80);
 var paginasPorPantallaCreditos = Math.round(($(window).height() * 0.4) / 30);

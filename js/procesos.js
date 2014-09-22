@@ -342,7 +342,7 @@ function procesoNuevoAnuncio10() {
         if (creditos / 10 <= creditosDisponibles) {
             if (JsonAnuncio.length > 0) {
                 if (JsonAnuncio[posicion].relanzar == 1) {
-                    
+
                     restRelanzarAnuncio();
                 }
             } else {
@@ -350,12 +350,12 @@ function procesoNuevoAnuncio10() {
                 restSubirImagen();
             }
         } else {
-            $("#lbPopUpAviso").text("No dispones de creditos suficientes");
-            $("#PopUpAviso").popup("open");
+            notificacion("No dispones de creditos suficientes");
+            //abrirPopupAviso("No dispones de creditos suficientes");
         }
     } else {
-        $("#lbPopUpAviso").text("Tu cuenta está temporalmente bloqueada");
-        $("#PopUpAviso").popup("open");
+        notificacion("Tu cuenta está temporalmente bloqueada");
+        //abrirPopupAviso("Tu cuenta está temporalmente bloqueada");
     }
 
 
@@ -529,7 +529,8 @@ function procesoCompraCreditos(id) {
             break;
         };
     default:
-        abrirPopupAviso("Paquete no disponible " + id);
+        notificacion("Paquete no disponible " + id);
+        //abrirPopupAviso("Paquete no disponible " + id);
 
     }
 
@@ -681,7 +682,7 @@ function ocultarDiv(div) {
 function notificacion(mensaje) {
     $("#PopUpNotificacion").popup("open");
     $("#PopUpNotificacionTexto").text(mensaje);
-    setTimeout(' $("#PopUpNotificacion").popup("close")',1000);
+    setTimeout(' $("#PopUpNotificacion").popup("close")', tiempoNotificacion);
 }
 
 // Cargar mensaje en Popup de Aviso
@@ -749,9 +750,8 @@ function enviarFoto(r) {
 // Ha habido algún error en el envío de la imagen
 function errorenviarFoto(r) {
 
-    console.log("Foto no subida");
-    $("#lbPopUpAviso").text(r);
-    $("#PopUpAviso").popup("open");
+    notificacion(r);
+    //abrirPopupAviso(r);
 }
 
 function paginarAdelante(event) {

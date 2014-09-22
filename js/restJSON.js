@@ -426,7 +426,8 @@ function restOk(r, tipo) {
         {
             console.log(r);
             if (r.localizaciones[0].validacion == "vacio") {
-                abrirPopupAviso(r.localizaciones[0].mensaje);
+                notificacion(r.localizaciones[0].mensaje);
+                //abrirPopupAviso(r.localizaciones[0].mensaje);
             } else {
                 displayNuevoAnuncio3();
                 procesoNuevoAnuncio3(r);                
@@ -478,12 +479,14 @@ function restOk(r, tipo) {
         };
     case "incidencia":
         {
-            abrirPopupAviso(r.mensaje);
+            notificacion(r.mensaje);
+            //abrirPopupAviso(r.mensaje);
             break;
         };
     case "resetPassword":
         {
             if (r.validacion != "ok") {
+                
                 abrirPopupAviso(r.mensaje);
             } else {
                 displayResetPasswordFinish();
@@ -501,17 +504,20 @@ function restError(r, tipo) {
     switch (tipo) {
     case "comprarCreditos":
         {
-            abrirPopupAviso("Compruebe su conexión");
+            notificacion("Compruebe su conexión");
+            //abrirPopupAviso("Compruebe su conexión");
             $('#submitPaypal').prop('disabled', false);
             break;
         };
     case "guardarProgramacion":
         {
-            abrirPopupAviso("No se ha podido cargar su imagen!");
+            notificacion("No se ha podido cargar su imagen!");
+            //abrirPopupAviso("No se ha podido cargar su imagen!");
             break;
         };
     default:
-            abrirPopupAviso("Compruebe su conexión");
+            notificacion("Intentelo de nuevo");
+            //abrirPopupAviso("Compruebe su conexión");
         break;
     }
 }
@@ -566,7 +572,8 @@ function solicitarPassword(email) {
         type: 'POST',
         success: function (response) {
             if (response.validacion != "ok") {
-                abrirPopupAviso(response.mensaje);
+                notificacion(response.mensaje);
+                //abrirPopupAviso(response.mensaje);
             } else {
                 $("#fin2").show();
                 $("#email").hide();

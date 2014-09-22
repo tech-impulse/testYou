@@ -158,7 +158,8 @@ $(document).on('pageinit', '#loginModule', function () {
         if ($("#textInformeProblemaDescripcion").val() != "") {
             restIncidencia();
         } else {
-            abrirPopupAviso("Debes rellenar la descripción!");
+            notificacion("Debes rellenar la descripción!");
+            //abrirPopupAviso("Debes rellenar la descripción!");
         }
         //abrirPopupAviso("Acción temporalmente no disponible");
 
