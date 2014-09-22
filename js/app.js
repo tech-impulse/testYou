@@ -3,6 +3,12 @@ PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 */
 
 $(document).bind("mobileinit", function () {
+
+    if (isAndroidDevice()) {
+        var element = '<script type="text/javascript" src="cordova.js"></script>';
+        $('head').append(element);
+    }
+    
     $.support.touchOverflow = false;
     $.mobile.touchOverflowEnabled = false;
 
@@ -21,8 +27,7 @@ $(document).ajaxStart(function () {
             html: ""
         });
 
-    } else if (pantallaApp == "mainMenu") {
-    } else {
+    } else if (pantallaApp == "mainMenu") {} else {
         $.mobile.loading('show');
     }
     $("#footer_comun").hide();
