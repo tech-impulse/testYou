@@ -498,7 +498,6 @@ function restOk(r, tipo) {
 
 function restError(r, tipo) {
     console.log("fallo de ws");
-    $("#sinConexion").show();
     switch (tipo) {
     case "comprarCreditos":
         {
