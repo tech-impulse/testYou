@@ -8,6 +8,8 @@ $(document).bind("mobileinit", function () {
         var element = '<script type="text/javascript" src="cordova.js"></script>';
         $('head').append(element);
         alert("Es android");
+    } else {
+        alert("Nope");
     }
     
     $.support.touchOverflow = false;
