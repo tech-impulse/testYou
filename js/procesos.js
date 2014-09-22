@@ -584,6 +584,7 @@ function procesoMisAnuncios(anuncios) {
 
     $("#ulmisAnuncios").listview();
 
+    if (anuncios.lista[0].validacion=="ok"){
     for (var j = 0; j < anuncios.lista.length; j++) {
         var lista = anuncios.lista[j];
         $("#spanPaginaActual").text("1-" + Math.ceil(lista.anuncios.length / paginasPorPantalla));
@@ -604,6 +605,10 @@ function procesoMisAnuncios(anuncios) {
     $("#ulmisAnuncios").listview('refresh');
 
     displayMisAnuncios();
+    }
+    else {
+        notificacion("No tienes anuncios previos");
+    }
 
 
 }

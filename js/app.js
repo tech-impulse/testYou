@@ -184,6 +184,22 @@ $(document).on('pageinit', '#loginModule', function () {
     //MENU INICIAL
 
     //Creditos Principal - Comprar
+    $('#btnsinConexion').unbind('click').bind('click', function () {
+        var tipo = $("#sinConexionAccion").text();
+        switch (tipo) {
+        case "paises":
+            {
+                restPaises();
+                break;
+            };
+        default:
+            console.log(tipo);
+        }
+
+    });
+
+
+    //Creditos Principal - Comprar
     $('#MainMenuOpcion1').unbind('click').bind('click', function () {
         restPaises();
         displayNuevoAnuncio2();
@@ -265,6 +281,11 @@ $(document).on('pageinit', '#loginModule', function () {
         paginarAdelante();
 
     });
+
+    $("#misAnuncios").on("swipedown", "", function () {
+
+    });
+
     $("#misAnuncios").on("swiperight", "", function () {
 
         paginarAtras();

@@ -7,10 +7,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="lib/jquerymobile/jquery.mobile-1.4.4.min.css">
     <script src="lib/jquery/jquery-1.10.2.min.js"></script>
-    
+
     <script src="lib/jquerymobile/jquery.mobile-1.4.4.min.js"></script>
     <script type="text/javascript" src="lib/pushNotifications.js"></script>
-    
+
     <!--<script type="text/javascript" charset="utf-8" src="lib/phonegap-1.1.0.js"></script> -->
 
     <link rel="stylesheet" href="css/themes/youtter1.min.css" />
@@ -23,8 +23,9 @@
     <!-- <script src="lib/jquerymobile/jquery.mobile-1.4.3.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>-->
     <script src="lib/jquery/datepicker.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script> 
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 
+    <script src="lib/swipeUpDown.js"></script>
     <script src="lib/jquery/jquery.ui.map.min.js"></script>
     <script src="js/login.js"></script>
     <script src="js/restJSON.js"></script>
@@ -894,8 +895,27 @@
                 </div>
             </div>
 
+            <div id="sinConexion" style="overflow-y:hidden; overflow-x:hidden">
+                <div data-role="content">
+                    <br>
+                    <center>
+                    <label id="sinConexionAccion" style="display:none"></label>
+                    <label style="color:black; font-size:30px">Sin conexión</label>
+                        </center>
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a" style="width:30%">
+                        </div>
+                        <div class="ui-block-b" style="width:40%">
+                            <button class="btn_blue" id="btnsinConexion">Recargar</button>
+                        </div>
+                        <div class="ui-block-c" style="width:30%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div data-role="popup" id="PopUpNotificacion" data-transition="pop" data-position-to="window">
-            <p id="PopUpNotificacionTexto"></p>
+                <p id="PopUpNotificacionTexto"></p>
             </div>
 
             <!-- Pop up de comunicación BOTON ACEPTAR -->
@@ -952,7 +972,7 @@
             </div>
             <div id="footernuevoAnuncio2" class="footer">
                 <button class="btn_gradient" id="btnnuevoAnuncio2Cerca" data-icon="location" data-iconpos="right">Cerca de mi</button>
-                
+
                 <button class="btn_blue" id="btnnuevoAnuncio2Disponibilidad" data-icon="search" data-iconpos="right">Continuar</button>
             </div>
             <div id="footernuevoAnuncio3" class="footer">

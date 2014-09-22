@@ -1,4 +1,3 @@
-
 function restLogin(data) {
 
     if (data.status == "OK") {
@@ -53,7 +52,7 @@ function restGeolocalizacion() {
 }
 
 function restPaises() {
-
+    displayNuevoAnuncio2();
     var datos = {
         idSesion: idSesion
     };
@@ -411,14 +410,14 @@ function restOk(r, tipo) {
     case "paises":
         {
             displaySelector(tipo);
-            procesoNuevoAnuncio2(r);            
+            procesoNuevoAnuncio2(r);
             console.log("paises");
             break;
         };
     case "provincias":
         {
             displaySelector(tipo);
-            procesoNuevoAnuncio2Provincia(r);            
+            procesoNuevoAnuncio2Provincia(r);
             console.log("provincias");
             break;
         };
@@ -430,7 +429,7 @@ function restOk(r, tipo) {
                 //abrirPopupAviso(r.localizaciones[0].mensaje);
             } else {
                 displayNuevoAnuncio3();
-                procesoNuevoAnuncio3(r);                
+                procesoNuevoAnuncio3(r);
                 console.log("ubicacionesCP");
             }
 
@@ -439,7 +438,7 @@ function restOk(r, tipo) {
     case "descripcionAnuncio":
         {
             displayNuevoAnuncio4();
-            procesoNuevoAnuncio4(r);            
+            procesoNuevoAnuncio4(r);
             console.log("descripcionAnuncio");
             break;
         };
@@ -486,7 +485,7 @@ function restOk(r, tipo) {
     case "resetPassword":
         {
             if (r.validacion != "ok") {
-                
+
                 abrirPopupAviso(r.mensaje);
             } else {
                 displayResetPasswordFinish();
@@ -499,8 +498,7 @@ function restOk(r, tipo) {
 
 function restError(r, tipo) {
     console.log("fallo de ws");
-    
-
+    $("#sinConexion").show();
     switch (tipo) {
     case "comprarCreditos":
         {
@@ -515,9 +513,17 @@ function restError(r, tipo) {
             //abrirPopupAviso("No se ha podido cargar su imagen!");
             break;
         };
+    case "paises":
+        {
+            displaySinConexion(tipo);
+            break;
+        };
+
+        restPaises
     default:
-            notificacion("Intentelo de nuevo");
-            //abrirPopupAviso("Compruebe su conexión");
+        notificacion("Intentelo de nuevo");
+
+        //abrirPopupAviso("Compruebe su conexión");
         break;
     }
 }
