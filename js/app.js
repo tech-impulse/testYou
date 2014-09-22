@@ -46,9 +46,9 @@ $(document).on('pageinit', '#loginModule', function () {
     if (isAndroidDevice()) {
         var element = '<script type="text/javascript" src="cordova.js"></script>';
         $('head').append(element);
-        alert("Es android");
+
     } else {
-        alert("Nope");
+        console.log("No es Android");
     }
 
     if (typeof (Storage) !== "undefined") {
