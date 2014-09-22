@@ -4,14 +4,6 @@ PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 
 $(document).bind("mobileinit", function () {
 
-    if (isAndroidDevice()) {
-        var element = '<script type="text/javascript" src="cordova.js"></script>';
-        $('head').append(element);
-        alert("Es android");
-    } else {
-        alert("Nope");
-    }
-    
     $.support.touchOverflow = false;
     $.mobile.touchOverflowEnabled = false;
 
@@ -50,6 +42,14 @@ $(document).on('pageshow', '#app', function () {
 });
 
 $(document).on('pageinit', '#loginModule', function () {
+
+    if (isAndroidDevice()) {
+        var element = '<script type="text/javascript" src="cordova.js"></script>';
+        $('head').append(element);
+        alert("Es android");
+    } else {
+        alert("Nope");
+    }
 
     if (typeof (Storage) !== "undefined") {
         console.log("Soporta");
