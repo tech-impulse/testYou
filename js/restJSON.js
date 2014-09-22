@@ -518,11 +518,13 @@ function restError(r, tipo) {
             displaySinConexion(tipo);
             break;
         };
-
-        restPaises
+    case "provincias":
+        {
+            displaySinConexion("paises");
+            break;
+        };
     default:
         notificacion("Intentelo de nuevo");
-
         //abrirPopupAviso("Compruebe su conexión");
         break;
     }
