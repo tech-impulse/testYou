@@ -412,8 +412,3 @@ a:active {
     white-space: nowrap;
 }
 
-
-.ui-icon-loading {
-    background: url(ims/ajax-loader1.gif);
-    background-size: 46px 46px;
-}

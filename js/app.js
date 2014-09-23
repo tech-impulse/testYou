@@ -21,6 +21,7 @@ $(document).ajaxStart(function () {
             textVisible: true,
             theme: 'z',
             html: ""
+            
         });
 
     } // else if (pantallaApp == "mainMenu") {} 
