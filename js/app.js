@@ -22,7 +22,8 @@ $(document).ajaxStart(function () {
             html: ""
         });
 
-    } else if (pantallaApp == "mainMenu") {} else {
+    } // else if (pantallaApp == "mainMenu") {} 
+    else {
         $.mobile.loading('show');
     }
     $("#footer_comun").hide();
@@ -127,7 +128,6 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnMenuCrearAnuncio').unbind('click').bind('click', function () {
         restPaises();
-        displayNuevoAnuncio2();
         $("#navpanel").panel("close");
 
     });
@@ -192,6 +192,16 @@ $(document).on('pageinit', '#loginModule', function () {
                 restPaises();
                 break;
             };
+        case "misAnuncios":
+            {
+                restMisAnuncios();
+                break;
+            };
+        case "geolocalizacion":
+            {
+                restGeolocalizacion();
+                break;
+            };
         default:
             console.log(tipo);
         }
@@ -202,7 +212,6 @@ $(document).on('pageinit', '#loginModule', function () {
     //Creditos Principal - Comprar
     $('#MainMenuOpcion1').unbind('click').bind('click', function () {
         restPaises();
-        displayNuevoAnuncio2();
 
     });
 

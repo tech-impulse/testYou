@@ -172,7 +172,7 @@ function restHistoricoMovimientos(id) {
     });
 }
 
-function restMisAnuncios(id) {
+function restMisAnuncios() {
 
     var datos = {
         idSesion: idSesion
@@ -522,6 +522,12 @@ function restError(r, tipo) {
             displaySinConexion("paises");
             break;
         };
+    case "misAnuncios":
+        {
+            displaySinConexion(tipo);
+            break;
+        };
+
     default:
         notificacion("Intentelo de nuevo");
         //abrirPopupAviso("Compruebe su conexión");

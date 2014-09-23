@@ -104,36 +104,38 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
 //Muestra todas las recargas y pagos de creditos
 function mostrarHistoricoCreditos(movimientos) {
 
+    if (movimientos.lista[0].validacion == "vacio") {
+        notificacion("No dispones de movimientos");
+    } else {
 
-    $("#ulcreditosHistorico").empty();
+        $("#ulcreditosHistorico").empty();
 
-    $("#ulcreditosHistorico").listview();
+        $("#ulcreditosHistorico").listview();
 
-    $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div class="ui-block-a">Creditos</div><div class="ui-block-b">Importe</div><div class="ui-block-c">Fecha</div></li>');
-    JsonMovimientos = [];
-    for (var j = 0; j < movimientos.lista.length; j++) {
-        var lista = movimientos.lista[j];
-        console.log(lista);
+        $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div class="ui-block-a">Creditos</div><div class="ui-block-b">Importe</div><div class="ui-block-c">Fecha</div></li>');
+        JsonMovimientos = [];
+        for (var j = 0; j < movimientos.lista.length; j++) {
+            var lista = movimientos.lista[j];
+            console.log(lista);
 
-        $("#spanPaginaActualCreditos").text("1-" + Math.ceil(lista.movimientos.length / paginasPorPantallaCreditos));
-        console.log(JSON.stringify(lista));
-        for (var j = 0; j < lista.movimientos.length; j++) {
-            var objeto = lista.movimientos[j];
-            JsonMovimientos.push(objeto);
-            if (j < paginasPorPantallaCreditos) {
-                $("#ulcreditosHistorico").append('<li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a txt_historicoMovimientos">' + parseInt(objeto.credito_actual) + ' Creditos</div><div class="ui-block-b txt_historicoMovimientos">' + parseInt(objeto.importe) + ' Creditos</div><div class="ui-block-c txt_historicoMovimientos">' + objeto.fecha + '</div></li>');
+            $("#spanPaginaActualCreditos").text("1-" + Math.ceil(lista.movimientos.length / paginasPorPantallaCreditos));
+            console.log(JSON.stringify(lista));
+            for (var j = 0; j < lista.movimientos.length; j++) {
+                var objeto = lista.movimientos[j];
+                JsonMovimientos.push(objeto);
+                if (j < paginasPorPantallaCreditos) {
+                    $("#ulcreditosHistorico").append('<li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a txt_historicoMovimientos">' + parseInt(objeto.credito_actual) + ' Creditos</div><div class="ui-block-b txt_historicoMovimientos">' + parseInt(objeto.importe) + ' Creditos</div><div class="ui-block-c txt_historicoMovimientos">' + objeto.fecha + '</div></li>');
+                }
             }
+
         }
 
+        $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtrasCreditos()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActualCreditos">1-' + Math.ceil(JsonMovimientos.length / paginasPorPantallaCreditos) + '</span></div><div onClick="paginarAdelanteCreditos()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
+
+        $("#ulcreditosHistorico").listview('refresh');
+
+        displayHistoricoMovimientos();
     }
-
-    $("#ulcreditosHistorico").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtrasCreditos()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActualCreditos">1-' + Math.ceil(JsonMovimientos.length / paginasPorPantallaCreditos) + '</span></div><div onClick="paginarAdelanteCreditos()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
-
-    $("#ulcreditosHistorico").listview('refresh');
-
-    displayHistoricoMovimientos();
-
-
 
 }
 
@@ -584,32 +586,30 @@ function procesoMisAnuncios(anuncios) {
 
     $("#ulmisAnuncios").listview();
 
-    if (anuncios.lista[0].validacion=="ok"){
-    for (var j = 0; j < anuncios.lista.length; j++) {
-        var lista = anuncios.lista[j];
-        $("#spanPaginaActual").text("1-" + Math.ceil(lista.anuncios.length / paginasPorPantalla));
-        for (var j = 0; j < lista.anuncios.length; j++) {
-            var objeto = lista.anuncios[j];
-            console.log(objeto);
-            objeto["relanzar"] = 1;
-            JsonAnuncio.push(objeto);
-            if (j < paginasPorPantalla) {
-                $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + (lista.anuncios.length - j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+    if (anuncios.lista[0].validacion == "vacio") {
+        notificacion("No tienes anuncios previos");
+    } else {
+        for (var j = 0; j < anuncios.lista.length; j++) {
+            var lista = anuncios.lista[j];
+            $("#spanPaginaActual").text("1-" + Math.ceil(lista.anuncios.length / paginasPorPantalla));
+            for (var j = 0; j < lista.anuncios.length; j++) {
+                var objeto = lista.anuncios[j];
+                console.log(objeto);
+                objeto["relanzar"] = 1;
+                JsonAnuncio.push(objeto);
+                if (j < paginasPorPantalla) {
+                    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + (lista.anuncios.length - j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+                }
             }
+
         }
 
+        $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtras()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActual">1-' + Math.ceil(JsonAnuncio.length / paginasPorPantalla) + '</span></div><div onClick="paginarAdelante()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
+
+        $("#ulmisAnuncios").listview('refresh');
+
+        displayMisAnuncios();
     }
-
-    $("#ulmisAnuncios").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtras()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActual">1-' + Math.ceil(JsonAnuncio.length / paginasPorPantalla) + '</span></div><div onClick="paginarAdelante()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
-
-    $("#ulmisAnuncios").listview('refresh');
-
-    displayMisAnuncios();
-    }
-    else {
-        notificacion("No tienes anuncios previos");
-    }
-
 
 }
 
