@@ -18,7 +18,7 @@ function restUbicaciones() {
         idSesion: idSesion
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'ubicaciones.php',
         dataType: 'json',
@@ -38,7 +38,7 @@ function restGeolocalizacion() {
         longitud: longitudActual
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'geolocalizacion.php',
         dataType: 'json',
@@ -57,7 +57,7 @@ function restPaises() {
         idSesion: idSesion
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'paises.php',
         dataType: 'json',
@@ -77,7 +77,7 @@ function restProvincias(id) {
         idPais: id
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'provincias.php',
         dataType: 'json',
@@ -99,7 +99,7 @@ function restUbicacionesPorCodigoPostal(cp) {
         idSesion: idSesion
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'ubicacionesCP.php',
         dataType: 'json',
@@ -118,7 +118,7 @@ function restDescripcionAnuncio(id) {
         idAnuncio: id
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'descripcionAnuncio.php',
         dataType: 'json',
@@ -141,7 +141,7 @@ function restComprarCreditos(id) {
         token: token
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'comprarCreditos.php',
         dataType: 'json',
@@ -160,7 +160,7 @@ function restHistoricoMovimientos() {
         idSesion: idSesion
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'historicoMovimientos.php',
         dataType: 'json',
@@ -179,7 +179,7 @@ function restMisAnuncios() {
         idSesion: idSesion
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'misAnuncios.php',
         dataType: 'json',
@@ -194,8 +194,9 @@ function restMisAnuncios() {
 
 function restSubirImagen() {
     // $.mobile.loading('show');
+    
     console.log("Subir imagen");
-    $.ajax({
+    peticionActual = $.ajax({
         url: url + 'uploadFile.php',
         type: 'POST',
         data: formData,
@@ -244,7 +245,7 @@ function restGuardarProgramacion(r) {
 
     }
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'guardarProgramacion.php',
         dataType: 'json',
@@ -286,7 +287,7 @@ function restRelanzarAnuncio(r) {
 
     }
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'relanzarAnuncio.php',
         dataType: 'json',
@@ -310,7 +311,7 @@ function restNuevoUsuario() {
         idPais: idPais
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'nuevoUsuario.php',
         dataType: 'json',
@@ -351,7 +352,7 @@ function restIncidencia() {
         Descripcion: $("#textInformeProblemaDescripcion").val(),
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'incidencia.php',
         dataType: 'json',
@@ -373,7 +374,7 @@ function restPassword(email) {
         Email: email,
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'reestablecerPassword.php',
         dataType: 'json',
@@ -598,7 +599,7 @@ function solicitarPassword(email) {
         Email: email,
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         data: datos,
         url: url + 'reestablecerPassword.php',
         dataType: 'json',
@@ -623,7 +624,7 @@ function paypal() {
 
     // token 49PgCpjnQN0jSqlEc0ow-xuC8Elsw8A4AkqwBj36TQK11Gcfcs5b_RCZMxi
 
-    $.ajax({
+    peticionActual = $.ajax({
         headers: {
             "Accept": "application/json",
             "Accept-Language": "en_US",
@@ -678,7 +679,7 @@ function pagar(accessToken) {
             }]
     };
 
-    $.ajax({
+    peticionActual = $.ajax({
         type: 'POST',
         url: "https://api.sandbox.paypal.com/v1/payments/payment",
         headers: {

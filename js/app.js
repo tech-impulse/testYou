@@ -14,17 +14,22 @@ $(document).bind("mobileinit", function () {
 });
 
 $(document).ajaxStart(function () {
+
     if (pantallaApp == "creditosPaquetes" && pantallaApp == "nuevoAnuncio9") {
         $.mobile.loading('show', {
             text: 'Espere por favor...',
             textVisible: true,
             theme: 'z',
-            html: ""
+            html: "<div class='custom-spinner'></div>"
         });
 
     } // else if (pantallaApp == "mainMenu") {} 
     else {
-        $.mobile.loading('show');
+        $.mobile.loading('show', {
+            textVisible: true,
+            theme: 'z',
+            html: "<div class='custom-spinner'></div>"
+        });
     }
     $("#footer_comun").hide();
 });
