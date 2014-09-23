@@ -1,17 +1,5 @@
-function restLogin(data) {
 
-    if (data.status == "OK") {
-
-        loginOk();
-
-    } else {
-
-        loginError(data.errorMessage);
-
-    }
-
-}
-
+// Descargamos todas las ubicaciones de pantallas disponibles
 function restUbicaciones() {
 
     var datos = {
@@ -31,6 +19,7 @@ function restUbicaciones() {
     });
 }
 
+// Buscamos la pantalla mas cercana y la cargamos en el mapa segun nuestras coordenadas actuales
 function restGeolocalizacion() {
 
     var datos = {
@@ -51,6 +40,7 @@ function restGeolocalizacion() {
     });
 }
 
+// Descargamos la lista de paises disponibles donde hay pantallas
 function restPaises() {
     displayNuevoAnuncio2();
     var datos = {
@@ -70,6 +60,7 @@ function restPaises() {
     });
 }
 
+// Descargamos todas las provincias disponibles en funcion del pais escogido previamente
 function restProvincias(id) {
 
     var datos = {
@@ -90,6 +81,7 @@ function restProvincias(id) {
     });
 }
 
+// Descargamos todas las ubicaciones donde hay pantallas según el codigo postal de la provincia seleccionada (o prefijo Ej: Barcelona 08)
 function restUbicacionesPorCodigoPostal(cp) {
     CodigoPostal = cp;
     console.log("Codigo Postal " + cp);
@@ -112,6 +104,7 @@ function restUbicacionesPorCodigoPostal(cp) {
     });
 }
 
+// 
 function restDescripcionAnuncio(id) {
 
     var datos = {

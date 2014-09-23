@@ -150,14 +150,12 @@ function autentication(user, pass) {
     });
 }
 
-//Recibimos la respuesta del WS de login
+//Recibimos la respuesta del WS de login y cargamos la informacion en "mi cuenta"
 function loginOk(r) {
-    //$.mobile.loading('hide');
-
     console.log(JSON.stringify(r));
     if (r.validacion == "ok") {
         if (r.Activo == 1) {
-            idSesion = r.id_user;
+            idSesion = r.id_user; // Id de la sesión con la que realizaremos todas las peticiones a los ws
             $("#lbmiCuentaNombre").text(r.Nombre + " " + r.Apellidos);
             $("#lbmiCuentaDireccion").text(r.Direccion);
             $("#lbmiCuentaPoblacion").text(r.Poblacion);
@@ -173,15 +171,15 @@ function loginOk(r) {
             } else {
                 $("#lbmiCuentaPais").text("Indeterminado");
             }
-            if (r.Bloqueado == "Bloqueado") {
+            if (r.Bloqueado == "Bloqueado") { // si el usuario está bloquado puede acceder, pero no publicar ningún anuncio
                 usuarioBloqueado = 1;
             } else {
                 usuarioBloqueado = 0;
             }
-            traducir(r.Pais);
-            creditosDisponibles = r.Creditos;
+            traducir(r.Pais); // funcion para traducir la app (Falta por realizar muchas cosas)
+            creditosDisponibles = r.Creditos; // 
             $.mobile.changePage('#app');
-            register();
+            register(); // intentamos registrar el dispositivo (si es Android se registrara)
             displayMainMenu();
         } else {
             $("#lbPopUpLogin").text("Tu usuario esté temporalmente inactivo");
