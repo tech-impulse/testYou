@@ -207,6 +207,16 @@ $(document).on('pageinit', '#loginModule', function () {
                 restHistoricoMovimientos();
                 break;
             };
+        case "ubicaciones":
+            {
+                restUbicaciones();
+                break;
+            };
+        case "ubicacionesCP":
+            {
+                restUbicacionesPorCodigoPostal(CodigoPostal);
+                break;
+            };
         default:
             console.log(tipo);
         }

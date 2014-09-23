@@ -91,6 +91,7 @@ function restProvincias(id) {
 }
 
 function restUbicacionesPorCodigoPostal(cp) {
+    CodigoPostal = cp;
     console.log("Codigo Postal " + cp);
 
     var datos = {
@@ -533,6 +534,16 @@ function restError(r, tipo) {
             break;
         };
     case "historicoMovimientos":
+        {
+            displaySinConexion(tipo);
+            break;
+        };
+    case "ubicacionesCP":
+        {
+            displaySinConexion(tipo);
+            break;
+        };
+    case "ubicaciones":
         {
             displaySinConexion(tipo);
             break;

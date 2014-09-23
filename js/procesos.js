@@ -178,7 +178,7 @@ function procesoNuevoAnuncio4(pos) {
     posicion = pos; // Nos guardamos la posicion que ocupa esta calle en una variable para poder desglosar la informacion del JSON.
 
     console.log("Ubicacion seleccionada ");
-    console.log(JSON.stringify(JsonCalle[pos]));
+    //console.log(JSON.stringify(JsonCalle[pos]));
 
     $("#linuevoAnuncio4Codigo").text("Codigo Postal: " + JsonCalle[pos].CodigoPostal);
     $("#lbnuevoAnuncio4Calle").text(JsonCalle[pos].Direccion + ", " + JsonCalle[pos].Poblacion);
