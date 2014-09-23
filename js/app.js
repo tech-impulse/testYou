@@ -202,6 +202,11 @@ $(document).on('pageinit', '#loginModule', function () {
                 restGeolocalizacion();
                 break;
             };
+        case "historicoMovimientos":
+            {
+                restHistoricoMovimientos();
+                break;
+            };
         default:
             console.log(tipo);
         }

@@ -153,7 +153,7 @@ function restComprarCreditos(id) {
     });
 }
 
-function restHistoricoMovimientos(id) {
+function restHistoricoMovimientos() {
 
     var datos = {
         idSesion: idSesion
@@ -527,7 +527,16 @@ function restError(r, tipo) {
             displaySinConexion(tipo);
             break;
         };
-
+    case "geolocalizacion":
+        {
+            displaySinConexion(tipo);
+            break;
+        };
+    case "historicoMovimientos":
+        {
+            displaySinConexion(tipo);
+            break;
+        };
     default:
         notificacion("Intentelo de nuevo");
         //abrirPopupAviso("Compruebe su conexión");
