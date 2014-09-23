@@ -411,3 +411,17 @@ a:active {
     border: 2px solid black;
     white-space: nowrap;
 }
+.ui-loader-default {
+    opacity: 1 !important;
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border-width: 0px;
+}
+.custom-spinner {
+    background-color: transparent;
+    width: 55px !important;
+    height: 55px !important;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-image: url('ims/728.gif');
