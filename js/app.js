@@ -20,16 +20,12 @@ $(document).ajaxStart(function () {
             text: 'Espere por favor...',
             textVisible: true,
             theme: 'z',
-            html: "<div class='custom-spinner'></div>"
+            html: ""
         });
 
     } // else if (pantallaApp == "mainMenu") {} 
     else {
-        $.mobile.loading('show', {
-            textVisible: true,
-            theme: 'z',
-            html: "<div class='custom-spinner'></div>"
-        });
+        $.mobile.loading('show');
     }
     $("#footer_comun").hide();
 });

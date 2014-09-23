@@ -411,8 +411,9 @@ a:active {
     border: 2px solid black;
     white-space: nowrap;
 }
-.custom-spinner {
-    width: 45px !important;
-    height: 45px !important;
-    background-image: url('ims/728.gif');
+
+
+.ui-icon-loading {
+    background: url(ims/ajax-loader1.gif);
+    background-size: 46px 46px;
 }
