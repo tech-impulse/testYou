@@ -412,7 +412,7 @@ a:active {
     white-space: nowrap;
 }
 .ui-loader-default {
-    opacity: 1 !important;
+
     background-color: transparent;
     -webkit-border-radius: 0;
     border-radius: 0;

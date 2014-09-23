@@ -20,7 +20,7 @@ $(document).ajaxStart(function () {
             text: 'Espere por favor...',
             textVisible: false,
             theme: 'a',
-            html: "<div class='custom-spinner'></div>"
+
         });
 
     } // else if (pantallaApp == "mainMenu") {} 
@@ -28,7 +28,7 @@ $(document).ajaxStart(function () {
         $.mobile.loading('show', {
             textVisible: false,
             theme: 'a',
-            html: "<div class='custom-spinner'></div>"
+
 
         });
     }
