@@ -104,7 +104,7 @@ function restUbicacionesPorCodigoPostal(cp) {
     });
 }
 
-// 
+/*
 function restDescripcionAnuncio(id) {
 
     var datos = {
@@ -123,7 +123,9 @@ function restDescripcionAnuncio(id) {
         },
     });
 }
+*/
 
+// Hacemos una precarga en la base de datos, y si se ha podido realizar, hacemos submit en el formulario para que se abra la web de paypal con el botón que hemos pulsado
 function restComprarCreditos(id) {
 
     console.log("Rest Comprar Creditos");
@@ -147,6 +149,7 @@ function restComprarCreditos(id) {
     });
 }
 
+// Descargamos la lista de los movimientos de gastar o comprar creditos
 function restHistoricoMovimientos() {
 
     var datos = {
@@ -166,6 +169,7 @@ function restHistoricoMovimientos() {
     });
 }
 
+// Descargamos la lista de anuncios publicados hasta la fecha
 function restMisAnuncios() {
 
     var datos = {
@@ -185,9 +189,11 @@ function restMisAnuncios() {
     });
 }
 
+// Función para subir al FTP la imagen o video que hemos seleccionado
 function restSubirImagen() {
     // $.mobile.loading('show');
-    
+    $("#footerCancelar").show();
+    $("#footernuevoAnuncio9").hide();
     console.log("Subir imagen");
     peticionActual = $.ajax({
         url: url + 'uploadFile.php',
@@ -205,6 +211,7 @@ function restSubirImagen() {
     });
 }
 
+// Funcion para guardar en la base de datos la programación del anuncio para que se reproduzca en el player
 function restGuardarProgramacion(r) {
     //var re = /(?:\.([^.]+))?$/;
     //var ext = re.exec($("#file").val())[1];
@@ -212,8 +219,8 @@ function restGuardarProgramacion(r) {
     console.log(r);
     var obj = JSON.parse(r);
     var video = obj.video;
-    //abrirPopupAviso(obj.extension);
 
+    // Si hemos seleccionado un horario, tenemos que enviar la fecha del calendario escogida
     if (calendario == true) {
         var datos = {
             idPantalla: idPantalla,
@@ -251,6 +258,7 @@ function restGuardarProgramacion(r) {
     });
 }
 
+// Funcion para relanzar un anuncio que se haya realizado previamente
 function restRelanzarAnuncio(r) {
 
 
@@ -293,7 +301,7 @@ function restRelanzarAnuncio(r) {
     });
 }
 
-
+// Funcion para dar de alta un nuevo usuario y guardarlo en la base de datos
 function restNuevoUsuario() {
 
     var datos = {
@@ -318,6 +326,7 @@ function restNuevoUsuario() {
     });
 }
 
+// Funcion que deteca en que pais estás mediante una peticion a una API publica (necesario para cuando se da de alta un usuario, que se seleccione el país automaticamente.
 function restPais() {
     console.log("dame el pais");
     $.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
@@ -336,6 +345,7 @@ function restPais() {
     });
 }
 
+// Funcion para enviar una incidencia y crearla en la base de datos. El WS también envia un correo al usuario y un correo al administrador de incidencias de Youtter con el número de ticket creado
 function restIncidencia() {
 
     var datos = {
@@ -360,6 +370,7 @@ function restIncidencia() {
 
 }
 
+// Función que envia un correo al usuario para que a través de un enlace pueda introducir de nuevo un password y tenga acceso a la app de nuevo
 function restPassword(email) {
 
     var datos = {
@@ -382,6 +393,7 @@ function restPassword(email) {
 
 }
 
+// Funcion que procesa todas las respuestas validas de los ws y actúa según el caso
 function restOk(r, tipo) {
     console.log(tipo);
     console.log(JSON.stringify(r));
@@ -474,6 +486,7 @@ function restOk(r, tipo) {
     case "incidencia":
         {
             notificacion(r.mensaje);
+            displayMainMenu();
             //abrirPopupAviso(r.mensaje);
             break;
         };
@@ -491,6 +504,7 @@ function restOk(r, tipo) {
     }
 }
 
+// Funcion que procesa todas las respuestas invalidas de los ws y actúa según el caso
 function restError(r, tipo) {
     console.log("fallo de ws");
     switch (tipo) {
@@ -504,7 +518,6 @@ function restError(r, tipo) {
     case "guardarProgramacion":
         {
             notificacion("No se ha podido cargar su imagen!");
-            //abrirPopupAviso("No se ha podido cargar su imagen!");
             break;
         };
     case "paises":
@@ -544,15 +557,15 @@ function restError(r, tipo) {
         };
     default:
         notificacion("Intentelo de nuevo");
-        //abrirPopupAviso("Compruebe su conexión");
         break;
     }
 }
 
 
 
-// MODULO DE REESTABLECER PASSWORD
+// MODULO DE REESTABLECER PASSWORD  (reestablecer.html)
 
+// Envía el password al ws y trata la respuesta del ws según si ha sido valida, o el token estaba caducado.
 function nuevoPassword() {
     var pass = $("#password1").val();
     var url = "http://admin.youtter.com/webservices/";
@@ -585,6 +598,7 @@ function nuevoPassword() {
     });
 }
 
+// Solicita un password al ws y esté le envía un email con instrucciones al usuario para que pueda reestablecerlo
 function solicitarPassword(email) {
 
     var datos = {
@@ -613,6 +627,8 @@ function solicitarPassword(email) {
 
 }
 
+// FUNCION DE TEST DE PAYPAL (DESECHADAS)
+/*
 function paypal() {
 
     // token 49PgCpjnQN0jSqlEc0ow-xuC8Elsw8A4AkqwBj36TQK11Gcfcs5b_RCZMxi
@@ -693,7 +709,9 @@ function pagar(accessToken) {
 
     //console.log(datos);
 }
+*/
 
+// función para obtener variables enviadas por GET directamente de la URL de la web
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
 }

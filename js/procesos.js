@@ -139,6 +139,8 @@ function mostrarHistoricoCreditos(movimientos) {
 
 }
 
+// Funcion para paginar Mis Creditos
+
 function paginarMisCreditos() {
 
     console.log("Paginar mis creditos");
@@ -288,7 +290,7 @@ function procesoNuevoAnuncio6() {
     } else {
         $("#lbnuevoAnuncio6Fecha").text(fechaSeleccionada);
     }
-    displayNuevoAnuncio6();
+    //displayNuevoAnuncio6();
 
 }
 
@@ -546,6 +548,8 @@ function procesoCompraCreditos(id) {
 
 }
 
+// Proceso que se encarga de Guardar el anuncio despues de haber seleccionado el horario o los segundos (O si se pulsa ahora y no tienes creditos se lanza automaticamente)
+
 function procesoGuardarAnuncio() {
     horaInicio = $("#innuevoAnuncio4Inicio").val();
     horaFin = $("#innuevoAnuncio4Fin").val();
@@ -577,6 +581,7 @@ function procesoGuardarAnuncio() {
 }
 
 
+// Proceso que carga la información que viene del ws en una lista de anuncios paginable
 function procesoMisAnuncios(anuncios) {
 
     JsonAnuncio = [];
@@ -613,6 +618,8 @@ function procesoMisAnuncios(anuncios) {
 
 }
 
+
+// función para paginar mis anuncios segun la variable posicionPagina
 function paginarMisAnuncios() {
 
     $("#ulmisAnuncios").empty();
@@ -642,6 +649,7 @@ function paginarMisAnuncios() {
 
 }
 
+// Funcion que carga en la vista toda la información del anuncio
 function relanzarAnuncio(pos) {
 
     console.log("Posicion del anuncio " + pos);
@@ -725,7 +733,7 @@ function abrirPopupAccion(mensaje, tipo) {
     $("#PopUpAccion").popup("open");
 }
 
-// FUNCION PARA TRADUCIR LA PAGINA
+// FUNCION PARA TRADUCIR TODA LA APP SEGÚN EL ID DE PAIS
 function traducir(idPais) {
     var pais;
     switch (idPais) {
@@ -744,7 +752,7 @@ function traducir(idPais) {
 
 // CONTROL DE ERRORES DE SUBIDA DE IMAGENES
 
-// la foto se ha subido correctamente
+// la foto se ha subido correctamente (por modificaciones del codigo, al final solo muestra la ultima pantalla antes de subir la imagen)
 function enviarFoto(r) {
     //$.mobile.loading('hide');
     //$("#lbPopUpAviso").text(r);
@@ -752,13 +760,14 @@ function enviarFoto(r) {
     displayNuevoAnuncio9();
 }
 
-// Ha habido algún error en el envío de la imagen
+// Ha habido algún error en el envío de la imagen, lo notificamos
 function errorenviarFoto(r) {
 
     notificacion(r);
     //abrirPopupAviso(r);
 }
 
+// Función para paginar Adelante mis anuncios
 function paginarAdelante(event) {
     if (posicionPagina < (JsonAnuncio.length - paginasPorPantalla)) {
         posicionPagina = posicionPagina + paginasPorPantalla;
@@ -766,6 +775,7 @@ function paginarAdelante(event) {
     }
 }
 
+// Función para paginar atras mis anuncios
 function paginarAtras(event) {
     if (posicionPagina != 0) {
         posicionPagina = posicionPagina - paginasPorPantalla;
@@ -773,6 +783,7 @@ function paginarAtras(event) {
     }
 }
 
+// funcion para paginar mis creditos adelante
 function paginarAdelanteCreditos() {
     if (posicionPagina < (JsonMovimientos.length - paginasPorPantallaCreditos)) {
         posicionPagina = posicionPagina + paginasPorPantallaCreditos;
@@ -780,6 +791,7 @@ function paginarAdelanteCreditos() {
     }
 }
 
+// Funcion para paginar mis creditos atrás
 function paginarAtrasCreditos() {
     if (posicionPagina != 0) {
         posicionPagina = posicionPagina - paginasPorPantallaCreditos;
@@ -787,11 +799,13 @@ function paginarAtrasCreditos() {
     }
 }
 
+// funcion para checkear si el email indroducido tiene un formato válido
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
     return pattern.test(emailAddress);
 };
 
+// Función para checkear si el password introducido es válido
 function CheckPassword(inputtxt) {
     var decimal = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/);
     if (decimal.test(inputtxt)) {
@@ -803,6 +817,7 @@ function CheckPassword(inputtxt) {
     }
 }
 
+// Funcion que localiza tu posición y llama a showPosition para guardar la latitud y longitud en memoria
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
@@ -811,6 +826,7 @@ function getLocation() {
     }
 }
 
+// Guarda en memoria la posicion actual
 function showPosition(position) {
     latitudActual = position.coords.latitude;
     longitudActual = position.coords.longitude;
@@ -819,6 +835,7 @@ function showPosition(position) {
         "Longitude: " + position.coords.longitude);
 }
 
+// Funcion que calcula la distancia entre dos puntos geologicos (No se usa, lo hace el ws)
 function distance(lat1, lon1, lat2, lon2, unit) {
 
     var radlat1 = Math.PI * lat1 / 180

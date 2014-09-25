@@ -14,8 +14,8 @@ $(document).bind("mobileinit", function () {
 });
 
 $(document).ajaxStart(function () {
-
-    if (pantallaApp == "creditosPaquetes" || pantallaApp == "nuevoAnuncio9") {
+    $("#footer_comun").hide();
+    if (pantallaApp == "creditosPaquetes") {
         $.mobile.loading('show', {
             text: 'Espere por favor...',
             textVisible: false,
@@ -23,8 +23,17 @@ $(document).ajaxStart(function () {
 
         });
 
-    } // else if (pantallaApp == "mainMenu") {} 
-    else {
+    } else if (pantallaApp == "nuevoAnuncio9") {
+        $.mobile.loading('show', {
+            text: 'Espere por favor...',
+            textVisible: true,
+            theme: 'a',
+            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /><h2>Publicando anuncio</h2></span>"
+
+        });
+        $("#footer_comun").show();
+
+    } else {
         $.mobile.loading('show', {
             textVisible: false,
             theme: 'a',
@@ -32,7 +41,7 @@ $(document).ajaxStart(function () {
 
         });
     }
-    $("#footer_comun").hide();
+
 });
 
 $(document).ajaxStop(function () {
@@ -62,7 +71,6 @@ $(document).on('pageinit', '#loginModule', function () {
         console.log("Soporta");
     } else {
         console.log("No soporta");
-        // Sorry! No Web Storage support..
     }
 
     // Desactivar para Desarrolar
@@ -100,8 +108,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    //MENU LATERAL
-
+    //MENU LATERAL DE LA APP
 
     $('#btnMenuPrincipal').unbind('click').bind('click', function () {
         displayMainMenu();
@@ -189,7 +196,7 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //MENU INICIAL
 
-    //Creditos Principal - Comprar
+    //Boton de pantalla de recargar pagina (Cuando falla según que peticion rest)
     $('#btnsinConexion').unbind('click').bind('click', function () {
         var tipo = $("#sinConexionAccion").text();
         switch (tipo) {
@@ -229,23 +236,28 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    //PANTALLA DE MENÚ PRINCIPAL
 
-    //Creditos Principal - Comprar
+    //Menu principal - Crear anuncio
     $('#MainMenuOpcion1').unbind('click').bind('click', function () {
         restPaises();
 
     });
 
+    //Menu principal - Mostrar Creditos
     $('#MainMenuOpcion2').unbind('click').bind('click', function () {
         displayCreditosMain();
 
     });
 
+    //Menu principal - Mostrar lista de anuncios publicados previamente
     $('#MainMenuOpcion3').unbind('click').bind('click', function () {
         restMisAnuncios();
 
     });
 
+    //Menu principal - mostrar información del usuario
     $('#MainMenuOpcion4').unbind('click').bind('click', function () {
         displayMiCuenta();
 
@@ -254,7 +266,7 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLAS DE CREDITOS
 
-    //Creditos Principal - Comprar
+    //Creditos Principal - Mostrar pantalla con paquetes de creditos
     $('#btnCreditosMainComprar').unbind('click').bind('click', function () {
         displayCreditosPaquetes();
         mostrarPaquetesCreditos();
@@ -306,6 +318,7 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLA DE MIS ANUNCIOS
 
+    // Mis anuncios - EBVENTOS SWIPE
     $("#misAnuncios").on("swipeleft", "", function () {
 
         paginarAdelante();
@@ -335,7 +348,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ///////// EVENTOS CREAR ANUNCIO 1 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //Crear anuncio 1 - evento seleccionar fecha
+    //Crear anuncio 1 - Evento que controla cuando se ha seleccionado una fecha
     $("#calendar").bind('change', function (event, date) {
         var d = date.getDate();
         var m = date.getMonth() + 1;
@@ -349,7 +362,6 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     //Crear anuncio 1 - Boton Cancelar
-
     $('#btnnuevoAnuncio1Cancelar').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio3();
@@ -358,7 +370,6 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
     //Crear anuncio 1 - Boton Aceptar
-
     $('#btnnuevoAnuncio1Aceptar').unbind('click').bind('click', function () {
 
         procesoNuevoAnuncio6();
@@ -381,8 +392,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ///////// EVENTOS CREAR ANUNCIO 2 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //Crear anuncio 2 - Boton de ver disponibilidad
-
+    //Crear anuncio 2 - Boton de continuar, buscara las pantallas según si se ha escrito un codigo postal o no
     $('#btnnuevoAnuncio2Disponibilidad').unbind('click').bind('click', function () {
 
         if ($("#inputnuevoAnuncio2").val() == "") {
@@ -396,8 +406,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 2 - Boton De localización
-
+    //Crear anuncio 2 - Boton De localización --> Mostrara el mapa con las pantallas mas cercanas
     $('#btnnuevoAnuncio2Cerca').unbind('click').bind('click', function () {
         //$.mobile.loading('show');
         restGeolocalizacion();
@@ -406,7 +415,6 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
     //Crear anuncio 2 - Boton Cancelar
-
     $('#btnnuevoAnuncio2Cancelar').unbind('click').bind('click', function () {
 
         displayMainMenu();
@@ -415,8 +423,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ///////// EVENTOS CREAR ANUNCIO 3 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //Crear anuncio 3 - Botón para continuar
-
+    //Crear anuncio 3 - Botón para continuar (INACTIVO POR CAMBIOS)
     $('#btnnnuevoAnuncio3Seguir').unbind('click').bind('click', function () {
 
         // procesoNuevoAnuncio6();
@@ -425,16 +432,14 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 3 - Botón para cambiar la fecha
-
+    //Crear anuncio 3 - Botón para cambiar la fecha --> Vuelve a la pantalla anterior (Atrás)
     $('#divnuevoAnuncio3Fechas').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio2();
 
     });
 
-    //Crear anuncio 3 - Botón para cambiar la zona
-
+    //Crear anuncio 3 - Botón para cambiar la zona --> Vuelve a la pantalla de selección de ubicaciones
     $('#divnuevoAnuncio3Zona').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio2();
@@ -444,7 +449,7 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////// EVENTOS CREAR ANUNCIO 4 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    //Crear anuncio 4 - Boton para subir la imagen
+    //Crear anuncio 4 - Boton para visualizar en el mapa la localización de la pantalla actual
     $('#divnuevoAnuncio4Mapa').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio5();
@@ -460,7 +465,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 4 - Boton para recargar Saldo
+    //Crear anuncio 4 - Boton para recargar Saldo --> Lleva directamente a mostrar los paquetes de creditos disponibles y poder comprarlos
     $('#btnnuevoAnuncio4Recargar').unbind('click').bind('click', function () {
 
         mostrarPaquetesCreditos();
@@ -468,11 +473,12 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 4 - Boton para Guardar
+    //Crear anuncio 4 - Boton para Guardar la configuracion de tiempo de la pantalla
     $('#btnnnuevoAnuncio4Guardar').unbind('click').bind('click', function () {
         procesoGuardarAnuncio();
     });
 
+    //Crear anuncio 4 - Evento que captura cuando cambian los segundos para actualizar el saldo actual
     $("#innuevoAnuncio4Segundos").change(function () {
         var creditosUsados = $("#innuevoAnuncio4Segundos").val() / 10;
         $("#lbnuevoAnuncio4Disponibles").text(" Disponibles: " + parseInt(creditosDisponibles - creditosUsados) + " creditos");
@@ -480,15 +486,14 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ///////// EVENTOS CREAR ANUNCIO 5 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-    //Crear anuncio 5 - Boton para volver
+    //Crear anuncio 5 - Boton para volver atrás
     $('#btnnnuevoAnuncio5Volver').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio4();
 
     });
 
-    //Crear anuncio 5-1 - Boton para volver
+    //Crear anuncio 5-1 - Boton para volver atrás
     $('#btnnnuevoAnuncio5-1Volver').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio2();
@@ -498,7 +503,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ///////// EVENTOS CREAR ANUNCIO 6 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //Crear anuncio 6 - Boton para subir la imagen
+    //Crear anuncio 6 - Boton para subir la imagen (BOTON INACTIVO, NOS SALTAMOS ESTA PAGINA)
     $('#btnnuevoAnuncio6Subir').unbind('click').bind('click', function () {
 
         displayNuevoAnuncio7();
@@ -507,7 +512,7 @@ $(document).on('pageinit', '#loginModule', function () {
     ///////// EVENTOS CREAR ANUNCIO 7 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    //Crear anuncio 7 - Boton para subir la imagen
+    //Crear anuncio 7 - Boton para subir la imagen, simplemente carga la imagen en memoria para posteriormente poder enviarla al FTP
     $('#btnnuevoAnuncio7Subir').unbind('click').bind('click', function () {
 
         $("form#formPicture").submit();
@@ -529,17 +534,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File
-
     $('#file').change(function () {
-        /*
-        if (this.files[0].type == "") {
-            if ($('#opcionImagen').val() == "on") {
-                video = 0;
-            } else if ($('#opcionVideo').val() == "on") {
-                video = 1;
-            }
-        }
-        */
         visualizarImagen(this.files);
 
         if ($("#file").val() != "") {
@@ -547,7 +542,7 @@ $(document).on('pageinit', '#loginModule', function () {
         }
     });
 
-    //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File
+    //Crear anuncio 7- Controla cuando se selecciona un archivo desde el input tipo File y lo reinicializa
     $('#file').unbind('click').bind('click', function () {
         $("#file").val("");
     });
@@ -574,22 +569,13 @@ $(document).on('pageinit', '#loginModule', function () {
         //displayNuevoAnuncio10();
         procesoNuevoAnuncio10(); // Compra los creditos directamente
     });
-
-    //Crear anuncio 9 - Boton para proceder al pago
-    $('#opcionImagen').unbind('click').bind('click', function () {
-        $('#opcionImagen').val("on");
-        $('#opcionVideo').val("off");
-        $("#divnuevoAnuncio7Imagen").show();
-        $("#divnuevoAnuncio7Video").hide();
+    
+        //Crear anuncio 9 - Boton para proceder al pago
+    $('#btnFooterCancelar').unbind('click').bind('click', function () {
+       peticionActual.abort();
+        displayNuevoAnuncio9();
     });
-
-    //Crear anuncio 9 - Boton para proceder al pago
-    $('#opcionVideo').unbind('click').bind('click', function () {
-        $('#opcionImagen').val("off");
-        $('#opcionVideo').val("on");
-        $("#divnuevoAnuncio7Imagen").hide();
-        $("#divnuevoAnuncio7Video").show();
-    });
+    
 
 
 
@@ -621,16 +607,19 @@ $(document).on('pageinit', '#loginModule', function () {
         }
     });
 
-    ////////// EVENTOS DE POPUP ACCION ACEPTAR /////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////// EVENTOS DE POPUP ACCION ACEPTAR/CANCELAR /////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // Botón A 
     $('#btnPopUpAccionA').unbind('click').bind('click', function () {
-        switch ($("#lbPopUpAccionTitulo").val()) { // mira el tipo de popup que se ha abierto
-        case "horario": // es el popup de seleccion de horario
+        switch ($("#lbPopUpAccionTitulo").val()) {
+            // Caso en que en el popup de seleccion de Horario o Ahora escojas SELECCIONAR HORARIO
+        case "horario":
             {
                 displaySeleccion("seleccion");
                 break;
             };
-        case "guardarProgramacion": //es el popup de guardar programacion
+            // Caso en que en el popup que emerje tras haber subido la imagen y guardado la programación escojas Crear nuevo anuncio
+        case "guardarProgramacion":
             {
                 displayNuevoAnuncio2();
                 break;
@@ -643,13 +632,16 @@ $(document).on('pageinit', '#loginModule', function () {
         $("#PopUpAccion").popup("close");
     });
 
+    //Botón B
     $('#btnPopUpAccionB').unbind('click').bind('click', function () {
         switch ($("#lbPopUpAccionTitulo").val()) {
+            // Caso en que en el popup de seleccion de Horario o Ahora escojas AHORA!
         case "horario":
             {
                 displaySeleccion("ahora");
                 break;
             };
+            // Caso en que en el popup que emerje tras haber subido la imagen y guardado la programación escojas Volvér al Menú
         case "guardarProgramacion":
             {
                 displayMainMenu();
@@ -766,7 +758,7 @@ $(document).on('pageinit', '#reestablecer', function () {
 
 });
 
-// MODULO DE REESTABLECIMIENTO DE PASSWORD HTML INDEPENDIENTE reestablecer.html
+// MODULO DE PAGO POR PAYPAL REALIZADO HTML INDEPENDIENTE pago.html
 
 $(document).on('pageinit', '#pagoFinalizado', function () {
     /*
