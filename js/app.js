@@ -538,8 +538,17 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#file').change(function () {
         visualizarImagen(this.files);
 
+        var fi = $('input[type="file"]').get(0).files[0];
+        var size = fi.size / 1048576;
+
         if ($("#file").val() != "") {
-            $("#btnnuevoAnuncio7Subir").show();
+            if (size > 127) {
+                notificacion("El achivo no puede superar los 128Mb!");
+                $("#file").val("");
+
+            } else {
+                $("#btnnuevoAnuncio7Subir").show();
+            }
         }
     });
 

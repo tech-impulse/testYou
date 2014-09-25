@@ -1,0 +1,510 @@
+[2014-09-15 17:44 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 1191
+Content-Type: application/x-www-form-urlencoded
+Expect: 100-continue
+
+ for IPN payload: cmd=_notify-validate&mc_gross=0.02&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=08%3A43%3A45+Sep+15%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.02&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=bdebf75e80e3a15cff29621636d42c68&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=ACbuT2mBKgKSovE8ufiR4wMuW3R3Aa2TPB1-qH59ckVZu-rQUECoYBxM&payer_email=javier.fernandez%40tech-impulse.com&txn_id=4US94081C4325731S&payment_type=instant&btn_id=85997276&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=80+creditos+test&discount=0.00&mc_currency=EUR&item_number=test&residence_country=ES&shipping_method=Default&handling_amount=0.00&transaction_subject=bdebf75e80e3a15cff29621636d42c68&payment_gross=&shipping=0.01&ipn_track_id=4d34e9f8a5e64
+[2014-09-15 17:44 Europe/Berlin] HTTP response of validation request: HTTP/1.1 100 Continue
+
+HTTP/1.1 200 OK
+Date: Mon, 15 Sep 2014 15:44:10 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=tvvLcznRU7AoPiMLzAyXKY6shGczoBFPwVTm9PRp2rhhR_LgTNjT6I8D9ixZ7LTzkk-2_VOF_KjkQcMTbhXPkyte4YkOowmPJzv0_FIhCIdw4jX9B7BInAxd2Ujl2MgyKvgIgwwvG7XiQuEuhlTxXRaw0Rt6cULOHlxTkAT-7C1GkVmWe5fYQLZnYbO66GGLaP9beArbeVAlQ7apynr0wuJCApaw6-vguKQUcQG7UensA83ErrpiNfTXl0muzuwaVH-SsRHKicwcM84F0XFjoypM8ZSnSoJ71OhQp1hF5z0lZYcCYLOnIpuHsaM8-Z1vyivevSiMQZNo3umqK5N24ekATLpO9w4xEuMSbddGFpWMP_KsVqzp8aE0hNM-cWinLgyINUq16HrvxTGx8QMEucBQsaMeqOsoZ-BcxIoBzmGHWXyowYOhpCun4FK; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Thu, 12-Sep-2024 15:44:11 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Wed, 14-Sep-2016 15:44:11 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410795850858504; path=/; expires=Wed, 07-Sep-44 15:44:10 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D1242109780; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410795850846820; path=/; expires=Wed, 07-Sep-44 15:44:10 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-15 17:44 Europe/Berlin] COMPLETADO array (
+  'mc_gross' => '0.02',
+  'protection_eligibility' => 'Eligible',
+  'address_status' => 'unconfirmed',
+  'payer_id' => 'GD8VFNB34GTK2',
+  'tax' => '0.00',
+  'address_street' => 'c/Puig i Cadafalch 105, 1º 3ª',
+  'payment_date' => '08:43:45 Sep 15, 2014 PDT',
+  'payment_status' => 'Completed',
+  'charset' => 'windows-1252',
+  'address_zip' => '08203',
+  'first_name' => 'Javier',
+  'mc_fee' => '0.02',
+  'address_country_code' => 'ES',
+  'address_name' => 'Javier Fernández García',
+  'notify_version' => '3.8',
+  'custom' => 'bdebf75e80e3a15cff29621636d42c68',
+  'payer_status' => 'verified',
+  'business' => 'javier.fernandez@youtter.com',
+  'address_country' => 'Spain',
+  'address_city' => 'SABADELL',
+  'quantity' => '1',
+  'verify_sign' => 'ACbuT2mBKgKSovE8ufiR4wMuW3R3Aa2TPB1-qH59ckVZu-rQUECoYBxM',
+  'payer_email' => 'javier.fernandez@tech-impulse.com',
+  'txn_id' => '4US94081C4325731S',
+  'payment_type' => 'instant',
+  'btn_id' => '85997276',
+  'last_name' => 'Fernández García',
+  'address_state' => 'Barcelona',
+  'receiver_email' => 'javier.fernandez@youtter.com',
+  'payment_fee' => '',
+  'shipping_discount' => '0.00',
+  'insurance_amount' => '0.00',
+  'receiver_id' => 'LCMR7ASJZMKXQ',
+  'txn_type' => 'web_accept',
+  'item_name' => '80 creditos test',
+  'discount' => '0.00',
+  'mc_currency' => 'EUR',
+  'item_number' => 'test',
+  'residence_country' => 'ES',
+  'shipping_method' => 'Default',
+  'handling_amount' => '0.00',
+  'transaction_subject' => 'bdebf75e80e3a15cff29621636d42c68',
+  'payment_gross' => '',
+  'shipping' => '0.01',
+  'ipn_track_id' => '4d34e9f8a5e64',
+) UPDATE Usuarios SET Creditos="4744" WHERE id="5"; SELECT Creditos, id FROM Usuarios WHERE id="5" Verified IPN: cmd=_notify-validate&mc_gross=0.02&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=08%3A43%3A45+Sep+15%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.02&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=bdebf75e80e3a15cff29621636d42c68&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=ACbuT2mBKgKSovE8ufiR4wMuW3R3Aa2TPB1-qH59ckVZu-rQUECoYBxM&payer_email=javier.fernandez%40tech-impulse.com&txn_id=4US94081C4325731S&payment_type=instant&btn_id=85997276&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=80+creditos+test&discount=0.00&mc_currency=EUR&item_number=test&residence_country=ES&shipping_method=Default&handling_amount=0.00&transaction_subject=bdebf75e80e3a15cff29621636d42c68&payment_gross=&shipping=0.01&ipn_track_id=4d34e9f8a5e64 
+[2014-09-15 17:50 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 20
+Content-Type: application/x-www-form-urlencoded
+
+ for IPN payload: cmd=_notify-validate
+[2014-09-15 17:50 Europe/Berlin] HTTP response of validation request: HTTP/1.1 200 OK
+Date: Mon, 15 Sep 2014 15:50:40 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=RswRDsbS0nDtw74EdxvYWa6t10dQVntCpBr5xAkf8Oe6UWu43utltfMAn8DpE05mp2Ea7Pn-uqMttdyg7BUSNkrdXSEL9EcD_JpV86yBfYbjlSaFUExk_sYoOxKxHIZO8Aq_2tleZpbIlOEM2xoOy2hfQNKlRrGDKpjgLbf2J3pyr-EP9TWopD0qB3eiQql4LKKXpHfiD9QV-j-PDUWtRrmfiFvNqGPT46h1w4Hah9pBU1iqBuxO9mw8cEmUJaHZytFfK04VfD-xB0_CKcFCmY0k_Jys8ss0QD7v09igJ3V7Nwgx3NtlSSSS5GGmCG06iWTYdyQDYPsRcJiIChFgEH467SBcagcF-rLbFYWBwIA0gxHWd3DkNrNBnWGzt3K756VzCMcCvPsILqTOA_SCciUPeQAIfCXxmfqN9W_2r6Edmc0ODcK_jsOmo_8; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Thu, 12-Sep-2024 15:50:40 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Wed, 14-Sep-2016 15:50:40 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410796240431555; path=/; expires=Wed, 07-Sep-44 15:50:40 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D3490322260; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410796240419946; path=/; expires=Wed, 07-Sep-44 15:50:40 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-15 17:50 Europe/Berlin] Invalid IPN: cmd=_notify-validate
+[2014-09-15 17:50 Europe/Berlin] NO Verified IPN: cmd=_notify-validate 
+[2014-09-16 11:20 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 20
+Content-Type: application/x-www-form-urlencoded
+
+ for IPN payload: cmd=_notify-validate
+[2014-09-16 11:20 Europe/Berlin] HTTP response of validation request: HTTP/1.1 200 OK
+Date: Tue, 16 Sep 2014 09:20:15 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=9FpwfrXAC7frX4W-4qrrjbYELlFlZ_HSjc_lw5HdUutLZ0jiMDiqCEwfV0eqTvAYh2p8ejQFMqc3yEOMqCMcML6qB3472nRD7Hbp_ZHnt65qadt5lQOIp62MRXlh4Z_LnDdYsAtf099V7TK7m8s59jFcRjQWDSa3MJWsvAa4U8Bg6kmGVn9q8iDZaDj25rYQBFcbYkuFGhkd_pNatqi1-daJw_pNxrJgPNnRcA37ztrCYQtHlxcZOIcjtMd399sBCkwRNDbt3T3NED_dYzo_AwTa-gDcu-9cIAR_EZ45d_vo0VFsPfD46bGS1NR9wV-WtZTT0nJx65E2dujnxOez49ek-TCMyLianrizPS1czdtZYJp3vVraGM74R9b4wUllWnVpmV9O8knSuEcqORPfcBA_yT5n1OIyfulIMu_Fs5SM23VrCoj8Ia6o0mK; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Fri, 13-Sep-2024 09:20:15 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Thu, 15-Sep-2016 09:20:15 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410859215206810; path=/; expires=Thu, 08-Sep-44 09:20:15 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D3472889940; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410859215196876; path=/; expires=Thu, 08-Sep-44 09:20:15 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-16 11:20 Europe/Berlin] Invalid IPN: cmd=_notify-validate
+[2014-09-16 11:20 Europe/Berlin] NO Verified IPN: cmd=_notify-validate 
+[2014-09-16 12:37 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 20
+Content-Type: application/x-www-form-urlencoded
+
+ for IPN payload: cmd=_notify-validate
+[2014-09-16 12:37 Europe/Berlin] HTTP response of validation request: HTTP/1.1 200 OK
+Date: Tue, 16 Sep 2014 10:37:15 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=zv8n9rm5okMnENQOhEgisNwJPSACo9x_A2M6GUny7BxBQ1Iau5cRNOMTN9CVRo7J3uOb18PnH1aSvfxNKwxvR6LTEnDmhcvM23U-KC7STvkUnxGmvTN9pYgYIUsZaR59k_ojpLYrEWCvqI1RrunlQQpOrA9S_3-oPe71PblVj0RoEt-C5nNnxS7CtGMMcmcLBiae1PZSJof08fq5QTG6oPKhRcaihMUfHCD1gQ1cI65D93KOSQ9UR-ejTaSvJ6zT6ie7P0m75tZT8T-BvJ_Pi10H3cBmfdAFpx5E2OKw0wbJZ2LvXqsIH8JEWrCjkEfDmeLPS1Gt7x1JvXMRxroct5p7wbwJKSIUyU8GisEfvJ2aO0Je3Cu0bwwpGo8kLOqWyxan4iGts_5iyAsgN4wI5jkyWxCWlSQrmXel2GXPlmq-EBlpi7T-EsypEX4; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Fri, 13-Sep-2024 10:37:15 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Thu, 15-Sep-2016 10:37:15 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410863835576276; path=/; expires=Thu, 08-Sep-44 10:37:15 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D3675396180; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410863835564493; path=/; expires=Thu, 08-Sep-44 10:37:15 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-16 12:37 Europe/Berlin] Invalid IPN: cmd=_notify-validate
+[2014-09-16 12:37 Europe/Berlin] NO Verified IPN: cmd=_notify-validate 
+[2014-09-16 16:50 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 20
+Content-Type: application/x-www-form-urlencoded
+
+ for IPN payload: cmd=_notify-validate
+[2014-09-16 16:50 Europe/Berlin] HTTP response of validation request: HTTP/1.1 200 OK
+Date: Tue, 16 Sep 2014 14:50:23 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=f2FTt4gU2rVmOA0L-2aRnrU0hztHxdx4lV9JlysDnm7j0Vd6hIpAtXdZKc85pRMM3mkGWcEEkaarVUdtbiSKF8t0rcYZxGDi6oxdKUDGX_ITxblXut5cJKejwTvoc_gcfk4YehRtGVjIMqAQ2VU559UZ9iNOLCCzQmdhvDFUeONJeslXlvybiDSRQNrNn_ER121b7qk1qIPwWb2URZhwukDkjZPT0Sb125c-noD1chbVvb6UFx560lraiO2BEeOYGzsP9abarGSGEnez2I9f-t1pDnAU9qIEaLZ8iXOh7oJILAKUCBnmDcsDG5SDU3bHecNEjegQBzoZE8lonpxuhxIIvbbAIGTJPPhv1WoNJ2WlEJANHvpnh5um10yXJyfynFl7UZBkYHXZzmy-4DxT1aF2TK_WNE_UkDGhVNR0YD5ockVq-1fJBd6Wv7m; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Fri, 13-Sep-2024 14:50:23 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Thu, 15-Sep-2016 14:50:23 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410879023506343; path=/; expires=Thu, 08-Sep-44 14:50:23 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D793647188; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410879023495059; path=/; expires=Thu, 08-Sep-44 14:50:23 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-16 16:50 Europe/Berlin] Invalid IPN: cmd=_notify-validate
+[2014-09-16 16:50 Europe/Berlin] NO Verified IPN: cmd=_notify-validate 
+[2014-09-17 12:03 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 1075
+Content-Type: application/x-www-form-urlencoded
+Expect: 100-continue
+
+ for IPN payload: cmd=_notify-validate&mc_gross=0.01&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=03%3A03%3A11+Sep+17%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.01&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=d85c5e09534903ffe541e4cc704771ba&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=AiXkoR0RcAggOAJy.uzRJjuW9GeRAQslD-csGFX9Z6bECDVkiXSGVVM.&payer_email=javier.fernandez%40tech-impulse.com&txn_id=74E1234611704135R&payment_type=instant&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=p45&mc_currency=EUR&item_number=&residence_country=ES&handling_amount=0.00&transaction_subject=d85c5e09534903ffe541e4cc704771ba&payment_gross=&shipping=0.00&ipn_track_id=10f8261cb5b3c
+[2014-09-17 12:03 Europe/Berlin] HTTP response of validation request: HTTP/1.1 100 Continue
+
+HTTP/1.1 200 OK
+Date: Wed, 17 Sep 2014 10:03:27 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=I5hQ8GZfWaQrcV3kL0SLLsJ2XdFJBHw6VphjETGmDjrIM-7YuDL0WvXDV7RkOVRYHzhP4QO2V89oPHAW1I2qhFEJIZ_tDr3rLeu6c4c9RDbj2v7nypvEv3UtvB6dv_bAV38jZQ0mTpyncUj3ikP9TeQtOghJCCa8WsAiO1_kalvmY56YsTzE4h5kjtQhg3yNVK0VjCJWb0gjUNZ_AIQz41-gucTPaGyrMDkzxF37kjQYNFzYvschRtY5l-r9z3BItM2GSU_GCnbNq3hSM5ksA_DNcUGiEmJx_N09P1UuY8Zvegp0SUXWDAdxBde01vyYZFjJKsWx4pXk9FFxHW_oHgi4IcHCFwX_oF2XSnwYMOzzb4zKsPbNrJq8sFlaRI9CCG8aQ7z8H-BzJexiV3uJolX09kpHvY0SwZaDeS0mi6zfYi7lQPg1RrauHmS; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Sat, 14-Sep-2024 10:03:27 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Fri, 16-Sep-2016 10:03:27 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410948207084246; path=/; expires=Fri, 09-Sep-44 10:03:27 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D1868306772; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410948207074234; path=/; expires=Fri, 09-Sep-44 10:03:27 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-17 12:03 Europe/Berlin] COMPLETADO array (
+  'mc_gross' => '0.01',
+  'protection_eligibility' => 'Eligible',
+  'address_status' => 'unconfirmed',
+  'payer_id' => 'GD8VFNB34GTK2',
+  'tax' => '0.00',
+  'address_street' => 'c/Puig i Cadafalch 105, 1º 3ª',
+  'payment_date' => '03:03:11 Sep 17, 2014 PDT',
+  'payment_status' => 'Completed',
+  'charset' => 'windows-1252',
+  'address_zip' => '08203',
+  'first_name' => 'Javier',
+  'mc_fee' => '0.01',
+  'address_country_code' => 'ES',
+  'address_name' => 'Javier Fernández García',
+  'notify_version' => '3.8',
+  'custom' => 'd85c5e09534903ffe541e4cc704771ba',
+  'payer_status' => 'verified',
+  'business' => 'javier.fernandez@youtter.com',
+  'address_country' => 'Spain',
+  'address_city' => 'SABADELL',
+  'quantity' => '1',
+  'verify_sign' => 'AiXkoR0RcAggOAJy.uzRJjuW9GeRAQslD-csGFX9Z6bECDVkiXSGVVM.',
+  'payer_email' => 'javier.fernandez@tech-impulse.com',
+  'txn_id' => '74E1234611704135R',
+  'payment_type' => 'instant',
+  'last_name' => 'Fernández García',
+  'address_state' => 'Barcelona',
+  'receiver_email' => 'javier.fernandez@youtter.com',
+  'payment_fee' => '',
+  'receiver_id' => 'LCMR7ASJZMKXQ',
+  'txn_type' => 'web_accept',
+  'item_name' => 'p45',
+  'mc_currency' => 'EUR',
+  'item_number' => '',
+  'residence_country' => 'ES',
+  'handling_amount' => '0.00',
+  'transaction_subject' => 'd85c5e09534903ffe541e4cc704771ba',
+  'payment_gross' => '',
+  'shipping' => '0.00',
+  'ipn_track_id' => '10f8261cb5b3c',
+) UPDATE Usuarios SET Creditos="4783" WHERE id="5"; SELECT Creditos, id FROM Usuarios WHERE id="5" Verified IPN: cmd=_notify-validate&mc_gross=0.01&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=03%3A03%3A11+Sep+17%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.01&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=d85c5e09534903ffe541e4cc704771ba&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=AiXkoR0RcAggOAJy.uzRJjuW9GeRAQslD-csGFX9Z6bECDVkiXSGVVM.&payer_email=javier.fernandez%40tech-impulse.com&txn_id=74E1234611704135R&payment_type=instant&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=p45&mc_currency=EUR&item_number=&residence_country=ES&handling_amount=0.00&transaction_subject=d85c5e09534903ffe541e4cc704771ba&payment_gross=&shipping=0.00&ipn_track_id=10f8261cb5b3c 
+[2014-09-17 12:34 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 1075
+Content-Type: application/x-www-form-urlencoded
+Expect: 100-continue
+
+ for IPN payload: cmd=_notify-validate&mc_gross=0.01&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=03%3A34%3A22+Sep+17%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.01&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=638bb88924406fc0f0db9cae81bfa639&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=AMqTflLZRNGV9hs1bCj7U0nS9Z31AQT5gBaGpwSc1Tq.hwbhv64SKixQ&payer_email=javier.fernandez%40tech-impulse.com&txn_id=6NL16116W4785590V&payment_type=instant&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=p45&mc_currency=EUR&item_number=&residence_country=ES&handling_amount=0.00&transaction_subject=638bb88924406fc0f0db9cae81bfa639&payment_gross=&shipping=0.00&ipn_track_id=874bf2265e2e7
+[2014-09-17 12:34 Europe/Berlin] HTTP response of validation request: HTTP/1.1 100 Continue
+
+HTTP/1.1 200 OK
+Date: Wed, 17 Sep 2014 10:34:38 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=IwGWQ9TBW9w5X4QiLQlIdcHRy348Tfzw6AoKSKV0mYJHD6oYSvGeDPZEKKTMhc5NSyvCMHZbcWfuhznu1IRH6V94wGZSBiGA-tz9Q8P7PVttHPlhApfatDQpzxUJLHE7vyJhts-OHjHPggNHgGq0SX04KbSWdJl8kJVCnTuA04NhO0of1-yrsILPORnnfc-oaFW1BCb4NaisszW642Nptc3sCXSAmt5QMlcyaV8VA3uLLHa6w78D71rWPoZE7dudjKynlPVTpfmXIWIDELZHzv1fj1NRDw3DDANQVaaqxWXsNvixdjLgqOBZaKG9w1gTFr4xBKzZqMS7MKtVfFWOv7GQ9TTMJVNCAvlXWv1mn7g6tkVPmCvT_j-Bz7_mCyZcmXuubPtRu8loTog-2wEerkZcs2rOqVT9Enb72IAnDPGwExrfSdghcIa47Xq; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Sat, 14-Sep-2024 10:34:39 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Fri, 16-Sep-2016 10:34:39 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410950078884053; path=/; expires=Fri, 09-Sep-44 10:34:38 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D3194165588; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410950078874425; path=/; expires=Fri, 09-Sep-44 10:34:38 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-17 12:34 Europe/Berlin] COMPLETADO array (
+  'mc_gross' => '0.01',
+  'protection_eligibility' => 'Eligible',
+  'address_status' => 'unconfirmed',
+  'payer_id' => 'GD8VFNB34GTK2',
+  'tax' => '0.00',
+  'address_street' => 'c/Puig i Cadafalch 105, 1º 3ª',
+  'payment_date' => '03:34:22 Sep 17, 2014 PDT',
+  'payment_status' => 'Completed',
+  'charset' => 'windows-1252',
+  'address_zip' => '08203',
+  'first_name' => 'Javier',
+  'mc_fee' => '0.01',
+  'address_country_code' => 'ES',
+  'address_name' => 'Javier Fernández García',
+  'notify_version' => '3.8',
+  'custom' => '638bb88924406fc0f0db9cae81bfa639',
+  'payer_status' => 'verified',
+  'business' => 'javier.fernandez@youtter.com',
+  'address_country' => 'Spain',
+  'address_city' => 'SABADELL',
+  'quantity' => '1',
+  'verify_sign' => 'AMqTflLZRNGV9hs1bCj7U0nS9Z31AQT5gBaGpwSc1Tq.hwbhv64SKixQ',
+  'payer_email' => 'javier.fernandez@tech-impulse.com',
+  'txn_id' => '6NL16116W4785590V',
+  'payment_type' => 'instant',
+  'last_name' => 'Fernández García',
+  'address_state' => 'Barcelona',
+  'receiver_email' => 'javier.fernandez@youtter.com',
+  'payment_fee' => '',
+  'receiver_id' => 'LCMR7ASJZMKXQ',
+  'txn_type' => 'web_accept',
+  'item_name' => 'p45',
+  'mc_currency' => 'EUR',
+  'item_number' => '',
+  'residence_country' => 'ES',
+  'handling_amount' => '0.00',
+  'transaction_subject' => '638bb88924406fc0f0db9cae81bfa639',
+  'payment_gross' => '',
+  'shipping' => '0.00',
+  'ipn_track_id' => '874bf2265e2e7',
+) UPDATE Usuarios SET Creditos="4828" WHERE id="5"; SELECT Creditos, id FROM Usuarios WHERE id="5" Verified IPN: cmd=_notify-validate&mc_gross=0.01&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=03%3A34%3A22+Sep+17%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.01&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=638bb88924406fc0f0db9cae81bfa639&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=AMqTflLZRNGV9hs1bCj7U0nS9Z31AQT5gBaGpwSc1Tq.hwbhv64SKixQ&payer_email=javier.fernandez%40tech-impulse.com&txn_id=6NL16116W4785590V&payment_type=instant&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=p45&mc_currency=EUR&item_number=&residence_country=ES&handling_amount=0.00&transaction_subject=638bb88924406fc0f0db9cae81bfa639&payment_gross=&shipping=0.00&ipn_track_id=874bf2265e2e7 
+[2014-09-17 12:35 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 1075
+Content-Type: application/x-www-form-urlencoded
+Expect: 100-continue
+
+ for IPN payload: cmd=_notify-validate&mc_gross=0.01&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=03%3A35%3A18+Sep+17%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.01&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=20f59bf9f7cbf06d51104460eaddab2d&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=ABqLl2swiQi77N7KN4O8vWhLEss7Am4ftWr4FbiH5J.zYx1OQ.PIQ7Mu&payer_email=javier.fernandez%40tech-impulse.com&txn_id=8FB34821YA808484R&payment_type=instant&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=p80&mc_currency=EUR&item_number=&residence_country=ES&handling_amount=0.00&transaction_subject=20f59bf9f7cbf06d51104460eaddab2d&payment_gross=&shipping=0.00&ipn_track_id=c5007525e35ec
+[2014-09-17 12:35 Europe/Berlin] HTTP response of validation request: HTTP/1.1 100 Continue
+
+HTTP/1.1 200 OK
+Date: Wed, 17 Sep 2014 10:35:32 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=HFJiPMpsa7MqZDQg2gfMofKBR0h8NxzwpPjzKk5rtJ3RkalyULMfZAKH9VwXYVdKSj9SFru76S0QAtOcZUhJ-K2UDKaTE7NYribMewu9AaL8CbwChiitETEPsuCNcicxSCCfSlLIzUicF0gCU1SzGP08u6P3Qv1m69tdc9C7NOo8Fne_f23z1bBd4EeI9BaK-vDYQBCM-r04cDWUAVG7JwVVGZpAtuoBJ73KiVIqTqQGPxYAxYop9uoa4sOFGfp6hFnMrKmRnlhmWRmHtCZVHJxIzH7oQU_YGvYXFCyLj7BVRxbErBXuHd2QUMjVoFEMZ4RbVLb2_zDjMuiSfXN89LdYwC3zEEKvApcD1M8-BaaVcwogcz0lqLkg2EnVzBTaUeh8mHTzowcVfgN3Jb4BtLfitdmUADB35S4yFiCw2bpQN7jWB-TLhmm_GlG; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Sat, 14-Sep-2024 10:35:32 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Fri, 16-Sep-2016 10:35:32 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410950132166914; path=/; expires=Fri, 09-Sep-44 10:35:32 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D4100135252; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410950132153482; path=/; expires=Fri, 09-Sep-44 10:35:32 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-17 12:35 Europe/Berlin] COMPLETADO array (
+  'mc_gross' => '0.01',
+  'protection_eligibility' => 'Eligible',
+  'address_status' => 'unconfirmed',
+  'payer_id' => 'GD8VFNB34GTK2',
+  'tax' => '0.00',
+  'address_street' => 'c/Puig i Cadafalch 105, 1º 3ª',
+  'payment_date' => '03:35:18 Sep 17, 2014 PDT',
+  'payment_status' => 'Completed',
+  'charset' => 'windows-1252',
+  'address_zip' => '08203',
+  'first_name' => 'Javier',
+  'mc_fee' => '0.01',
+  'address_country_code' => 'ES',
+  'address_name' => 'Javier Fernández García',
+  'notify_version' => '3.8',
+  'custom' => '20f59bf9f7cbf06d51104460eaddab2d',
+  'payer_status' => 'verified',
+  'business' => 'javier.fernandez@youtter.com',
+  'address_country' => 'Spain',
+  'address_city' => 'SABADELL',
+  'quantity' => '1',
+  'verify_sign' => 'ABqLl2swiQi77N7KN4O8vWhLEss7Am4ftWr4FbiH5J.zYx1OQ.PIQ7Mu',
+  'payer_email' => 'javier.fernandez@tech-impulse.com',
+  'txn_id' => '8FB34821YA808484R',
+  'payment_type' => 'instant',
+  'last_name' => 'Fernández García',
+  'address_state' => 'Barcelona',
+  'receiver_email' => 'javier.fernandez@youtter.com',
+  'payment_fee' => '',
+  'receiver_id' => 'LCMR7ASJZMKXQ',
+  'txn_type' => 'web_accept',
+  'item_name' => 'p80',
+  'mc_currency' => 'EUR',
+  'item_number' => '',
+  'residence_country' => 'ES',
+  'handling_amount' => '0.00',
+  'transaction_subject' => '20f59bf9f7cbf06d51104460eaddab2d',
+  'payment_gross' => '',
+  'shipping' => '0.00',
+  'ipn_track_id' => 'c5007525e35ec',
+) UPDATE Usuarios SET Creditos="4908" WHERE id="5"; SELECT Creditos, id FROM Usuarios WHERE id="5" Verified IPN: cmd=_notify-validate&mc_gross=0.01&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=03%3A35%3A18+Sep+17%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.01&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=20f59bf9f7cbf06d51104460eaddab2d&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=ABqLl2swiQi77N7KN4O8vWhLEss7Am4ftWr4FbiH5J.zYx1OQ.PIQ7Mu&payer_email=javier.fernandez%40tech-impulse.com&txn_id=8FB34821YA808484R&payment_type=instant&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=p80&mc_currency=EUR&item_number=&residence_country=ES&handling_amount=0.00&transaction_subject=20f59bf9f7cbf06d51104460eaddab2d&payment_gross=&shipping=0.00&ipn_track_id=c5007525e35ec 
+[2014-09-17 12:36 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 1084
+Content-Type: application/x-www-form-urlencoded
+Expect: 100-continue
+
+ for IPN payload: cmd=_notify-validate&mc_gross=0.01&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=03%3A36%3A26+Sep+17%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.01&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=6b4277ccd75f1fbe754724e8f4f728e8&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=AlQoxYciFLcxVDuJi.NtHtqMkyM.ArjqP9fUqBbUFWQgwIO1ehnL2.vJ&payer_email=javier.fernandez%40tech-impulse.com&txn_id=07C269340F900834L&payment_type=instant&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=0.01&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=p500&mc_currency=USD&item_number=&residence_country=ES&handling_amount=0.00&transaction_subject=6b4277ccd75f1fbe754724e8f4f728e8&payment_gross=0.01&shipping=0.00&ipn_track_id=160cab5d8c959
+[2014-09-17 12:36 Europe/Berlin] HTTP response of validation request: HTTP/1.1 100 Continue
+
+HTTP/1.1 200 OK
+Date: Wed, 17 Sep 2014 10:36:39 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=iqQlM1nov8aA8KwU9ka_Nn-RTYTlOJlnd79YPe9qNTlxREAsKt-DVAmT6W252_NM9XLM1_ZBqC3MRT3ZBnIfU5BNvEi7VnKQ1UDfeMRlatlaHXIsQMaf110jE1B654l82QNDLMpIjXX5vp6Igj9kBHpz1ZzmOGf6WltcorzFKn3Mn6aIKV5cdwXEE8I9UMhiN2hRZQtn28rhJZGSHUMchiPAKG8CA_KJwjNrB0J1XIut3RRw0yc7gUJB68M8BKUjeqoAPLNxNXbxXbwcl4opHc-cW4AA_uRseXqXXCzWrrCby1Odw3oD4lrtNtcZGjq-zuhksf1mmF_scf-3hx_rjOBSd9RtRn1BpSQ7oqtygRXghUKL_wy6oMIwg-ENfENFaqrhwyBy03940Jm-tm08XAMSVBSRwAxO-ZQipbruSvEa-LHGDTQcgo20iR8; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Sat, 14-Sep-2024 10:36:40 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Fri, 16-Sep-2016 10:36:40 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1410950199796396; path=/; expires=Fri, 09-Sep-44 10:36:39 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D929306964; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1410950199785079; path=/; expires=Fri, 09-Sep-44 10:36:39 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-17 12:36 Europe/Berlin] COMPLETADO array (
+  'mc_gross' => '0.01',
+  'protection_eligibility' => 'Eligible',
+  'address_status' => 'unconfirmed',
+  'payer_id' => 'GD8VFNB34GTK2',
+  'tax' => '0.00',
+  'address_street' => 'c/Puig i Cadafalch 105, 1º 3ª',
+  'payment_date' => '03:36:26 Sep 17, 2014 PDT',
+  'payment_status' => 'Completed',
+  'charset' => 'windows-1252',
+  'address_zip' => '08203',
+  'first_name' => 'Javier',
+  'mc_fee' => '0.01',
+  'address_country_code' => 'ES',
+  'address_name' => 'Javier Fernández García',
+  'notify_version' => '3.8',
+  'custom' => '6b4277ccd75f1fbe754724e8f4f728e8',
+  'payer_status' => 'verified',
+  'business' => 'javier.fernandez@youtter.com',
+  'address_country' => 'Spain',
+  'address_city' => 'SABADELL',
+  'quantity' => '1',
+  'verify_sign' => 'AlQoxYciFLcxVDuJi.NtHtqMkyM.ArjqP9fUqBbUFWQgwIO1ehnL2.vJ',
+  'payer_email' => 'javier.fernandez@tech-impulse.com',
+  'txn_id' => '07C269340F900834L',
+  'payment_type' => 'instant',
+  'last_name' => 'Fernández García',
+  'address_state' => 'Barcelona',
+  'receiver_email' => 'javier.fernandez@youtter.com',
+  'payment_fee' => '0.01',
+  'receiver_id' => 'LCMR7ASJZMKXQ',
+  'txn_type' => 'web_accept',
+  'item_name' => 'p500',
+  'mc_currency' => 'USD',
+  'item_number' => '',
+  'residence_country' => 'ES',
+  'handling_amount' => '0.00',
+  'transaction_subject' => '6b4277ccd75f1fbe754724e8f4f728e8',
+  'payment_gross' => '0.01',
+  'shipping' => '0.00',
+  'ipn_track_id' => '160cab5d8c959',
+) UPDATE Usuarios SET Creditos="5408" WHERE id="5"; SELECT Creditos, id FROM Usuarios WHERE id="5" Verified IPN: cmd=_notify-validate&mc_gross=0.01&protection_eligibility=Eligible&address_status=unconfirmed&payer_id=GD8VFNB34GTK2&tax=0.00&address_street=c%2FPuig+i+Cadafalch+105%2C+1%BA+3%AA&payment_date=03%3A36%3A26+Sep+17%2C+2014+PDT&payment_status=Completed&charset=windows-1252&address_zip=08203&first_name=Javier&mc_fee=0.01&address_country_code=ES&address_name=Javier+Fern%E1ndez+Garc%EDa&notify_version=3.8&custom=6b4277ccd75f1fbe754724e8f4f728e8&payer_status=verified&business=javier.fernandez%40youtter.com&address_country=Spain&address_city=SABADELL&quantity=1&verify_sign=AlQoxYciFLcxVDuJi.NtHtqMkyM.ArjqP9fUqBbUFWQgwIO1ehnL2.vJ&payer_email=javier.fernandez%40tech-impulse.com&txn_id=07C269340F900834L&payment_type=instant&last_name=Fern%E1ndez+Garc%EDa&address_state=Barcelona&receiver_email=javier.fernandez%40youtter.com&payment_fee=0.01&receiver_id=LCMR7ASJZMKXQ&txn_type=web_accept&item_name=p500&mc_currency=USD&item_number=&residence_country=ES&handling_amount=0.00&transaction_subject=6b4277ccd75f1fbe754724e8f4f728e8&payment_gross=0.01&shipping=0.00&ipn_track_id=160cab5d8c959 
+[2014-09-18 17:26 Europe/Berlin] HTTP request of validation request:POST /cgi-bin/webscr HTTP/1.1
+Host: www.sandbox.paypal.com
+Accept: */*
+Connection: Close
+Content-Length: 20
+Content-Type: application/x-www-form-urlencoded
+
+ for IPN payload: cmd=_notify-validate
+[2014-09-18 17:26 Europe/Berlin] HTTP response of validation request: HTTP/1.1 200 OK
+Date: Thu, 18 Sep 2014 15:26:32 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=hPlzLV1bW6vDcCYvfBGHm61vC0gp2C7W7RGLHz4EISSBN9ha-LS3zqGyDKGog6H9-r1Q-qzyR9wLFY8wGYkXZouXzEacRB6dAXl8j33phGzXFQWiTX2GVo030zGEuHeYENBvz0dKX0OzuzXMY8EQquiCKY1c9XKUxOzsjKwGHH6fVQUeSSxsvkRkGKpDtOwJWgx5rVxC94flBuUO92Ci-S18JtoLHj0xIEdS3_LfBrWs2xoXwPw-LILD7N6FGUtMlBdxE5rIrCVRP3fPJgM9scB_P8sXWC0iOJ2RRU7y33yNAy3oSTcsEOp3qa4xO_0znjHT3sYSg6su5eF_jdfHMkMGx2G09J50hNmfxxLcqJQD7JmIClbsnCF9x0W6xli81NkKXoDhcQ1ydKEpKHbiwUV-5h6sgxNsxLgjCgzzQwdePt2D2ogX4GTitQq; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Sun, 15-Sep-2024 15:26:33 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sat, 17-Sep-2016 15:26:33 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1411053992856800; path=/; expires=Sat, 10-Sep-44 15:26:32 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D2834897492; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1411053992844598; path=/; expires=Sat, 10-Sep-44 15:26:32 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+INVALID
+[2014-09-18 17:26 Europe/Berlin] Invalid IPN: cmd=_notify-validate
+[2014-09-18 17:26 Europe/Berlin] NO Verified IPN: cmd=_notify-validate 

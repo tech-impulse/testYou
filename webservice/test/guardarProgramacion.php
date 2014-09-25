@@ -1,6 +1,7 @@
 <?php 
 
 include 'connection.php';
+require_once 'notificaciones/androidPusher.php';
 
 $resultados = array();
  
@@ -43,10 +44,7 @@ $sql_sel = 'SELECT u.idImagen as idImagen, u.Creditos as Creditos, g.gcm_regid a
 
 	if ($resultado = mysql_query($sql_upd, $con)){
             $resultados["mensaje"] = " Tu anuncio ha sido publicado! " ;
-            
-           
-              
-            
+            sendPush($resultados["gmc"], $resultados["mensaje"]);
 			$resultados["validacion"] = "ok"; 
              
 	}
@@ -57,8 +55,7 @@ $sql_sel = 'SELECT u.idImagen as idImagen, u.Creditos as Creditos, g.gcm_regid a
 	}
 
 mysql_close($con);
-$url="http://admin.youtter.com/webservices/notificaciones/androidPusher.php"."?regId=".$resultados["gmc"]."&message='".urlencode($resultados["mensaje"])."'";
-              exec("/usr/bin/lynx '$url' ");
+
 $resultados["querySel"] = $sql_sel;
 $resultados["queryUpd"] = $sql_upd;
 
