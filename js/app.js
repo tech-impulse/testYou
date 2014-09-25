@@ -18,8 +18,9 @@ $(document).ajaxStart(function () {
     if (pantallaApp == "creditosPaquetes") {
         $.mobile.loading('show', {
             text: 'Espere por favor...',
-            textVisible: false,
+            textVisible: true,
             theme: 'a',
+            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /></span>"
 
         });
 
@@ -35,10 +36,9 @@ $(document).ajaxStart(function () {
 
     } else {
         $.mobile.loading('show', {
-            textVisible: false,
+            textVisible: true,
             theme: 'a',
-
-
+            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /></span>"
         });
     }
 
