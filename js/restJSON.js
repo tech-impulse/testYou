@@ -517,7 +517,8 @@ function restError(r, tipo) {
         };
     case "guardarProgramacion":
         {
-            notificacion("No se ha podido cargar su imagen!");
+            displayNuevoAnuncio9();
+            notificacion("No se ha podido cargar su imagen! Intentelo de nuevo");
             break;
         };
     case "paises":

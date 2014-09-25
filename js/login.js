@@ -178,7 +178,6 @@ function loginOk(r) {
             } else {
                 usuarioBloqueado = 0;
             }
-            $.mobile.loading('hide');
             traducir(r.Pais); // funcion para traducir la app (Falta por realizar muchas cosas)
             creditosDisponibles = r.Creditos; // 
             $.mobile.changePage('#app');

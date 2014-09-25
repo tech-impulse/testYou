@@ -20,7 +20,7 @@ $(document).ajaxStart(function () {
             text: 'Espere por favor...',
             textVisible: true,
             theme: 'a',
-            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' />Procesando..</span>"
+            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' />Procesando...</span>"
 
         });
 
@@ -29,7 +29,7 @@ $(document).ajaxStart(function () {
             text: 'Espere por favor...',
             textVisible: true,
             theme: 'a',
-            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /><h2><br>Publicando anuncio</h2></span>"
+            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /><h2><br>Publicando anuncio!</h2></span>"
 
         });
         $("#footer_comun").show();
