@@ -18,9 +18,9 @@ $(document).ajaxStart(function () {
     if (pantallaApp == "creditosPaquetes") {
         $.mobile.loading('show', {
             text: 'Espere por favor...',
-            textVisible: false,
+            textVisible: true,
             theme: 'a',
-            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /></span>"
+            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' />Procesando..</span>"
 
         });
 
@@ -33,6 +33,8 @@ $(document).ajaxStart(function () {
 
         });
         $("#footer_comun").show();
+
+    } else if (pantallaApp == "mainMenu") {
 
     } else {
         $.mobile.loading('show', {
@@ -568,10 +570,10 @@ $(document).on('pageinit', '#loginModule', function () {
         //displayNuevoAnuncio10();
         procesoNuevoAnuncio10(); // Compra los creditos directamente
     });
-    
-        //Crear anuncio 9 - Boton para proceder al pago
+
+    //Crear anuncio 9 - Boton para proceder al pago
     $('#btnFooterCancelar').unbind('click').bind('click', function () {
-       peticionActual.abort();
+        peticionActual.abort();
         displayNuevoAnuncio9();
     });
 
