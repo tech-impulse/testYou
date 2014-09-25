@@ -544,6 +544,7 @@ $(document).on('pageinit', '#loginModule', function () {
         if ($("#file").val() != "") {
             if (size > 127) {
                 notificacion("El achivo no puede superar los 128Mb!");
+                $("#btnnuevoAnuncio7Subir").hide();
                 $("#file").val("");
 
             } else {
