@@ -74,10 +74,12 @@ $(document).on('pageinit', '#loginModule', function () {
             $("#lbPopUpLogin").text("Las contraseñas no coinciden");
             $("#loginPopUp").popup("open");
 
-        } if ($('#inputNewAccountPass').val() == '') {
+        }
+        if ($('#inputNewAccountPass').val() == '') {
             $("#lbPopUpLogin").text("Debe rellenar la contraseña");
             $("#loginPopUp").popup("open");
-        } if ($('#inputNewAccountPass').val().length < 1) {
+        }
+        if ($('#inputNewAccountPass').val().length < 1) {
             $('#inputNewAccountPass').val("El password debe ser de 8 caracteres");
         } else {
             if (isValidEmailAddress($('#inputNewAccountEmail').val())) {
@@ -176,6 +178,7 @@ function loginOk(r) {
             } else {
                 usuarioBloqueado = 0;
             }
+            $.mobile.loading('hide');
             traducir(r.Pais); // funcion para traducir la app (Falta por realizar muchas cosas)
             creditosDisponibles = r.Creditos; // 
             $.mobile.changePage('#app');

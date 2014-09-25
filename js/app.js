@@ -18,7 +18,7 @@ $(document).ajaxStart(function () {
     if (pantallaApp == "creditosPaquetes") {
         $.mobile.loading('show', {
             text: 'Espere por favor...',
-            textVisible: true,
+            textVisible: false,
             theme: 'a',
             html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /></span>"
 
@@ -29,14 +29,14 @@ $(document).ajaxStart(function () {
             text: 'Espere por favor...',
             textVisible: true,
             theme: 'a',
-            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /><h2>Publicando anuncio</h2></span>"
+            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /><h2><br>Publicando anuncio</h2></span>"
 
         });
         $("#footer_comun").show();
 
     } else {
         $.mobile.loading('show', {
-            textVisible: true,
+            textVisible: false,
             theme: 'a',
             html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /></span>"
         });
@@ -500,7 +500,6 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-
     ///////// EVENTOS CREAR ANUNCIO 6 /////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Crear anuncio 6 - Boton para subir la imagen (BOTON INACTIVO, NOS SALTAMOS ESTA PAGINA)
@@ -575,9 +574,6 @@ $(document).on('pageinit', '#loginModule', function () {
        peticionActual.abort();
         displayNuevoAnuncio9();
     });
-    
-
-
 
     ///////// EVENTOS CREAR ANUNCIO 10 /////////////////////////////////////////////////////////////////////////////////////////////////
 
