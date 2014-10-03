@@ -104,6 +104,29 @@ function restUbicacionesPorCodigoPostal(cp) {
     });
 }
 
+// Descargamos todas las ubicaciones donde hay pantallas según el num de pantalla
+function restUbicacionesPorNumeroPantalla(num) {
+    CodigoPostal = num;
+    console.log("Codigo Postal " + num);
+
+    var datos = {
+        codigo: num,
+        idSesion: idSesion
+    };
+
+    peticionActual = $.ajax({
+        data: datos,
+        url: url + 'ubicacionesNumPantalla.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "ubicacionesCP");//utilizamos el mismo caso porque la informacion obtenida sera la misma
+        },
+        error: function (response) {
+            restError(response, "ubicacionesCP");
+        },
+    });
+}
+
 /*
 function restDescripcionAnuncio(id) {
 
@@ -309,12 +332,13 @@ function restNuevoUsuario() {
         Apellidos: $("#inputNewAccountApellidos").val(),
         Email: $("#inputNewAccountEmail").val(),
         Password: $("#inputNewAccountPass").val(),
-        idPais: idPais
+        idPais: idPais,
+        codigo: captcha(25)
     };
 
     peticionActual = $.ajax({
         data: datos,
-        url: url + 'nuevoUsuario.php',
+        url: url + 'nuevoUsuarioTest.php',  //---> WS correcto es nuevoUsuario.php 
         dataType: 'json',
         type: 'POST',
         success: function (response) {
@@ -463,7 +487,7 @@ function restOk(r, tipo) {
         };
     case "nuevoUsuario":
         {
-            displayNewAccountFinish();
+            //displayNewAccountFinish();
             break;
         };
 
@@ -506,7 +530,8 @@ function restOk(r, tipo) {
 
 // Funcion que procesa todas las respuestas invalidas de los ws y actúa según el caso
 function restError(r, tipo) {
-    console.log("fallo de ws");
+    console.log("fallo de ws, tipo "+tipo);
+    console.log(r);
     switch (tipo) {
     case "comprarCreditos":
         {
@@ -552,6 +577,12 @@ function restError(r, tipo) {
             break;
         };
     case "ubicaciones":
+        {
+            displaySinConexion(tipo);
+            break;
+        };
+            
+    case "nuevoUsuario":
         {
             displaySinConexion(tipo);
             break;

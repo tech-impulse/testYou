@@ -14,7 +14,7 @@ $Email = $_POST["Email"];
 $Password = md5($_POST["Password"]);
 $idPais = $_POST["idPais"];
 
-$sql_upd = 'INSERT INTO Usuarios (id, Nombre, Apellidos, Email, Password, idPais, AceptaPolitica, CuentaPaypal, Creditos, idImagen, activo) VALUES ( null , "' .$Nombre. '","' .$Apellidos. '","'. $Email . '","' .$Password. '", ' . $idPais . ', 1 , 0 , 0 , 1, 1);';
+$sql_upd = 'INSERT INTO Usuarios (id, Nombre, Apellidos, Email, Password, idPais, AceptaPolitica, CuentaPaypal, Creditos, idImagen, activo,bloqueado,Hash) VALUES ( null , "' .$Nombre. '","' .$Apellidos. '","'. $Email . '","' .$Password. '", ' . $idPais . ', 1 , 0 , 0 , 1, 1);';
 
 if ($resultado = mysql_query($sql_upd, $con)){
             $resultados["mensaje"] = "Usuario dado de alta correctamente " ;
@@ -33,5 +33,6 @@ mysql_close($con);
 
 $resultadosJson = json_encode($resultados);
 echo $resultadosJson;
+
  
 ?>

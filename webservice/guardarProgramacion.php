@@ -18,13 +18,13 @@ $video = mysql_real_escape_string($_GET["video"]);
 
 
 //$sql = 'SELECT * FROM Ubicaciones WHERE idClient='.$id.' AND CodigoPostal='.$cp.' ORDER BY Direccion;'; 
-$sql_sel = 'SELECT u.idImagen as idImagen, u.Creditos as Creditos, g.gcm_regid as gmc FROM Usuarios as u, gcm_users as g WHERE u.id='.$idUsuario.' AND name='.$idUsuario.';';
+$sql_sel = 'SELECT u.idImagen as idImagen, u.Creditos as Creditos FROM Usuarios as u WHERE u.id='.$idUsuario.' ;';
 	if ($resultado = mysql_query($sql_sel, $con)){
         while ($obj = mysql_fetch_object($resultado)) 
         {        	      
             $resultados["idImagen"] = $obj->idImagen;   
             $resultados["creditos"] = $obj->Creditos;
-            $resultados["gmc"] = $obj->gmc;
+            //$resultados["gmc"] = $obj->gmc;
             $nombre = $idUsuario . "." . $resultados["idImagen"];
             $resultados["idImagen"] = ($resultados["idImagen"] - 1);
             $i++;
@@ -57,8 +57,8 @@ $sql_sel = 'SELECT u.idImagen as idImagen, u.Creditos as Creditos, g.gcm_regid a
 	}
 
 mysql_close($con);
-$url="http://admin.youtter.com/webservices/notificaciones/androidPusher.php"."?regId=".$resultados["gmc"]."&message='".urlencode($resultados["mensaje"])."'";
-              exec("/usr/bin/lynx '$url' ");
+//$url="http://admin.youtter.com/webservices/notificaciones/androidPusher.php"."?regId=".$resultados["gmc"]."&message='".urlencode($resultados["mensaje"])."'";
+              //exec("/usr/bin/lynx '$url' ");
 $resultados["querySel"] = $sql_sel;
 $resultados["queryUpd"] = $sql_upd;
 

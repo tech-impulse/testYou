@@ -10,6 +10,10 @@
 
     <script src="lib/jquerymobile/jquery.mobile-1.4.4.min.js"></script>
     <script type="text/javascript" src="lib/pushNotifications.js"></script>
+    
+    <link rel="stylesheet" href="css/jquery.realperson.css"> 
+    <script type="text/javascript" src="js/jquery.plugin.js"></script> 
+    <script type="text/javascript" src="js/jquery.realperson.js"></script>
 
     <!--<script type="text/javascript" charset="utf-8" src="lib/phonegap-1.1.0.js"></script> -->
 
@@ -183,6 +187,18 @@
                     <input class="txt_textfield_in" type="password" id="inputNewAccountPass2">
                     </input>
                 </div>
+                <form action="" method="post">
+                    <label>Escriba el código:</label>
+                    <div class="ui-grid-a" theme="a">
+                        <div class="ui-block-a" style="width: 15%;">
+                            <input type="text" id="codigoCaptcha" name="codigo" style="text-align: center;font-size: large;" readonly>
+                        </div>
+                        <div class="ui-block-b" style="width: 85%;padding-left: 5%;">
+                            <input type="text" id="codigoCaptchaUser" name="codigoUser" style="font-size: large;text-align: center;">
+                        </div>
+                    </div>
+                </form>
+
                 <div theme="a" style="text-align: center" id="textNewAccount" class="txt_legal">Al hacer clic en "crear nueva cuenta" muestras tu conformidad con nuestras <a>Condiciones de Youtter</a> y aceptas haber leído nuestra <a>politica de privacidad</a>, incluida la sección sobre Uso de coockies. Es posible que recibas notificaciones SMS de Youtter que puedes desactivar en cualquier momento.
                 </div>
                 <div theme="a">
@@ -627,9 +643,15 @@
 
             <div id="nuevoAnuncio2">
                 <h3 class="ui-bar ui-bar-a div_titulo_pagina">Paso 1: Selecciona zona geográfica</h3>
-                <label id="lbnuevoAnuncio2" class="txt_centrals_sin_top">Puedes buscar pantallas por Codigo Postal, o bien seleccionado la zona donde quieres que tu anuncio aparezca, te daremos las mejores opciones según la zona geográfica seleccionada</label>
-                <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal">
-                </input>
+                <label id="lbnuevoAnuncio2" class="txt_centrals_sin_top">Puedes buscar pantallas por código postal,número de pantla, o bien seleccionado la zona donde quieres que tu anuncio aparezca, te daremos las mejores opciones según la zona geográfica seleccionada</label>
+                <fieldset id="selecBusqueda" data-role="controlgroup" data-type="horizontal">
+                    <legend>Buscar por:</legend>
+                    <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked">
+                    <label for="radio-choice-h-2a">Código postal</label>
+                    <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="off">
+                    <label for="radio-choice-h-2b">Número de pantalla</label>
+                </fieldset>
+                <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal"></input>
                 <div data-role="collapsible" id="divnuevoAnuncio2ListaPais" data-theme="b" data-content-theme="b">
                     <h5 id="txtnuevoAnuncio2Pais" class="select_zona">Seleccione un país</h5>
                     <ul data-role="listview" id="ulnuevoAnuncio2Pais" data-filter="true">
@@ -846,7 +868,9 @@
                     </label>
                 </div>
                 <form action="" id="formPicture" method="post">
-                    <input type="file" name="file" id="file">
+                    <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+                        <input type="file" name="file" id="file" >
+                    </div>
                 </form>
 
             </div>
@@ -899,9 +923,9 @@
                 <div data-role="content">
                     <br>
                     <center>
-                    <label id="sinConexionAccion" style="display:none"></label>
-                    <label style="color:black; font-size:30px">Sin conexión</label>
-                        </center>
+                        <label id="sinConexionAccion" style="display:none"></label>
+                        <label style="color:black; font-size:30px">Sin conexión</label>
+                    </center>
                     <div class="ui-grid-b">
                         <div class="ui-block-a" style="width:30%">
                         </div>

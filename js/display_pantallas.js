@@ -19,6 +19,8 @@ function ocultarElementosLogin(actual) {
 
         }
     }
+    
+    $("#codigoCaptcha").val(captcha(5));
 
 }
 

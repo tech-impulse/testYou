@@ -2,6 +2,7 @@
 PROGRAMACION DE LOS EVENTOS DE BOTONES DE LA APLICACIÓN
 */
 
+
 $(document).bind("mobileinit", function () {
 
     $.support.touchOverflow = false;
@@ -59,8 +60,9 @@ $(document).on('pageshow', '#app', function () {
 
 });
 
-$(document).on('pageinit', '#loginModule', function () {
 
+$(document).on('pageinit', '#loginModule', function () {    
+    
     if (isAndroidDevice()) {
         var element = '<script type="text/javascript" src="cordova.js"></script>';
         $('head').append(element);
@@ -397,10 +399,15 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 2 - Boton de continuar, buscara las pantallas según si se ha escrito un codigo postal o no
     $('#btnnuevoAnuncio2Disponibilidad').unbind('click').bind('click', function () {
 
+        var x = $("#selecBusqueda :radio:checked").val();// on= codigo postal off=numero de pantalla
         if ($("#inputnuevoAnuncio2").val() == "") {
             restUbicaciones();
         } else {
-            restUbicacionesPorCodigoPostal($("#inputnuevoAnuncio2").val());
+            if (x == "on") {
+                restUbicacionesPorCodigoPostal($("#inputnuevoAnuncio2").val());
+            } else {
+                restUbicacionesPorNumeroPantalla($("#inputnuevoAnuncio2").val());
+            }
         }
 
         //procesoNuevoAnuncio3();
@@ -810,3 +817,16 @@ $(document).on('pageinit', '#pagoFinalizado', function () {
 
 
 });
+
+
+/*Funcion que nos devuelve un string alfanuemrico de longitud 5*/
+function captcha(n)
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < n; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}

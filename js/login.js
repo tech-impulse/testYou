@@ -69,30 +69,35 @@ $(document).on('pageinit', '#loginModule', function () {
     //Nueva cuenta OK
     $('#btnOkNewAccount').unbind('click').bind('click', function () {
 
-        /* FALTA CODIGO */
-        if ($('#inputNewAccountPass').val() != $('#inputNewAccountPass2').val()) {
-            $("#lbPopUpLogin").text("Las contraseñas no coinciden");
-            $("#loginPopUp").popup("open");
+        if($("#codigoCaptchaUser").val() == $("#codigoCaptcha").val()){
+            /* FALTA CODIGO */
+            if ($('#inputNewAccountPass').val() != $('#inputNewAccountPass2').val()) {
+                $("#lbPopUpLogin").text("Las contraseñas no coinciden");
+                $("#loginPopUp").popup("open");
 
-        }
-        if ($('#inputNewAccountPass').val() == '') {
-            $("#lbPopUpLogin").text("Debe rellenar la contraseña");
-            $("#loginPopUp").popup("open");
-        }
-        if ($('#inputNewAccountPass').val().length < 1) {
-            $('#inputNewAccountPass').val("El password debe ser de 8 caracteres");
-        } else {
-            if (isValidEmailAddress($('#inputNewAccountEmail').val())) {
-                if ($('#inputNewAccountNombre').val() != '' && $('#inputNewAccountApellidos').val() != '') {
-                    restNuevoUsuario();
-                } else {
-                    $("#lbPopUpLogin").text("Rellene su nombre y apellido");
-                    $("#loginPopUp").popup("open");
-                }
-            } else {
-                $("#lbPopUpLogin").text("El email no tiene un formato correcto");
+            }
+            if ($('#inputNewAccountPass').val() == '') {
+                $("#lbPopUpLogin").text("Debe rellenar la contraseña");
                 $("#loginPopUp").popup("open");
             }
+            if ($('#inputNewAccountPass').val().length < 1) {
+                $('#inputNewAccountPass').val("El password debe ser de 8 caracteres");
+            } else {
+                if (isValidEmailAddress($('#inputNewAccountEmail').val())) {
+                    if ($('#inputNewAccountNombre').val() != '' && $('#inputNewAccountApellidos').val() != '') {
+                        restNuevoUsuario();
+                    } else {
+                        $("#lbPopUpLogin").text("Rellene su nombre y apellido");
+                        $("#loginPopUp").popup("open");
+                    }
+                } else {
+                    $("#lbPopUpLogin").text("El email no tiene un formato correcto");
+                    $("#loginPopUp").popup("open");
+                }
+            }
+        }else{
+            $("#lbPopUpLogin").text("Escriba el codigo bien");
+            $("#loginPopUp").popup("open");
         }
     });
 
