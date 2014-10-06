@@ -487,7 +487,9 @@ function restOk(r, tipo) {
         };
     case "nuevoUsuario":
         {
-            //displayNewAccountFinish();
+            //notificacion(r.mensaje);
+            $("#lbPopUpLogin").text(r.mensaje);
+            $("#loginPopUp").popup("open");
             break;
         };
 
@@ -584,7 +586,7 @@ function restError(r, tipo) {
             
     case "nuevoUsuario":
         {
-            displaySinConexion(tipo);
+            notificacion(r);
             break;
         };
     default:

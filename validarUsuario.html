@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YOUTTER</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=0.5, width=device-width, height=device-height" charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/themes/youtter1.min.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="lib/jquery/jw-jqm-cal.css" />
+    <link rel="stylesheet" href="css/css.css" />
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+    <script src="js/parametros.js"></script>
+    <script src="js/reestablecer.js"></script>
+    <script src="js/restJSON.js"></script>
+    <script src="js/procesos.js"></script>
+    <script src="js/app.js"></script>
+
+
+</head>
+
+
+<body class="body">
+
+    <div data-role="page" id="reestablecer" data-title="Validación de usuario">
+
+        <div data-role="content">
+            <br><br><br><br><br><br><br><br><br>
+            <div id="inicio" class="k-content">
+                <!--<div data-role="header" class="cabecera">
+                    <div id="tituloNewAccount">Validación de su cuenta:</div>
+                </div>-->
+                <!--<h2>Introduce tu contraseña</h2>
+                <div theme="a">
+                    <label>Contraseña</label>
+                    <input type="password" class="txt_textfield_in" onclick="this.value='';" type="text" id="password1">
+                    </input>
+                    <label>Repite la contraseña</label>
+                    <input type="password" class="txt_textfield_in" onclick="this.value='';" type="text" id="password2">
+                    </input>
+                </div>
+                <div theme="a">
+                    <button type="button" data-role="button" id="validarPassword" data-theme="a" class="btn_blue">
+                        Aceptar
+                    </button>
+                </div>
+                <div theme="a" style="text-align: center">
+                    <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
+                </div>
+            </div>-->
+
+            <!-- Finalizar reset contraseña -->
+            <div id="fin" class="k-content">
+                <div theme="a" style="text-align: center">
+                    <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER" style="width:300px"></img>
+                </div>
+                <center>
+                <div theme="a" id="textNewAccountFinish" class="txt_centrals" >¡Enhorabuena!
+                    <br>¡Ya puedes acceder son su cuenta a la aplicación de Youtter!.
+                </div>
+                </center>
+                <div theme="a" style="text-align: -webkit-center;">
+                    <a href="http://www.youtter.com" style="border:none;color:#0084b4;text-decoration:none;color:#30368b;font-size:13px;font-weight:bold;font-family:Helvetica Neue,Helvetica,Arial,sans-serif" target="_blank">www.youtter.com</a>
+                    <!--<button type="button" data-role="button" id="visita" data-theme="a" class="btn_blue">Visita nuestra web
+                    </button>-->
+                </div>
+                <div theme="a" style="text-align: center">
+                    <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
+                </div>
+            </div>
+
+            <!--<div id="email" class="k-content">
+                <div data-role="header" class="cabecera">
+                    <div>Reestablecer contraseña</div>
+                </div>
+                <div class="txt_centrals" theme="a">Introduce tu nombre de usuario y te enviaremos las instrucciones para reestablecer tu contraseña al correo que nos facilitaste al crear tu cuenta.
+                </div>
+                <div theme="a">
+                    <input class="txt_textfield_in" type="text" id="inputEmail" onclick="this.value='';" value="Usuario">
+                    </input>
+                </div>
+                <div theme="a">
+                    <button type="button" data-role="button" id="validarEmail" data-theme="a" class="btn_gradient">
+                        Reestablecer contraseña
+                    </button>
+                </div>
+                <div theme="a" style="text-align: center">
+                    <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
+                </div>
+            </div>
+
+            <div id="fin2" class="k-content">
+                <div theme="a" style="text-align: center">
+                    <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER"></img>
+                </div>
+                <div theme="a" id="textResetPasswordFinish" class="txt_centrals">¡Enlace de restablecimiento de contraseña enviado!
+                    <br>Youtter te ha enviado a tu correo electronico un enlace para reestablecer tu contraseña.
+                    <br>Revisa tu correo y sigue las instrucciones.
+                </div>
+                <div theme="a" style="text-align: center">
+                    <img class="btn_web_youtter" src="./js/images/btn_web_youtter.png" alt="logo mini YOUTTER"></img>
+                </div>
+            </div>
+
+        </div>
+
+        <div data-role="popup" id="loginPopUp" class="" style="width:21em;" data-overlay-theme="a" data-transition="slidefade" data-theme="a">
+            <div data-role="header" style="text-align: center" class="cabecera">
+                <div id="tituloPopUpLogin">
+                    <h2>Error</h2>
+                </div>
+            </div>
+            <div data-role="content">
+                <div>
+                    <label id="lbPopUpLogin" class="txt_centrals_popup">Texto Generico</label>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn_blue" id="btnPopUpLogin" data-theme="a">Aceptar</button>
+            </div>
+        </div>-->
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

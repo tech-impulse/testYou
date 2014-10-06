@@ -66,40 +66,40 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
 
-    //Nueva cuenta OK
-    $('#btnOkNewAccount').unbind('click').bind('click', function () {
+//Nueva cuenta OK
+$('#btnOkNewAccount').unbind('click').bind('click', function () {
 
-        if($("#codigoCaptchaUser").val() == $("#codigoCaptcha").val()){
+        if ($("#codigoCaptchaUser").val() == $("#codigoCaptcha").val() && $("#aceptarPoliticas").is(':checked') == true) {
             /* FALTA CODIGO */
-            if ($('#inputNewAccountPass').val() != $('#inputNewAccountPass2').val()) {
+            if ($('#inputNewAccountPass').val() == $('#inputNewAccountPass2').val()) {
+                
+                    if ($('#inputNewAccountPass').val().length < 8) {
+                        $("#lbPopUpLogin").text("El password debe tener mínimo de 8 caracteres");
+                        $("#loginPopUp").popup("open");
+                    } else {
+                        if (isValidEmailAddress($('#inputNewAccountEmail').val())) {
+                            if ($('#inputNewAccountNombre').val() != '' && $('#inputNewAccountApellidos').val() != '') {
+                                restNuevoUsuario();
+                            } else {
+                                $("#lbPopUpLogin").text("Rellene su nombre y apellido");
+                                $("#loginPopUp").popup("open");
+                            }
+                        } else {
+                            $("#lbPopUpLogin").text("El email no tiene un formato correcto");
+                            $("#loginPopUp").popup("open");
+                        }
+                    }
+                
+            } else {
                 $("#lbPopUpLogin").text("Las contraseñas no coinciden");
                 $("#loginPopUp").popup("open");
+            }
 
-            }
-            if ($('#inputNewAccountPass').val() == '') {
-                $("#lbPopUpLogin").text("Debe rellenar la contraseña");
-                $("#loginPopUp").popup("open");
-            }
-            if ($('#inputNewAccountPass').val().length < 1) {
-                $('#inputNewAccountPass').val("El password debe ser de 8 caracteres");
-            } else {
-                if (isValidEmailAddress($('#inputNewAccountEmail').val())) {
-                    if ($('#inputNewAccountNombre').val() != '' && $('#inputNewAccountApellidos').val() != '') {
-                        restNuevoUsuario();
-                    } else {
-                        $("#lbPopUpLogin").text("Rellene su nombre y apellido");
-                        $("#loginPopUp").popup("open");
-                    }
-                } else {
-                    $("#lbPopUpLogin").text("El email no tiene un formato correcto");
-                    $("#loginPopUp").popup("open");
-                }
-            }
-        }else{
-            $("#lbPopUpLogin").text("Escriba el codigo bien");
+        } else {
+            $("#lbPopUpLogin").text("Escriba el código corectamente y/o acepte las políticas para poder validar la cuenta");
             $("#loginPopUp").popup("open");
         }
-    });
+});
 
 
     //Nueva cuenta Cancel
