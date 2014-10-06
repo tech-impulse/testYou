@@ -106,6 +106,7 @@ $('#btnOkNewAccount').unbind('click').bind('click', function () {
     $('#btnCancelNewAccount').unbind('click').bind('click', function () {
 
         displayMainLogin();
+        limpiarPantallaNuevoUusario();
 
     });
 

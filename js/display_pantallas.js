@@ -396,3 +396,15 @@ function displaySelector(opcion) {
         };
     }
 }
+
+function limpiarPantallaNuevoUusario(){
+
+    $('#inputNewAccountNombre').val("");
+    $('#inputNewAccountApellidos').val("");
+    $('#inputNewAccountEmail').val("");
+    $('#inputNewAccountPass').val("");
+    $('#inputNewAccountPass2').val("");
+    $('#codigoCaptchaUser').val("");
+    $('#aceptarPoliticas').prop( "checked", false );
+
+}

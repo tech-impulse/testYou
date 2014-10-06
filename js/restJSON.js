@@ -487,10 +487,18 @@ function restOk(r, tipo) {
         };
     case "nuevoUsuario":
         {
-            //notificacion(r.mensaje);
+            if(r.mensaje=="Usuario dado de alta correctamente"){
+                $('#mainLogin').show();
+                $("#newAccount").hide();
+                $("#lbPopUpLogin").text(r.mensaje);
+                $("#loginPopUp").popup("open");
+                $("#inputLoginUsername").val($('#inputNewAccountEmail').val());
+                limpiarPantallaNuevoUusario();
+            }else{
             $("#lbPopUpLogin").text(r.mensaje);
             $("#loginPopUp").popup("open");
             break;
+            }
         };
 
     case "packs":
