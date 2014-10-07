@@ -653,7 +653,7 @@ $(document).on('pageinit', '#loginModule', function () {
             // Caso en que en el popup de seleccion de Horario o Ahora escojas AHORA!
         case "horario":
             {
-                displaySeleccion("ahora");
+                displaySeleccion("ahora");//free
                 break;
             };
             // Caso en que en el popup que emerje tras haber subido la imagen y guardado la programación escojas Volvér al Menú

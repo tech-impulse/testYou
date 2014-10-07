@@ -238,7 +238,7 @@ function restSubirImagen() {
 function restGuardarProgramacion(r) {
     //var re = /(?:\.([^.]+))?$/;
     //var ext = re.exec($("#file").val())[1];
-    console.log("Guardar Programacion");
+    console.log("Guardar Programacion + "+calendario);
     console.log(r);
     var obj = JSON.parse(r);
     var video = obj.video;

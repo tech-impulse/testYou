@@ -342,7 +342,7 @@ function procesoNuevoAnuncio9() {
 
 function procesoNuevoAnuncio10() {
     //displayMainMenu();
-    if (usuarioBloqueado == 0) {
+    if (usuarioBloqueado == 0 && calendario == true) {
         if (creditos / 10 <= creditosDisponibles) {
             if (JsonAnuncio.length > 0) {
                 if (JsonAnuncio[posicion].relanzar == 1) {
@@ -353,11 +353,21 @@ function procesoNuevoAnuncio10() {
                 //notificacion("Publicando tu anuncio!");
                 restSubirImagen();
             }
-        } else {
+        }else {
             notificacion("No dispones de creditos suficientes");
             //abrirPopupAviso("No dispones de creditos suficientes");
         }
-    } else {
+    } else if(usuarioBloqueado == 0 && calendario == false){
+        if (JsonAnuncio.length > 0) {
+                if (JsonAnuncio[posicion].relanzar == 1) {
+
+                    restRelanzarAnuncio();
+                }
+            } else {
+                //notificacion("Publicando tu anuncio!");
+                restSubirImagen();
+            }
+    }else {
         notificacion("Tu cuenta está temporalmente bloqueada");
         //abrirPopupAviso("Tu cuenta está temporalmente bloqueada");
     }
