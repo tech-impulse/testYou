@@ -372,9 +372,8 @@ function procesoNuevoAnuncio10() {
 
 function mostrarPaquetesCreditos() {
 
-
     $("#divcreditosPaquetesPaypal").hide();
-    var listaPaquetes = {
+    /*var listaPaquetes = {
         "paquetes": [
             {
                 "id": "1",
@@ -397,7 +396,9 @@ function mostrarPaquetesCreditos() {
                 "precio": "600.00"
         }
     ]
-    };
+    };*/
+    
+    
     var j = 1;
     var div1 = "#div1-" + j;
     var div2 = "#div2-" + 1;

@@ -669,6 +669,24 @@ function solicitarPassword(email) {
 
 }
 
+// Solicita un password al ws y esté le envía un email con instrucciones al usuario para que pueda reestablecerlo
+function precioCreditos() {
+
+    peticionActual = $.ajax({
+        data: datos,
+        url: url + 'preciosCreditos.php',
+        dataType: 'json',
+        type: 'GET',
+        success: function (response) {
+            
+        },
+        error: function (response) {
+            restError(response, "resetPassword");
+        },
+    });
+
+}
+
 // FUNCION DE TEST DE PAYPAL (DESECHADAS)
 /*
 function paypal() {

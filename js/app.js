@@ -522,8 +522,8 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 7 - Boton para subir la imagen, simplemente carga la imagen en memoria para posteriormente poder enviarla al FTP
     $('#btnnuevoAnuncio7Subir').unbind('click').bind('click', function () {
-
-        $("form#formPicture").submit();
+        
+        $("form#formPicture").submit();        
     });
 
     //Crear anuncio 7- Evento para enviar el formulario con la imagen
@@ -771,8 +771,9 @@ $(document).on('pageinit', '#reestablecer', function () {
         window.location = "http://www.youtter.com/"
     });
 
-});
+    });
 
+   
 // MODULO DE PAGO POR PAYPAL REALIZADO HTML INDEPENDIENTE pago.html
 
 $(document).on('pageinit', '#pagoFinalizado', function () {
