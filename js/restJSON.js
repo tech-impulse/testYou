@@ -490,7 +490,7 @@ function restOk(r, tipo) {
             if(r.mensaje=="Usuario dado de alta correctamente"){
                 $('#mainLogin').show();
                 $("#newAccount").hide();
-                $("#lbPopUpLogin").text(r.mensaje);
+                $("#lbPopUpLogin").text(r.mensaje+".<br /> Mire su email para validar su cuenta.");
                 $("#loginPopUp").popup("open");
                 $("#inputLoginUsername").val($('#inputNewAccountEmail').val());
                 limpiarPantallaNuevoUusario();
