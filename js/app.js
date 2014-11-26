@@ -553,7 +553,6 @@ $(document).on('pageinit', '#loginModule', function () {
                 notificacion("El achivo no puede superar los 128Mb!");
                 $("#btnnuevoAnuncio7Subir").hide();
                 $("#file").val("");
-
             } else {
                 $("#btnnuevoAnuncio7Subir").show();
             }

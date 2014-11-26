@@ -44,7 +44,7 @@ $idNuevaImagen = $resultados["idImagen"]+1;
 
 
 
- file_put_contents ($dir.'/test.txt', 'Hello File');
+file_put_contents ($dir.'/test.txt', 'Hello File');
 $allowedExtsImg = array("jpg", "jpeg", "gif", "png", "bmp", "JPG", "JPEG", "GIF", "PNG", "BMP");
 $allowedExtsVid = array("mp4", "wma", "mpg", "mpeg", "avi", "mov","MP4", "WMA", "MPG", "MPEG", "AVI", "MOV");
 $temp = explode(".", $_FILES["file"]["name"]);
