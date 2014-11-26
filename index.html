@@ -10,9 +10,9 @@
 
     <script src="lib/jquerymobile/jquery.mobile-1.4.4.min.js"></script>
     <script type="text/javascript" src="lib/pushNotifications.js"></script>
-    
-    <link rel="stylesheet" href="css/jquery.realperson.css"> 
-    <script type="text/javascript" src="js/jquery.plugin.js"></script> 
+
+    <link rel="stylesheet" href="css/jquery.realperson.css">
+    <script type="text/javascript" src="js/jquery.plugin.js"></script>
     <script type="text/javascript" src="js/jquery.realperson.js"></script>
 
     <!--<script type="text/javascript" charset="utf-8" src="lib/phonegap-1.1.0.js"></script> -->
@@ -82,7 +82,7 @@
                     <img class="logo_youtter" src="./js/images/logo_youtter.png" alt="logo YOUTTER"></img>
                 </div>
                 <div theme="a">
-                    <input class="txt_textfield_in" type="text" id="inputLoginUsername"  placeholder="Email">
+                    <input class="txt_textfield_in" type="text" id="inputLoginUsername" placeholder="Email">
                     </input>
                 </div>
                 <div theme="a">
@@ -650,13 +650,15 @@
             <div id="nuevoAnuncio2">
                 <h3 class="ui-bar ui-bar-a div_titulo_pagina">Paso 1: Selecciona zona geográfica</h3>
                 <label id="lbnuevoAnuncio2" class="txt_centrals_sin_top">Puedes buscar pantallas por código postal,número de pantla, o bien seleccionado la zona donde quieres que tu anuncio aparezca, te daremos las mejores opciones según la zona geográfica seleccionada</label>
-                <fieldset id="selecBusqueda" data-role="controlgroup" data-type="horizontal">
-                    <legend>Buscar por:</legend>
-                    <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked">
-                    <label for="radio-choice-h-2a">Código postal</label>
-                    <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="off">
-                    <label for="radio-choice-h-2b">Número de pantalla</label>
-                </fieldset>
+                <center>
+                    <fieldset id="selecBusqueda" data-role="controlgroup" data-type="horizontal">
+                        <legend>Buscar por:</legend>
+                        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="cp" checked="checked">
+                        <label for="radio-choice-h-2a">Código postal</label>
+                        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="num">
+                        <label for="radio-choice-h-2b">Número de pantalla</label>
+                    </fieldset>
+                </center>
                 <input class="txt_textfield_in" type="number" id="inputnuevoAnuncio2" onclick="this.value='';" value="Codigo Postal"></input>
                 <div data-role="collapsible" id="divnuevoAnuncio2ListaPais" data-theme="b" data-content-theme="b">
                     <h5 id="txtnuevoAnuncio2Pais" class="select_zona">Seleccione un país</h5>
@@ -1030,7 +1032,8 @@
                 <button class="btn_blue" id="btnnuevoAnuncio8Previa" data-icon="eye" data-iconpos="right">Vista Previa</button>
             </div>
             <div id="footernuevoAnuncio9" class="footer">
-                <input type="text" class="txt_textfield_in" id="textImagen" placeholder="Escriba el texto que quiere que aparezca con su imagen" style="display:none;"> <!-- Campo para rellenar el texto que se publicara-->
+                <input type="text" class="txt_textfield_in" id="textImagen" placeholder="Escriba el texto que quiere que aparezca con su imagen" style="display:none;">
+                <!-- Campo para rellenar el texto que se publicara-->
                 <button class="btn_blue" style="padding:10px" id="btnnuevoAnuncio9Cambiar" data-icon="recycle" data-iconpos="right">Cambiar mi imagen
                 </button>
                 <button class="btn_blue" id="btnnuevoAnuncio9Proceder" data-icon="shop" data-iconpos="right">Publicar Anuncio
