@@ -1,7 +1,7 @@
 var SECCIONES_LOGIN = new Array('mainLogin', 'resetPassword', 'resetPasswordFinish', 'newAccount', 'newAccountFinish');
 
 // Si se crea una nueva sección, hay que añadir en este array el nombre del div principal, tal y como están los demás
-var SECCIONES_APP = new Array('mainMenu', 'miCuenta', 'creditosMain', 'misAnuncios', 'anunciosMain', 'estadisticas', 'nuevoAnuncio', 'condicionesIpoliticas', 'informeProblema', 'creditosHistorico', 'creditosPaquetes', 'nuevoAnuncio1', 'nuevoAnuncio2', 'nuevoAnuncio3', 'nuevoAnuncio4', 'nuevoAnuncio5', 'nuevoAnuncio5-1', 'nuevoAnuncio6', 'nuevoAnuncio7', 'nuevoAnuncio8', 'nuevoAnuncio9', 'nuevoAnuncio10', 'sinConexion');
+var SECCIONES_APP = new Array('mainMenu', 'miCuenta', 'creditosMain', 'misAnuncios', 'anunciosMain', 'estadisticas', 'nuevoAnuncio', 'condicionesIpoliticas', 'informeProblema', 'creditosHistorico', 'creditosPaquetes', 'nuevoAnuncio1', 'nuevoAnuncio2', 'nuevoAnuncio3', 'nuevoAnuncio4', 'nuevoAnuncio5', 'nuevoAnuncio5-1', 'nuevoAnuncio6', 'nuevoAnuncio7', 'nuevoAnuncio8', 'nuevoAnuncio9', 'nuevoAnuncio10', 'sinConexion', 'detallePantalla');
 
 /*
 Desactiva todas las secciones del modulo y activa la actual.
@@ -19,7 +19,7 @@ function ocultarElementosLogin(actual) {
 
         }
     }
-    
+
     $("#codigoCaptcha").val(captcha(5));
 
 }
@@ -219,6 +219,21 @@ function displayNuevoAnuncio2() {
 
     pantallaApp = p;
 
+    if ($("#selecBusqueda :radio:checked").val() == "cer") {
+        $("#divnuevoAnuncio2").hide();
+        $("#inputnuevoAnuncio2").hide();
+    }
+    if ($("#selecBusqueda :radio:checked").val() == "zon") {
+        $("#divnuevoAnuncio2").show();
+
+
+    }
+    if ($("#selecBusqueda :radio:checked").val() == "num") {
+        $("#divnuevoAnuncio2").hide();
+        $("#inputnuevoAnuncio2").show();
+    }
+
+
     ocultarElementosApp(p);
 
 }
@@ -254,6 +269,17 @@ function displayNuevoAnuncio5() {
     ocultarElementosApp(p);
 
 }
+
+// Muestra el mapa de la ubicacion de la pantalla seleccionada
+function displayDetallePantalla() {
+    var p = "detallePantalla";
+
+    pantallaApp = p;
+
+    ocultarElementosApp(p);
+
+}
+
 
 // Muestra el mapa con las pantallas cercanas a ti
 function displayNuevoAnuncio5_1() {
@@ -397,7 +423,7 @@ function displaySelector(opcion) {
     }
 }
 
-function limpiarPantallaNuevoUusario(){
+function limpiarPantallaNuevoUusario() {
 
     $('#inputNewAccountNombre').val("");
     $('#inputNewAccountApellidos').val("");
@@ -405,6 +431,6 @@ function limpiarPantallaNuevoUusario(){
     $('#inputNewAccountPass').val("");
     $('#inputNewAccountPass2').val("");
     $('#codigoCaptchaUser').val("");
-    $('#aceptarPoliticas').prop( "checked", false );
+    $('#aceptarPoliticas').prop("checked", false);
 
 }

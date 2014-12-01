@@ -30,7 +30,7 @@ $(document).ajaxStart(function () {
             text: 'Espere por favor...',
             textVisible: true,
             theme: 'a',
-            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /><h2><br>Publicando anuncio!</h2></span>"
+            html: "<span class='ui-bar ui-overlay-c ui-corner-all'><img src='lib/jquerymobile/images/ajax-loader.gif' /><h2><br>Youtteando...</h2></span>"
 
         });
         $("#footer_comun").show();
@@ -61,8 +61,8 @@ $(document).on('pageshow', '#app', function () {
 });
 
 
-$(document).on('pageinit', '#loginModule', function () {    
-    
+$(document).on('pageinit', '#loginModule', function () {
+
     if (isAndroidDevice()) {
         var element = '<script type="text/javascript" src="cordova.js"></script>';
         $('head').append(element);
@@ -272,8 +272,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Creditos Principal - Mostrar pantalla con paquetes de creditos
     $('#btnCreditosMainComprar').unbind('click').bind('click', function () {
-        displayCreditosPaquetes();
-        mostrarPaquetesCreditos();
+        restPreciosPaquetes();
     });
 
 
@@ -399,15 +398,19 @@ $(document).on('pageinit', '#loginModule', function () {
     //Crear anuncio 2 - Boton de continuar, buscara las pantallas según si se ha escrito un codigo postal o no
     $('#btnnuevoAnuncio2Disponibilidad').unbind('click').bind('click', function () {
 
-        var x = $("#selecBusqueda :radio:checked").val();// on= codigo postal off=numero de pantalla
-        if ($("#inputnuevoAnuncio2").val() == "") {
-            restUbicaciones();
-        } else {
-            if (x == "on") {
-                restUbicacionesPorCodigoPostal($("#inputnuevoAnuncio2").val());
+
+        if ($("#selecBusqueda :radio:checked").val() == "cer") {
+            restGeolocalizacion();
+        }
+        if ($("#selecBusqueda :radio:checked").val() == "zon") {
+            if ($("#inputnuevoAnuncio2").val() == "") {
+                restUbicaciones();
             } else {
-                restUbicacionesPorNumeroPantalla($("#inputnuevoAnuncio2").val());
+                restUbicacionesPorCodigoPostal(CodigoPostal);
             }
+        }
+        if ($("#selecBusqueda :radio:checked").val() == "num") {
+            restUbicacionesPorNumeroPantalla($("#inputnuevoAnuncio2").val());
         }
 
         //procesoNuevoAnuncio3();
@@ -415,13 +418,28 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
 
-    //Crear anuncio 2 - Boton De localización --> Mostrara el mapa con las pantallas mas cercanas
-    $('#btnnuevoAnuncio2Cerca').unbind('click').bind('click', function () {
-        //$.mobile.loading('show');
-        restGeolocalizacion();
+    //Crear anuncio 2 - Botón de seleccionar por cerca de mi
+    $('#innuevoAnuncio2Cerca').unbind('click').bind('click', function () {
+        $("#divnuevoAnuncio2").hide();
+        $("#inputnuevoAnuncio2").hide();
 
     });
 
+    //Crear anuncio 2 - Botón de seleccionar por Zona 
+    $('#innuevoAnuncio2Zona').unbind('click').bind('click', function () {
+        $("#divnuevoAnuncio2").show();
+        $("#inputnuevoAnuncio2").hide();
+        $("#inputnuevoAnuncio2").val("");
+
+    });
+
+    //Crear anuncio 2 - Botón de seleccionar por Numero de pantalla
+    $('#innuevoAnuncio2Numero').unbind('click').bind('click', function () {
+        $("#divnuevoAnuncio2").hide();
+        $("#inputnuevoAnuncio2").show();
+        $("#inputnuevoAnuncio2").val("");
+
+    });
 
     //Crear anuncio 2 - Boton Cancelar
     $('#btnnuevoAnuncio2Cancelar').unbind('click').bind('click', function () {
@@ -522,8 +540,8 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 7 - Boton para subir la imagen, simplemente carga la imagen en memoria para posteriormente poder enviarla al FTP
     $('#btnnuevoAnuncio7Subir').unbind('click').bind('click', function () {
-        
-        $("form#formPicture").submit();        
+
+        $("form#formPicture").submit();
     });
 
     //Crear anuncio 7- Evento para enviar el formulario con la imagen
@@ -652,7 +670,7 @@ $(document).on('pageinit', '#loginModule', function () {
             // Caso en que en el popup de seleccion de Horario o Ahora escojas AHORA!
         case "horario":
             {
-                displaySeleccion("ahora");//free
+                displaySeleccion("ahora"); //free
                 break;
             };
             // Caso en que en el popup que emerje tras haber subido la imagen y guardado la programación escojas Volvér al Menú
@@ -770,9 +788,9 @@ $(document).on('pageinit', '#reestablecer', function () {
         window.location = "http://www.youtter.com/"
     });
 
-    });
+});
 
-   
+
 // MODULO DE PAGO POR PAYPAL REALIZADO HTML INDEPENDIENTE pago.html
 
 $(document).on('pageinit', '#pagoFinalizado', function () {
@@ -820,12 +838,11 @@ $(document).on('pageinit', '#pagoFinalizado', function () {
 
 
 /*Funcion que nos devuelve un string alfanuemrico de longitud 5*/
-function captcha(n)
-{
+function captcha(n) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    for( var i=0; i < n; i++ )
+    for (var i = 0; i < n; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length));
 
     return text;

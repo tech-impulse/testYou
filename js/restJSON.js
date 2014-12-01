@@ -1,4 +1,3 @@
-
 // Descargamos todas las ubicaciones de pantallas disponibles
 function restUbicaciones() {
 
@@ -15,6 +14,21 @@ function restUbicaciones() {
         },
         error: function (response) {
             restError(response, "ubicaciones");
+        },
+    });
+}
+
+// Descargamos la lista de paquetes de creditos para poder comprar
+function restPreciosPaquetes() {
+
+    peticionActual = $.ajax({
+        url: url + 'preciosCreditos.php',
+        dataType: 'json',
+        success: function (response) {
+            restOk(response, "preciosCreditos");
+        },
+        error: function (response) {
+            restError(response, "preciosCreditos");
         },
     });
 }
@@ -119,7 +133,7 @@ function restUbicacionesPorNumeroPantalla(num) {
         url: url + 'ubicacionesNumPantalla.php',
         dataType: 'json',
         success: function (response) {
-            restOk(response, "ubicacionesCP");//utilizamos el mismo caso porque la informacion obtenida sera la misma
+            restOk(response, "ubicacionesCP"); //utilizamos el mismo caso porque la informacion obtenida sera la misma
         },
         error: function (response) {
             restError(response, "ubicacionesCP");
@@ -238,7 +252,7 @@ function restSubirImagen() {
 function restGuardarProgramacion(r) {
     //var re = /(?:\.([^.]+))?$/;
     //var ext = re.exec($("#file").val())[1];
-    console.log("Guardar Programacion + "+calendario);
+    console.log("Guardar Programacion + " + calendario);
     console.log(r);
     var obj = JSON.parse(r);
     var video = obj.video;
@@ -338,7 +352,7 @@ function restNuevoUsuario() {
 
     peticionActual = $.ajax({
         data: datos,
-        url: url + 'nuevoUsuarioTest.php',  //---> WS correcto es nuevoUsuario.php 
+        url: url + 'nuevoUsuarioTest.php', //---> WS correcto es nuevoUsuario.php 
         dataType: 'json',
         type: 'POST',
         success: function (response) {
@@ -487,17 +501,17 @@ function restOk(r, tipo) {
         };
     case "nuevoUsuario":
         {
-            if(r.mensaje=="Usuario dado de alta correctamente"){
+            if (r.mensaje == "Usuario dado de alta correctamente") {
                 $('#mainLogin').show();
                 $("#newAccount").hide();
-                $("#lbPopUpLogin").text(r.mensaje+".<br /> Mire su email para validar su cuenta.");
+                $("#lbPopUpLogin").text(r.mensaje + ".<br /> Mire su email para validar su cuenta.");
                 $("#loginPopUp").popup("open");
                 $("#inputLoginUsername").val($('#inputNewAccountEmail').val());
                 limpiarPantallaNuevoUusario();
-            }else{
-            $("#lbPopUpLogin").text(r.mensaje);
-            $("#loginPopUp").popup("open");
-            break;
+            } else {
+                $("#lbPopUpLogin").text(r.mensaje);
+                $("#loginPopUp").popup("open");
+                break;
             }
         };
 
@@ -534,13 +548,20 @@ function restOk(r, tipo) {
             }
             break;
         };
+    case "preciosCreditos":
+        {
+            displayCreditosPaquetes();
+            mostrarPaquetesCreditos(r);
+
+            break;
+        };
 
     }
 }
 
 // Funcion que procesa todas las respuestas invalidas de los ws y actúa según el caso
 function restError(r, tipo) {
-    console.log("fallo de ws, tipo "+tipo);
+    console.log("fallo de ws, tipo " + tipo);
     console.log(r);
     switch (tipo) {
     case "comprarCreditos":
@@ -591,12 +612,17 @@ function restError(r, tipo) {
             displaySinConexion(tipo);
             break;
         };
-            
+
     case "nuevoUsuario":
         {
             notificacion(r);
             break;
         };
+    case "preciosCreditos":
+        {
+            notificacion(r);
+            break;
+        }
     default:
         notificacion("Intentelo de nuevo");
         break;
@@ -678,7 +704,7 @@ function precioCreditos() {
         dataType: 'json',
         type: 'GET',
         success: function (response) {
-            
+
         },
         error: function (response) {
             restError(response, "resetPassword");

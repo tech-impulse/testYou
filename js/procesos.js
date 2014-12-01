@@ -66,7 +66,7 @@ function cerrarListaProvincia(posicion, cp) {
 
 //Crear anuncio 3- Recarga la lista de Pantalla según la localización seleccionada previamente (Paso 2)
 
-
+// SUBSTITUIR
 function procesoNuevoAnuncio3(listaLocalizaciones) {
 
     JsonCalle = [];
@@ -81,14 +81,19 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
         var j = 0;
         for (var key in localizacion) {
             var codigoPostal = key;
+            /*
             $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold"> Código Postal: <label style="display:inline" id="lbnuevoAnuncio3Codigo' + i + '">' + codigoPostal + '</label></li>');
+            */
             for (var key in localizacion[codigoPostal]) {
                 var calle = localizacion[codigoPostal][key];
                 JsonCalle.push(calle);
                 if (calle.distancia != "") {
                     $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", a ~ " + parseInt(calle.distancia * 1000) + ' m </a></li>');
                 } else {
+                    $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + calle.numeroPantalla + " - " + calle.descripPantalla + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="js/images/ic_launcher.png"></div><div class="ui-block-b" style="width:40%; text-align: left"><p>' + calle.Direccion + '</p><p></p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio5(' + j + ');">Ver mapa</button><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio4(' + j + ');">Seleccionar</button></div></div></li>');
+                    /*
                     $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", " + calle.Poblacion + '</a></li>');
+                    */
                 }
                 j++;
             }
@@ -96,9 +101,40 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
 
     }
 
-
-
     $("#ulnuevoAnuncio3").listview('refresh');
+
+    //---------------
+    /*
+        JsonCalle = [];
+    posicionPagina = 0;
+
+    $("#ulnuevoAnuncio3").empty();
+
+    $("#ulnuevoAnuncio3").listview();
+
+
+        for (var j = 0; j < listaLocalizaciones.localizaciones.length; j++) {
+            var lista = listaLocalizaciones.localizaciones[j];
+            $("#spanPaginaActual").text("1-" + Math.ceil(lista.anuncios.length / paginasPorPantalla));
+            for (var j = 0; j < lista.anuncios.length; j++) {
+                var objeto = lista.anuncios[j];
+                console.log(objeto);
+                objeto["relanzar"] = 1;
+                JsonCalle.push(objeto);
+                if (j < paginasPorPantalla) {
+                    $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + (lista.anuncios.length - j) + "- " + objeto.Direccion + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="' + objeto.urlImagen + '"></div><div class="ui-block-b" style="width:40%; text-align: left"><p> Emitido: ' + objeto.Fecha + '</p><p> Tipo: ' + objeto.Tipo + '</p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="relanzarAnuncio(' + j + ')">Relanzar</button></div></div></li>');
+                }
+            }
+
+        }
+
+        $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold"><div class="ui-grid-b"><div onClick="paginarAtras()" class="ui-block-a" style="width:10%"><span><a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-corner-all"></a></div><div class="ui-block-b" style="width:78%; text-align:center; margin-top:10px"><span id="spanPaginaActual">1-' + Math.ceil(JsonCalle.length / paginasPorPantalla) + '</span></div><div onClick="paginarAdelante()" class="ui-block-c" style="width:12%"><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-corner-all"></a></div></div></li>');
+
+        $("#ulnuevoAnuncio3").listview('refresh');
+
+    */
+
+    //------------------
 }
 
 //Muestra todas las recargas y pagos de creditos
@@ -197,7 +233,20 @@ function procesoNuevoAnuncio4(pos) {
 
 //Crear anuncio 5- Muestra el mapa con la localización de la pantalla
 
-function procesoNuevoAnuncio5() {
+function procesoNuevoAnuncio5(pos) {
+
+    if (pos != undefined) {
+        posicion = pos;
+        displayDetallePantalla();
+        $("#lbdetallePantallaDescripcion").text(JsonCalle[posicion].numeroPantalla + " - " + JsonCalle[posicion].descripPantalla);
+        $("#lbdetallePantallaCalle").text(JsonCalle[posicion].Direccion);
+        $("#lbdetallePantallaPoblacion").text(JsonCalle[posicion].CodigoPostal + ", " + JsonCalle[posicion].Poblacion);
+        $("#lbdetallePantallaTipo").text(JsonCalle[posicion].Descripcion);
+        $("#lbdetallePantallaHorario").text("De " + JsonCalle[posicion].HorarioDesde + "h a " + JsonCalle[posicion].HorarioHasta + "h");
+        var img = document.getElementById('imgdetallePantalla');
+        img.src = "js/images/video.png";
+
+    }
 
     var myCenter = new google.maps.LatLng(JsonCalle[posicion].LatitudGPS, JsonCalle[posicion].LongitudGPS);
 
@@ -208,7 +257,7 @@ function procesoNuevoAnuncio5() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        var map = new google.maps.Map(document.getElementById("divnuevoAnuncio5Mapa"), mapProp);
+        var map = new google.maps.Map(document.getElementById("detallePantallaMapa"), mapProp);
 
         var marker = new google.maps.Marker({
             position: myCenter,
@@ -353,21 +402,21 @@ function procesoNuevoAnuncio10() {
                 //notificacion("Publicando tu anuncio!");
                 restSubirImagen();
             }
-        }else {
+        } else {
             notificacion("No dispones de creditos suficientes");
             //abrirPopupAviso("No dispones de creditos suficientes");
         }
-    } else if(usuarioBloqueado == 0 && calendario == false){
+    } else if (usuarioBloqueado == 0 && calendario == false) {
         if (JsonAnuncio.length > 0) {
-                if (JsonAnuncio[posicion].relanzar == 1) {
+            if (JsonAnuncio[posicion].relanzar == 1) {
 
-                    restRelanzarAnuncio();
-                }
-            } else {
-                //notificacion("Publicando tu anuncio!");
-                restSubirImagen();
+                restRelanzarAnuncio();
             }
-    }else {
+        } else {
+            //notificacion("Publicando tu anuncio!");
+            restSubirImagen();
+        }
+    } else {
         notificacion("Tu cuenta está temporalmente bloqueada");
         //abrirPopupAviso("Tu cuenta está temporalmente bloqueada");
     }
@@ -380,10 +429,11 @@ function procesoNuevoAnuncio10() {
 
 // GENERA LOS PAQUETES DE CREDITOS DE FORMA DINAMICA
 
-function mostrarPaquetesCreditos() {
+function mostrarPaquetesCreditos(listaPaquetes) {
 
     $("#divcreditosPaquetesPaypal").hide();
-    /*var listaPaquetes = {
+    /*
+    var listaPaquetes = {
         "paquetes": [
             {
                 "id": "1",
@@ -406,9 +456,9 @@ function mostrarPaquetesCreditos() {
                 "precio": "600.00"
         }
     ]
-    };*/
-    
-    
+    };
+    */
+
     var j = 1;
     var div1 = "#div1-" + j;
     var div2 = "#div2-" + 1;

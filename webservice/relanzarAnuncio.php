@@ -40,7 +40,7 @@ $sql_sel = 'SELECT Creditos as Creditos FROM Usuarios WHERE id='.$idUsuario.';';
 
 
 	if ($resultado = mysql_query($sql_upd, $con)){
-            $resultados["mensaje"] = " Tu anuncio ha sido publicado! " ;
+            $resultados["mensaje"] = " Youtteado! " ;
         
 			$resultados["validacion"] = "ok"; 
              
