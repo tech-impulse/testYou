@@ -450,6 +450,16 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ///////// EVENTOS CREAR ANUNCIO 3 /////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+    ///////// EVENTOS DESCRIPCION DE PANTALLA /////////////////////////////////////////////////////////////////////////////////////////////////
+
+    $('#btndetallePantallaVolver').unbind('click').bind('click', function () {
+
+        displayNuevoAnuncio3();
+
+    });
+
     //Crear anuncio 3 - Botón para continuar (INACTIVO POR CAMBIOS)
     $('#btnnnuevoAnuncio3Seguir').unbind('click').bind('click', function () {
 
