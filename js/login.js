@@ -68,7 +68,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
 //Nueva cuenta OK
 $('#btnOkNewAccount').unbind('click').bind('click', function () {
-    restPais();
+    restPreciosPaquetes();
 
         if ($("#codigoCaptchaUser").val() == $("#codigoCaptcha").val() && $("#aceptarPoliticas").is(':checked') == true) {
             /* FALTA CODIGO */
