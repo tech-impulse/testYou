@@ -372,7 +372,6 @@ function restPais() {
         case "Spain":
             {
                 idPais = 1;
-                alert(idPais);
                 break;
             };
         default:

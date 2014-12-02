@@ -27,6 +27,7 @@ $(document).on('pageinit', '#loginModule', function () {
     //CREAR una nueva cuenta
     $('#btnLogInNewAccount').unbind('click').bind('click', function () {
         restPais(); // Obtiene el pais del usuario por localizacion
+        restPreciosPaquetes();
         displayNewAccount();
     });
 
@@ -68,7 +69,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
 //Nueva cuenta OK
 $('#btnOkNewAccount').unbind('click').bind('click', function () {
-    restPreciosPaquetes();
+    
 
         if ($("#codigoCaptchaUser").val() == $("#codigoCaptcha").val() && $("#aceptarPoliticas").is(':checked') == true) {
             /* FALTA CODIGO */
