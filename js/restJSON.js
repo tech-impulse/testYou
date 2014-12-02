@@ -372,6 +372,7 @@ function restPais() {
         case "Spain":
             {
                 idPais = 1;
+                alert(idPais);
                 break;
             };
         default:
@@ -699,7 +700,6 @@ function solicitarPassword(email) {
 function precioCreditos() {
 
     peticionActual = $.ajax({
-        data: datos,
         url: url + 'preciosCreditos.php',
         dataType: 'json',
         type: 'GET',
