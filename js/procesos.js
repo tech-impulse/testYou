@@ -87,10 +87,12 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
             for (var key in localizacion[codigoPostal]) {
                 var calle = localizacion[codigoPostal][key];
                 JsonCalle.push(calle);
-                if (calle.distancia != "") {
+                if (calle.distancia != "" && calle.disponible != 0) {
                     $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", a ~ " + parseInt(calle.distancia * 1000) + ' m </a></li>');
                 } else {
-                    $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + calle.numeroPantalla + " - " + calle.descripPantalla + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="js/images/ic_launcher.png"></div><div class="ui-block-b" style="width:40%; text-align: left"><p>' + calle.Direccion + '</p><p></p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio5(' + j + ');">Ver mapa</button><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio4(' + j + ');">Seleccionar</button></div></div></li>');
+                    if (calle.disponible != 0) {
+                        $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + calle.numeroPantalla + " - " + calle.descripPantalla + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="js/images/ic_launcher.png"></div><div class="ui-block-b" style="width:40%; text-align: left"><p>' + calle.Direccion + '</p><p></p> </div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio5(' + j + ');">Ver mapa</button><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio4(' + j + ');">Seleccionar</button></div></div></li>');
+                    }
                     /*
                     $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", " + calle.Poblacion + '</a></li>');
                     */
@@ -226,8 +228,13 @@ function procesoNuevoAnuncio4(pos) {
     idPantalla = JsonCalle[pos].idPantalla;
 
     displayNuevoAnuncio4();
-
+    /*
     abrirPopupAccion("", "horario");
+    */
+    // Nuevo youttear
+    procesoGuardarAnuncio();
+    calendario = false;
+    // FIN de nuevo youttear
 
 }
 
@@ -783,7 +790,7 @@ function abrirPopupAccion(mensaje, tipo) {
     case "guardarProgramacion":
         {
             $("#lbPopUpAccion").text(mensaje);
-            $("#btnPopUpAccionA").text("Publicar otro anuncio");
+            $("#btnPopUpAccionA").text("Youttear de nuevo!");
             $("#btnPopUpAccionB").text("Ir al Menú Principal");
             break;
         };

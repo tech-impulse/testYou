@@ -27,7 +27,7 @@ $(document).on('pageinit', '#loginModule', function () {
     //CREAR una nueva cuenta
     $('#btnLogInNewAccount').unbind('click').bind('click', function () {
         restPais(); // Obtiene el pais del usuario por localizacion
-        restPreciosPaquetes();
+        //restPreciosPaquetes();
         displayNewAccount();
     });
 
