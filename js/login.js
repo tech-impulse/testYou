@@ -208,7 +208,7 @@ function loginOk(r) {
 
 //Recibimos ERROR en la respuesta del WS de login
 function loginError(r) {
-    alert(r),
+    alert(r);
     //$.mobile.loading('hide');
     /*
     $("#lbPopUpLogin").text("Error al iniciar Sesión");
