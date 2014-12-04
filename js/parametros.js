@@ -1,4 +1,4 @@
-var url = "https://admin.youtter.com/webservices/";
+var url = "http://admin.youtter.com/webservices/";
 
 //var url = "http://testhtml5.esadecreapolis.com/youtter/webservice/";
 
