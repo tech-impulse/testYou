@@ -565,6 +565,7 @@ function restError(r, tipo) {
     alert(r);
     console.log("fallo de ws, tipo " + tipo);
     console.log(r);
+    /*
     switch (tipo) {
     case "comprarCreditos":
         {
@@ -629,6 +630,7 @@ function restError(r, tipo) {
         notificacion("Intentelo de nuevo");
         break;
     }
+    */
 }
 
 
