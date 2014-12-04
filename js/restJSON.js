@@ -561,6 +561,8 @@ function restOk(r, tipo) {
 
 // Funcion que procesa todas las respuestas invalidas de los ws y actúa según el caso
 function restError(r, tipo) {
+    alert(tipo);
+    alert(r);
     console.log("fallo de ws, tipo " + tipo);
     console.log(r);
     switch (tipo) {

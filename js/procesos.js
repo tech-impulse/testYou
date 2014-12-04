@@ -228,13 +228,15 @@ function procesoNuevoAnuncio4(pos) {
     idPantalla = JsonCalle[pos].idPantalla;
 
     displayNuevoAnuncio4();
-    /*
-    abrirPopupAccion("", "horario");
-    */
-    // Nuevo youttear
+
+    if (avanzado == 0){ // Avanzado indica si es youttear o programar
     procesoGuardarAnuncio();
     calendario = false;
-    // FIN de nuevo youttear
+    }
+    else {
+        abrirPopupAccion("", "horario");
+    }
+
 
 }
 
@@ -784,7 +786,7 @@ function abrirPopupAccion(mensaje, tipo) {
         {
             $("#lbPopUpAccion").text("Aqui puedes configurar la programación de tu pantalla ¿Cuando deseas reproducirlo?");
             $("#btnPopUpAccionA").text("Seleccionar un horario");
-            $("#btnPopUpAccionB").text("Ahora (Free)");
+            $("#btnPopUpAccionB").text("Ahora");
             break;
         };
     case "guardarProgramacion":

@@ -33,6 +33,7 @@ var moneda; // Siglas de la moneda de tu pais, se utiliza en el modulo de Paypal
 var cambio; // factor para cambiar la moneda Pej de euros a Dolares
 var peticionActual; // Petición AJAX actual, necesario para poder cancelarla si se requiriera
 var tiempoNotificacion = 1500; // 1 Segundo se mantiene abierta el popup de notificacion
+var avanzado = 0;
 
 var paginasPorPantalla = Math.round(($(window).height() * 0.4) / 80); // Numero de anuncios que caben por pantalla
 var paginasPorPantallaCreditos = Math.round(($(window).height() * 0.4) / 30); // Numero de detalle de movimientos que caben por pantalla
