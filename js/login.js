@@ -157,6 +157,9 @@ function autentication(user, pass) {
         dataType: 'json',
         success: loginOk,
         error: loginError,
+        error: function (response) {
+            loginError(response);
+        },
     });
 }
 
@@ -204,9 +207,12 @@ function loginOk(r) {
 
 
 //Recibimos ERROR en la respuesta del WS de login
-function loginError() {
+function loginError(r) {
+    alert(r),
     //$.mobile.loading('hide');
+    /*
     $("#lbPopUpLogin").text("Error al iniciar Sesión");
     $("#loginPopUp").popup("open");
+    */
 
 }
