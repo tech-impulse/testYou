@@ -91,7 +91,13 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
                     $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", a ~ " + parseInt(calle.distancia * 1000) + ' m </a></li>');
                 } else {
                     if (calle.disponible != 0) {
-                        $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + calle.numeroPantalla + " - " + calle.descripPantalla + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="js/images/ic_launcher.png"></div><div class="ui-block-b" style="width:40%; text-align: left"><p>' + calle.Direccion + '</p><p>'+ calle.Poblacion+'</p><p>'+ calle.CodigoPostal+'</p></div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio5(' + j + ');">Ver mapa</button><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio4(' + j + ');">Seleccionar</button></div></div></li>');
+                        var horario;
+                        if (calle.HorarioDesde == '0' && (calle.HorarioHasta == '0' || calle.HorarioHasta == '24')) {
+                            horario = "Disponible 24h";
+                        } else {
+                            horario = "Disponible de " +calle.HorarioDesde+ "h a " +calle.HorarioHasta+"h";
+                        }
+                        $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + calle.numeroPantalla + " - " + calle.descripPantalla + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:20%"><img height="35" style="margin-top:1em; max-width: 40px;" src="js/images/ic_launcher.png"></div><div class="ui-block-b" style="width:40%; text-align: left"><p>' + calle.Direccion + '</p><p>' + calle.Poblacion + '</p><p>' + calle.CodigoPostal + '</p><p>' + horario + '</p></div><div class="ui-block-c" style="width:40%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio5(' + j + ');">Ver mapa</button><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio4(' + j + ');">Seleccionar</button></div></div></li>');
                     }
                     /*
                     $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", " + calle.Poblacion + '</a></li>');
@@ -229,11 +235,10 @@ function procesoNuevoAnuncio4(pos) {
 
     displayNuevoAnuncio4();
 
-    if (avanzado == 0){ // Avanzado indica si es youttear o programar
-    procesoGuardarAnuncio();
-    calendario = false;
-    }
-    else {
+    if (avanzado == 0) { // Avanzado indica si es youttear o programar
+        procesoGuardarAnuncio();
+        calendario = false;
+    } else {
         abrirPopupAccion("", "horario");
     }
 
