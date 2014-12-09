@@ -786,7 +786,7 @@ function abrirPopupAccion(mensaje, tipo) {
         {
             $("#lbPopUpAccion").text("Aqui puedes configurar la programación de tu pantalla ¿Cuando deseas reproducirlo?");
             $("#btnPopUpAccionA").text("Seleccionar un horario");
-            $("#btnPopUpAccionB").text("Ahora");
+            $("#btnPopUpAccionB").text("Ahora !");
             break;
         };
     case "guardarProgramacion":

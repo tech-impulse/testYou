@@ -9,7 +9,8 @@ $(document).bind("mobileinit", function () {
     $.mobile.touchOverflowEnabled = false;
 
     $.ajaxSetup({
-        timeout: 10000 //Time in milliseconds
+        timeout: 10000, //Time in milliseconds
+        crossDomain: true
     });
 
 });
