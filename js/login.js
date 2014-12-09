@@ -208,12 +208,12 @@ function loginOk(r) {
 
 //Recibimos ERROR en la respuesta del WS de login
 function loginError(r) {
-    alert(JSON.stringify(r));
+    //alert(JSON.stringify(r));
     console.log(JSON.stringify(r));
     //$.mobile.loading('hide');
-    /*
+    
     $("#lbPopUpLogin").text("Error al iniciar Sesión");
     $("#loginPopUp").popup("open");
-    */
+    
 
 }
