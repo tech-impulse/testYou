@@ -146,7 +146,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     $('#btnMenuCrearAnuncio').unbind('click').bind('click', function () {
         restPaises();
-        avanzado = 1;
+        avanzado = true;
         $("#navpanel").panel("close");
 
     });
@@ -247,7 +247,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Menu principal - Crear anuncio
     $('#MainMenuOpcion1').unbind('click').bind('click', function () {
-        avanzado = 0;
+        avanzado = false;
         restPaises();
 
     });
@@ -261,7 +261,7 @@ $(document).on('pageinit', '#loginModule', function () {
     //Menu principal - Mostrar lista de anuncios publicados previamente
     $('#MainMenuOpcion3').unbind('click').bind('click', function () {
         //restMisAnuncios();
-        avanzado = 1;
+        avanzado = true;
         restPaises();
 
     });

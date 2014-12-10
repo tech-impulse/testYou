@@ -258,7 +258,7 @@ function restGuardarProgramacion(r) {
     var video = obj.video;
 
     // Si hemos seleccionado un horario, tenemos que enviar la fecha del calendario escogida
-    if (calendario == true) {
+    if (calendario == true && avanzado == true) {
         var datos = {
             idPantalla: idPantalla,
             idSesion: idSesion,
@@ -269,7 +269,21 @@ function restGuardarProgramacion(r) {
             video: video
         };
 
-    } else {
+    }
+    if (calendario == false && avanzado == true) {
+        var datos = {
+            idPantalla: idPantalla,
+            idSesion: idSesion,
+            fechaProgramacion: "NOW()",
+            horaInicio: "0",
+            horaFin: "0",
+            creditos: creditos,
+            video: video
+        };
+
+    }
+
+    if (calendario == false && avanzado == false) {
         var datos = {
             idPantalla: idPantalla,
             idSesion: idSesion,
