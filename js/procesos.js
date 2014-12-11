@@ -274,7 +274,7 @@ function procesoNuevoAnuncio5(pos) {
             }
         $("#lbdetallePantallaHorario").text(horario);
         var img = document.getElementById('imgdetallePantalla');
-        img.src = "js/images/video.png"; // esto habra que substituirlo por la imagen de la pantalla
+        img.src = JsonCalle[posicion].urlImagen; // esto habra que substituirlo por la imagen de la pantalla
 
     }
 
