@@ -97,7 +97,7 @@ function procesoNuevoAnuncio3(listaLocalizaciones) {
                         } else {
                             horario = "Disponible de " + calle.HorarioDesde + "h a " + calle.HorarioHasta + "h";
                         }
-                        $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + calle.numeroPantalla + " - " + calle.descripPantalla + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:22%"><img height="40" style="margin-top:1em; max-width: 60px;" src="js/images/iconoPantalla2.png"></div><div class="ui-block-b" style="width:42%; text-align: left"><p>' + calle.Direccion + '</p><p>' + calle.Poblacion + '</p><p>' + calle.CodigoPostal + '</p><p>' + horario + '</p></div><div class="ui-block-c" style="width:36%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio5(' + j + ');">Ver mapa</button><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio4(' + j + ');">Seleccionar</button></div></div></li>');
+                        $("#ulnuevoAnuncio3").append('<li data-role="list-divider" style="color:black; font-weight:bold">' + calle.numeroPantalla + " - " + calle.descripPantalla + '</li><li data-icon="false"><div class="ui-grid-b"><div class="ui-block-a" style="width:22%"><img height="40" style="margin-top:1em; max-width: 60px;" src="'+calle.urlImagenThumb+'"></div><div class="ui-block-b" style="width:42%; text-align: left"><p>' + calle.Direccion + '</p><p>' + calle.Poblacion + '</p><p>' + calle.CodigoPostal + '</p><p>' + horario + '</p></div><div class="ui-block-c" style="width:36%; text-align: right"><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio5(' + j + ');">Ver mapa</button><button class="btn_lightblue ui-btn ui-shadow ui-corner-all" data-theme="b" onclick="procesoNuevoAnuncio4(' + j + ');">Seleccionar</button></div></div></li>');
                     }
                     /*
                     $("#ulnuevoAnuncio3").append('<li data-icon="false" id="calle' + j + '" onclick="procesoNuevoAnuncio4(' + j + ');"><a href=# style="color:#000">' + calle.Direccion + ", " + calle.Poblacion + '</a></li>');
@@ -247,7 +247,9 @@ function procesoNuevoAnuncio4(pos) {
         procesoGuardarAnuncio();
         calendario = false;
     } else {
-        abrirPopupAccion("", "horario");
+        //abrirPopupAccion("", "horario");
+        displaySeleccion("seleccion");
+        calendario = true;
     }
 
 
@@ -264,9 +266,15 @@ function procesoNuevoAnuncio5(pos) {
         $("#lbdetallePantallaCalle").text(JsonCalle[posicion].Direccion);
         $("#lbdetallePantallaPoblacion").text(JsonCalle[posicion].CodigoPostal + ", " + JsonCalle[posicion].Poblacion);
         $("#lbdetallePantallaTipo").text(JsonCalle[posicion].Descripcion);
-        $("#lbdetallePantallaHorario").text("De " + JsonCalle[posicion].HorarioDesde + "h a " + JsonCalle[posicion].HorarioHasta + "h");
+        var horario;
+            if (JsonCalle[posicion].HorarioDesde == '0' && (JsonCalle[posicion].HorarioHasta == '0' || JsonCalle[posicion].HorarioHasta == '24')) {
+                horario = "Disponible 24h";
+            } else {
+                horario = "Disponible de " + JsonCalle[posicion].HorarioDesde + "h a " + JsonCalle[posicion].HorarioHasta + "h";
+            }
+        $("#lbdetallePantallaHorario").text(horario);
         var img = document.getElementById('imgdetallePantalla');
-        img.src = "js/images/video.png";
+        img.src = "js/images/video.png"; // esto habra que substituirlo por la imagen de la pantalla
 
     }
 

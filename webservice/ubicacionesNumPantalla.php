@@ -53,7 +53,7 @@ $i=0;
 mysql_close($con);
 }
 else {
-            $resultados["mensaje"] = "Debes introducir un num de pantalla"; 
+            $resultados["mensaje"] = "Debes introducir un número de pantalla"; 
 			$resultados["validacion"] = "vacio"; 
 }
 
