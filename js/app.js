@@ -248,6 +248,7 @@ $(document).on('pageinit', '#loginModule', function () {
     //Menu principal - Crear anuncio
     $('#MainMenuOpcion1').unbind('click').bind('click', function () {
         avanzado = false;
+        calendario = false;
         restPaises();
 
     });
