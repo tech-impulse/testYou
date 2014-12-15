@@ -425,6 +425,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 2 - Botón de seleccionar por cerca de mi
     $('#innuevoAnuncio2Cerca').unbind('click').bind('click', function () {
+        alert("click 1");
         $("#divnuevoAnuncio2").hide();
         $("#inputnuevoAnuncio2").hide();
 
@@ -432,6 +433,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 2 - Botón de seleccionar por Zona 
     $('#innuevoAnuncio2Zona').unbind('click').bind('click', function () {
+        alert("click 2");
         $("#divnuevoAnuncio2").show();
         $("#inputnuevoAnuncio2").hide();
         $("#inputnuevoAnuncio2").val("");
@@ -440,6 +442,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     //Crear anuncio 2 - Botón de seleccionar por Numero de pantalla
     $('#innuevoAnuncio2Numero').unbind('click').bind('click', function () {
+        alert("click 3");
         $("#divnuevoAnuncio2").hide();
         $("#inputnuevoAnuncio2").show();
         $("#inputnuevoAnuncio2").val("");
