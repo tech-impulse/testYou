@@ -1,5 +1,25 @@
 // PROCESOS DE APP SEGÚN LA PANTALLA
 
+function buscarPorCerca()
+{
+    $("#divnuevoAnuncio2").hide();
+        $("#inputnuevoAnuncio2").hide();
+}
+
+function buscarPorZona()
+{
+    $("#divnuevoAnuncio2").show();
+        $("#inputnuevoAnuncio2").hide();
+        $("#inputnuevoAnuncio2").val("");
+}
+
+function buscarPorNumero()
+{
+    $("#divnuevoAnuncio2").hide();
+        $("#inputnuevoAnuncio2").show();
+        $("#inputnuevoAnuncio2").val("");
+}
+
 //Crear anuncio 2- Carga la lista de Paises al mostrar la pantalla de crear anuncio Paso 1
 
 function procesoNuevoAnuncio2(listaPaises) {
