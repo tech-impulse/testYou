@@ -263,6 +263,8 @@ function paginarMisCreditos() {
 //Crear anuncio 4- Muestra el detalle de la pantalla seleccionada en el Paso 2
 
 function procesoNuevoAnuncio4(pos) {
+    
+    fechaSeleccionada = undefined;
 
     posicion = pos; // Nos guardamos la posicion que ocupa esta calle en una variable para poder desglosar la informacion del JSON.
 
