@@ -194,8 +194,8 @@ function displayCalendario() {
         events: JsonFechas,
 
         months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-        days: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
-        startOfWeek: 0
+        days: ["Dom" ,"Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+        startOfWeek: 1
 
     });
     var p = "nuevoAnuncio1";

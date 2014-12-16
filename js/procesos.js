@@ -3,23 +3,38 @@
 function buscarPorCerca()
 {
     $("#divnuevoAnuncio2").hide();
-        $("#inputnuevoAnuncio2").hide();
+    $("#inputnuevoAnuncio2").hide();
 }
 
 function buscarPorZona()
 {
     $("#divnuevoAnuncio2").show();
-        $("#inputnuevoAnuncio2").hide();
-        $("#inputnuevoAnuncio2").val("");
+    $("#inputnuevoAnuncio2").hide();
+    $("#inputnuevoAnuncio2").val("");
 }
 
 function buscarPorNumero()
 {
     $("#divnuevoAnuncio2").hide();
-        $("#inputnuevoAnuncio2").show();
-        $("#inputnuevoAnuncio2").val("");
+    $("#inputnuevoAnuncio2").show();
+    $("#inputnuevoAnuncio2").val("");
 }
 
+function publicacionAvanzada()
+{
+    avanzado = true;
+    calendario = true;
+    fechaSeleccionada = undefined;
+    restPaises();
+}
+
+function youttear()
+{
+    avanzado = false;
+    calendario = false;
+    fechaSeleccionada = undefined;   
+    restPaises();
+}
 //Crear anuncio 2- Carga la lista de Paises al mostrar la pantalla de crear anuncio Paso 1
 
 function procesoNuevoAnuncio2(listaPaises) {
@@ -384,7 +399,7 @@ function procesoNuevoAnuncio6() {
         var d = date.getDate();
         var m = date.getMonth() + 1;
         var y = date.getFullYear();
-        fechaSeleccionada = d + "-" + m + "-" + y;
+        fechaSeleccionada = y + "-" + m + "-" + d;
         $("#lbnuevoAnuncio6Fecha").text(fechaSeleccionada);
     } else {
         $("#lbnuevoAnuncio6Fecha").text(fechaSeleccionada);
