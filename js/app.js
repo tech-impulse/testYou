@@ -12,19 +12,9 @@ $(document).bind("mobileinit", function () {
         timeout: 10000, //Time in milliseconds
         crossDomain: true
     });
-document.addEventListener('backbutton', backButtonCallback, false);
+
 });
 
-function backButtonCallback(buttonIndex) {
-    alert("pulsado");
-    if(buttonIndex == 1) {
-        navigator.app.exitApp();
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 $(document).ajaxStart(function () {
     $("#footer_comun").hide();
@@ -716,6 +706,21 @@ $(document).on('pageinit', '#loginModule', function () {
 // PRECARGA DEL CALENDARIO 
 
 $(document).on('pageinit', '#app', function () {
+    
+    document.addEventListener("backbutton", function(e){
+    if($.mobile.activePage.is('#app')){
+        alert("test");
+        /* 
+         Event preventDefault/stopPropagation not required as adding backbutton
+          listener itself override the default behaviour. Refer below PhoneGap link.
+        */
+        //e.preventDefault();
+        navigator.app.exitApp();
+    }
+    else {
+        navigator.app.backHistory()
+    }
+}, false);
 
 
     var date = new Date();
