@@ -15,7 +15,7 @@ $(document).bind("mobileinit", function () {
 document.addEventListener('backbutton', backButtonCallback, false);
 });
 
-function confirmCallback(buttonIndex) {
+function backButtonCallback(buttonIndex) {
     alert("pulsado");
     if(buttonIndex == 1) {
         navigator.app.exitApp();
