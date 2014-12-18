@@ -12,8 +12,19 @@ $(document).bind("mobileinit", function () {
         timeout: 10000, //Time in milliseconds
         crossDomain: true
     });
-
+document.addEventListener('backbutton', backButtonCallback, false);
 });
+
+function confirmCallback(buttonIndex) {
+    alert("pulsado");
+    if(buttonIndex == 1) {
+        navigator.app.exitApp();
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 $(document).ajaxStart(function () {
     $("#footer_comun").hide();
