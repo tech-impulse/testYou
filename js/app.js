@@ -708,17 +708,19 @@ $(document).on('pageinit', '#loginModule', function () {
 $(document).on('pageinit', '#app', function () {
     
     document.addEventListener("backbutton", function(e){
-    if($.mobile.activePage.is('#app')){
-        alert("test");
+    if(pantallaApp == "mainMenu"){
+        $.mobile.changePage('#loginModule');
+        //alert("test");
         /* 
          Event preventDefault/stopPropagation not required as adding backbutton
           listener itself override the default behaviour. Refer below PhoneGap link.
         */
-        //e.preventDefault();
-        navigator.app.exitApp();
+        e.preventDefault();
+        //navigator.app.exitApp();
     }
     else {
-        navigator.app.backHistory()
+        displayMainMenu();
+        //navigator.app.backHistory()
     }
 }, false);
 
