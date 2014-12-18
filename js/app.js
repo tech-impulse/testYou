@@ -322,8 +322,9 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLA DE MIS ANUNCIOS
-
-    // Mis anuncios - EBVENTOS SWIPE
+    
+    // Mis anuncios - EVENTOS SWIPE
+    /*
     $("#misAnuncios").on("swipeleft", "", function () {
 
         paginarAdelante();
@@ -337,6 +338,19 @@ $(document).on('pageinit', '#loginModule', function () {
     $("#misAnuncios").on("swiperight", "", function () {
 
         paginarAtras();
+
+    });
+    */
+    
+    $("#app").on("swipeleft", "", function () {
+
+        $("#navpanel").panel("close");
+
+    });
+
+    $("#app").on("swiperight", "", function () {
+
+        $("#navpanel").panel("open");
 
     });
 
