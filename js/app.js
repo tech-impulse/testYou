@@ -433,6 +433,11 @@ $(document).on('pageinit', '#loginModule', function () {
         //displayNuevoAnuncio3();
 
     });
+    $('#btnnuevoAnuncio2Volver').unbind('click').bind('click', function () {
+
+        displayMainMenu();
+
+    });
 
     //Crear anuncio 2 - Botón de seleccionar por cerca de mi
     $('#innuevoAnuncio2Cerca').unbind('click').bind('click', function () {
