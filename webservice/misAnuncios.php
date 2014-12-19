@@ -11,7 +11,7 @@ mysql_select_db($database, $con);
  
 $id = mysql_real_escape_string($_GET["idSesion"]);
     
-$sql = ' SELECT pr.id, pr.idImagen, pr.Fecha_programacion, pr.video, pa.id as idPantalla, u.Direccion, u.CodigoPostal, u.Poblacion, t.Descripcion, u.LatitudGPS, u.LongitudGPS FROM Programacion AS pr, Pantallas AS pa, Ubicaciones as u, tiposPantallas as t WHERE pr.idUsuario=' . $id . ' AND pa.idUbicacion=u.id AND t.id=pa.id GROUP BY pr.idImagen ORDER BY pr.Fecha DESC'; 
+$sql = ' SELECT pr.id, pr.idImagen, pr.Fecha_programacion, pr.video, pa.id as idPantalla, u.Direccion, u.CodigoPostal, u.Poblacion, t.Descripcion, u.LatitudGPS, u.LongitudGPS, pa.numeroPantalla, pa.descripPantalla FROM Programacion AS pr, Pantallas AS pa, Ubicaciones as u, tiposPantallas as t WHERE pr.idUsuario=' . $id . ' AND pa.idUbicacion=u.id AND t.id=pa.id GROUP BY pr.idImagen ORDER BY pr.Fecha DESC'; 
 
 // AND pr.idPantalla=pa.id
 
@@ -31,8 +31,11 @@ $i=0;
      $anuncio["Direccion"] = $obj->Direccion;
      $anuncio["Descripcion"] = $obj->Descripcion;
      $anuncio["video"] = $obj->video;
+     $anuncio["descripcionPantalla"] = $obj->descripPantalla;
+     $anuncio["numeroPantalla"] = $obj->numeroPantalla;
      $anuncio["LatitudGPS"] = $obj->LatitudGPS;
      $anuncio["LongitudGPS"] = $obj->LongitudGPS;
+
      if ( $obj->video == 1){
          $anuncio["Tipo"] = "Video";
      } else {
