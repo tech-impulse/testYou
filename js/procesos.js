@@ -341,6 +341,9 @@ function procesoNuevoAnuncio5(pos) {
 
 function mostrarCerca() {
 
+    // distance(41.46888, 2.09055, 41.38843, 2.167096, "K");
+    // latitud: 41.46888
+    // longitud: 2.09055
     var myCenter = new google.maps.LatLng(latitudActual, longitudActual);
 
     {
@@ -362,6 +365,7 @@ function mostrarCerca() {
         for (var i = 0; i < JsonCalle.length; i++) {
             var pantalla = new google.maps.LatLng(JsonCalle[i].LatitudGPS, JsonCalle[i].LongitudGPS);
             createMarker(pantalla, i);
+            console.log("Coordenadas " + JsonCalle[i].LatitudGPSActual + " Distancia " + JsonCalle[i].distancia + "Nombre " + JsonCalle[i].descripcionPantalla);
         }
 
     }
@@ -369,6 +373,7 @@ function mostrarCerca() {
 }
 
 function createMarker(latlng, id) {
+     console.log("Crea! " + latlng );
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
@@ -790,10 +795,16 @@ function relanzarAnuncio(pos) {
     idPantalla = JsonAnuncio[pos].idPantalla;
 
     posicion = pos;
+    
+    if(JsonAnuncio[pos].Segundos == 0){
+        procesoGuardarAnuncio();
+        calendario = false;
+    } else{
+        displayNuevoAnuncio4();
+        abrirPopupAccion("", "horario");        
+    }
 
-    displayNuevoAnuncio4();
-
-    abrirPopupAccion("", "horario");
+    
 
     /*
     restUbicaciones();
@@ -973,15 +984,20 @@ function distance(lat1, lon1, lat2, lon2, unit) {
     var theta = lon1 - lon2
     var radtheta = Math.PI * theta / 180
     var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-    dist = Math.acos(dist)
+    console.log(dist);
+    dist = Math.acos(dist);
+    console.log("Acos " + dist);
     dist = dist * 180 / Math.PI
+    console.log(dist);
     dist = dist * 60 * 1.1515
+    console.log(dist);
     if (unit == "K") {
         dist = dist * 1.609344
     }
     if (unit == "N") {
         dist = dist * 0.8684
     }
+    console.log(dist);
     return dist
 
 }
