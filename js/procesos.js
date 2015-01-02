@@ -357,7 +357,7 @@ function mostrarCerca() {
 
         var marker = new google.maps.Marker({
             position: myCenter,
-            icon: "js/images/iconoPosicion.png",
+            icon: "js/images/usuario.png",
         });
 
         marker.setMap(map);
