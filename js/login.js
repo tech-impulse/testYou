@@ -7,7 +7,8 @@ $(document).on('pageinit', '#loginModule', function () {
 
     displayMainLogin();
     
-    if(localStorage["youtter_email"] != undefined && localStorage["youtter_pass"] != undefined){        
+    if(localStorage["youtter_email"] != undefined && localStorage["youtter_pass"] != undefined){       
+        console.log("Mong");
         autentication(localStorage["youtter_email"], localStorage["youtter_pass"]);
     }
 

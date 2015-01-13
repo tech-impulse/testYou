@@ -78,6 +78,11 @@ $(document).on('pageinit', '#loginModule', function () {
     } else {
         console.log("No soporta");
     }
+    
+    if(localStorage["youtter_email"] != undefined && localStorage["youtter_pass"] != undefined){       
+        console.log("Mong");
+        autentication(localStorage["youtter_email"], localStorage["youtter_pass"]);
+    }
 
     // Desactivar para Desarrolar
     //console.log = function() {}
