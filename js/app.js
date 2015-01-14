@@ -585,6 +585,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
         event.preventDefault();
         formData = new FormData($(this)[0]);
+        console.log($(this)[0]);
         formData.append("idSesion", idSesion);
         formData.append("video", undefined);
         if (video != undefined) {
@@ -732,6 +733,11 @@ $(document).on('pageinit', '#loginModule', function () {
                     //alert(results[i]);
                     var img = document.getElementById('imgnuevoAnuncio9');
                     img.src = results[i];
+                    var data = getBase64Image(results[i]);
+                    formData = new FormData(data);
+                    console.log(data);
+                    formData.append("idSesion", idSesion);
+                    formData.append("video", undefined);
                 }
                 displayNuevoAnuncio9();
                 imagenCargada = results;

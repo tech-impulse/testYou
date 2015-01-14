@@ -235,8 +235,8 @@ function restSubirImagen() {
     peticionActual = $.ajax({
         url: url + 'uploadFile.php',
         type: 'POST',
-        //data: formData,
-        data: imagenCargada,
+        data: formData,
+       // data: imagenCargada,
         contentType: false,
         processData: false,
         timeout: 60000,
