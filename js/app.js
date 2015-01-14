@@ -626,6 +626,7 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnnuevoAnuncio8Previa').unbind('click').bind('click', function () {
         displayNuevoAnuncio9();
     });
+        
 
     ///////// EVENTOS CREAR ANUNCIO 9 /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -900,3 +901,15 @@ function captcha(n) {
 
     return text;
 }
+
+$('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
+        window.imagePicker.getPictures(
+    function(results) {
+        for (var i = 0; i < results.length; i++) {
+            console.log('Image URI: ' + results[i]);
+        }
+    }, function (error) {
+        console.log('Error: ' + error);
+    }
+);
+    });
