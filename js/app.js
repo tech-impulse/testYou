@@ -723,6 +723,19 @@ $(document).on('pageinit', '#loginModule', function () {
 
         $("#PopUpAccion").popup("close");
     });
+    
+        $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
+    console.log("Pick");
+        window.imagePicker.getPictures(
+    function(results) {
+        for (var i = 0; i < results.length; i++) {
+            console.log('Image URI: ' + results[i]);
+        }
+    }, function (error) {
+        console.log('Error: ' + error);
+    }
+);
+    });
 
 
 });
@@ -841,6 +854,8 @@ $(document).on('pageinit', '#reestablecer', function () {
     $('#visita').unbind('click').bind('click', function () {
         window.location = "http://www.youtter.com/"
     });
+    
+
 
 });
 
@@ -902,14 +917,3 @@ function captcha(n) {
     return text;
 }
 
-$('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
-        window.imagePicker.getPictures(
-    function(results) {
-        for (var i = 0; i < results.length; i++) {
-            console.log('Image URI: ' + results[i]);
-        }
-    }, function (error) {
-        console.log('Error: ' + error);
-    }
-);
-    });
