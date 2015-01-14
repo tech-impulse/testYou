@@ -78,8 +78,8 @@ $(document).on('pageinit', '#loginModule', function () {
     } else {
         console.log("No soporta");
     }
-    
-    if(localStorage["youtter_email"] != undefined && localStorage["youtter_pass"] != undefined){       
+
+    if (localStorage["youtter_email"] != undefined && localStorage["youtter_pass"] != undefined) {
         console.log("Mong");
         autentication(localStorage["youtter_email"], localStorage["youtter_pass"]);
     }
@@ -327,7 +327,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //PANTALLA DE MIS ANUNCIOS
-    
+
     // Mis anuncios - EVENTOS SWIPE
     /*
     $("#misAnuncios").on("swipeleft", "", function () {
@@ -346,7 +346,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     });
     */
-    
+
     $("#app").on("swipeleft", "", function () {
 
         $("#navpanel").panel("close");
@@ -626,7 +626,7 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnnuevoAnuncio8Previa').unbind('click').bind('click', function () {
         displayNuevoAnuncio9();
     });
-        
+
 
     ///////// EVENTOS CREAR ANUNCIO 9 /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -723,18 +723,18 @@ $(document).on('pageinit', '#loginModule', function () {
 
         $("#PopUpAccion").popup("close");
     });
-    
-        $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
-    console.log("Pick");
+
+    $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
+        console.log("Pick");
         window.imagePicker.getPictures(
-    function(results) {
-        for (var i = 0; i < results.length; i++) {
-            console.log('Image URI: ' + results[i]);
-        }
-    }, function (error) {
-        console.log('Error: ' + error);
-    }
-);
+            function (results) {
+                for (var i = 0; i < results.length; i++) {
+                    console.log('Image URI: ' + results[i]);
+                }
+            }, function (error) {
+                console.log('Error: ' + error);
+            }
+        );
     });
 
 
@@ -744,23 +744,22 @@ $(document).on('pageinit', '#loginModule', function () {
 // PRECARGA DEL CALENDARIO 
 
 $(document).on('pageinit', '#app', function () {
-    
-    document.addEventListener("backbutton", function(e){
-    if(pantallaApp == "mainMenu"){
-        $.mobile.changePage('#loginModule');
-        //alert("test");
-        /* 
+
+    document.addEventListener("backbutton", function (e) {
+        if (pantallaApp == "mainMenu") {
+            $.mobile.changePage('#loginModule');
+            //alert("test");
+            /* 
          Event preventDefault/stopPropagation not required as adding backbutton
           listener itself override the default behaviour. Refer below PhoneGap link.
         */
-        e.preventDefault();
-        //navigator.app.exitApp();
-    }
-    else {
-        displayMainMenu();
-        //navigator.app.backHistory()
-    }
-}, false);
+            e.preventDefault();
+            //navigator.app.exitApp();
+        } else {
+            displayMainMenu();
+            //navigator.app.backHistory()
+        }
+    }, false);
 
 
     var date = new Date();
@@ -854,7 +853,7 @@ $(document).on('pageinit', '#reestablecer', function () {
     $('#visita').unbind('click').bind('click', function () {
         window.location = "http://www.youtter.com/"
     });
-    
+
 
 
 });
@@ -916,4 +915,3 @@ function captcha(n) {
 
     return text;
 }
-
