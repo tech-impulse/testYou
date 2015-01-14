@@ -742,8 +742,8 @@ $(document).on('pageinit', '#loginModule', function () {
                     var imageUrl = results[i];
                     //console.log('imageUrl', imageUrl);
                     convertImgToBase64(imageUrl, function (base64Img) {
-                        alert(base64Img);
-                        /*
+                        //alert(base64Img);
+                        
                     $('.output')
                         .find('textarea')
                         .val(base64Img)
@@ -754,12 +754,12 @@ $(document).on('pageinit', '#loginModule', function () {
                         .end()
                         .find('img')
                         .attr('src', base64Img);
-                        */
+                        
                 });
                 
                         var img = document.getElementById('imgnuevoAnuncio9');
-                        alert(img.src);
-                        displayNuevoAnuncio9();
+                        //alert(img.src);
+                        //displayNuevoAnuncio9();
                         imagenCargada = results;
                     }, function (error) {
                         console.log('Error: ' + error);
