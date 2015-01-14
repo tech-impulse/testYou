@@ -729,9 +729,11 @@ $(document).on('pageinit', '#loginModule', function () {
         window.imagePicker.getPictures(
             function (results) {
                 for (var i = 0; i < results.length; i++) {
-                    alert(results[i]);
-                                        
+                    //alert(results[i]);
+                    var img = document.getElementById('imgnuevoAnuncio9');
+                    img.src = results[i];
                 }
+                displayNuevoAnuncio9();
                 imagenCargada = results;
             }, function (error) {
                 console.log('Error: ' + error);
