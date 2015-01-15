@@ -751,7 +751,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
                 displayNuevoAnuncio9();
             }, function (error) {
-                console.log('Error: ' + e rror);
+                console.log('Error: ' + error);
             }, {
                 maximumImagesCount: 1,
             });
