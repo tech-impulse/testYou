@@ -733,13 +733,16 @@ $(document).on('pageinit', '#loginModule', function () {
                 var will;
                 for (var i = 0; i < results.length; i++) {
                     console.log('Image URI: ' + results[i]);
-                    var image = new Image();/*
+                    var image = new Image();
+                    /*
                     image.onload = function () {
                         document.body.appendChild(image);
                     };
                     */
                     image.src = results[i];
                     will = getBase64Image(image);
+                    var img = document.getElementById('imgnuevoAnuncio9');
+                    img.src = results[i];
                     imageUrl = will;
                     formData = new FormData(imageUrl);
                     formData.append("idSesion", idSesion);
@@ -748,7 +751,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
                 displayNuevoAnuncio9();
             }, function (error) {
-                console.log('Error: ' + error);
+                console.log('Error: ' + e rror);
             }, {
                 maximumImagesCount: 1,
             });
