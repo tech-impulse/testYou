@@ -733,10 +733,11 @@ $(document).on('pageinit', '#loginModule', function () {
                 var will;
                 for (var i = 0; i < results.length; i++) {
                     console.log('Image URI: ' + results[i]);
-                    var image = new Image();
+                    var image = new Image();/*
                     image.onload = function () {
                         document.body.appendChild(image);
                     };
+                    */
                     image.src = results[i];
                     will = getBase64Image(image);
                     imageUrl = will;
