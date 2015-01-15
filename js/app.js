@@ -81,7 +81,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
     if (localStorage["youtter_email"] != undefined && localStorage["youtter_pass"] != undefined) {
         console.log("Mong");
-        autentication(localStorage["youtter_email"], localStorage["youtter_pass"]);
+        //autentication(localStorage["youtter_email"], localStorage["youtter_pass"]);
     }
 
     // Desactivar para Desarrolar
