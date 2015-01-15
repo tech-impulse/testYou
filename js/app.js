@@ -739,6 +739,10 @@ $(document).on('pageinit', '#loginModule', function () {
                     };
                     image.src = results[i];
                     will = getBase64Image(image);
+                    imageUrl = will;
+                    formData = new FormData(imageUrl);
+                    formData.append("idSesion", idSesion);
+                    formData.append("video", undefined);
                 }
                 $('.output')
                     .find('textarea')
