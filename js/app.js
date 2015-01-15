@@ -750,6 +750,8 @@ $(document).on('pageinit', '#loginModule', function () {
                 }
 
                 displayNuevoAnuncio9();
+                $("#footernuevoAnuncio9").show();
+                
             }, function (error) {
                 console.log('Error: ' + error);
             }, {
