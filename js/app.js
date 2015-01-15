@@ -585,6 +585,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
         event.preventDefault();
         formData = new FormData($(this)[0]);
+        alert($(this)[0]);
         console.log($(this)[0]);
         formData.append("idSesion", idSesion);
         formData.append("video", undefined);
@@ -745,6 +746,7 @@ $(document).on('pageinit', '#loginModule', function () {
                     img.src = results[i];
                     imageUrl = will;
                     formData = new FormData(imageUrl);
+                    alert(imageUrl);
                     formData.append("idSesion", idSesion);
                     formData.append("video", undefined);
                 }
