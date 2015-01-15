@@ -745,16 +745,6 @@ $(document).on('pageinit', '#loginModule', function () {
                     formData.append("video", undefined);
                 }
 
-                $('.output')
-                    .find('textarea')
-                    .val(will)
-                    .end()
-                    .find('a')
-                    .attr('href', will)
-                    .text(will)
-                    .end()
-                    .find('img')
-                    .attr('src', will);
                 displayNuevoAnuncio9();
             }, function (error) {
                 console.log('Error: ' + error);
