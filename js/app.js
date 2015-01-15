@@ -744,6 +744,7 @@ $(document).on('pageinit', '#loginModule', function () {
                     formData.append("idSesion", idSesion);
                     formData.append("video", undefined);
                 }
+                displayNuevoAnuncio9();
                 $('.output')
                     .find('textarea')
                     .val(will)
@@ -756,7 +757,9 @@ $(document).on('pageinit', '#loginModule', function () {
                     .attr('src', will);
             }, function (error) {
                 console.log('Error: ' + error);
-            }
+            },{
+        maximumImagesCount: 1,
+    });
         );
     });
 });
