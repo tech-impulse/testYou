@@ -728,6 +728,36 @@ $(document).on('pageinit', '#loginModule', function () {
     // TEST CARGAR IMAGEN 
 
     $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
+        window.imagePicker.getPictures(
+            function (results) {
+                var will;
+                for (var i = 0; i < results.length; i++) {
+                    console.log('Image URI: ' + results[i]);
+                    var image = new Image();
+                    image.onload = function () {
+                        document.body.appendChild(image);
+                    };
+                    image.src = results[i];
+                    will = getBase64Image(image);
+                }
+                $('.output')
+                    .find('textarea')
+                    .val(will)
+                    .end()
+                    .find('a')
+                    .attr('href', will)
+                    .text(will)
+                    .end()
+                    .find('img')
+                    .attr('src', will);
+            }, function (error) {
+                console.log('Error: ' + error);
+            }
+        );
+    });
+});
+/*
+    $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
         console.log("Pick");
         window.imagePicker.getPictures(
             function (results) {
@@ -779,6 +809,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
 
 });
+*/
 
 /*
         function convertImgToBase64(url, callback, outputFormat) {
