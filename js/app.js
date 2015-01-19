@@ -744,13 +744,14 @@ $(document).on('pageinit', '#loginModule', function () {
 
                     var img = document.getElementById('imgnuevoAnuncio9');
 
-                    img.onload = function () {
+                    image.onload = function () {
                         will = getBase64Image(image);
-                        img.src = results[i];
+                        image.src = results[i];
+                        image .setAttribute('crossOrigin', 'anonymous');
                         imageUrl = will;
                         formData = new FormData(imageUrl);
                         //alert(imageUrl);
-                        //$("#textotest").text(imageUrl);
+                        $("#textotest").text(imageUrl);
                         formData.append("idSesion", idSesion);
                         formData.append("video", undefined);
                     }
