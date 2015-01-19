@@ -14,9 +14,9 @@ $con = mysql_connect($server, $username, $password) or die ("No se conecto: " . 
  
 mysql_select_db($database, $con);
  
+$imagen64 = $_POST["imagen64"];
 $id = $_POST["idSesion"];
 $video = $_POST["video"];
-$imagen64 = $_POST["imagen64"];
 
 $sql = 'SELECT idImagen FROM Usuarios WHERE id='.$id.';';
  
@@ -45,13 +45,21 @@ $allowedExtsVid = array("mp4", "wma", "mpg", "mpeg", "avi", "mov","MP4", "WMA", 
 $new       = $nombre;
 
 
-$data = 'data:image/png;base64,AAAFBfj42Pj4';
-
+/*
 list($type, $imagen64) = explode(';', $imagen64);
 list(, $imagen64)      = explode(',', $imagen64);
 $imagen64 = base64_decode($imagen64);
+*/
 
-file_put_contents($_SERVER['DOCUMENT_ROOT']."/YoutterUploads" . $new, $imagen64);
+$data = str_replace('data:image/png;base64,', '', $imagen64);
+$data = str_replace(' ', '+', $imagen64);
+
+$data = base64_decode($imagen64);
+
+$file = $_SERVER['DOCUMENT_ROOT']."/YoutterUploads" . $new . '.png';
+$success = file_put_contents($file, $imagen64);
+
+//file_put_contents($_SERVER['DOCUMENT_ROOT']."/YoutterUploads" . $new, $source);
 
 $resultados["nombre"] =$new;
 

@@ -738,12 +738,19 @@ $(document).on('pageinit', '#loginModule', function () {
                     image.onload = function () {
                         will = getBase64Image(image);
                         image.src = results[i];
-                        image .setAttribute('crossOrigin', 'anonymous');
+                        image.setAttribute('crossOrigin', 'anonymous');
                         imageUrl = will;
+                        formData = {
+                            imagen64: imageUrl,
+                            idSesion: idSesion,
+                            veideo: undefined
+                        };
+                        /*
                         formData.append("imagen64", imageUrl);
                         $("#textotest").text(imageUrl);
                         formData.append("idSesion", idSesion);
                         formData.append("video", undefined);
+                        */
                     }
 
                 }
@@ -771,7 +778,7 @@ function getBase64Image(img) {
     var dataURL = canvas.toDataURL("image/png");
     $("#textotest").text(dataURL);
     var img = document.getElementById('imgnuevoAnuncio9');
-    img.src=dataURL;
+    img.src = dataURL;
     return dataURL;
     //return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }

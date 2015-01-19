@@ -229,6 +229,7 @@ function restMisAnuncios() {
 // Función para subir al FTP la imagen o video que hemos seleccionado
 function restSubirImagen() {
     // $.mobile.loading('show');
+    
     $("#footerCancelar").show();
     $("#footernuevoAnuncio9").hide();
     console.log("Subir imagen");
