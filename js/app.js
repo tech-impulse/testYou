@@ -852,7 +852,7 @@ function getBase64Image(img) {
     // will re-encode the image.
     //$("#textotest").text(imageUrl);
     var dataURL = canvas.toDataURL("image/png");
-    $("#textotest").text(imageUrl);
+    $("#textotest").text(dataURL);
 
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
