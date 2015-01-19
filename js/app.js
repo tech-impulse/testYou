@@ -740,7 +740,7 @@ $(document).on('pageinit', '#loginModule', function () {
                         image.src = results[i];
                         image .setAttribute('crossOrigin', 'anonymous');
                         imageUrl = will;
-                        formData.append("imagen", imageUrl);
+                        formData.append("imagen64", imageUrl);
                         $("#textotest").text(imageUrl);
                         formData.append("idSesion", idSesion);
                         formData.append("video", undefined);

@@ -35,11 +35,11 @@ $idNuevaImagen = $resultados["idImagen"]+1;
 file_put_contents ($dir.'/test.txt', 'Hello File');
 $allowedExtsImg = array("jpg", "jpeg", "gif", "png", "bmp", "JPG", "JPEG", "GIF", "PNG", "BMP");
 $allowedExtsVid = array("mp4", "wma", "mpg", "mpeg", "avi", "mov","MP4", "WMA", "MPG", "MPEG", "AVI", "MOV");
-$temp = explode(".", $_FILES["file"]["name"]);
-$extension = end($temp);
+//$temp = explode(".", $_FILES["file"]["name"]);
+//$extension = end($temp);
 
 
-$filename  = basename($_FILES['file']['name']);
+//$filename  = basename($_FILES['file']['name']);
 
 
 $new       = $nombre;
@@ -52,9 +52,6 @@ list(, $imagen64)      = explode(',', $imagen64);
 $imagen64 = base64_decode($imagen64);
 
 file_put_contents($_SERVER['DOCUMENT_ROOT']."/YoutterUploads" . $new, $imagen64);
-
-$output = array();
-$return_var = array();
 
 $resultados["nombre"] =$new;
 
