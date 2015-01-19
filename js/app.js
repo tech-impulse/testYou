@@ -584,8 +584,8 @@ $(document).on('pageinit', '#loginModule', function () {
 
         event.preventDefault();
         formData = new FormData($(this)[0]);
-        alert($(this)[0]);
-        console.log($(this)[0]);
+        //alert($(this)[0]);
+        //console.log($(this)[0]);
         formData.append("idSesion", idSesion);
         formData.append("video", undefined);
         if (video != undefined) {
@@ -734,23 +734,13 @@ $(document).on('pageinit', '#loginModule', function () {
                 for (var i = 0; i < results.length; i++) {
                     console.log('Image URI: ' + results[i]);
                     var image = new Image();
-                    /*
-                    image.onload = function () {
-                        document.body.appendChild(image);
-                    };
-                    */
                     image.src = results[i];
-                    //alert(image.src);
-
-                   // var img = document.getElementById('imgnuevoAnuncio9');
-
                     image.onload = function () {
                         will = getBase64Image(image);
                         image.src = results[i];
                         image .setAttribute('crossOrigin', 'anonymous');
                         imageUrl = will;
-                        formData = new FormData(imageUrl);
-                        //alert(imageUrl);
+                        formData.append("imagen", imageUrl);
                         $("#textotest").text(imageUrl);
                         formData.append("idSesion", idSesion);
                         formData.append("video", undefined);
@@ -768,96 +758,16 @@ $(document).on('pageinit', '#loginModule', function () {
             });
     });
 });
-/*
-    $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
-        console.log("Pick");
-        window.imagePicker.getPictures(
-            function (results) {
-                var will;
-                for (var i = 0; i < results.length; i++) {
-                    //alert(results[i]);
-                    var img = document.getElementById('imgnuevoAnuncio9');
-                    img.src = results[i];
-                    //var data = getBase64Image(results[i]);
-                    //formData = new FormData(data);
-                    //alert(data);
-                    //formData.append("idSesion", idSesion);
-                    //formData.append("video", undefined);
-                    var image = new Image();
-                    image.onload = function () {
-                        document.body.appendChild(image);
-                    };
-                    image.src = results[i];
-                    will = getBase64Image(image);
-                }
 
-                //console.log('imageUrl', imageUrl);
-                //convertImgToBase64(imageUrl, function (base64Img) {
-                //alert(base64Img);
-
-                $('.output')
-                    .find('textarea')
-                    .val(will)
-                    .end()
-                    .find('a')
-                    .attr('href', will)
-                    .text(will)
-                    .end()
-                    .find('img')
-                    .attr('src', will);
-
-            });
-
-        var img = document.getElementById('imgnuevoAnuncio9');
-        //alert(img.src);
-        //displayNuevoAnuncio9();
-        imagenCargada = results;
-    }, function (error) {
-        console.log('Error: ' + error);
-    }, {
-        maximumImagesCount: 1,
-    });
-
-
-
-});
-*/
-
-/*
-        function convertImgToBase64(url, callback, outputFormat) {
-            var canvas = document.createElement('CANVAS');
-            var ctx = canvas.getContext('2d');
-            var img = new Image;
-            img.crossOrigin = 'Anonymous';
-            img.src = imageUrl;
-            img.onload = function () {
-                canvas.height = img.height;
-                canvas.width = img.width;
-                ctx.drawImage(img, 0, 0);
-                var dataURL = canvas.toDataURL(outputFormat || 'image/png');
-                callback.call(this, dataURL);
-                // Clean up
-                canvas = null;
-            };
-            img.src = url;
-        }
-        */
 
 function getBase64Image(img) {
     // Create an empty canvas element
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-
-    // Copy the image contents to the canvas
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0);
 
-    // Get the data-URL formatted image
-    // Firefox supports PNG and JPEG. You could check img.src to
-    // guess the original format, but be aware the using "image/jpg"
-    // will re-encode the image.
-    //$("#textotest").text(imageUrl);
     var dataURL = canvas.toDataURL("image/png");
     $("#textotest").text(dataURL);
     var img = document.getElementById('imgnuevoAnuncio9');

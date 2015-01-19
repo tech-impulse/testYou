@@ -233,6 +233,29 @@ function restSubirImagen() {
     $("#footernuevoAnuncio9").hide();
     console.log("Subir imagen");
     peticionActual = $.ajax({
+        url: url + 'subirImagen.php',
+        type: 'POST',
+        data: formData,
+       // data: imagenCargada,
+        contentType: false,
+        processData: false,
+        timeout: 60000,
+        success: function (response) {
+            restGuardarProgramacion(response);
+        },
+        error: function (response) {
+            restError(response, "guardarProgramacion");
+        },
+    });
+}
+
+// Función para subir al FTP la imagen o video que hemos seleccionado
+function restSubirImagenOld() {
+    // $.mobile.loading('show');
+    $("#footerCancelar").show();
+    $("#footernuevoAnuncio9").hide();
+    console.log("Subir imagen");
+    peticionActual = $.ajax({
         url: url + 'uploadFile.php',
         type: 'POST',
         data: formData,
