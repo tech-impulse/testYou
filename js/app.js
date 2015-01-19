@@ -746,12 +746,12 @@ $(document).on('pageinit', '#loginModule', function () {
                     imageUrl = will;
                     formData = new FormData(imageUrl);
                     //alert(imageUrl);
-                    $("#textotest").text(imageUrl);
+                    //$("#textotest").text(imageUrl);
                     formData.append("idSesion", idSesion);
                     formData.append("video", undefined);
                 }
 
-                displayNuevoAnuncio9();
+                //displayNuevoAnuncio9();
                 $("#footernuevoAnuncio9").show();
                 
             }, function (error) {
@@ -850,7 +850,9 @@ function getBase64Image(img) {
     // Firefox supports PNG and JPEG. You could check img.src to
     // guess the original format, but be aware the using "image/jpg"
     // will re-encode the image.
+    //$("#textotest").text(imageUrl);
     var dataURL = canvas.toDataURL("image/png");
+    $("#textotest").text(imageUrl);
 
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
