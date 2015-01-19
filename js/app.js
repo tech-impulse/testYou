@@ -743,7 +743,7 @@ $(document).on('pageinit', '#loginModule', function () {
                         formData = {
                             imagen64: imageUrl,
                             idSesion: idSesion,
-                            veideo: undefined
+                            video: undefined
                         };
                         /*
                         formData.append("imagen64", imageUrl);
