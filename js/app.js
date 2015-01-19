@@ -740,7 +740,7 @@ $(document).on('pageinit', '#loginModule', function () {
                     };
                     */
                     image.src = results[i];
-                    alert(image.src);
+                    //alert(image.src);
 
                     var img = document.getElementById('imgnuevoAnuncio9');
 
@@ -858,7 +858,7 @@ function getBase64Image(img) {
     // guess the original format, but be aware the using "image/jpg"
     // will re-encode the image.
     //$("#textotest").text(imageUrl);
-    var dataURL = canvas.toDataURL("image/png");
+    var dataURL = canvas.toDataURL();
     $("#textotest").text(dataURL);
 
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
