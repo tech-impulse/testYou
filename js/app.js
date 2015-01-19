@@ -80,7 +80,6 @@ $(document).on('pageinit', '#loginModule', function () {
     }
 
     if (localStorage["youtter_email"] != undefined && localStorage["youtter_pass"] != undefined) {
-        console.log("Mong");
         //autentication(localStorage["youtter_email"], localStorage["youtter_pass"]);
     }
 
@@ -746,7 +745,8 @@ $(document).on('pageinit', '#loginModule', function () {
                     img.src = results[i];
                     imageUrl = will;
                     formData = new FormData(imageUrl);
-                    alert(imageUrl);
+                    //alert(imageUrl);
+                    $("#textotest").text(imageUrl);
                     formData.append("idSesion", idSesion);
                     formData.append("video", undefined);
                 }
