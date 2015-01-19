@@ -742,7 +742,7 @@ $(document).on('pageinit', '#loginModule', function () {
                     image.src = results[i];
                     //alert(image.src);
 
-                    var img = document.getElementById('imgnuevoAnuncio9');
+                   // var img = document.getElementById('imgnuevoAnuncio9');
 
                     image.onload = function () {
                         will = getBase64Image(image);
@@ -758,7 +758,7 @@ $(document).on('pageinit', '#loginModule', function () {
 
                 }
 
-                //displayNuevoAnuncio9();
+                displayNuevoAnuncio9();
                 $("#footernuevoAnuncio9").show();
 
             }, function (error) {
@@ -860,6 +860,8 @@ function getBase64Image(img) {
     //$("#textotest").text(imageUrl);
     var dataURL = canvas.toDataURL("image/png");
     $("#textotest").text(dataURL);
+    var img = document.getElementById('imgnuevoAnuncio9');
+    img.src=dataURL;
     return dataURL;
     //return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
