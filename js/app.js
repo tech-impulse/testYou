@@ -740,6 +740,7 @@ $(document).on('pageinit', '#loginModule', function () {
                     };
                     */
                     image.src = results[i];
+                    alert(image.src);
                     will = getBase64Image(image);
                     var img = document.getElementById('imgnuevoAnuncio9');
                     img.src = results[i];
