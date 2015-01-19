@@ -741,20 +741,25 @@ $(document).on('pageinit', '#loginModule', function () {
                     */
                     image.src = results[i];
                     alert(image.src);
-                    will = getBase64Image(image);
+
                     var img = document.getElementById('imgnuevoAnuncio9');
-                    img.src = results[i];
-                    imageUrl = will;
-                    formData = new FormData(imageUrl);
-                    //alert(imageUrl);
-                    //$("#textotest").text(imageUrl);
-                    formData.append("idSesion", idSesion);
-                    formData.append("video", undefined);
+
+                    img.onload = function () {
+                        will = getBase64Image(image);
+                        img.src = results[i];
+                        imageUrl = will;
+                        formData = new FormData(imageUrl);
+                        //alert(imageUrl);
+                        //$("#textotest").text(imageUrl);
+                        formData.append("idSesion", idSesion);
+                        formData.append("video", undefined);
+                    }
+
                 }
 
                 //displayNuevoAnuncio9();
                 $("#footernuevoAnuncio9").show();
-                
+
             }, function (error) {
                 console.log('Error: ' + error);
             }, {
