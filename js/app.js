@@ -754,10 +754,10 @@ $(document).on('pageinit', '#loginModule', function () {
             SAVEDPHOTOALBUM: 2
         };
 
-        Camera.DestinationType = {
-            //DATA_URL: 0, // Return image as base64-encoded string
-            FILE_URI: 0, // Return image file URI
-            //NATIVE_URI: 2 // Return image native URI (e.g., assets-library:// on iOS or content:// on Android)
+        Camera.DestinationType = {            
+            FILE_URI: 1, // Return image file URI
+            DATA_URL: 0, // Return image as base64-encoded string
+            NATIVE_URI: 2 // Return image native URI (e.g., assets-library:// on iOS or content:// on Android)
         };
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 50,
