@@ -748,20 +748,16 @@ $(document).on('pageinit', '#loginModule', function () {
     });
     */
     $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
-        Camera.PictureSourceType = {
-            PHOTOLIBRARY: 1,
-            CAMERA: 0,
-            SAVEDPHOTOALBUM: 2
-        };
 
-        Camera.DestinationType = {            
-            FILE_URI: 1, // Return image file URI
-            DATA_URL: 0, // Return image as base64-encoded string
-            NATIVE_URI: 2 // Return image native URI (e.g., assets-library:// on iOS or content:// on Android)
-        };
         navigator.camera.getPicture(onSuccess, onFail, {
-            quality: 50,
-            destinationType: Camera.DestinationType.FILE_URI
+            quality: 75,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+            allowEdit: true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 100,
+            targetHeight: 100,
+            saveToPhotoAlbum: false
         });
 
         function onSuccess(imageURI) {
