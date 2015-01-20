@@ -752,7 +752,7 @@ $(document).on('pageinit', '#loginModule', function () {
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 75,
             destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
             allowEdit: true,
             encodingType: Camera.EncodingType.JPEG,
             targetWidth: 100,
