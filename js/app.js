@@ -749,8 +749,8 @@ $(document).on('pageinit', '#loginModule', function () {
     */
     $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
         Camera.PictureSourceType = {
-            PHOTOLIBRARY: 0,
-            CAMERA: 1,
+            PHOTOLIBRARY: 1,
+            CAMERA: 0,
             SAVEDPHOTOALBUM: 2
         };
 
