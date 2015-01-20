@@ -825,6 +825,7 @@ var win = function (r) {
     console.log("Code = " + r.responseCode);
     console.log("Response = " + r.response);
     console.log("Sent = " + r.bytesSent);
+    alert("ok");
      restGuardarProgramacion(r);
 }
 
@@ -836,6 +837,7 @@ var fail = function (error) {
 }
 
 function restFileTransfer(fileURL) {
+    alert("test");
     var options = new FileUploadOptions();
     options.fileKey = "file";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);

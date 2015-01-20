@@ -733,6 +733,7 @@ $(document).on('pageinit', '#loginModule', function () {
                 var will;
                 for (var i = 0; i < results.length; i++) {
                     console.log('Image URI: ' + results[i]);
+                    alert(results[i]);
                     restFileTransfer(results[i]);
                     /*
                     var image = new Image();
@@ -759,7 +760,7 @@ $(document).on('pageinit', '#loginModule', function () {
                 }
 
                 //displayNuevoAnuncio9();
-                $("#footernuevoAnuncio9").show();
+                //$("#footernuevoAnuncio9").show();
 
             }, function (error) {
                 console.log('Error: ' + error);
