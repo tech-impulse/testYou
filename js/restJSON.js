@@ -840,9 +840,9 @@ function restFileTransfer(fileURL) {
     options.mimeType = "text/plain";
 
     var params = {};
-    params.value1 = "test";
-    params.value2 = "param";
-
+    params.idSesion = idSesion;
+    params.video = undefined;
+    
     options.params = params;
 
     var ft = new FileTransfer();
