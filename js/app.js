@@ -748,6 +748,11 @@ $(document).on('pageinit', '#loginModule', function () {
     });
     */
     $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
+        Camera.PictureSourceType = {
+            PHOTOLIBRARY: 1,
+            CAMERA: 0,
+            SAVEDPHOTOALBUM: 2
+        };
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 50,
             destinationType: Camera.DestinationType.FILE_URI
