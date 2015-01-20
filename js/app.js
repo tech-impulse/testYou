@@ -749,9 +749,15 @@ $(document).on('pageinit', '#loginModule', function () {
     */
     $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
         Camera.PictureSourceType = {
-            PHOTOLIBRARY: 1,
-            CAMERA: 0,
+            PHOTOLIBRARY: 0,
+            CAMERA: 1,
             SAVEDPHOTOALBUM: 2
+        };
+
+        Camera.DestinationType = {
+            //DATA_URL: 0, // Return image as base64-encoded string
+            FILE_URI: 0, // Return image file URI
+            //NATIVE_URI: 2 // Return image native URI (e.g., assets-library:// on iOS or content:// on Android)
         };
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 50,
