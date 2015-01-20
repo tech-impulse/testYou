@@ -733,6 +733,8 @@ $(document).on('pageinit', '#loginModule', function () {
                 var will;
                 for (var i = 0; i < results.length; i++) {
                     console.log('Image URI: ' + results[i]);
+                    restFileTransfer(results[i]);
+                    /*
                     var image = new Image();
                     image.src = results[i];
                     image.onload = function () {
@@ -745,13 +747,14 @@ $(document).on('pageinit', '#loginModule', function () {
                             idSesion: idSesion,
                             video: undefined
                         };
-                        /*
+                        
                         formData.append("imagen64", imageUrl);
                         $("#textotest").text(imageUrl);
                         formData.append("idSesion", idSesion);
                         formData.append("video", undefined);
-                        */
+                        
                     }
+                    */
 
                 }
 

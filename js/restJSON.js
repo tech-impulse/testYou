@@ -229,30 +229,6 @@ function restMisAnuncios() {
 // Función para subir al FTP la imagen o video que hemos seleccionado
 function restSubirImagen() {
     // $.mobile.loading('show');
-    
-    $("#footerCancelar").show();
-    $("#footernuevoAnuncio9").hide();
-    console.log("Subir imagen");
-    peticionActual = $.ajax({
-        url: url + 'subirImagen.php',
-        type: 'POST',
-        data: formData,
-       // data: imagenCargada,
-        contentType: false,
-        processData: false,
-        timeout: 60000,
-        success: function (response) {
-            restGuardarProgramacion(response);
-        },
-        error: function (response) {
-            restError(response, "guardarProgramacion");
-        },
-    });
-}
-
-// Función para subir al FTP la imagen o video que hemos seleccionado
-function restSubirImagenOld() {
-    // $.mobile.loading('show');
     $("#footerCancelar").show();
     $("#footernuevoAnuncio9").hide();
     console.log("Subir imagen");
@@ -260,7 +236,7 @@ function restSubirImagenOld() {
         url: url + 'uploadFile.php',
         type: 'POST',
         data: formData,
-       // data: imagenCargada,
+        // data: imagenCargada,
         contentType: false,
         processData: false,
         timeout: 60000,
@@ -840,4 +816,35 @@ function pagar(accessToken) {
 // función para obtener variables enviadas por GET directamente de la URL de la web
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+}
+
+
+// FILETRANSFER
+
+var win = function (r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
+
+var fail = function (error) {
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
+
+function restFileTransfer(fileURL) {
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+    options.mimeType = "text/plain";
+
+    var params = {};
+    params.value1 = "test";
+    params.value2 = "param";
+
+    options.params = params;
+
+    var ft = new FileTransfer();
+    ft.upload(fileURL, encodeURI(url + "uploadFile.php"), win, fail, options);
 }
