@@ -750,11 +750,11 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
 
         navigator.camera.getPicture(onSuccess, onFail, {
-            quality: 75,
+            //quality: 75,
             destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
             allowEdit: true,
-            encodingType: Camera.EncodingType.JPEG,
+            //encodingType: Camera.EncodingType.JPEG,
             targetWidth: 100,
             targetHeight: 100,
             saveToPhotoAlbum: false
