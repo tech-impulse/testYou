@@ -726,7 +726,7 @@ $(document).on('pageinit', '#loginModule', function () {
     });
 
     // TEST CARGAR IMAGEN 
-
+    /*
     $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
         window.imagePicker.getPictures(
             function (results) {
@@ -735,28 +735,6 @@ $(document).on('pageinit', '#loginModule', function () {
                     console.log('Image URI: ' + results[i]);
                     alert(results[i]);
                     restFileTransfer(results[i]);
-                    /*
-                    var image = new Image();
-                    image.src = results[i];
-                    image.onload = function () {
-                        will = getBase64Image(image);
-                        image.src = results[i];
-                        image.setAttribute('crossOrigin', 'anonymous');
-                        imageUrl = will;
-                        formData = {
-                            imagen64: imageUrl,
-                            idSesion: idSesion,
-                            video: undefined
-                        };
-                        
-                        formData.append("imagen64", imageUrl);
-                        $("#textotest").text(imageUrl);
-                        formData.append("idSesion", idSesion);
-                        formData.append("video", undefined);
-                        
-                    }
-                    */
-
                 }
 
                 //displayNuevoAnuncio9();
@@ -767,6 +745,23 @@ $(document).on('pageinit', '#loginModule', function () {
             }, {
                 maximumImagesCount: 1,
             });
+    });
+    */
+    $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
+        navigator.camera.getPicture(onSuccess, onFail, {
+            quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI
+        });
+
+        function onSuccess(imageURI) {
+            //var image = document.getElementById('myImage');
+            alert(imageURI);
+            //image.src = imageURI;
+        }
+
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
     });
 });
 
