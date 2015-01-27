@@ -754,7 +754,7 @@ $(document).on('pageinit', '#loginModule', function () {
             //sourceType: source,
             //quality: 75,
             destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
             //allowEdit: true,
             //encodingType: Camera.EncodingType.JPEG,
             //targetWidth: 100,
@@ -766,6 +766,7 @@ $(document).on('pageinit', '#loginModule', function () {
         function onSuccess(imageURI) {
             //var image = document.getElementById('myImage');
             alert(imageURI);
+            alert(imageURI.fullPath);
             //image.src = imageURI;
         }
 
