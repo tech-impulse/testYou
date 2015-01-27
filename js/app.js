@@ -750,8 +750,6 @@ $(document).on('pageinit', '#loginModule', function () {
     $('#btnFooterSeleccionarImagen').unbind('click').bind('click', function () {
 
         navigator.camera.getPicture(onSuccess, onFail, {
-            //destinationType: navigator.camera.photoDestinationType.FILE_URI,
-            //sourceType: source,
             //quality: 75,
             destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
@@ -759,7 +757,7 @@ $(document).on('pageinit', '#loginModule', function () {
             //encodingType: Camera.EncodingType.JPEG,
             //targetWidth: 100,
             //targetHeight: 100,
-            mediaType: navigator.camera.MediaType.PICTURE,
+            mediaType: Camera.MediaType.PICTURE,
             //saveToPhotoAlbum: false
         });
 
