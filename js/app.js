@@ -754,7 +754,7 @@ $(document).on('pageinit', '#loginModule', function () {
             //sourceType: source,
             //quality: 75,
             destinationType: Camera.DestinationType.FILE_URI,
-            //sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM,
+            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
             //allowEdit: true,
             //encodingType: Camera.EncodingType.JPEG,
             //targetWidth: 100,
