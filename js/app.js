@@ -753,13 +753,13 @@ $(document).on('pageinit', '#loginModule', function () {
             //destinationType: navigator.camera.photoDestinationType.FILE_URI,
             //sourceType: source,
             //quality: 75,
-            destinationType: Camera.DestinationType.DATA_URL,
+            destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
             //allowEdit: true,
             //encodingType: Camera.EncodingType.JPEG,
             //targetWidth: 100,
             //targetHeight: 100,
-            mediaType: navigator.camera.MediaType.ALLMEDIA,
+            mediaType: navigator.camera.MediaType.PICTURE,
             //saveToPhotoAlbum: false
         });
 
