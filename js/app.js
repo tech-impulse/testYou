@@ -753,12 +753,12 @@ $(document).on('pageinit', '#loginModule', function () {
             //quality: 75,
             destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-            allowEdit: true,
+            //allowEdit: true,
             //encodingType: Camera.EncodingType.JPEG,
-            targetWidth: 100,
-            targetHeight: 100,
-            mediaType: Camera.fileMediaType.ALLMEDIA,
-            saveToPhotoAlbum: false
+            //targetWidth: 100,
+            //targetHeight: 100,
+            mediaType: navigator.camera.MediaType.ALLMEDIA,
+            //saveToPhotoAlbum: false
         });
 
         function onSuccess(imageURI) {
