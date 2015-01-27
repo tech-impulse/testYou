@@ -753,7 +753,7 @@ $(document).on('pageinit', '#loginModule', function () {
             //destinationType: navigator.camera.photoDestinationType.FILE_URI,
             //sourceType: source,
             //quality: 75,
-            destinationType: Camera.DestinationType.FILE_URI,
+            destinationType: Camera.DestinationType.NATIVE_URI,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
             //allowEdit: true,
             //encodingType: Camera.EncodingType.JPEG,
