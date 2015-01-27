@@ -757,6 +757,7 @@ $(document).on('pageinit', '#loginModule', function () {
             //encodingType: Camera.EncodingType.JPEG,
             targetWidth: 100,
             targetHeight: 100,
+            mediaType: Camera.fileMediaType.ALLMEDIA,
             saveToPhotoAlbum: false
         });
 
